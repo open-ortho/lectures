@@ -9,7 +9,7 @@
 
 	<link rel="stylesheet" href="dist/reset.css">
 	<link rel="stylesheet" href="dist/reveal.css">
-	<link rel="stylesheet" href="dist/theme/white.css">
+	<link rel="stylesheet" href="dist/theme/league.css">
 	<!-- Theme used for syntax highlighted code -->
 	<link rel="stylesheet" href="plugin/highlight/monokai.css">
 </head>
@@ -66,113 +66,32 @@
 					<h2>How can we solve the problem?</h2>
 					<p>We make use of standards.</p>
 				</section>
-				<section data-auto-animate>
+				<section data-background-image="./assets/img/1931_Broadbent.png" data-background-opacity="0.1" data-auto-animate>
 					<h2>Humans and Standards</h2>
 					<p>
 						Humans have a history of making significant progress
 						by adopting standards.
 					</p>
 					<ul>
-						<li>Language/Alphabet</li>
+						<div class="r-stack">
+							<li class="fragment current-visible">Language/Alphabet</li>
+							<li class="fragment current-visible">Measuring things (time, distance, ...)</li>
+							<li class="fragment current-visible">Screws</li>
+							<li class="fragment current-visible">Train tracks</li>
+							<li class="fragment current-visible">Broadbent 1931: A new x-ray technique and its
+								application to
+								orthodontia</li>
+							<img class="fragment current-visible" src="./assets/img/1931_Broadbent.png" height="70%" />
+
+							<li class="fragment current-visible">Shipping containers</li>
+							<li class="fragment current-visible">TCP/IP Networking (the Internet)</li>
+							<li class="fragment current-visible">Email</li>
+							<li class="fragment fade-left">SMS</li>
+						</div>
 					</ul>
 				</section>
 				<section data-auto-animate>
-					<h2>Humans and Standards</h2>
-					<p>
-						Humans have a history of making significant progress
-						by adopting standards.
-					</p>
-					<ul>
-						<li>Language/Alphabet</li>
-						<li>Measuring things (time, distance, ...)</li>
-					</ul>
-				</section>
-				<section data-auto-animate>
-					<h2>Humans and Standards</h2>
-					<p>
-						Humans have a history of making significant progress
-						by adopting standards.
-					</p>
-					<ul>
-						<li>Language/Alphabet</li>
-						<li>Measuring things (time, distance, ...)</li>
-						<li>Screws</li>
-					</ul>
-				</section>
-				<section data-auto-animate>
-					<h2>Humans and Standards</h2>
-					<p>
-						Humans have a history of making significant progress
-						by adopting standards.
-					</p>
-					<ul>
-						<li>Language/Alphabet</li>
-						<li>Measuring things (time, distance, ...)</li>
-						<li>Screws</li>
-						<li>Train tracks</li>
-					</ul>
-				</section>
-				<section data-auto-animate>
-					<h2>Humans and Standards</h2>
-					<p>
-						Humans have a history of making significant progress
-						by adopting standards.
-					</p>
-					<ul>
-						<li>Language/Alphabet</li>
-						<li>Measuring things (time, distance, ...)</li>
-						<li>Screws</li>
-						<li>Train tracks</li>
-						<li>Shipping containers</li>
-					</ul>
-				</section>
-				<section data-auto-animate>
-					<h2>Humans and Standards</h2>
-					<p>
-						Humans have a history of making significant progress
-						by adopting standards.
-					</p>
-					<ul>
-						<li>Language/Alphabet</li>
-						<li>Measuring things (time, distance, ...)</li>
-						<li>Screws</li>
-						<li>Train tracks</li>
-						<li>Shipping containers</li>
-						<li>TCP/IP Networking (the Internet)</li>
-					</ul>
-				</section>
-				<section data-auto-animate>
-					<h2>Humans and Standards</h2>
-					<p>
-						Humans have a history of making significant progress
-						by adopting standards.
-					</p>
-					<ul>
-						<li>Language/Alphabet</li>
-						<li>Measuring things (time, distance, ...)</li>
-						<li>Screws</li>
-						<li>Train tracks</li>
-						<li>Shipping containers</li>
-						<li>TCP/IP Networking (the Internet)</li>
-						<li>Email</li>
-					</ul>
-				</section>
-				<section data-auto-animate>
-					<h2>Humans and Standards</h2>
-					<p>
-						Humans have a history of making significant progress
-						by adopting standards.
-					</p>
-					<ul>
-						<li>Language/Alphabet</li>
-						<li>Measuring things (time, distance, ...)</li>
-						<li>Screws</li>
-						<li>Train tracks</li>
-						<li>Shipping containers</li>
-						<li>TCP/IP Networking (the Internet)</li>
-						<li>Email</li>
-						<li>SMS</li>
-					</ul>
+					<img src="./assets/img/1931_Broadbent.png" height="70%" />
 				</section>
 			</section>
 			<section>
@@ -291,6 +210,8 @@
 		// - https://revealjs.com/config/
 		Reveal.initialize({
 			hash: true,
+			slideNumber: 'c/t',
+			transition: 'fade',
 
 			// Learn about plugins: https://revealjs.com/plugins/
 			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
