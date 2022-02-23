@@ -2,6 +2,8 @@
 
 ORTHODONTIC SOFTWARE INTEROPERABILITY Introductory Presentation
 
+See it live [http://www.open-ortho.org/ACT-12.4.1/](http://www.open-ortho.org/ACT-12.4.1/).
+
 ## How to edit this document
 
 This presentation is written using the [reveal.js presentation framework](https://revealjs.com/).
