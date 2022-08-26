@@ -16,4 +16,4 @@ This presentation is written using the [reveal.js presentation framework](https:
 
 ## Deployment
 
-This project is being hosted as a static site on GitHub Pages from the master branch. Committing and pushing to the master branch will deploy the presentation.
+This project is being hosted as a static site on GitHub Pages from the `main` branch. Committing and pushing to the master branch will deploy the presentation.
