@@ -1,0 +1,300 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Where is the Export-All Button?</title>
+	<link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/league.css">
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<img class="stretch" src="assets/img/url_qrcode_cwru-lecture.png">
+				<img class="" src="assets/img/cwru-logo.svg" width="50%">
+				<h2>Where is the <em>Export-All</em> Button?</h2>
+				<p>How to reclaim control of your patient's data</p>
+			</section>
+			<section>
+				<h2>Why am I here? What are my objectives?</h2>
+				<p>
+				<ul>
+					<li>You have limited control over your patients data.</li>
+					<li>Open Standards-based Interoperability.</li>
+					<li>What to look for when purchasing new software.</li>
+					<li>Bring the orthodontic domain to a point where doctors and vendors would say: "DICOM and HL7?
+						Why? didn't it always exist?"</li>
+				</ul>
+				</p>
+				<aside class="notes">
+					<ul>
+						<li>
+							I am here because i would like to tell you about a problem that most of you are probably not
+							aware of.
+						</li>
+						<li>The problem is right on your face, but most you don't notice it.</li>
+						<li>
+							My objective is to provide you with information, because i believe that by being aware of
+							the problem and understanding it better, you will be able to help solve it at the root
+							level.
+						</li>
+					</ul>
+				</aside>
+			</section>
+			<section data-auto-animate="">
+				<h2>Who Owns Clinical Data?</h2>
+				<div class="r-stack">
+					<ul>
+						<li class="fragment">
+							The first legal owner of the clinical datum is the patient.
+						</li>
+						<li class="fragment">
+							Misconception 1: Medical providers might think they own it because they paid for the
+							equipment and they did all the work to collect it.
+							Yes, but who <em>paid</em> for that work to collect it?
+						</li>
+						<li class="fragment">
+							Misconception 2: Software vendors might think that they own it, because they have physical
+							control over it.
+						</li>
+					</ul>
+				</div>
+				<aside class="notes">
+					<ul>
+						<li>
+							Before we start off, lets be clear about this.
+						</li>
+						<li>
+							Who owns a high resolution photograph that contains only and solely some part of your body?
+							Anyone here a musician?
+							When you go in a recording studio, and record a solo performance of your self, who owns that
+							recording? Does the studio own it? Or do you own it?
+							Who owns a recording of sounds that are produced solely and only by you?
+						</li>
+					</ul>
+					Why would clinical data be any different?
+					Ultimately its human heritage. Sounds extreme? Thing about it this way: The patient is human →
+					Humans are a social species of living beings→ all living have one thing in common: they want to
+					eliminate suffering → poor health and physical pain very often lead to an increase of suffering → so
+					the human is very interested in staying healthy → always improving healthcare system → publications,
+					scientific research → clinical data
+
+				</aside>
+			</section>
+
+			<section data-auto-animate="">
+				<h2>Problem 1</h2>
+				<h3>Intra-office Connections</h3>
+				<img class="stretch" src="assets/img/NoOrthoCompatibility_Plug.jpg" />
+			</section>
+			<section data-auto-animate="">
+				<h2>Problem 2</h2>
+				<h3>Inter-office Connections</h3>
+				<img class="stretch" src="assets/img/NoOrthoCompatibility_Screen.jpg" />
+			</section>
+			<section data-background-image="assets/img/NoOrthoCompatibility_Screen.jpg" data-background-opacity=0.2>
+				<h2>Problem 3</h2>
+				<h3>Research</h3>
+				<div class="r-stack">
+					<ul>
+						<li class="fragment">
+							Today's research is embarrassingly based on a tiny fraction of our population (&lt; 100
+							patients)
+						</li>
+						<li class="fragment">
+							We have the technology in place to bump up sample size by 2-3 orders of magnitude.
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section data-background-image="assets/img/NoOrthoCompatibility_Screen.jpg" data-background-opacity=0.2>
+				<h2>Problem 4</h2>
+				<h3>Data Conversion</h3>
+				<div class="r-stack">
+					<ul>
+						<li class="fragment">
+							A lot of time and resources spend for data conversion (import and export)
+						</li>
+						<li class="fragment">
+							Data conversion is a tedious repetitive process: developers keep reverse engineering and
+							don't share their work.
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section data-background-image="assets/img/NoOrthoCompatibility_Screen.jpg" data-background-opacity=0.2>
+				<h2>Problem 5</h2>
+				<h3>Data to Patient</h3>
+				<div class="r-stack">
+					<ul>
+						<li class="fragment">
+							Awareness of data ownership is growing and governments are adding regulations (21st Century
+							Cures Act, Information Blocking)
+						</li>
+						<li class="fragment">
+							Providers don't know how to give patients their data.
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section>
+				<h2>How can we solve the problem?</h2>
+				<p class="fragment fade-out">We develop the perfect software.</p>
+				<p class="fragment">We make use of standards.</p>
+			</section>
+			<section data-auto-animate>
+				<h2>Humans and Standards</h2>
+				<p class="">
+					Humans have a history of making significant progress
+					by adopting standards.
+				</p>
+				<div class="r-stack">
+					<p class="fragment current-visible">Language/Alphabet</p>
+					<p class="fragment current-visible">Measuring things (SI Units)</p>
+					<p class="fragment current-visible">Tire Codes (ISO-83.160.10)</p>
+					<p class="fragment current-visible"><a href="assets/img/no-containers.png">Containers</a>, Rail
+						Track
+						Gauge</p>
+					<p class="fragment current-visible"><a
+							href="https://en.wikipedia.org/wiki/RCA_tape_cartridge#/media/File:RCA_Quarter_Inch_Tape_Cartridge_2A.png">RCA
+							Sound Tape Cartridge</a>, <a
+							href="https://en.wikipedia.org/wiki/Elcaset#/media/File:Elcaset_and_Compact_Cassette_size_comparison.jpg">Elcaset</a>,
+						<a href="https://en.wikipedia.org/wiki/Cassette_tape#/media/File:Compactcassette.jpg">Compact
+							Cassette</a>
+					</p>
+					<p class="fragment current-visible">Wall Socket (NEMA 1-15, NEMA 5-15)</p>
+					<p class="fragment current-visible">Screws (ASME-B1, ISO-68,261,262,724,725</p>
+					<p class="fragment current-visible">TCP/IP Networking (the Internet), Email, SMS</p>
+					<p class="fragment current-visible">No Standards: Nintendo, Xbox, Playstation, ...</p>
+					<p class="fragment current-visible">Tesla Open Source Patents</p>
+					<p class="fragment current-visible">...</p>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<img class="stretch" src="./assets/img/1931_Broadbent.png" />
+			</section>
+			<section data-auto-animate="">
+				<h2>Strategic Plan of the Past</h2>
+				<p class="">
+					Attempts have been made in the past, but they failed. Why?
+				</p>
+				<ul>
+					<li class="fragment">We have used closed interoperability</li>
+					<li class="fragment">Fear of losing customers</li>
+					<li class="fragment">It's work to follow standards</li>
+					<li class="fragment">No request from customers</li>
+					<li class="fragment">Lack of Information</li>
+				</ul>
+				<aside class="notes">
+					<h3>Losing customers</h3>
+					<p>You can't be so shortsighted that you only see the negatives. See what happened with Sony's
+						Betamax standard, which they wanted to license.</p>
+				</aside>
+			</section>
+			<section data-auto-animate="">
+				<h2>Master Plan</h2>
+				<div class="r-stack">
+					<img class="fragment current-visible" src="assets/img/PANIO Master Plan.drawio-Actors.svg" />
+					<img class="fragment current-visible" src="assets/img/PANIO Master Plan.drawio-Everything.svg" />
+				</div>
+			</section>
+			<section data-auto-animate="">
+				<h2>How would the future look like?</h2>
+			</section>
+			<section>
+				<h2>What can you do?</h2>
+				<ul>
+					<li class="fragment">
+						Start Now! Set up your own PACS Imaging Server.
+					</li>
+					<li class="fragment">
+						Ask your IT and software vendors about implementing open-standards based solutions. Question
+						high prices.
+					</li>
+					<li class="fragment">
+						Keep your eyes pealed, keep informed.
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h3>
+					Ask you software's support these questions
+				</h3>
+				<p>
+					Find out if you really have control over your data.
+				</p>
+				<ul>
+					<li>
+						The day I decide to move to a different software
+						product, what will the process to export my
+						data and import it into the new software be?
+					</li>
+					<li>
+						I would like to use Software B to send out my email
+						reminders. Can you please ensure the two software
+						products can share data both ways?
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Disclosure</h2>
+				<p>
+				<ul>
+					<li><a href="https://case.edu/dental/departments-programs/orthodontics">Department of Orthodontics
+							at Case</a></li>
+					<li>
+						<a
+							href="https://www.ada.org/resources/practice/dental-standards/standards-committee-on-dental-informatics">
+							American Dental Association Standards Committee for Dental Informatics
+						</a>
+					</li>
+					<li>
+						<a href="https://www.aaoinfo.org">
+							American Association of Orthodontics
+						</a>
+					</li>
+					<li>
+						Orthodontic IT (<a href="https://www.ortocomputer.com">ortocomputer</a>)
+					</li>
+				</ul>
+				</p>
+			</section>
+			<section data-auto-animate="">
+				<h2><a href="http://open-ortho.org">open-ortho.org</a>
+				</h2>
+				<img src="assets/img/url_qrcodoe_open-ortho.png">
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+			slideNumber: 'c/t',
+			transition: 'fade',
+			// width: 700,
+			// height: 960,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
