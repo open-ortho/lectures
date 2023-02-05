@@ -294,7 +294,7 @@
 					</ul>
 				</aside>
 			</section>
-			<section data-background-image="assets/img/NoOrthoCompatibility_Screen.jpg" data-background-opacity=0.2>
+			<section>
 				<h2>Data Conversion Wasted Resources</h2>
 				<h3>Problem 5</h3>
 				<img class="stretch" src="assets/img/data_conversion.svg" />
@@ -352,12 +352,29 @@
 					</ul>
 				</aside>
 			</section>
+
+			<!-- Silly work-around. I need to use two slides in order to get the effect i want: 1. Start with title, then pop in "We develop the perfect Software. Then Strike it, then add below We make use of standards. Without the dual slides, as soon as the "strike" tag is added, the fragment appears at beginning of slide, regardless of other fragments. This is happening on reveal.js 4.4.0 -->
 			<section>
-				<h2>How can we solve the problems?</h2>
-				<p class="fragment fade-in">&nbsp;</p>
-					<!-- <p class="fragment fade-in-then-out">develop the perfect software.</p> -->
-				<p class="fragment fade-in strike">We develop the perfect software.</p>
-				<p class="fragment ">We make use of standards.</p>
+				<h2>How can we solve these problems?</h2>
+				<aside class="notes">
+					<ul>
+						<li>
+							How do you think we can solve these problems? What are your ideas?
+						</li>
+						<li>
+							Let me jot down your suggestions on the whiteboard.
+						</li>
+						<li>
+							Discuss how to implement each one of the reccomendations.
+						</li>
+					</ul>
+				</aside>
+			</section>
+			<section>
+				<h2>How can we solve these problems?</h2>
+				<p class="fragment strike">We develop the "Perfect Software"</p>
+				<div class="fragment ">We make use of <h3>Standards</h3>
+				</div>
 				<aside class="notes">
 					<ul>
 						<li>
@@ -399,6 +416,14 @@
 					<p class="fragment current-visible">Tesla Open Source Patents</p>
 					<p class="fragment current-visible">...</p>
 				</div>
+				<aside class="notes">
+					<ul>
+						<li>
+							Can you give me some examples of standards which you think have affected humanity
+							significantly?
+						</li>
+					</ul>
+				</aside>
 			</section>
 			<section data-auto-animate>
 				<img class="stretch" src="./assets/img/1931_Broadbent.png" />
@@ -409,17 +434,99 @@
 					Attempts have been made in the past, but they failed. Why?
 				</p>
 				<ul>
-					<li class="fragment">We have used closed interoperability</li>
 					<li class="fragment">Fear of losing customers</li>
 					<li class="fragment">It's work to follow standards</li>
 					<li class="fragment">No request from customers</li>
 					<li class="fragment">Lack of Information</li>
+					<li class="fragment">We have used closed interoperability</li>
 				</ul>
 				<aside class="notes">
 					<h3>Losing customers</h3>
 					<p>You can't be so shortsighted that you only see the negatives. See what happened with Sony's
 						Betamax standard, which they wanted to license.</p>
 				</aside>
+			</section>
+
+			<section data-auto-animate="">
+				<h2>Proprietary-based Interoperability</h2>
+				<ul>
+					<li class="fragment">Custom APIs made available by Vendors</li>
+					<li class="fragment">Documentation and implementation availability at descretion of vendor</li>
+					<li class="fragment">Additional software that acts as bridges between these custom APIs needs to be
+						developed</li>
+					<li class="fragment">Single implementation allows only two vendords to link together</li>
+					<li class="fragment">Expensive solutions</li>
+					<li class="fragment">When vendor upgrades or changes their product, the API often changes and the
+						bridge brakes</li>
+					<li class="fragment">Medical provider cannot see what's going on</li>
+					<li class="fragment">Not sustainable solutions</li>
+				</ul>
+			</section>
+
+			<section data-auto-animate="">
+				<h2>Open Standards-based Interoperability</h2>
+				<ul>
+					<li class="fragment">DICOM/HL7/FHIR: long-lasting standards</li>
+					<li class="fragment">Documentation and implementation tools available online to everyeone</li>
+					<li class="fragment">Single implementation allows multiple vendor products to link together</li>
+					<li class="fragment">Expensive solutions</li>
+					<li class="fragment">When vendor upgrades or changes their software, they keep DICOM/HL7 part the
+						same</li>
+					<li class="fragment">Medical provider has the opportunity to see what's going on</li>
+					<li class="fragment">Sustainable solution</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Demo: SNOMED CT</h2>
+				<a
+					href="https://browser.ihtsdotools.org/?perspective=full&conceptId1=16177004&edition=MAIN&release=&languages=en">SNOMED
+					Browser</a>
+				<aside class="notes">
+					<p>Let's look at orthodontic codes, for example.</p>
+				</aside>
+			</section>
+
+			<section>
+				<h2>Demo: DICOM</h2>
+				<ul>
+					<li>
+						<a href="https://www.dicomstandard.org/current">DICOM Standard</a>
+					</li>
+					<li>
+						<a href="https://dicom.innolitics.com/ciods">DICOM Browser by Innolitics</a>
+					</li>
+				</ul>
+				<aside class="notes">
+					<p>Let's look at orthodontic codes, for example.</p>
+				</aside>
+			</section>
+
+			<section>
+				<h2>Demo: HL7 - FHIR</h2>
+				<ul>
+					<li>
+						<a href="https://hl7.org/fhir/basic.html">FHIR Basic Example</a>
+					</li>
+					<li>
+						<a href="http://www.hl7italia.it/hl7italia_D7/hl7it_publications">HL7 Italia</a>
+					</li>
+					<li>
+						<a href="https://www.fascicolosanitario.gov.it/it/Standard-documentali">Fascicolo Sanitario Elettronico</a>
+					</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>But if they exist already, why the fuss?</h2>
+				<ul>
+					<li class="fragment">
+						Full implementation is not granted.
+					</li>
+					<li class="fragment">
+						A piece of software could implement HL7 only to FSE.
+					</li>
+				</ul>
 			</section>
 			<section data-auto-animate="">
 				<h2>Master Plan</h2>
