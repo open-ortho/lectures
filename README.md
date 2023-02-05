@@ -17,3 +17,18 @@ This presentation is written using the [reveal.js presentation framework](https:
 ## Deployment
 
 This project is being hosted as a static site on GitHub Pages from the `main` branch. Committing and pushing to the master branch will deploy the presentation.
+
+
+## Upgrading Reveal-JS
+
+1. Download latest [zip compiled from github](https://github.com/hakimel/reveal.js/archive/master.zip).
+2. Unzip
+3. Replace `dist/` and `plugin/` folders with the ones found in the zip archive. Example:
+
+        cd ~/Downloads
+        curl -O https://github.com/hakimel/reveal.js/archive/master.zip
+        unzip ~/Downloads/master.zip
+        cd -
+        rsync -av --delete ~/Downloads/reveal.js-master/plugin/ plugin/
+        rsync -av --delete ~/Downloads/reveal.js-master/dist/ dist/
+
