@@ -9,7 +9,7 @@
 	<link rel="icon" type="image/x-icon" href="../../assets/img/favicon.ico">
 	<link rel="stylesheet" href="../../dist/reset.css">
 	<link rel="stylesheet" href="../../dist/reveal.css">
-	<link rel="stylesheet" href="../../dist/theme/league.css">
+	<link rel="stylesheet" href="../../dist/theme/night.css">
 	<!-- Theme used for syntax highlighted code -->
 	<link rel="stylesheet" href="../../plugin/highlight/monokai.css">
 </head>
@@ -18,10 +18,18 @@
 	<div class="reveal">
 		<div class="slides">
 			<section>
-				<h2>Enhancing Orthodontic Software Quality</h2>
-				<p>Leveraging Open Standards in Medical Informatics</p>
-				<p>toni magni, BME - afm@case.edu</p>
-				<img src="url_qrcode.png">
+				<table style="width:100%;">
+					<tr>
+						<td style="width: 33%;">
+							<img src="url_qrcode.svg" style="width:100%">
+						</td>
+						<td style="vertical-align: top;">
+							<h2 style="margin-top: 0px;">Leveraging Open Standards</h2>
+							<p>in Orthodontic Software</p>
+							<p><small>toni magni, BME - afm@case.edu</small></p>
+						</td>
+					</tr>
+				</table>
 			</section>
 			<section>
 				<h2>Who am I? What are my objectives?</h2>
@@ -57,18 +65,38 @@
 				<p>
 				<ul>
 					<li>
-						to provide you with a basic level of understanding of what open-standards based interoperability
-						is,
+						Importance of open-standards based interoperability (i14y).
 					</li>
 					<li>
-						to show how you can use it at your advantage
+						How to use open standards at your advantage.
 					</li>
 					<li>
-						to educate that its implementation, contrary to popular belief, is not a liability, it is an
-						asset
+						Open standards implementation is an asset (not a liability).
 					</li>
 				</ul>
 				</p>
+			</section>
+			<section data-background-image="../../assets/img/meeting.jpg" data-background-opacity=0.1>
+				<h2>Why are we even meeting?</h2>
+				<div class="r-stack">
+					<ul>
+						<li class="fragment">
+							The AAO has i14y in mission statement.
+						</li>
+						<li class="fragment">
+							The orthodontists want this to happen.
+						</li>
+					</ul>
+				</div>
+			</section>
+			<section>
+				<h2>Types of i14y</h2>
+				<div class="r-stack">
+					<ul>
+						<li class="fragment">Proprietary</li>
+						<li class="fragment">Open-Standards (DICOM, HL7, SNOMED, ...)</li>
+					</ul>
+				</div>
 			</section>
 			<section>
 				<h2>Why is i14y important and a big topic today</h2>
@@ -86,19 +114,6 @@
 						</li>
 						<li class="fragment">
 							Required to reduce burn out and data loss.
-						</li>
-					</ul>
-				</div>
-			</section>
-			<section>
-				<h2>Why are we even meeting?</h2>
-				<div class="r-stack">
-					<ul>
-						<li class="fragment">
-							The AAO has i14y in mission statement.
-						</li>
-						<li class="fragment">
-							The orthodontists want this happen.
 						</li>
 					</ul>
 				</div>
@@ -190,7 +205,7 @@
 				</aside>
 			</section>
 			<section data-background-image="../../assets/img/free_pizza.webp" data-background-opacity=0.2>
-				<h2>Free Pizza? Where?</h2>
+				<h2>More Free Pizza</h2>
 				<p>
 					<a href="https://open-ortho.org">open-ortho</a>
 				</p>
@@ -230,9 +245,6 @@
 						<li class="fragment">
 							Be prepared for changes.
 						</li>
-						<li class="fragment">
-
-						</li>
 					</ul>
 				</div>
 				<aside class="notes">
@@ -261,29 +273,40 @@
 			</section>
 			<section data-background-image="../../assets/img/where_to_start.webp" data-background-opacity=0.2>
 				<h2>Where to Start</h2>
-				<p style="text-align: left;">
-					📱 Identify the <em>Product</em>.<br />
-					⚡ Identify the <em>Resources</em>.<br />
-					💵 Quantify <em>Savings</em>.
-				</p>
+				<div class="r-stack">
+					<ul>
+						<div class="fragment">
+							<li style="list-style: none; padding-left: 1em;">📱 Identify the <em>Product</em></li>
+						</div>
+						<div class="fragment">
+							<li style="list-style: none; padding-left: 1em;"> ⚡ Identify the <em>Resources</em></li>
+						</div>
+						<div class="fragment">
+							<li style="list-style: none; padding-left: 1em;">💵 Quantify <em>Savings</em></li>
+						</div>
+					</ul>
+				</div>
 				<aside class="notes">
+					<h3>Identify the Product</h3>
 					<p>
 						Identify if there is a product you have which can benefit from adopting open-based standards.
-						Most amount of time and money is saved when using the above mentioned resources at the
-						beginning, or in the early stages of a product development, but there are exceptions: Data
-						import from other systems: when designing a system to import data from other systems, passing
-						through solid standard formats can save you headaches in the long run Data export to other
-						systems: when designing an API to allow other to access, you can make use of the existing ones,
-						saving time for the design, testing and documentation of the API.
+						Most amount of time and money is saved when using the above mentioned resources <em>at the
+							beginning</em>, or in the early stages of product development, but there are exceptions,
+						e.g. data import from other systems. When designing a system to import data from other systems,
+						passing through a solid standard format can save you headaches. Another example: data export to
+						other systems. When designing an API to allow others to access, you can make use of existing
+						ones, saving time for the design, testing and documentation of the API.
 					</p>
+					<h3>Identify the Resources</h3>
 					<p>
 						Identify the resources you can use for the product/project. Are there resources that your
 						current developers can use today, without having to spend months learning something? Are there
 						things you can do today, without having to hire super expensive consultants to understand which
 						way to go?
 					</p>
+					<h3>Quantify the savings</h3>
 					<p>
-						Quantify the savings. Once a product and the resources have been identified, you have enough
+						Once a product and the resources have been identified, you have enough
 						information to understand how much this is going to save you. You will need this value to
 						convince management that this approach is the most convenient one. If you realize that
 						implementing i14y will cost you, there is something you are missing: have you considered the
@@ -293,7 +316,7 @@
 					</p>
 				</aside>
 			</section>
-			<section>
+			<section data-background-image="../../assets/img/where_to_start.webp" data-background-opacity=0.2>
 				<h2>FAQ</h2>
 				<div class="r-stack">
 					<ul>
@@ -334,7 +357,7 @@
 					<li>
 						<a
 							href="https://www.ada.org/resources/practice/dental-standards/standards-committee-on-dental-informatics">
-							American Dental Association Standards Committee for Dental Informatics
+							American Dental Association Standards Committee
 						</a>
 					</li>
 					<li>
@@ -351,7 +374,7 @@
 			<section data-auto-animate="">
 				<h2><a href="http://open-ortho.org">open-ortho.org</a>
 				</h2>
-				<img src="../../assets/img/url_qrcodoe_open-ortho.png">
+				<img src="url_qrcode_open-ortho.svg" width="50%">
 			</section>
 		</div>
 	</div>
