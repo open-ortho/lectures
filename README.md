@@ -13,6 +13,10 @@ This presentation is written using the [reveal.js presentation framework](https:
 * The framework is in the [dist](./dist) and [plugin](./plugin) folders.
 * Vie the changes by opening the `index.html` file with your browser.
 
+### Adding QR Codes
+
+1. Install `qrencode` with `apt`, `yum`, `brew`, ...
+2. `qrencode -t SVG -o ./presentations/mypresentation_url_qrcode.svg "https://open-ortho.org/"`
 
 ## Deployment
 
