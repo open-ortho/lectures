@@ -2,10 +2,10 @@
 
 // List of scripts to be dynamically loaded
 const scripts = [
-    '../../../dist/reveal.js',
-    '../../../plugin/notes/notes.js',
-    '../../../plugin/markdown/markdown.js',
-    '../../../plugin/highlight/highlight.js',
+    '/lectures/dist/reveal.js',
+    '/lectures/plugin/notes/notes.js',
+    '/lectures/plugin/markdown/markdown.js',
+    '/lectures/plugin/highlight/highlight.js',
 ];
 
 // Function to load a script and return a promise that resolves when the script loads

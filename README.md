@@ -11,12 +11,15 @@ This presentation is written using the [reveal.js presentation framework](https:
 * Slide content are in the [index.html](./index.html) file. Add and remove slides by adding and removing `<section>` tags.
 * Slide configuration is also in the [index.html](./index.html) file.
 * The framework is in the [dist](./dist) and [plugin](./plugin) folders.
-* Vie the changes by opening the `index.html` file with your browser.
+* Run `./serve.py`
+* View the changes by opening the `http://127.0.0.1:54385/lectures/` file with your browser.
+
+NB: the web server is only there because using absolute paths for common libraries like common.js is the easiest way to deal with using them from different locations. Then the absolute pahts would not work locally for development. Hence the development server.
 
 ### Adding QR Codes
 
 1. Install `qrencode` with `apt`, `yum`, `brew`, ...
-2. `qrencode -t SVG -o ./presentations/mypresentation_url_qrcode.svg "https://open-ortho.org/"`
+2. `qrencode -t SVG -o ./slides/mypresentation_url_qrcode.svg "https://open-ortho.org/"`
 
 ## Deployment
 
