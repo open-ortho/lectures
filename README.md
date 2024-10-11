@@ -16,7 +16,7 @@ This presentation is written using the [reveal.js presentation framework](https:
 ### Adding QR Codes
 
 1. Install `qrencode` with `apt`, `yum`, `brew`, ...
-2. `qrencode -t SVG -o ./presentations/mypresentation_url_qrcode.svg "https://open-ortho.org/"`
+2. `qrencode -t SVG -o ./slides/mypresentation_url_qrcode.svg "https://open-ortho.org/"`
 
 ## Deployment
 
