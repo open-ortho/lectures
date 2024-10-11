@@ -14,7 +14,7 @@ This presentation is written using the [reveal.js presentation framework](https:
 * Run `./serve.py`
 * View the changes by opening the `http://127.0.0.1:54385/lectures/` file with your browser.
 
-
+NB: the web server is only there because using absolute paths for common libraries like common.js is the easiest way to deal with using them from different locations. Then the absolute pahts would not work locally for development. Hence the development server.
 
 ### Adding QR Codes
 
