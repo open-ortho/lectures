@@ -11,7 +11,10 @@ This presentation is written using the [reveal.js presentation framework](https:
 * Slide content are in the [index.html](./index.html) file. Add and remove slides by adding and removing `<section>` tags.
 * Slide configuration is also in the [index.html](./index.html) file.
 * The framework is in the [dist](./dist) and [plugin](./plugin) folders.
-* Vie the changes by opening the `index.html` file with your browser.
+* Run `./serve.py`
+* View the changes by opening the `http://127.0.0.1:54385/lectures/` file with your browser.
+
+
 
 ### Adding QR Codes
 
