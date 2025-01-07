@@ -99,7 +99,7 @@
         </mxGraphModel>
     </diagram>
     <diagram id="0FPVtB1YhECzMd1UB36y" name="Actors">
-        <mxGraphModel dx="3037" dy="2733" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+        <mxGraphModel dx="2048" dy="2113" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -131,14 +131,27 @@
                 <mxCell id="4pqw1KPLivjrV6JZ13sy-9" style="edgeStyle=none;html=0;labelBackgroundColor=none;labelBorderColor=none;strokeColor=#000000;fontColor=#000000;startArrow=none;startFill=0;" edge="1" parent="1" source="4pqw1KPLivjrV6JZ13sy-6" target="4pqw1KPLivjrV6JZ13sy-4">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="4pqw1KPLivjrV6JZ13sy-10" style="edgeStyle=none;html=0;labelBackgroundColor=none;labelBorderColor=none;strokeColor=#000000;fontColor=#000000;startArrow=none;startFill=0;" edge="1" parent="1" source="4pqw1KPLivjrV6JZ13sy-6" target="4pqw1KPLivjrV6JZ13sy-3">
+                <mxCell id="4pqw1KPLivjrV6JZ13sy-10" style="edgeStyle=none;html=0;labelBackgroundColor=none;labelBorderColor=none;strokeColor=#000000;fontColor=#000000;startArrow=classic;startFill=1;" edge="1" parent="1" source="4pqw1KPLivjrV6JZ13sy-6" target="4pqw1KPLivjrV6JZ13sy-3">
                     <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="4pqw1KPLivjrV6JZ13sy-12" value="Provide local terminology&lt;br&gt;Get global termonology" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#000000;labelBackgroundColor=none;" vertex="1" connectable="0" parent="4pqw1KPLivjrV6JZ13sy-10">
+                    <mxGeometry x="-0.0725" y="1" relative="1" as="geometry">
+                        <mxPoint x="-4" as="offset"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="4pqw1KPLivjrV6JZ13sy-11" style="edgeStyle=none;html=0;labelBackgroundColor=none;labelBorderColor=none;strokeColor=#000000;fontColor=#000000;startArrow=none;startFill=0;" edge="1" parent="1" source="4pqw1KPLivjrV6JZ13sy-6" target="4pqw1KPLivjrV6JZ13sy-5">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="4pqw1KPLivjrV6JZ13sy-6" value="Codes Translator&lt;br&gt;Terminology Service" style="whiteSpace=wrap;html=1;fillColor=#FFFFFF;rounded=0;fontColor=#000000;labelBackgroundColor=#FFFFFF;strokeColor=#000000;" vertex="1" parent="1">
                     <mxGeometry x="-643" y="-1288" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="4pqw1KPLivjrV6JZ13sy-14" style="edgeStyle=none;html=0;labelBackgroundColor=none;labelBorderColor=none;strokeColor=#000000;fontColor=#545454;startArrow=classic;startFill=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="4pqw1KPLivjrV6JZ13sy-13" target="4pqw1KPLivjrV6JZ13sy-6">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-583" y="-1304" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4pqw1KPLivjrV6JZ13sy-13" value="&lt;font color=&quot;#545454&quot;&gt;External Terminologies and Codes&lt;/font&gt;" style="whiteSpace=wrap;html=1;fillColor=#FFFFFF;rounded=0;fontColor=#000000;labelBackgroundColor=#FFFFFF;strokeColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="-643" y="-1461" width="120" height="60" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
