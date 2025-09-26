@@ -1,8 +1,8 @@
-# ACT-12.4.1 
+# Lectures
 
-ORTHODONTIC SOFTWARE INTEROPERABILITY Introductory Presentation
+ORTHODONTIC SOFTWARE INTEROPERABILITY Lectures
 
-See it live [http://www.open-ortho.org/ACT-12.4.1/](http://www.open-ortho.org/ACT-12.4.1/).
+See it live [http://www.open-ortho.org/lectures/](http://www.open-ortho.org/lectures/).
 
 ## How to edit this document
 
@@ -19,7 +19,7 @@ NB: the web server is only there because using absolute paths for common librari
 ### Adding QR Codes
 
 1. Install `qrencode` with `apt`, `yum`, `brew`, ...
-2. `qrencode -t SVG -o ./slides/mypresentation_url_qrcode.svg "https://open-ortho.org/"`
+2. `make qrcodes`
 
 ## Deployment
 
