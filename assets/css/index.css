@@ -65,3 +65,13 @@ a:hover {
     color: #6cc7ff;
     text-decoration: underline;
 }
+.footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #444444;
+}
+.footer p {
+    margin: 10px 0;
+    font-size: 0.9em;
+    color: #aaaaaa;
+}
