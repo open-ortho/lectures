@@ -2,61 +2,113 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-	<title>Orthodontic Software Interoperability Presentations</title>
-	<link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-	<link rel="stylesheet" href="dist/reset.css">
-	<link rel="stylesheet" href="dist/reveal.css">
-	<link rel="stylesheet" href="dist/theme/league.css">
-	<!-- Theme used for syntax highlighted code -->
-	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orthodontic Software Interoperability Presentations</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <style>
+        body {
+            font-family: "Source Sans Pro", Helvetica, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #111111;
+            color: #eeeeee;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #1a1a1a;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            border: 1px solid #333333;
+        }
+        h1 {
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: normal;
+            letter-spacing: normal;
+        }
+        .subtitle {
+            text-align: center;
+            color: #cccccc;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        p {
+            color: #dddddd;
+            line-height: 1.6;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #222222;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #444444;
+        }
+        th {
+            background-color: #2a2a2a;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        tr:hover {
+            background-color: #333333;
+        }
+        a {
+            color: #42affa;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #6cc7ff;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
-	<div class="reveal">
-		<div class="slides">
-			<section>
-				<h2>Orthodontic Software Interoperability Presentations</h2>
-				<p>Unleashing the potential of orthodontic software</p>
-				<ul>
-					<li>
-						<a href="slides/orthodontic-informatics/">Orthodontic Informatics Course</a>
-					</li>
-					<li>
-						<a href="slides/2024-aao-vendors-meeting/index.html">Vendor's Meeting at AAO 2024</a>
-					</li>
-					<li>
-						<a href="slides/2023-orthostudents/index.html">Lecture for Orthodontic Residents 2023</a>
-					</li>
-					<li>
-						<a href="slides/2022-aao-bot/index.html">Presentation for AAO Board of Trustees 2022</a>
-					</li>
-					<li>
-						<a href="slides/2022-orthostudents/index.html">Lecture for Case Western Reserve Orthodontic Residents 2022</a>
-					</li>
-				</ul>
-			</section>
-		</div>
-	</div>
-
-	<script src="dist/reveal.js"></script>
-	<script src="plugin/notes/notes.js"></script>
-	<script src="plugin/markdown/markdown.js"></script>
-	<script src="plugin/highlight/highlight.js"></script>
-	<script>
-		// More info about initialization & config:
-		// - https://revealjs.com/initialization/
-		// - https://revealjs.com/config/
-		Reveal.initialize({
-			hash: true,
-			slideNumber: 'c/t',
-			transition: 'fade',
-			// Learn about plugins: https://revealjs.com/plugins/
-			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
-		});
-	</script>
+    <div class="container">
+        <h1>Orthodontic Software Interoperability Presentations</h1>
+        <p class="subtitle">Unleashing the potential of orthodontic software</p>
+        
+		<p>
+			This is part of the open-ortho project: <a href="https://open-ortho.org">open-ortho.org</a>. Slides authored by <a href="https://www.antoniomagni.com">Antonio Magni, BS, MS</a>.
+		</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Presentation Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="slides/orthodontic-informatics/">Orthodontic Informatics Course</a></td>
+                    <td>Comprehensive course covering the fundamentals of orthodontic informatics and digital workflows</td>
+                </tr>
+                <tr>
+                    <td><a href="slides/2024-aao-vendors-meeting/index.html">Vendor's Meeting at AAO 2024</a></td>
+                    <td>Presentation delivered at the American Association of Orthodontists vendors meeting in 2024</td>
+                </tr>
+                <tr>
+                    <td><a href="slides/2023-orthostudents/index.html">Lecture for Orthodontic Residents 2023</a></td>
+                    <td>Educational lecture focused on software interoperability for orthodontic residents</td>
+                </tr>
+                <tr>
+                    <td><a href="slides/2022-aao-bot/index.html">Presentation for AAO Board of Trustees 2022</a></td>
+                    <td>Strategic presentation delivered to the AAO Board of Trustees on orthodontic software standards</td>
+                </tr>
+                <tr>
+                    <td><a href="slides/2022-orthostudents/index.html">Lecture for Case Western Reserve Orthodontic Residents 2022</a></td>
+                    <td>Specialized lecture for Case Western Reserve University orthodontic residents on digital orthodontics</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>
