@@ -48,5 +48,15 @@ and IT: show me how I can export my data, all of it, **in bulk**, in some format
 that is standard, that I can use for research or with another system. Don't let
 them brush you off, demand a demo, then look at the data exported.
 
-We owe it to our patients and to our time to see this hidden problem and fix it.
+One more point before I close: clinical informatics is not new. Since the
+earliest days of computers, people started applying them to healthcare and
+therefore working on data standards, interoperability, and safe data management
+— it's a large, well established field. What is unusual is **our** situation:
+outside large hospitals and public health systems, most private practices
+(including many in orthodontics) are outliers. We still haven't been taught
+these basics even though computers are now our primary professional tools.
+
+Enough waiting, we have waited 30 years already. We owe it to our patients and
+to our time to see this hidden problem and fix it.
+
 Thank you.
