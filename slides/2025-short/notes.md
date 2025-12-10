@@ -1,3 +1,5 @@
+Short talk prepared for dr. Rosa to present at an international orthodontic meeting.
+
 I've been an orthodontist for 40 years. In that time I've seen a lot of change
 in our tools — CBCT, 3D intraoral scans, AI-driven analyses — but there's a
 hidden problem in clinical informatics that most of us don't see until it hits
@@ -20,13 +22,14 @@ between the vendor and my IT guy, the best and quickest proposed fix was blunt:
 anymore." I was stunned —  Their answer made me realize how irrealistic our
 assumptions are about data ownership and portability.
 
-- Dr. Carla Evans while she was head of the orthodonic department at UIC,
+- [Here is a picture Dr. Carla Evans took while she was head of the 
+orthodonic department at UIC.](https://open-ortho.org/lectures/slides/orthodontic-informatics/module1/index.html#/16)
 	experienced the department switching practice-management software: She was
 	baffled when at the deployment day, the software company failed and didn't
 	import anything at all from their previous system! They ended up with
 	patients re-registering because the transfer didn't bring the records.
     
-- Here's a photograph i took of a colleague of mine at a meeting not knowing a
+- [Here's a photograph](https://open-ortho.org/lectures/slides/orthodontic-informatics/module1/index.html#/16) i took of a colleague of mine at a meeting not knowing a
 practical way for sharing a radiograph safely, so he literally took a photograph
 of the laptop screen with a phone. These are not edge cases; they are symptoms.
 
