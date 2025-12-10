@@ -1,0 +1,46 @@
+Hey guys, there's like this elephant in the room when we talk about informatics,
+you know like we give like for granted, most people do that Normally, it's
+understandable that like the medical software is like higher quality and it's
+very stable. And it just kind of makes sense because. We do have these really
+powerful software products, you know, like crazy technology, like Co being CT a
+3D x rays and the 3D controral scans with this little device that has some micro
+camera, takes thousands of pictures per second per minute or whatever. stitches
+them together. And so we assume that the basic underlying infrastructure is
+solid, and we don't lose our data, but the reality of the fact is is far, far
+from being like that. I was sh when I decided to move away from my stomatic
+tracing software. I didn't like it anymore. And the to my surprise, when I
+stopped paying the software companies said, well, you can't access your old
+cheometric tracacing anymore." I was like, what? My work? I can't access my work
+anymore? Because I don'm not paying. What are you talking about? I can do that
+at home when I use a Microsoft Word, I can't do it with you guys. I have paid
+like thousands of dollars over the years. It's insane, the other day I had an
+issue with our imaging software and the software company proposed that I just
+wiped my entire database with all my patient data so that, you know, we can
+start fresh and clear up the things that were messed up. I was like, what are
+you talking about? You can't do that. What do you mean? I mean, like, where's my
+backup? How can I access that data if I don't have another backup for this
+stuff? So And then I also keep hearing stories like this one here, where there's
+a syphometric where there's a, you know, the department of a practice or as big
+as a school, which wants to transfer soft to a products from one to the other,
+and they find herself in this situation where, you know, the software company
+said, yeah, yeah, we can transfer data. I no problem." And then when the day of
+the switchover came around, they actually didn't transfer anything, you know. It
+was just not there. And the modonic orthodonic department had to didn't have any
+data of any patient everyone. I had to stand in line and re register. Nobody
+know what they had to pay for. That was a huge mess and went on for weeks, you
+know. Like, what's going on here? There's like this this, why are are we using
+standards, right? Are't there standards there? Well, it turns out there are.
+There's a whole field. It's called the clinical Informatics, and it doesn't seem
+like our software developers know much about it, and we don't know anything
+about it either, so we don't ask them about it, which is a problem. It's a big
+problem nowadays in an era where  
+  
+Oh, and then there's uh did you ever like ask yourself what's going on when you
+do this you open the sylometric analysis programs and they ask you to manually
+select the ruler on the right. Did you ever, like, question, like, "We? I really
+have to do fans? Is this, like, what like, we're in 2025, I There's no, like,
+technology or this information already be in the image file.  
+  
+So and then if our software products are so powerful and strong, why are we
+still doing this? Like we can't do this. We can't take a screenshot, like a
+photograph of a screen to share images. Like that's not right.
