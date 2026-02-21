@@ -1,0 +1,65 @@
+Short talk prepared for dr. Rosa to present at an international orthodontic meeting.
+
+I've been an orthodontist for 40 years. In that time I've seen a lot of change
+in our tools — CBCT, 3D intraoral scans, AI-driven analyses — but there's a
+hidden problem in clinical informatics that most of us don't see until it hits
+us.
+
+Here are three short, real examples you should hear from me, not as theory but
+from experience:
+
+- I stopped using a cephalometric tracing product I no longer liked. When I
+stopped paying, the company cut off access to years of my tracings. Those were
+hundreds of hours of work I could no longer reach. I didn't lose a paycheck that
+day, but I lost work I depended on — patient records, follow‑up references,
+teaching material. That time is gone.
+
+- I had a problem with an imaging system recently: patients were duplicated,
+same patient with different patient IDs, it was a mess caused by various
+transitions between systems and poor integrations. After days of collaboration
+between the vendor and my IT guy, the best and quickest proposed fix was blunt:
+"If only we could Wipe your database and start fresh this shouldn't happen
+anymore." I was stunned —  Their answer made me realize how irrealistic our
+assumptions are about data ownership and portability.
+
+- [Here is a picture Dr. Carla Evans took while she was head of the 
+orthodonic department at UIC.](https://open-ortho.org/lectures/slides/orthodontic-informatics/module1/index.html#/16)
+	experienced the department switching practice-management software: She was
+	baffled when at the deployment day, the software company failed and didn't
+	import anything at all from their previous system! They ended up with
+	patients re-registering because the transfer didn't bring the records.
+    
+- [Here's a photograph](https://open-ortho.org/lectures/slides/orthodontic-informatics/module1/index.html#/16) i took of a colleague of mine at a meeting not knowing a
+practical way for sharing a radiograph safely, so he literally took a photograph
+of the laptop screen with a phone. These are not edge cases; they are symptoms.
+
+Why this matters: patient care and clinician time. Missing or locked data
+interrupts continuity of care, wastes hours of clinical and administrative work,
+and creates real risks for patients. Not to mention the ridiculous limitation it
+imposes on clinical research.
+
+Here's the thing that saved me: now I keep my images in a non‑proprietary
+container, a PACS. Because my imaging data lived outside that vendor's
+proprietary lock, I could afford to wipe the vendor's database and continue
+clinical operations. That one practical step makes the difference between
+permanent loss and permanent data retention.
+
+This is what clinical informatics is about: data portability, standards, safe
+export, reliable backups, and asking vendors the right questions up front. It
+isn't glamorous, but it's essential. If you are not convinced, ask your vendors
+and IT: show me how I can export my data, all of it, **in bulk**, in some format
+that is standard, that I can use for research or with another system. Don't let
+them brush you off, demand a demo, then look at the data exported.
+
+One more point before I close: clinical informatics is not new. Since the
+earliest days of computers, people started applying them to healthcare and
+therefore working on data standards, interoperability, and safe data management
+— it's a large, well established field. What is unusual is **our** situation:
+outside large hospitals and public health systems, most private practices
+(including many in orthodontics) are outliers. We still haven't been taught
+these basics even though computers are now our primary professional tools.
+
+Enough waiting, we have waited 30 years already. We owe it to our patients and
+to our time to see this hidden problem and fix it.
+
+Thank you.
