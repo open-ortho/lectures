@@ -1,0 +1,15 @@
+<section>
+    <h2>Weasis and Horos</h2>
+    <ul>
+        <li class="fragment"><a href="https://weasis.org/en/">Weasis</a>: viewer; import via Query/Retrieve and DICOMweb; send via C-STORE</li>
+        <li class="fragment"><a href="https://horosproject.org/">Horos</a>: viewer + local DB; can receive images via a Storage SCP listener</li>
+        <li class="fragment">Need a server (Q/R SCP, MWL SCP): <a href="https://github.com/dcm4che/dcm4chee-arc-light">dcm4chee-arc</a> or <a href="https://www.orthanc-server.com/">Orthanc</a></li>
+    </ul>
+    <aside class="notes">
+        <ul>
+            <li>Weasis is primarily a viewer/client. The Weasis docs list import via DICOM Query/Retrieve (C-GET/C-MOVE) and DICOMweb, and export via DICOM C-STORE: https://weasis.org/en/index.html</li>
+            <li>Horos includes a local DICOM listener preference pane ("STORESCP") for receiving incoming DICOM connections (Storage SCP): https://deepwiki.com/horosproject/horos/4.3-network-configuration</li>
+            <li>"Reply to query/retrieve" means acting as a Query/Retrieve SCP (answering C-FIND/C-MOVE). These viewers are not typically used as your Q/R server.</li>
+        </ul>
+    </aside>
+</section>
