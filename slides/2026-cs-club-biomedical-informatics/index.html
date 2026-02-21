@@ -16,53 +16,11 @@
 <body>
     <div class="reveal">
         <div class="slides">
-            <section>
-                <table style="width:100%;">
-                    <tr>
-                        <td style="width: 33%;">
-                            <img src="url_qrcode.svg" style="width:100%" alt="QR code for this presentation">
-                        </td>
-                        <td style="vertical-align: top;">
-                            <h2 style="margin-top: 0px;">Biomedical Informatics for Developers</h2>
-                            <p>Data, Systems, Standards, and Infrastructure in Healthcare</p>
-                            <p><small>For Computer Science Students</small></p>
-                            <p><small><em>toni magni, BME - afm@case.edu</em></small></p>
-                        </td>
-                    </tr>
-                </table>
-            </section>
-            <section>
-                <h2>Names Are Messy</h2>
-                <ul>
-                    <li class="fragment"><strong>Biomedical / health informatics</strong> is the umbrella.</li>
-                    <li class="fragment">The prefix changes by org: clinical, public health, imaging, nursing, etc.</li>
-                    <li class="fragment">Always ask what they mean: <em>workflows, research, or plumbing?</em></li>
-                </ul>
-                <aside class="notes">
-                    <ul>
-                        <li>Real-world usage is inconsistent; different orgs use different prefixes before "informatics". OHSU makes this explicit and uses "biomedical and health informatics" (BMHI) as the most comprehensive umbrella: https://www.ohsu.edu/school-of-medicine/medical-informatics-and-clinical-epidemiology/what-biomedical-informatics</li>
-                        <li>"Medical informatics" is often a legacy synonym for the broader field; in some contexts it is used more narrowly (eg, physician-focused clinical informatics). AMIA discusses this shift: https://pmc.ncbi.nlm.nih.gov/articles/PMC3534470/</li>
-                        <li>ABPM frames Clinical Informatics as a physician subspecialty centered on clinical workflows, decision support, and clinical information systems: https://www.theabpm.org/become-certified/subspecialties/clinical-informatics/</li>
-                        <li>MeSH (Medical Subject Headings) is NLM's controlled vocabulary for indexing biomedical literature; useful as a baseline taxonomy, not a guarantee of everyday usage: https://meshb.nlm.nih.gov/</li>
-                    </ul>
-                </aside>
-            </section>
-            <section>
-                <h2>Fast Heuristics</h2>
-                <ul>
-                    <li class="fragment"><strong>Clinical informatics</strong> -> care delivery + workflow</li>
-                    <li class="fragment"><strong>Health IT</strong> -> systems + interoperability</li>
-                    <li class="fragment"><strong>Bioinformatics</strong> -> omics + pipelines</li>
-                    <li class="fragment"><strong>This talk</strong> -> standards + infrastructure: FHIR/HL7, DICOM, PACS</li>
-                </ul>
-                <aside class="notes">
-                    <ul>
-                        <li>These are shortcuts, not definitions. The point is to reduce confusion in hallway conversations and job postings.</li>
-                        <li>Clinical informatics: ABPM overview emphasizes workflow, CDS, and clinical information systems: https://www.theabpm.org/become-certified/subspecialties/clinical-informatics/</li>
-                        <li>Industry phrasing often matches TechTarget: clinical informatics improves patient care and administrative workflows in clinical settings: https://www.techtarget.com/searchhealthit/definition/clinical-informatics</li>
-                    </ul>
-                </aside>
-            </section>
+            <section data-external-replace="slides/title.html"></section>
+            <section data-external-replace="slides/names-are-messy.html"></section>
+            <section data-external-replace="slides/fast-heuristics.html"></section>
+            <section data-external-replace="slides/problems.html"></section>
+            <section data-external-replace="slides/wasted-resources.html"></section>
         </div>
     </div>
     <script src="/lectures/slides/orthodontic-informatics/common.js"></script>
