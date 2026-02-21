@@ -17,165 +17,18 @@
 <body>
     <div class="reveal">
         <div class="slides">
-            <section>
-                <table style="width:100%;">
-                    <tr>
-                        <td style="width: 33%;">
-                            <img src="url_qrcode.svg" style="width:100%">
-                        </td>
-                        <td style="vertical-align: top;">
-                            <h2 style="margin-top: 0px;">Orthodontic Informatics</h2>
-                            <p>Data, Imaging, and Standards in Orthodontic Practice</p>
-                            <p><small><b>Module 2</b><br />Overcoming Challenges in Orthodontic Software
-                                    Interoperability</small></p>
-                            <p><small><em>toni magni, BME - afm@case.edu</em></small></p>
-                        </td>
-                    </tr>
-                </table>
-            </section>
-            <section>
-                <h2>Outline</h2>
-                <div class="">
-                    <ol>
-                        <li class="">Review</li>
-                        <li class="">Behind the Computer Screen</li>
-                        <li class="">Informatics Standards</li>
-                        <li class="">Implemention Hurdles</li>
-                    </ol>
-                </div>
-            </section>
-            <section>
-                <h2>Review</h2>
-                <div class="">
-                    <ul>
-                        <li class="">Why am I teaching you this?</li>
-                        <li>The Problems: ShaCoTranRePaWa</li>
-                        <ol>
-                            <li>Sharing</li>
-                            <li>Connecting</li>
-                            <li>Transitioning</li>
-                            <li>Researching</li>
-                            <li>Patient Communication</li>
-                            <li>Wasting Resources</li>
-                        </ol>
-                    </ul>
-                </div>
-                <aside class="notes">
-                    <ul>
-                        <li>Why am I teaching this?
-                            <ul>
-                                <li class="">What is the most used tool by the orthodontist (and their staff)?</li>
-                                <li class="">Because many orthodontists have complained. They are frustrated.</li>
-                                <li class="">Because I am frustrated.</li>
-                                <li class="">Because nobody else is.</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </aside>
-            </section>
-
-            <section>
-                <h2>Clinical Informatics Actors</h2>
-                <img src="/lectures/assets/img/mwl_actors.svg" width="70%">
-                <aside class="notes">
-                    <ul>
-                        <li>The central authority: PMS, EHR, or whatever.</li>
-                        <li>The big files bucket: PACS and VNA</li>
-                        <li>The dictionary/vocabulary/translator: terminology server</li>
-                    </ul>
-                </aside>
-            </section>
-            <section>
-                <h2>Requesting the Images</h2>
-                <img src="/lectures/assets/img/modality_worklist_flow.svg" width="100%">
-                <aside class="notes">
-                    <ul>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </aside>
-            </section>
-            <section>
-                <h2>Acquiring the Images</h2>
-                <img src="/lectures/assets/img/mwl_acquisition_flow.svg" width="100%">
-                <aside class="notes">
-                    <ul>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </aside>
-            </section>
-            <section>
-                <h2>Clinical Informatics Workflow</h2>
-                <img src="/lectures/assets/img/i14y_hardware.svg" width="50%">
-                <aside class="notes">
-                    <ul>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </aside>
-            </section>
-            <section>
-                <h2>The Basics: The Database</h2>
-                <div class="r-stack">
-                    <ul>
-                        <li class="fragment">Is just a fancy spreadsheet</li>
-                        <li class="fragment">Has tables, rows and columns.</li>
-                        <li class="fragment">Each cell is allowed only specific kinds of data</li>
-                        <li class="fragment">Can handle lots of data fast</li>
-                        <li class="fragment">Can handle multiple queries at the same time</li>
-                    </ul>
-                </div>
-                <aside class="notes">
-                    <ul>
-                        <li>Let's build one together. I'll open a google spreadsheet.</li>
-                        <li>So if they are just a spreadsheet, why do we even need to invent databases? Because they are
-                            good at keeping the data clean, no matter what. -> Stability.</li>
-                    </ul>
-                </aside>
-            </section>
-            <section>
-                <h2>The Basics: The Storage</h2>
-                <div class="r-stack">
-                    <ul>
-                        <li class="fragment">It can be in a folder in a server somewhere.</li>
-                        <li class="fragment">More copies of the same live data</li>
-                        <li class="fragment">Backup copies: three copies of the data in 3 different formats.</li>
-                    </ul>
-                </div>
-                <aside class="notes">
-                    <ul>
-                        <li></li>
-                    </ul>
-                </aside>
-            </section>
-            <section>
-                <h2>The Basics: The Interfaces</h2>
-                <div class="r-stack">
-                    <ul>
-                        <li class="fragment">Frontend. GUI: The Graphical User Interface</li>
-                        <li class="fragment">Backend. API: Adanced Programming Interface</li>
-                    </ul>
-                </div>
-                <aside class="notes">
-                    <ul>
-                        <li></li>
-                    </ul>
-                </aside>
-            </section>
-			<section data-background-image="/lectures/assets/img/orthopractice.jpg" data-background-opacity=0.2>
-				<h2>Clinical Network</h2>
-				<div class="r-stack">
-					<img class="fragment current-visible" src="/lectures/assets/img/i14y_single_software.svg" width="70%" />
-					<img class="fragment current-visible" src="/lectures/assets/img/i14y_all_software.svg" width="70%" />
-					<img class="fragment current-visible" src="/lectures/assets/img/i14y_hardware.svg" width="70%" />
-				</div>
-			</section>
-            <section data-auto-animate="">
-                <h2><a href="http://open-ortho.org">open-ortho.org</a>
-                </h2>
-                <img src="/lectures/assets/img/url_qrcodoe_open-ortho.png" width="50%">
-            </section>
+            <section data-external-replace="slides/orthodontic-informatics.html"></section>
+            <section data-external-replace="slides/outline.html"></section>
+            <section data-external-replace="slides/review.html"></section>
+            <section data-external-replace="slides/clinical-informatics-actors.html"></section>
+            <section data-external-replace="slides/requesting-images.html"></section>
+            <section data-external-replace="slides/acquiring-images.html"></section>
+            <section data-external-replace="slides/clinical-informatics-workflow.html"></section>
+            <section data-external-replace="slides/basics-database.html"></section>
+            <section data-external-replace="slides/basics-storage.html"></section>
+            <section data-external-replace="slides/basics-interfaces.html"></section>
+            <section data-external-replace="slides/clinical-network.html"></section>
+            <section data-external-replace="slides/open-ortho-org.html"></section>
         </div>
     </div>
     <script src="../common.js"></script>

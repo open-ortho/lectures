@@ -17,158 +17,18 @@
 <body>
     <div class="reveal">
         <div class="slides">
-            <section>
-                <table style="width:100%;">
-                    <tr>
-                        <td style="width: 33%;">
-                            <img src="url_qrcode.svg" style="width:100%">
-                        </td>
-                        <td style="vertical-align: top;">
-                            <h2 style="margin-top: 0px;">Orthodontic Informatics</h2>
-                            <p>Data, Imaging, and Standards in Orthodontic Practice</p>
-                            <p><small><b>Module 3</b><br />Global Efforts in Healthcare Interoperability – Where Does
-                                    Orthodontics Stand?</small></p>
-                            <p><small><em>toni magni, BME - afm@case.edu</em></small></p>
-                        </td>
-                    </tr>
-                </table>
-            </section>
-            <section>
-                <h2>Outline</h2>
-                <div class="">
-                    <ol>
-                        <li class="">Review</li>
-                        <li class="">A little history</li>
-                        <li class=""></li>
-                        <li class=""></li>
-                    </ol>
-                </div>
-            </section>
-            <section>
-                <h2>Review</h2>
-                <div class="">
-                    <ul>
-                        <li class="">Why am I teaching you this?</li>
-                        <li class="">The Problems</li>
-                        <li class="">Standards: Proprietary vs. Open</li>
-                        <li class="">Hurdles of Standards</li>
-                    </ul>
-                </div>
-                <aside class="notes">
-                    <ul>
-                        <li></li>
-                    </ul>
-                </aside>
-            </section>
-            <section data-auto-animate="">
-                <h2>Proprietary-based Interoperability</h2>
-                <ul>
-                    <li class="fragment">Custom APIs made available by Vendors</li>
-                    <li class="fragment">Documentation and implementation availability at discretion of vendor</li>
-                    <li class="fragment">Additional software that acts as bridges between these custom APIs needs to be
-                        developed</li>
-                    <li class="fragment">Single implementation allows only two vendors to link together</li>
-                </ul>
-                <aside class="notes">
-                    2 individuals can work with each other in various ways: they can come up with their own way of
-                    collaborating, or they can use a commonly known way to collaborate.
-                </aside>
-            </section>
-
-            <section data-auto-animate="">
-                <h2>Proprietary-based Interoperability</h2>
-                <ul>
-                    <li class="">Expensive solutions</li>
-                    <li class="fragment">When vendor upgrades or changes their product, the API often changes and the
-                        bridge brakes</li>
-                    <li class="fragment">Medical provider cannot see what's going on</li>
-                    <li class="fragment">Not sustainable solutions</li>
-                </ul>
-                <aside class="notes">
-                    2 individual can work with each other in various ways: they can come up with their own way of
-                    collaborating, or they can use a commonly known way to collaborate.
-                </aside>
-            </section>
-
-            <section data-auto-animate="">
-                <h2>Open Standards-based Interoperability</h2>
-                <ul>
-                    <li class="fragment">DICOM/HL7/FHIR: long-lasting standards</li>
-                    <li class="fragment">Documentation and implementation tools available online to everyone</li>
-                    <li class="fragment">Single implementation allows multiple vendor products to link together</li>
-                    <li class="fragment">Less Expensive solutions</li>
-                </ul>
-            </section>
-            <section data-auto-animate="">
-                <h2>Open Standards-based Interoperability</h2>
-                <ul>
-                    <li class="">When vendor upgrades or changes their software, they keep DICOM/HL7 part the
-                        same</li>
-                    <li class="fragment">Medical provider has the opportunity to see what's going on</li>
-                    <li class="fragment">Sustainable solution</li>
-                </ul>
-            </section>
-            <section data-auto-animate="">
-                <h2>Standards Development Process</h2>
-                <ul>
-                    <li class="fragment">Functional Profiles</li>
-                    <li class="fragment">Standards improvements/corrections</li>
-                    <li class="fragment">Implementation Guidelines/Profiles</li>
-                    <li class="fragment">Testing (Connectathons)</li>
-                </ul>
-                <aside class="notes">
-                    <ul>
-                        <li>The doctors (aka domain experts) define their needs into Functional Profiles</li>
-                        <li>The standards experts analyze (gap analysis) if the standard in question is capable of
-                            fulfilling the specific functional requirement. If something is missing, a standard correction/improvement is worked on.</li>
-                        <li>Step by step Guidelines for developers are written and published. These are instructions that a developer can use to make sure their software implements the standard properly.</li>
-                        <li>Vendors get together and test their implementations.</li>
-                        <li>When enough implementation and testing has been done, the standard becomes established.</li>
-                    </ul>
-                </aside>
-            </section>
-
-            <section>
-                <h2>What is going on</h2>
-                <div class="r-stack">
-                    <ul>
-                        <li class="fragment">1985: DICOM a standard for medical imaging </li>
-                        <li class="fragment">1989: HL7v2 a standard for medical clinical messages</li>
-                        <li class="fragment"><a href="https://cordis.europa.eu/project/id/A2014/results">1992: GEHR:
-                                the good European health record</a></li>
-                        <li class="fragment"><a href="https://www.ihe.net/testing/connectathon/">1999: IHE First
-                                Connectathon</a></li>
-                        <li class="fragment">1999: ADA forms the Standards Committee on Dental Informatics</li>
-                        <li class="fragment"><a href="https://openehr.org/about/origins">2003: openEHR</a></li>
-                        <li class="fragment">2005: HL7v3</li>
-                        <li class="fragment">2014: HL7 FHIR</li>
-                    </ul>
-                </div>
-                <aside class="notes">
-                    <ul>
-                        <li>I don't know all the history of what happened when, I will research this better in the
-                            future, but I do know enough to give you an idea.</li>
-                        <li></li>
-                    </ul>
-                </aside>
-            </section>
-            <section>
-                <h2>Connectathons</h2>
-                <img alt="Photograph of a Connectathon event, showing many people sharing long desks, which span multiple rows. Each person is an engineer working for a vendor, which is connected to a network and is testing their software with that of other competitors, to ensure proper interoperability."
-                    src="/lectures/assets/img/ihe_na_connectathon08.jpg">
-                <p>IHE North America</p>
-            </section>
-            <section>
-                <h2>Connectathons</h2>
-                <img alt="Photograph of a Connectathon event, showing many people sharing long desks, which span multiple rows. Each person is an engineer working for a vendor, which is connected to a network and is testing their software with that of other competitors, to ensure proper interoperability."
-                    src="/lectures/assets/img/IHE-Connectathon-2022-A.gif">
-                <p>IHE Europe Connectathon 2022 Montreaux</p>
-            </section>
-            <section data-auto-animate="">
-                <h2><a href="http://open-ortho.org">open-ortho.org</a>
-                </h2>
-                <img src="/lectures/assets/img/url_qrcodoe_open-ortho.png" width="50%">
-            </section>
+            <section data-external-replace="slides/orthodontic-informatics.html"></section>
+            <section data-external-replace="slides/outline.html"></section>
+            <section data-external-replace="slides/review.html"></section>
+            <section data-external-replace="slides/proprietary-based-interoperability.html"></section>
+            <section data-external-replace="slides/proprietary-based-interoperability-2.html"></section>
+            <section data-external-replace="slides/open-standards-based-interoperability.html"></section>
+            <section data-external-replace="slides/open-standards-based-interoperability-2.html"></section>
+            <section data-external-replace="slides/standards-development-process.html"></section>
+            <section data-external-replace="slides/what-going-on.html"></section>
+            <section data-external-replace="slides/connectathons.html"></section>
+            <section data-external-replace="slides/connectathons-2.html"></section>
+            <section data-external-replace="slides/open-ortho-org.html"></section>
         </div>
     </div>
     <script src="../common.js"></script>
