@@ -1,0 +1,20 @@
+<section>
+    <h2>FHIR</h2>
+    <ul>
+        <li class="fragment">Resources + REST API (plus messaging, docs, etc.)</li>
+        <li class="fragment">Profiles: constrain FHIR for a specific use case</li>
+        <li class="fragment">Spec: <a href="https://www.hl7.org/fhir/">hl7.org/fhir</a></li>
+    </ul>
+    <pre style="font-size: 0.52em;"><code>
+GET /fhir/Patient/123
+
+{
+  "resourceType": "Patient",
+  "id": "123",
+  "name": [{ "family": "Doe", "given": ["Jane"] }]
+}
+    </code></pre>
+    <aside class="notes">
+        FHIR is the modern, web-friendly interoperability layer. In practice, you implement an IG, not "raw FHIR".
+    </aside>
+</section>

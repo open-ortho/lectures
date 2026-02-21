@@ -1,0 +1,24 @@
+<section>
+    <h2>HL7 v3</h2>
+    <ul>
+        <li class="fragment">Model-driven; messages expressed in XML</li>
+        <li class="fragment">Heavier semantics than v2, less "free-form"</li>
+        <li class="fragment">Ref: <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3 product brief</a></li>
+    </ul>
+    <pre style="font-size: 0.50em;"><code>
+&lt;PRPA_IN201301UV02 xmlns=&quot;urn:hl7-org:v3&quot;&gt;
+  &lt;id root=&quot;2.16.840.1.113883.3.72&quot; extension=&quot;MSG00002&quot;/&gt;
+  &lt;creationTime value=&quot;20260221153000&quot;/&gt;
+  &lt;interactionId extension=&quot;PRPA_IN201301UV02&quot;/&gt;
+  &lt;controlActProcess&gt;...&lt;/controlActProcess&gt;
+&lt;/PRPA_IN201301UV02&gt;
+    </code></pre>
+    <aside class="notes">
+        <ul>
+            <li>Example is intentionally trimmed; v3 is a suite of specs built around the RIM.</li>
+            <li>This snippet shows a v3 interaction wrapper (an "interaction" is a typed message/event in a specific domain).</li>
+            <li>PRPA interactions are in the Patient Administration domain; PRPA_IN201301UV02 is commonly used in patient identity / patient registry flows.</li>
+            <li>The wrapper provides metadata: message id, creation time, interaction id, and then a structured payload (controlActProcess ...).</li>
+        </ul>
+    </aside>
+</section>

@@ -1,0 +1,24 @@
+<section>
+    <h2>HL7 v2</h2>
+    <ul>
+        <li class="fragment">Pipe-delimited messages between systems</li>
+        <li class="fragment">Very common in hospitals: ADT, orders, results</li>
+        <li class="fragment">Ref: <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=185">HL7 v2 product brief</a></li>
+    </ul>
+    <pre style="font-size: 0.55em;"><code>
+MSH|^~\&|EHR|HOSP|LAB|HOSP|202602211530||ORU^R01|MSG00001|P|2.5.1
+PID|1||123456^^^HOSP^MR||DOE^JANE||19900101|F
+OBR|1||54321^LAB|88304^PATHOLOGY^LN
+OBX|1|TX|NOTE||Specimen received.
+    </code></pre>
+    <aside class="notes">
+        <ul>
+            <li>v2 is pragmatic and widely deployed; many integrations still start here.</li>
+            <li>This example is an ORU^R01 "Observation Result" message: a lab system (or similar) sends results back to an EHR.</li>
+            <li>MSH is the message header (who/when/what type).</li>
+            <li>PID identifies the patient.</li>
+            <li>OBR is the order/request context for the result.</li>
+            <li>OBX carries one observation/result value.</li>
+        </ul>
+    </aside>
+</section>
