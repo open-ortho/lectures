@@ -6,6 +6,7 @@ const scripts = [
     '/lectures/plugin/notes/notes.js',
     '/lectures/plugin/markdown/markdown.js',
     '/lectures/plugin/highlight/highlight.js',
+    '/lectures/plugin/external/external.js',
 ];
 
 // Function to load a script and return a promise that resolves when the script loads
@@ -20,14 +21,16 @@ function loadScript(src) {
 }
 
 // Load all scripts sequentially
-Promise.all(scripts.map(loadScript))
+scripts.reduce((promise, script) => {
+    return promise.then(() => loadScript(script));
+}, Promise.resolve())
     .then(() => {
         // All scripts are loaded, now initialize Reveal.js
         Reveal.initialize({
             hash: true,
             slideNumber: 'c/t',
             transition: 'fade',
-            plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealExternal],
         });
 
         // Additional Reveal configuration
