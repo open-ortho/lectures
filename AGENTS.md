@@ -51,13 +51,16 @@ work with plain `file://` opens.
 
 - `index.html` – main site landing page (dark theme).
 - `assets/css/index.css` – shared styling for index pages.
-- `slides/**/index.html` – reveal.js slide decks.
+- `slides/**/index.html` – reveal.js deck entry files (slide manifest/order).
+- `slides/**/slides/*.html` – one file per slide (HTML source of truth).
 - `slides/orthodontic-informatics/common.js` – shared reveal.js loader.
+- `plugin/external/external.js` – custom Reveal plugin for external slide loading.
 - `dist/`, `plugin/` – vendored reveal.js runtime.
 
 ## Vendor / Generated Assets
 
-- Treat `dist/` and `plugin/` as vendored. Do not hand-edit.
+- Treat `dist/` and most of `plugin/` as vendored. Do not hand-edit vendored files.
+- Exception: `plugin/external/external.js` is project-maintained custom code.
 - Upgrades follow the process in `README.md` using reveal.js zip contents.
 
 ## Code Style Guidelines
@@ -75,8 +78,12 @@ introducing new tooling.
 
 ### HTML (Slides)
 
-- Use reveal.js structure:
-  - `<div class="reveal"><div class="slides">` with `<section>` per slide.
+- Author slides in HTML (not Markdown) for maximum layout/control flexibility.
+- One-file-per-slide approach:
+  - Put each slide in `slides/**/slides/<slug>.html` as a full `<section>...</section>`.
+  - In `slides/**/index.html`, keep ordered placeholders:
+    - `<section data-external-replace="slides/<slug>.html"></section>`
+  - Prefer `data-external-replace` (not `data-external`) to avoid nested `<section>` blank-slide issues.
 - Use absolute `/lectures/...` paths for slide assets and reveal.js files.
 - Use the night theme and highlight theme consistent with existing decks.
 - Use `alt` text for images; keep it descriptive but concise.
@@ -109,6 +116,7 @@ introducing new tooling.
 
 - Filenames: lowercase with hyphens (e.g., `2024-aao-vendors-meeting`).
 - Slide modules: `module1`, `module2`, etc.
+- Slide filenames: abbreviated title-based slugs from the slide heading (`<h2>`, fallback `<h3>`), lowercase hyphenated.
 - Image assets: descriptive names, existing files are mixed case; avoid renames
   unless necessary to prevent broken links.
 
@@ -118,6 +126,30 @@ introducing new tooling.
   and GitHub Pages.
 - Index pages: use relative paths since they are at the repo root or module root.
 - Keep reveal.js includes aligned with current deck templates.
+- If a slide file moves under `slides/**/slides/`, fix local relative assets accordingly
+  (example: `url_qrcode.svg` becomes `../url_qrcode.svg`).
+
+### Reveal Loader Customizations
+
+- `slides/orthodontic-informatics/common.js` is intentionally customized:
+  - Scripts are loaded sequentially (not `Promise.all`) to ensure Reveal is ready before plugin init.
+  - Loads `/lectures/plugin/external/external.js`.
+  - Registers `RevealExternal` in `Reveal.initialize({ plugins: [...] })`.
+- `plugin/external/external.js` is a Reveal 4-compatible adaptation of the external loader plugin.
+- Rationale: HTML was chosen over Markdown because it provides more flexibility for complex slide content; extra authoring complexity is acceptable and handled by LLM-assisted workflows.
+
+### Reveal.js Upgrade Watchouts
+
+- Upgrading reveal.js can break external loading if plugin APIs change.
+- Re-check these integration points after upgrade:
+  - `RevealExternal` registration still works in `plugins: [...]`.
+  - Plugin methods used by custom external loader (`init(reveal)`, `getConfig()`, `getRevealElement()`, `sync()`, `setState()`) are still valid.
+  - Script paths/names in `common.js` still match upgraded reveal distribution.
+- Do not overwrite `plugin/external/external.js` during vendor refresh.
+- Manual regression check required for every upgraded module deck:
+  - No blank slides
+  - No console errors (especially Reveal/plugin init errors)
+  - External slide files load and render in order
 
 ### Error Handling
 
