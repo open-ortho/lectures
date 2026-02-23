@@ -46,6 +46,7 @@ NB: the web server is only there because using absolute paths for common librari
 
 - `make` or `make help` shows available targets
 - `make serve` runs the local dev server
+- `make detect-browser` locates Chrome/Chromium for Mermaid CLI
 - `make diagrams` renders Mermaid diagrams
 - `make qrcodes` generates QR codes for slide decks
 - `make clean` removes generated artifacts
