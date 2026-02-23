@@ -1,0 +1,21 @@
+%%{init: {"flowchart": {"nodeSpacing": 40, "rankSpacing": 55}}}%%
+flowchart TB
+    B5[External Terminologies<br/>and Codes]
+    B4[Codes Translator<br/>Terminology Service]
+
+    subgraph bottom[ ]
+        direction LR
+        B1[Images<br/>PACS<br/>MIMPS]
+        B2[Practice Mgmt / EHR / PMS<br/>Central Authority]
+        B3[Other Documents<br/>VNA]
+    end
+
+    style bottom fill:transparent,stroke:transparent
+
+    B2 -- Patient and Encounter Information --> B1
+    B2 -- Patient and other Information --> B3
+
+    B2 <--> |Provide and get local/global terminology| B4
+    B4 --> B1
+    B4 --> B3
+    B5 <--> B4

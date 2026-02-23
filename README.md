@@ -42,6 +42,29 @@ NB: the web server is only there because using absolute paths for common librari
 1. Install `qrencode` with `apt`, `yum`, `brew`, ...
 2. `make qrcodes`
 
+### Mermaid Diagrams (Generated SVGs)
+
+Mermaid diagrams live in `assets/diagrams/` and are rendered to SVGs under
+`assets/generated/diagrams/` during build. Each diagram renders to `*.dark.svg` and
+`*.light.svg` with a transparent background, so slides can switch by theme.
+
+#### Nix + direnv (recommended)
+
+1. Install `nix` and `direnv`
+2. Run `direnv allow`
+3. On macOS, install Chrome and set `PUPPETEER_EXECUTABLE_PATH` to the Chrome binary
+4. Render diagrams: `make diagrams`
+
+#### Non-Nix
+
+1. Install Node.js 20+
+2. Install Chrome or Chromium and set `PUPPETEER_EXECUTABLE_PATH` to the browser binary
+3. `npm install`
+4. Render diagrams: `make diagrams`
+
+The rendered SVGs are not committed. Run the render step before local preview or
+any GitHub Actions deploy step.
+
 ### Styling
 
 - **Slides**: Use reveal.js themes (currently "night" theme) configured in each presentation's `index.html`
@@ -64,4 +87,3 @@ This project is being hosted as a static site on GitHub Pages from the `main` br
         cd -
         rsync -av --delete ~/Downloads/reveal.js-master/plugin/ plugin/
         rsync -av --delete ~/Downloads/reveal.js-master/dist/ dist/
-

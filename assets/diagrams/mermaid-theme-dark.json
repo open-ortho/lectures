@@ -1,0 +1,12 @@
+{
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#111827",
+    "primaryTextColor": "#e2e8f0",
+    "primaryBorderColor": "#334155",
+    "lineColor": "#94a3b8",
+    "tertiaryColor": "#0b1f34",
+    "fontFamily": "Avenir Next, Avenir, Trebuchet MS, sans-serif",
+    "nodeBorderRadius": "12"
+  }
+}

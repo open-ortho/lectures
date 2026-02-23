@@ -1,6 +1,6 @@
 BASE_URL = https://open-ortho.org/lectures/
 
-.PHONY: qrcodes
+.PHONY: qrcodes diagrams
 
 qrcodes:
 	@if ! command -v qrencode > /dev/null 2>&1; then \
@@ -18,3 +18,11 @@ qrcodes:
 		echo "Generating QR code for URL: $${url}"; \
 		qrencode -t SVG -o "$${dir}/url_qrcode.svg" "$${url}"; \
 	done
+
+diagrams:
+	@if ! command -v npm > /dev/null 2>&1; then \
+		echo "Error: npm is not installed."; \
+		echo "Install Node.js 20+ and npm to render diagrams."; \
+		exit 1; \
+	fi
+	@npm run diagrams

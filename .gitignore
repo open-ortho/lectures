@@ -1,1 +1,5 @@
 .DS_Store
+.direnv/
+result
+node_modules/
+assets/generated/diagrams/*.svg

@@ -1,0 +1,10 @@
+{
+  "name": "open-ortho-lectures",
+  "private": true,
+  "scripts": {
+    "diagrams": "node scripts/render-diagrams.mjs"
+  },
+  "devDependencies": {
+    "@mermaid-js/mermaid-cli": "^10.9.1"
+  }
+}
