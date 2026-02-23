@@ -33,11 +33,12 @@ qrcodes:
 	done
 
 detect-browser:
-	@if [ -n "$$PUPPETEER_EXECUTABLE_PATH" ]; then \
+	@set -e; \
+	if [ -n "$$PUPPETEER_EXECUTABLE_PATH" ]; then \
 		echo "$$PUPPETEER_EXECUTABLE_PATH"; \
 		exit 0; \
-	fi
-	@for candidate in \
+	fi; \
+	for candidate in \
 		"/Applications/Chromium.app/Contents/MacOS/Chromium" \
 		"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
 		"$$HOME/Applications/Chromium.app/Contents/MacOS/Chromium" \
@@ -49,10 +50,10 @@ detect-browser:
 			echo "$$candidate"; \
 			exit 0; \
 		fi; \
-	done
-	@echo "Error: PUPPETEER_EXECUTABLE_PATH is not set and no Chrome/Chromium was found." 1>&2
-	@echo "Install Chrome/Chromium or set PUPPETEER_EXECUTABLE_PATH to the browser binary." 1>&2
-	@exit 1
+	done; \
+	echo "Error: PUPPETEER_EXECUTABLE_PATH is not set and no Chrome/Chromium was found." 1>&2; \
+	echo "Install Chrome/Chromium or set PUPPETEER_EXECUTABLE_PATH to the browser binary." 1>&2; \
+	exit 1
 
 diagrams:
 	@set -e; \
@@ -61,7 +62,7 @@ diagrams:
 		echo "Install mermaid-cli (mmdc) or Node.js 20+ with npm."; \
 		exit 1; \
 	fi; \
-	browser=$$($(MAKE) -s detect-browser 2>/dev/null || true); \
+	browser=$$($(MAKE) -s --no-print-directory detect-browser 2>/dev/null || true); \
 	if [ -z "$$browser" ]; then \
 		echo "Error: PUPPETEER_EXECUTABLE_PATH is not set and no Chrome/Chromium was found."; \
 		echo "Install Chrome/Chromium or set PUPPETEER_EXECUTABLE_PATH to the browser binary."; \
