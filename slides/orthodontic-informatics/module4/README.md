@@ -2,24 +2,19 @@
 
 ## Goal
 
-Answer the question students ask from day one: "What is the best software out there?"
+Prepare students to evaluate software in the real world:
 
-This module is meant to teach students how to figure out what the best software is for them:
-
-- What questions to ask.
-- What to look for in data portability and interoperability.
-- How to approach vendors and evaluate claims.
+- What questions to ask (and how to validate answers).
+- How to spot hidden interoperability features (e.g., DICOM that is not enabled).
+- How to prove interoperability with neutral tools (Horos, Weasis, MicroDicom, Orthanc).
 - How to avoid lock-in, surprise costs, and long-term data risk.
 
-## Current State
+## Key Points Covered
 
-Module 4 is currently a draft and will be expanded/refined later.
-
-## Key Points Covered (Current Draft)
-
-- Practical actions clinics can take (including contract and procurement posture).
-- When PACS/archiving concepts matter.
-- How to ask about software support and interoperability in vendor conversations.
+- Evaluation framework: portability, interoperability, resilience, total cost.
+- Demo and procurement playbook (export, import, bidirectional integration).
+- Hidden i14y features and how to activate/test them.
+- Owning the archive (PACS/VNA, starting small).
 
 ## Deck
 
