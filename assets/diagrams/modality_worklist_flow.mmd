@@ -1,0 +1,12 @@
+%%{init: {"flowchart": {"nodeSpacing": 50, "rankSpacing": 60}}}%%
+flowchart LR
+    A{Images required to continue treatment?}
+    B[Staff logs decision in PMS/EHR and schedules appointment]
+    C[Normal clinical workflow continues]
+    D[Scheduled appointment type is recognized by PMS as one that requires requesting an image acquisition]
+    E[PMS generates Request/Worklist and serves it on the network]
+
+    A -- yes --> B
+    A -- no --> C
+    B -- Image acquisition requires scheduling --> D
+    D -- patient checks in --> E

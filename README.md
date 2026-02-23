@@ -48,18 +48,19 @@ NB: the web server is only there because using absolute paths for common librari
 - `make serve` runs the local dev server
 - `make diagrams` renders Mermaid diagrams
 - `make qrcodes` generates QR codes for slide decks
+- `make clean` removes generated artifacts
 
 ### Mermaid Diagrams (Generated SVGs)
 
 Mermaid diagrams live in `assets/diagrams/` and are rendered to SVGs under
-`assets/generated/diagrams/` during build. Each diagram renders to `*.dark.svg` and
-`*.light.svg` with a transparent background, so slides can switch by theme.
+`assets/generated/diagrams/` during build. Each diagram renders to a single
+`*.svg` with a fixed white background.
 
 #### Nix + direnv (recommended)
 
 1. Install `nix` and `direnv`
 2. Run `direnv allow`
-3. On macOS, install Chrome and set `PUPPETEER_EXECUTABLE_PATH` to the Chrome binary
+3. On macOS, install Chrome or Chromium and set `PUPPETEER_EXECUTABLE_PATH` to the browser binary
 4. Render diagrams: `make diagrams`
 
 #### Non-Nix
