@@ -32,7 +32,7 @@ This presentation is written using the [reveal.js presentation framework](https:
 * Slide content are in the [index.html](./index.html) file. Add and remove slides by adding and removing `<section>` tags.
 * Slide configuration is also in the [index.html](./index.html) file.
 * The framework is in the [dist](./dist) and [plugin](./plugin) folders.
-* Run `./serve.py`
+* Run `make serve`
 * View the changes by opening the `http://127.0.0.1:54385/lectures/` file with your browser.
 
 NB: the web server is only there because using absolute paths for common libraries like common.js is the easiest way to deal with using them from different locations. Then the absolute paths would not work locally for development. Hence the development server.
@@ -41,6 +41,13 @@ NB: the web server is only there because using absolute paths for common librari
 
 1. Install `qrencode` with `apt`, `yum`, `brew`, ...
 2. `make qrcodes`
+
+### Common Make Targets
+
+- `make` or `make help` shows available targets
+- `make serve` runs the local dev server
+- `make diagrams` renders Mermaid diagrams
+- `make qrcodes` generates QR codes for slide decks
 
 ### Mermaid Diagrams (Generated SVGs)
 

@@ -1,6 +1,15 @@
 BASE_URL = https://open-ortho.org/lectures/
 
-.PHONY: qrcodes diagrams
+.PHONY: help qrcodes diagrams serve
+
+default: help
+
+help:
+	@echo "Available targets:"
+	@echo "  help      Show this help message"
+	@echo "  serve     Run the local dev server"
+	@echo "  diagrams  Render Mermaid diagrams"
+	@echo "  qrcodes   Generate QR codes for slides"
 
 qrcodes:
 	@if ! command -v qrencode > /dev/null 2>&1; then \
@@ -26,3 +35,6 @@ diagrams:
 		exit 1; \
 	fi
 	@npm run diagrams
+
+serve:
+	@python3 serve.py
