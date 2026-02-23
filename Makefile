@@ -13,7 +13,6 @@ help:
 	@echo "  detect-browser  Locate Chrome/Chromium for Mermaid CLI"
 	@echo "  diagrams  Render Mermaid diagrams"
 	@echo "  qrcodes   Generate QR codes for slides"
-	@echo "  clean     Remove generated artifacts"
 
 qrcodes:
 	@if ! command -v qrencode > /dev/null 2>&1; then \
@@ -83,9 +82,6 @@ diagrams:
 			npx mmdc -i "$$file" -o "$$out" $(DIAGRAMS_OPTS); \
 		fi; \
 	done
-
-clean:
-	@rm -rf assets/generated/diagrams
 
 serve:
 	@python3 serve.py
