@@ -2,4 +2,4 @@
 .direnv/
 result
 node_modules/
-assets/generated/diagrams/*.svg
+# assets/generated/diagrams/ is intentionally tracked in git (built on demand like QR codes)
