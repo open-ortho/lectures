@@ -27,6 +27,7 @@
             packages = [
               pkgs.nodejs_20
               pkgs.nodePackages."@mermaid-js/mermaid-cli"
+              pkgs.python3
             ]
             ++ pkgs.lib.optionals pkgs.stdenv.isLinux [ pkgs.chromium ];
             shellHook =
