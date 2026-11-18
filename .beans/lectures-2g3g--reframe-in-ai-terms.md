@@ -1,11 +1,11 @@
 ---
 # lectures-2g3g
 title: Reframe in AI terms
-status: todo
+status: in-progress
 type: task
 priority: normal
 created_at: 2026-09-28T04:28:34Z
-updated_at: 2026-09-28T09:29:36Z
+updated_at: 2026-11-18T18:39:32Z
 ---
 
 Today, people are mainly interested in AI, AI is the hype, the buzzword. People
@@ -15,24 +15,13 @@ there is a strong connection between interoperability and AI, which i was giving
 for granted, this should be emphasized and clarified and used to hook the
 audience.
 
-One possible hook/abstract could be something like: "Everyone is talking about
-AI these days, ai for this, ai for that, add it in this product, how do i use to
-achieve that, all application level. But nobody is talking about the foundation
-of it, not the math/statistics behind LLM, but the importance of structured
-data. Just like you can't do much when everything is a mess, so can't the AI,
-and it has to spend enormous amount of time cleaning up the mess first. This is
-what i will talk about, how to avoid the mess which you currently have, and how
-to clean it up, s.t. using AI will then be orders of magnitude more
-powerful/genrate more useufl data."
-
-Once i have an abstract, we can draft out the plan for how to reframe the
-orthodontic-informatics course.
-
 ## Abstract
 
 **Proposed title:** Before AI Can Help Your Practice, Your Data Has to Work
 
-AI promises to help orthodontists make sense of clinical information, follow treatment progress, and support decisions. But what happens when diagnoses, medical histories, treatment notes, encounters, and images are scattered across systems, inconsistently recorded, or disconnected from the right patient and time point? This course follows a patient's clinical record through an orthodontic practice to show why these everyday problems matter for both care and AI. You'll learn how clinical data is captured and exchanged, what standards can make possible, and how to test a vendor's claims rather than take them on faith. You won't need to build an AI model: you'll leave knowing what to ask for so your practice's data remains usable, portable, and ready for future tools.
+Start with a useful ambition: delegate a task such as preparing a case for the next visit. This is an illustrative teaching task, not a demonstrated top priority for residents. When we copy notes, label images, reconcile dates and reformat information before feeding it to AI, we are doing the adapting ourselves. Clinical software should preserve meaningful records and normalize reusable context for export and authorized retrieval/exchange, so clinicians and permitted tools do not repeatedly rebuild the same input. This course explains what must survive that exchange and how to ask for evidence that it works. Standards support reuse; they do not guarantee compatible systems, safe access or correct AI results.
+
+**M3 proposal:** [High-level 60-minute plan](../slides/orthodontic-informatics/module3/PLAN.md). Proposal-only documentation is drafted for second-year orthodontic residents; the current deck is unchanged. The broader course reframe and slide implementation remain unfinished. The plan's section structure and presenter-supplied story details still require review before separately authorized slide work.
 
 ## Plan
 
@@ -76,7 +65,9 @@ Speaker line: 'AI can help us clean up yesterday's mess. It should not be our pl
 
 ### Abstract
 
-L'intelligenza artificiale promette di aiutare gli ortodontisti a interpretare i dati clinici, seguire l'evoluzione dei trattamenti e supportare le decisioni. Ma cosa succede se diagnosi, anamnesi, note di trattamento, visite e immagini sono sparse tra sistemi diversi, registrate in modo incoerente o non collegate al paziente e al momento giusti? Questo corso segue la cartella clinica di un paziente attraverso uno studio ortodontico per mostrare perché questi problemi quotidiani contano sia per la cura sia per l'IA. Scoprirai come vengono raccolti e scambiati i dati clinici, che cosa rendono possibile gli standard e come verificare concretamente le promesse dei fornitori. Non dovrai sviluppare un modello di IA: imparerai quali domande porre affinché i dati del tuo studio restino utilizzabili, trasferibili e pronti per gli strumenti futuri.
+Partiamo da un obiettivo utile: delegare un compito, per esempio preparare un caso prima della visita successiva. È un esempio didattico, non una priorità principale dimostrata per gli specializzandi. Quando copiamo note, etichettiamo immagini, riconciliamo date e riformattiamo informazioni prima di passarle all'IA, siamo noi a fare da adattatori tra i sistemi. Il software clinico dovrebbe conservare informazioni significative e normalizzare il contesto riutilizzabile per l'esportazione e il recupero/scambio autorizzato, affinché clinici e strumenti autorizzati non debbano ricostruire ogni volta gli stessi dati di ingresso. Il corso spiega che cosa deve sopravvivere allo scambio e quali prove chiedere per verificarlo. Gli standard favoriscono il riuso, ma non garantiscono compatibilità, accesso sicuro o risultati corretti dell'IA.
+
+**Proposta per M3:** [Piano di alto livello da 60 minuti](../slides/orthodontic-informatics/module3/PLAN.md). È una proposta documentale per specializzandi del secondo anno; le slide attuali non sono cambiate. La riformulazione dell'intero corso e l'implementazione delle slide restano incompiute. La struttura e i dettagli del racconto personale del relatore richiedono ancora revisione prima di un intervento sulle slide autorizzato separatamente.
 
 ### Sintesi dei moduli
 

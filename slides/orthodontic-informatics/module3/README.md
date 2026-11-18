@@ -1,5 +1,17 @@
 # Orthodontic Informatics - Module 3
 
+## Proposed reframe (not yet implemented)
+
+[Read the proposed 60-minute M3 plan](PLAN.md) for second-year orthodontic residents.
+It contrasts repeatedly feeding manually prepared information to AI with preserving
+reusable clinical context for export and authorized retrieval/exchange. The plan
+includes learning objectives, section timings, a bounded presenter-story outline,
+module boundaries and approval criteria. It is a proposal only: the current deck
+is unchanged, and the broader course reframe and slide implementation remain
+unfinished.
+
+The sections below describe the **current deck**, not the proposed replacement.
+
 ## Goal
 
 Explain interoperability strategies and how standards-based ecosystems work, so students can recognize
