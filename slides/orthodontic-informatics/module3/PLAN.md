@@ -13,7 +13,7 @@ The [current deck](index.html) is unchanged. This proposal requests approval of 
 By the end of the proposed lecture, residents should be able to:
 
 1. Explain how manual preparation for AI can make the clinician perform work that clinical software should make reusable.
-2. Distinguish three operations from one another: exporting a portable copy of clinical records, retrieving records from the source system under limited authorization, and returning a reviewable result. Explain what clinical context must be preserved in each operation.
+2. Identify what clinical software must make available so another authorized tool can use its data without the clinician manually collecting, reformatting, and explaining the records each time.
 3. Compare integration using vendor-specific interfaces with integration using shared open clinical standards, without assuming that either approach guarantees compatibility, safety or clinical accuracy.
 4. Describe the different jobs of clinical data standards, an AI harness and MCP, and identify where access must be enforced.
 5. Turn a clinical need into an exchange requirement and explain how standards development and Connectathons help test it, while leaving local workflow validation necessary.
