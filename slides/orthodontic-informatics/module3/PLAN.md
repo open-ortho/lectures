@@ -13,8 +13,8 @@ The [current deck](index.html) is unchanged. This proposal requests approval of 
 By the end of the proposed lecture, residents should be able to:
 
 1. Explain how manual preparation for AI can make the clinician perform work that clinical software should make reusable.
-2. Distinguish a portable export, permission-limited retrieval and returning a reviewable result, including the context each must retain.
-3. Compare proprietary interfaces and open standards without treating either label as proof of compatibility, safety or clinical accuracy.
+2. Distinguish three operations from one another: exporting a portable copy of clinical records, retrieving records from the source system under limited authorization, and returning a reviewable result. Explain what clinical context must be preserved in each operation.
+3. Compare integration using vendor-specific interfaces with integration using shared open clinical standards, without assuming that either approach guarantees compatibility, safety or clinical accuracy.
 4. Describe the different jobs of clinical data standards, an AI harness and MCP, and identify where access must be enforced.
 5. Turn a clinical need into an exchange requirement and explain how standards development and Connectathons help test it, while leaving local workflow validation necessary.
 
@@ -27,7 +27,7 @@ The allocation includes discussion and transitions; it is a section plan, not a 
 | 0–7 | 7 | **Start with useful delegation.** What would you want a tool to prepare before a visit, and what would it need? | Introduce case preparation using synthetic or appropriately deidentified teaching records. Identify history, diagnoses, notes, encounters and images without asserting that the task is residents' main pain point. |
 | 7–15 | 8 | **Who is doing the adapting?** What did the human already select, label and reconcile before AI saw the case? | Contrast manual feeding with reuse through permitted system operations. Use the presenter's bounded personal story, below, without implying a completed clinical integration. |
 | 15–27 | 12 | **Make context reusable.** What must survive movement between systems? | Separate export, retrieval and result return; preserve identity, time, meaning, originals and provenance. Draw a controlled exchange, not universal model access. |
-| 27–39 | 12 | **Choose an exchange contract.** What changes when two vendors use a private interface or a shared standard? | Retain proprietary-versus-open comparison; distinguish clinical meaning from tool access. Explain the roles and limits of DICOM, HL7/FHIR and MCP at a conceptual level. |
+| 27–39 | 12 | **Choose an exchange contract.** What changes when two vendors integrate using vendor-specific interfaces rather than shared open clinical standards? | Compare these two integration approaches; distinguish clinical meaning from tool access. Explain the roles and limits of DICOM, HL7/FHIR and MCP at a conceptual level. |
 | 39–49 | 10 | **Clinicians help define what gets exchanged.** Who specifies the clinical need and tests implementations? | Follow a requirement through standards development, implementation guidance and Connectathon testing; compress the historical timeline into brief context. |
 | 49–56 | 7 | **Apply the argument.** Can a second authorized tool reuse the case without the clinician rebuilding it? | Residents identify missing context, excessive permissions and unreviewed output in a proposed teaching exchange; distinguish a testable requirement from a vendor claim. |
 | 56–60 | 4 | **Synthesis and handoff.** What would count as evidence when choosing software? | Check objectives and hand evaluation questions to M4; do not run a procurement workshop here. |
@@ -95,7 +95,7 @@ Approve or revise the high-level proposal only when:
 - The section allocation fits 60 minutes and the objectives suit second-year orthodontic residents without requiring programming knowledge.
 - The presenter confirms the actual story details and limits; all unspecified evidence remains a slot, not a factual claim.
 - Export, retrieval, result return and human-reviewed writeback remain distinct, with originals and clinically meaningful metadata preserved.
-- Proprietary versus open standards, clinician requirements, standards development and Connectathons remain substantive; the timeline is shortened.
+- The comparison of integration using vendor-specific interfaces with integration using shared open clinical standards, clinician requirements, standards development and Connectathons remain substantive; the timeline is shortened.
 - The harness/MCP distinction and external permission enforcement are clear, with no promise that standards ensure safe or correct AI.
 - The M1–M4 boundaries are accepted, and any later slide work is explicitly authorized as a separate implementation stage.
 
