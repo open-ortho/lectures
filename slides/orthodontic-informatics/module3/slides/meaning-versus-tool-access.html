@@ -1,11 +1,11 @@
 <section data-duration="120">
-    <p><small>27–39 · Choose an exchange contract</small></p>
     <h2 style="font-size:1.4em">A tool connection is not a clinical agreement</h2>
     <table style="font-size:0.72em"><tr><th>Clinical exchange contract</th><th>AI tool access</th></tr>
     <tr><td>DICOM / applicable HL7 standards<br>+ profiles + terminology</td><td>Harness + selected tools<br>possibly exposed through MCP</td></tr>
     <tr><td>What does this record mean?</td><td>Which operation can the application request?</td></tr></table>
     <p class="fragment">The resource service still decides what this identity may access.</p>
     <aside class="notes">
+        <p>27–39 · Choose an exchange contract</p>
         <p>Reconnect the email story to the clinical analogy without claiming that installing MCP connects a chart safely. A selected tool could retrieve a clinical document using an underlying API, but the record's meaning still depends on its clinical contract. The harness manages the model-tool interaction; MCP can expose operations in a common way; neither determines that a diagnosis code, measurement or encounter link is clinically appropriate. The service receiving the request enforces permissions for the consuming identity. Present these as different jobs that may coexist, not three interchangeable technologies. Ask what remains missing if a tool returns a number successfully but drops its unit. The transport and invocation worked; the exchange did not retain enough meaning for the clinical task. That failure is something clinicians can help specify and test.</p>
     </aside>
 </section>

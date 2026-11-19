@@ -1,10 +1,10 @@
 <section data-duration="120">
-    <p><small>7–15 · Who is adapting?</small></p>
     <h2 style="font-size:1.4em">Two limits, doing different jobs</h2>
     <table style="font-size:0.75em"><tr><th>Filter the tools</th><th>Restrict the account</th></tr>
     <tr><td>Remove or limit operations<br>the harness can request.</td><td>Give the agent its own identity.<br>The service limits its resources and actions.</td></tr></table>
     <p class="fragment">Both controls matter.<br>The agent does not inherit all of my human access.</p>
     <aside class="notes">
+        <p>7–15 · Who is adapting?</p>
         <p>In the presenter's workflow the MCP servers are filtered or modified, and agents have their own accounts with independently restricted permissions on the underlying resources. Removing an operation from a tool list narrows what the harness can request through that route. It is not proof that the same account cannot reach the resource through another route. Resource-side permissions therefore matter independently: the service checks what this particular identity may read or change. Conversely, a restricted account may still expose more operations than this task needs, so tool filtering is also useful. Do not turn this into a security guarantee or deployment tutorial. Ask which layer should reject a forbidden resource request even if a model asks convincingly: the service enforcing the account's permissions, not the model's discretion.</p>
     </aside>
 </section>

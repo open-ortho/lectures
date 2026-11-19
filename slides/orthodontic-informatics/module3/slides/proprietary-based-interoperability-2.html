@@ -1,5 +1,4 @@
 <section data-duration="180">
-    <p><small>27–39 · Choose an exchange contract</small></p>
     <h2 style="font-size:1.4em">Ask both approaches the same questions</h2>
     <table style="font-size:0.68em"><tr><th>Evidence to request</th><th>Vendor-specific integration</th><th>Standards-based integration</th></tr>
     <tr><td>What is agreed?</td><td>API + mapping documentation</td><td>Version + profiles + supported operations</td></tr>
@@ -7,6 +6,7 @@
     <tr><td>Does it still work?</td><td>Regression tests after change</td><td>Regression tests after change</td></tr></table>
     <p class="fragment"><small>Shared specifications may reduce repeated work—not guarantee lower cost or stable upgrades.</small></p>
     <aside class="notes">
+        <p>27–39 · Choose an exchange contract</p>
         <p>Use one row at a time. Documentation must describe what the receiving implementation actually understands, not just advertise an interface. Maintenance needs a named owner regardless of whether the contract is private or shared. Shared specifications can reduce bespoke translation and permit reuse of tools, but unsupported fields, mismatched versions or local extensions can still require work. Vendor-specific integration can be appropriate when it meets a needed workflow and has a supportable contract. Neither public documentation nor standards branding proves total cost. Ask who will notice if an upgrade drops the source link while leaving the summary readable. A regression test of the actual case should catch that on either path. Keep procurement negotiation for M4; today residents turn claims into exchange requirements they can test.</p>
     </aside>
 </section>

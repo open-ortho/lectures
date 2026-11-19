@@ -1,11 +1,11 @@
 <section data-duration="180">
-    <p><small>7–15 · Who is adapting?</small></p>
     <h2 style="font-size:1.4em">How does the model reach a tool?</h2>
     <p style="font-size:0.85em">Model ↔ <strong>harness</strong> ↔ selected email tools ↔ email service</p>
     <dl style="font-size:0.72em"><dt>Harness</dt><dd>The surrounding software that connects the model to tools and manages their interaction.</dd>
     <dt class="fragment">Model Context Protocol (MCP)</dt><dd class="fragment">A common protocol through which servers expose tools to the harness.</dd></dl>
     <p class="fragment"><small>A tool connection does not supply clinical meaning or grant permission by itself.</small></p>
     <aside class="notes">
+        <p>7–15 · Who is adapting?</p>
         <p>Describe the harness as the surrounding application, not another model: it passes available tool descriptions to the model, handles requests, obtains results and continues the interaction. In this story, filtered and modified MCP servers expose selected email operations. A server here is software providing the operations; it need not mean a separate physical machine. MCP standardizes how tools and their results can be presented to the AI application. It does not define an orthodontic diagnosis, reconcile patient identity or authorize access just because a tool exists. The arrow is conceptual: details such as MCP clients inside the harness are not needed for today's judgment. Ask a resident to point to what actually stores the draft: the email service, reached through a tool, rather than the model's prose alone. Source: https://modelcontextprotocol.io/docs/learn/architecture</p>
     </aside>
 </section>

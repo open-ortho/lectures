@@ -5,7 +5,7 @@ status: in-progress
 type: task
 priority: normal
 created_at: 2026-09-28T04:28:34Z
-updated_at: 2026-11-19T21:52:33Z
+updated_at: 2026-11-19T22:12:26Z
 ---
 
 Today, people are mainly interested in AI, AI is the hype, the buzzword. People
@@ -21,7 +21,7 @@ audience.
 
 Start with a useful ambition: delegate a task such as preparing a case for the next visit. This is an illustrative teaching task, not a demonstrated top priority for residents. When we copy notes, label images, reconcile dates and reformat information before feeding it to AI, we are doing the adapting ourselves. Clinical software should preserve meaningful records and normalize reusable context for export and authorized retrieval/exchange, so clinicians and permitted tools do not repeatedly rebuild the same input. This course explains what must survive that exchange and how to ask for evidence that it works. Standards support reuse; they do not guarantee compatible systems, safe access or correct AI results.
 
-**M3 implementation:** The approved [60-minute direction](../slides/orthodontic-informatics/module3/PLAN.md) is implemented in 24 HTML slides for second-year orthodontic residents. The deck includes the bounded email story, synthetic clinical case, exchange/access requirements, equivalent integration comparison, clinician-led requirements, Connectathon limits and paired exercise. Independent passage-cited comprehension review of all 24 slides and separate technical checks passed; all 24 slides loaded in real Chromium without JavaScript or HTTP failures. The implementation is verified for PR review; lecturer-led timed rehearsal remains pending. The broader four-module reframe is incomplete; this bean remains in progress.
+**M3 implementation:** The approved [60-minute direction](../slides/orthodontic-informatics/module3/PLAN.md) is implemented in 26 HTML slides for second-year orthodontic residents. The deck includes the bounded email story, synthetic clinical case, exchange/access requirements, equivalent integration comparison, clinician-led requirements, Connectathon limits and paired exercise. For the earlier 24-slide revision, independent passage-cited comprehension review of all 24 slides and separate technical checks passed; all 24 slides loaded in real Chromium without JavaScript or HTTP failures. The earlier revision was verified for PR review; the restored 26-slide revision requires fresh independent comprehension review followed by a separate technical/browser check; lecturer-led timed rehearsal remains pending. The broader four-module reframe is incomplete; this bean remains in progress.
 
 ## Plan
 
@@ -67,7 +67,7 @@ Speaker line: 'AI can help us clean up yesterday's mess. It should not be our pl
 
 Partiamo da un obiettivo utile: delegare un compito, per esempio preparare un caso prima della visita successiva. È un esempio didattico, non una priorità principale dimostrata per gli specializzandi. Quando copiamo note, etichettiamo immagini, riconciliamo date e riformattiamo informazioni prima di passarle all'IA, siamo noi a fare da adattatori tra i sistemi. Il software clinico dovrebbe conservare informazioni significative e normalizzare il contesto riutilizzabile per l'esportazione e il recupero/scambio autorizzato, affinché clinici e strumenti autorizzati non debbano ricostruire ogni volta gli stessi dati di ingresso. Il corso spiega che cosa deve sopravvivere allo scambio e quali prove chiedere per verificarlo. Gli standard favoriscono il riuso, ma non garantiscono compatibilità, accesso sicuro o risultati corretti dell'IA.
 
-**Implementazione M3:** La [direzione approvata da 60 minuti](../slides/orthodontic-informatics/module3/PLAN.md) è implementata in 24 slide HTML per specializzandi del secondo anno. La revisione indipendente della comprensibilità di tutte le 24 slide, con citazioni dei passaggi, e i controlli tecnici separati sono superati; tutte le 24 slide si sono caricate in Chromium reale senza errori JavaScript o HTTP. L’implementazione è verificata per la revisione della PR; resta da svolgere una prova cronometrata del docente. La riformulazione dei quattro moduli rimane incompleta; questa attività resta in corso.
+**Implementazione M3:** La [direzione approvata da 60 minuti](../slides/orthodontic-informatics/module3/PLAN.md) è implementata in 26 slide HTML per specializzandi del secondo anno. Per la precedente revisione da 24 slide, la revisione indipendente della comprensibilità di tutte le 24 slide, con citazioni dei passaggi, e i controlli tecnici separati sono superati; tutte le 24 slide si sono caricate in Chromium reale senza errori JavaScript o HTTP. La precedente revisione era verificata per la PR; la versione ripristinata da 26 slide richiede una nuova revisione indipendente della comprensibilità seguita da controlli tecnici/browser separati; resta da svolgere una prova cronometrata del docente. La riformulazione dei quattro moduli rimane incompleta; questa attività resta in corso.
 
 ### Sintesi dei moduli
 
@@ -81,8 +81,22 @@ Partiamo da un obiettivo utile: delegare un compito, per esempio preparare un ca
 ### M3 implementation verification
 
 - TDD: `python3 -m unittest discover -s tests -p test_module3.py -v` first failed against the old manifest: `AssertionError: 12 not greater than or equal to 20`. After implementation the same test passed (`Ran 1 test`, `OK`).
-- Standard-library HTMLParser checks 24 unique local slide references, one section and speaker notes per slide, no slide scripts, existing local links/assets with image alt text, no orphan slide files, and scheduled durations totaling 3,600 seconds.
+- Standard-library HTMLParser checks 26 unique local slide references, one section and speaker notes per slide, no slide scripts, existing local links/assets with image alt text, no orphan slide files, and scheduled durations totaling 3,600 seconds.
 - `git diff --check`, module Markdown relative-link/whitespace checks including new files, and `beans check` passed. Entry-page asset links were corrected locally to `/lectures/...`; the shared runtime/theme/assets are unchanged.
 - Sources retrieved for implementation: DICOM current standard, HL7 FHIR summary/profiling, MCP architecture and IHE background/Connectathon scope. This is author source checking, not independent technical acceptance.
 - Independent fresh-context, passage-cited comprehension review passed for all 24 slides; the separate technical review passed unit tests, local-link checks and Beans validation. Parent-run real Chromium loaded all 24 slides without JavaScript or HTTP failures. Five style-only layout fixes were verified to preserve semantics; the latest screenshots show the exercise and comparison fully visible.
-- M3 implementation is verified for PR review. Lecturer-led timed rehearsal remains pending, and the broader four-module course remains in progress. No clinical integration, sending, patient upload, live writeback, measured benefits or completed four-module course is claimed. No commit or push performed; publication remains parent-owned.
+- The earlier 24-slide M3 implementation was verified for PR review. Lecturer-led timed rehearsal remains pending, and the broader four-module course remains in progress. No clinical integration, sending, patient upload, live writeback, measured benefits or completed four-module course is claimed. No commit or push performed; publication remains parent-owned.
+
+### PR4 title, outline and notes-only timing correction
+
+- Restored the M2/M4 course-title table convention with the QR code in the left 33% column, Module 3 subtitle AI and Reusable Clinical Data, and original speaker format. The second slide is an actual Outline; hook and synthetic case are preserved as slides 3–4. Review is slide 5.
+- The deck now has 26 slides within a maximum of 30. The first five durations are 30/30/90/150/120 seconds; other durations remain unchanged, preserving 3,600 seconds. README/PLAN ranges shift by two; the first section is slides 1–5.
+- Every section time range and section name is in speaker notes only, not visible main-slide content. Actual titles and meaningful synthetic-case labels remain unchanged. No shared runtime or other module changed.
+- TDD red: four tests ran and failed as expected (27 failure reports: missing title table, 24 rather than 26 slides, missing opening order, and 24 missing notes-only section labels). Green evidence follows after execution. Fresh-context passage-cited comprehension review and a subsequent separate technical/browser check are parent-owned and pending; the author does not self-approve. No commit or push.
+
+
+- Correction green: `python3 -B -m unittest discover -s tests -p test_module3.py -v` passed all four tests. The 26-slide manifest totals 3,600 seconds, with 26 notes-only timing labels and all local references/alt text/notes validated. Exact-content comparison confirms the 24 original slides differ only by the requested timing-label move and the two opening duration changes. Module/Bean relative Markdown links, `git diff --check`, and `beans check` passed. Independent comprehension and subsequent technical/browser acceptance remain pending with the parent.
+
+### Corrected 26-slide revision acceptance
+
+Fresh-context comprehension passed for the restored title, outline and notes-only labels. Separate technical checks passed all four regression tests, links, duration and whitespace. Chromium loaded all 26 slides without JavaScript or HTTP errors; title and outline screenshots confirm the standard QR/course layout, visible roadmap and absence of audience-facing timing labels. Scheduled duration remains 3,600 seconds. Timed lecturer rehearsal and broader course work remain unfinished.

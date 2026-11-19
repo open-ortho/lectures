@@ -2,7 +2,7 @@
 
 ## Make clinical context reusable
 
-This implemented 24-slide lecture is designed for second-year orthodontic residents in a 60-minute session, including discussion and a paired exercise. Residents start with a useful ambition—having a tool prepare a source-linked visit brief—and identify what clinical software must expose so another authorized tool can reuse the records without repeated manual assembly. No programming knowledge is required.
+This implemented 26-slide lecture is designed for second-year orthodontic residents in a 60-minute session, including discussion and a paired exercise. After the course title and section outline, residents start with a useful ambition—having a tool prepare a source-linked visit brief—and identify what clinical software must expose so another authorized tool can reuse the records without repeated manual assembly. No programming knowledge is required.
 
 The presenter contrasts copying email into AI chat and copying the answer back with agents reading email, composing replies and saving drafts through selected tools. The lecture then moves explicitly to a proposed clinical analogy: products exchange records through permitted interfaces using independently restricted identities. The clinical case T-017 is synthetic; the deck does not demonstrate a deployed clinical integration or use patient data.
 
@@ -20,15 +20,15 @@ By the end, residents should be able to:
 
 | Time | Slides | Teaching question |
 | --- | --- | --- |
-| 0–7 | 1–3 | What would you delegate, and what would the tool need? |
-| 7–15 | 4–6 | Who did the adapting in the email workflow? |
-| 15–27 | 7–11 | What context and permissions must survive clinical exchange? |
-| 27–39 | 12–16 | How do vendor-specific and shared-standard integration compare? |
-| 39–49 | 17–20 | How do clinicians shape requirements and test implementations? |
-| 49–56 | 21–22 | Can you repair a flawed exchange proposal? |
-| 56–60 | 23–24 | What evidence questions go to M4? |
+| 0–7 | 1–5 | What would you delegate, and what would the tool need? |
+| 7–15 | 6–8 | Who did the adapting in the email workflow? |
+| 15–27 | 9–13 | What context and permissions must survive clinical exchange? |
+| 27–39 | 14–18 | How do vendor-specific and shared-standard integration compare? |
+| 39–49 | 19–22 | How do clinicians shape requirements and test implementations? |
+| 49–56 | 23–24 | Can you repair a flawed exchange proposal? |
+| 56–60 | 25–26 | What evidence questions go to M4? |
 
-Each slide contains a section time block, a `data-duration` value in seconds and delivery notes. Reveal fragments stage comparisons and discussion. Notes include prompts, transitions, exercise timing and relevant sources. The four-minute paired exercise asks residents to identify missing clinical context, excessive permissions and one observable acceptance test; the debrief takes three minutes.
+Each slide contains its section time range and section name in speaker notes only, plus a `data-duration` value in seconds and delivery notes. Timing labels are not shown on the main slides. The opening allocates 30 seconds each to the title and outline, 90 seconds to the hook, 150 seconds to the synthetic case and 120 seconds to review; the remaining slide durations are unchanged. Reveal fragments stage comparisons and discussion. Notes include prompts, transitions, exercise timing and relevant sources. The four-minute paired exercise asks residents to identify missing clinical context, excessive permissions and one observable acceptance test; the debrief takes three minutes.
 
 ## Scope and limits
 
@@ -44,7 +44,7 @@ M1 supplies the problem framing; M2 supplies actors, storage and interfaces. M3 
 - From the repository root, run `python3 serve.py`, then open `http://127.0.0.1:54385/lectures/slides/orthodontic-informatics/module3/`.
 - From the repository root, run `python3 -m unittest discover -s tests -p test_module3.py -v` to check the manifest, local assets/links, slide notes and total scheduled duration with the standard library HTML parser.
 
-The 24-slide deck passed independent, passage-cited comprehension review and separate technical checks, including unit tests and local links. All 24 slides loaded in real Chromium without JavaScript or HTTP failures; the exercise and comparison were fully visible after style-only layout fixes. The implementation is verified for PR review, not clinical deployment or measured benefits. A lecturer-led timed rehearsal remains pending; these checks do not establish clinical correctness or a rehearsed 60-minute delivery.
+The earlier 24-slide revision passed independent comprehension and technical checks, including real Chromium loading. The restored title, outline and speaker-note-only timing labels require fresh independent comprehension review followed by a separate technical/browser check before the revised 26-slide deck is declared verified for PR review. A lecturer-led timed rehearsal remains pending; technical checks do not establish clinical correctness or a rehearsed 60-minute delivery.
 
 ## Sources for the clinical exchange concepts
 

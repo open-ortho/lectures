@@ -1,11 +1,11 @@
 <section data-duration="180">
-    <p><small>27–39 · Choose an exchange contract</small></p>
     <h2 style="font-size:1.4em">Two ways to agree on exchange</h2>
     <table style="font-size:0.72em"><tr><th>Using vendor-specific interfaces</th><th>Using shared open clinical standards</th></tr>
     <tr><td>Products agree through a vendor's API and data definitions.</td><td>Products implement a shared specification and selected constraints.</td></tr>
     <tr class="fragment"><td>A bridge maps the participating products.</td><td>A shared contract can support reuse across products.</td></tr></table>
     <p>Same task: transfer the case with its context intact.</p>
     <aside class="notes">
+        <p>27–39 · Choose an exchange contract</p>
         <p>Compare equivalent integration approaches: integration using vendor-specific interfaces versus integration using shared open clinical standards. Do not compare an API with a standard as though only one side has an interface; either approach may use APIs and either may need mapping software. A vendor-specific interface can be well documented, versioned and maintained. A shared standard offers common definitions and reusable tools but still leaves choices to implementations. In our case the test is the same: can the receiving product interpret the permitted records while retaining identity, timing, units and source links? Clinical products may use both approaches in one workflow. Invite residents to identify a question that applies to both, such as which records are supported or what happens after an upgrade. Avoid declaring either approach inherently safe or clinically accurate.</p>
     </aside>
 </section>

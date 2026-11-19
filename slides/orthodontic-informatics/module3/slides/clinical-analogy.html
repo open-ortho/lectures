@@ -1,11 +1,11 @@
 <section data-duration="180" style="font-size:0.90em; line-height:1.25">
-    <p><small>15–27 · Make context reusable</small></p>
     <h2 style="font-size:1.35em; max-width:100%; margin:0 auto 16px">Could clinical products exchange records directly?</h2>
     <p><small>Proposed clinical analogy · not a deployed integration</small></p>
     <table style="font-size:0.72em"><tr><th>Manual transfer</th><th>Permitted product exchange</th></tr>
     <tr><td>Copy screenshots from product A.<br>Re-enter information in product B.</td><td>B requests records through an API:<br>an interface products use to exchange data.</td></tr></table>
     <p class="fragment" style="font-size:0.90em; margin:16px 0">B and a future tool C each use their own restricted identity,<br>separate from the human account.</p>
     <aside class="notes">
+        <p>15–27 · Make context reusable</p>
         <p>Say the transition explicitly: This is my experience with email tools. The following clinical example is a proposed teaching scenario, not an integration I have deployed. An application programming interface, or API, lets software request data or actions from other software. Compare copying screenshots and typing values again with product B requesting permitted records directly from product A. If a second consuming product C is added, its identity and permissions must be configured independently; it should not borrow B's broad access or the clinician's login. Direct exchange can avoid some re-entry, but an API alone does not ensure correct identity, matching meaning or appropriate clinical use. Ask what would happen if the requested image were correct but belonged to another visit. This takes us from the connection to the context that must travel with it.</p>
     </aside>
 </section>
