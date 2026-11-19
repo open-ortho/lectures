@@ -1,0 +1,13 @@
+<section data-duration="180" style="font-size:0.90em; line-height:1.25">
+    <p><small>15–27 · Make context reusable</small></p>
+    <h2 style="font-size:1.35em; max-width:100%; margin:0 auto 16px">Move the record, not just the words</h2>
+    <table style="font-size:0.70em"><tr><th>Question</th><th>Context that travels</th></tr>
+    <tr><td>Whose record? Which visit?</td><td>Patient + encounter identifiers and their source</td></tr>
+    <tr><td>When? What was measured?</td><td>Dates, time context, value, units + method</td></tr>
+    <tr><td>Where did this come from?</td><td>Original note/image + source links</td></tr>
+    <tr><td>What changed in transit?</td><td>Transformation history + uncertainty</td></tr></table>
+    <p class="fragment"><small>Provenance = where information came from and how it was transformed.</small></p>
+    <aside class="notes">
+        <p>Walk through a single measurement rather than reading the table. Six is not meaningful without knowing what was measured, its units, its method, the patient and when it was observed. Patient identifiers may be local to an organization; identical-looking strings do not establish a cross-system match. Encounter identity connects information to the relevant clinical visit, while image acquisition and note-entry dates can differ. Preserve those distinctions. Provenance links a derived value or summary to the original record and any conversion or interpretation applied. If a match or date is uncertain, the receiving system should surface it for review rather than silently choosing. Original notes and images remain available: a normalized value is not a replacement for them. Ask which row a screenshot alone is least likely to preserve in machine-usable form.</p>
+    </aside>
+</section>

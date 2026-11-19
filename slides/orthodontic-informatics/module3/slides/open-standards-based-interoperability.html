@@ -1,9 +1,11 @@
-<section data-auto-animate="">
-                <h2>Open Standards-based Interoperability</h2>
-                <ul>
-                    <li class="fragment">DICOM/HL7/FHIR: long-lasting standards</li>
-                    <li class="fragment">Documentation and implementation tools available online to everyone</li>
-                    <li class="fragment">Single implementation allows multiple vendor products to link together</li>
-                    <li class="fragment">Less Expensive solutions</li>
-                </ul>
-            </section>
+<section data-duration="120" style="font-size:0.90em; line-height:1.25">
+    <p><small>27–39 · Choose an exchange contract</small></p>
+    <h2 style="font-size:1.35em; max-width:100%; margin:0 auto 16px">Clinical standards cover different parts</h2>
+    <table style="font-size:0.72em"><tr><th>DICOM</th><th>HL7 / FHIR</th></tr>
+    <tr><td>Digital Imaging and Communications in Medicine</td><td>HL7: Health Level Seven<br>FHIR: Fast Healthcare Interoperability Resources</td></tr>
+    <tr><td>Images, related information<br>and imaging services</td><td>Clinical and administrative exchange:<br>patients, encounters, observations, documents…</td></tr></table>
+    <p class="fragment">Imaging is part of the case—not the whole clinical record.</p>
+    <aside class="notes">
+        <p>DICOM is the imaging example. It defines more than image pixels, including related information and services, but is not a universal container for every clinical fact. HL7 is a standards-development organization and a family of healthcare exchange standards; FHIR is one of those standards. FHIR uses modular resources for such concepts as patients, encounters and observations. It does not imply that any product has implemented all of them or all operations. An imaging workflow and a clinical-record workflow may use DICOM and HL7 standards together. Do not teach this as a competition or an inevitable migration from older to newer labels. Ask which part of T-017 belongs to an imaging exchange and which part requires clinical context beyond the image. Sources: https://www.dicomstandard.org/current and https://hl7.org/fhir/summary.html</p>
+    </aside>
+</section>

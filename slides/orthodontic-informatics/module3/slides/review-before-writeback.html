@@ -1,0 +1,9 @@
+<section data-duration="120">
+    <p><small>15–27 · Make context reusable</small></p>
+    <h2 style="font-size:1.4em">Read first. Draft next. Review before writeback.</h2>
+    <p style="font-size:0.8em">Clinical source → access check → permitted retrieval<br>↓<br>Harness + model → source-linked draft<br>↓<br><strong>Clinician review</strong> → separately authorized writeback</p>
+    <p class="fragment"><small>Begin with read-only retrieval. Services enforce permissions and keep audit records.</small></p>
+    <aside class="notes">
+        <p>Read the diagram from the source outward. The access-enforcing service checks credentials and requested scope before releasing records. The harness and model prepare a draft, not an authoritative chart entry. The clinician checks sources, missing information, contradictions and uncertainty before accepting or editing it. If a future workflow permits writeback, a separately authorized operation must place the reviewed result in the correct patient and encounter and preserve its provenance. No such clinical operation is being run in this lecture. Start with read-only retrieval so an evaluation does not silently change records. Audit records should let an operator establish who requested which information and what was changed. Neither a model's good intentions nor the word MCP replaces those controls. Ask what permission is unnecessary if the only approved task is preparing a read-only brief.</p>
+    </aside>
+</section>

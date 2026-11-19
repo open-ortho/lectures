@@ -5,7 +5,7 @@ status: in-progress
 type: task
 priority: normal
 created_at: 2026-09-28T04:28:34Z
-updated_at: 2026-11-18T18:39:32Z
+updated_at: 2026-11-19T21:52:33Z
 ---
 
 Today, people are mainly interested in AI, AI is the hype, the buzzword. People
@@ -21,7 +21,7 @@ audience.
 
 Start with a useful ambition: delegate a task such as preparing a case for the next visit. This is an illustrative teaching task, not a demonstrated top priority for residents. When we copy notes, label images, reconcile dates and reformat information before feeding it to AI, we are doing the adapting ourselves. Clinical software should preserve meaningful records and normalize reusable context for export and authorized retrieval/exchange, so clinicians and permitted tools do not repeatedly rebuild the same input. This course explains what must survive that exchange and how to ask for evidence that it works. Standards support reuse; they do not guarantee compatible systems, safe access or correct AI results.
 
-**M3 proposal:** [High-level 60-minute plan](../slides/orthodontic-informatics/module3/PLAN.md). Proposal-only documentation is drafted for second-year orthodontic residents; the current deck is unchanged. The broader course reframe and slide implementation remain unfinished. The plan's section structure and presenter-supplied story details still require review before separately authorized slide work.
+**M3 implementation:** The approved [60-minute direction](../slides/orthodontic-informatics/module3/PLAN.md) is implemented in 24 HTML slides for second-year orthodontic residents. The deck includes the bounded email story, synthetic clinical case, exchange/access requirements, equivalent integration comparison, clinician-led requirements, Connectathon limits and paired exercise. Independent passage-cited comprehension review of all 24 slides and separate technical checks passed; all 24 slides loaded in real Chromium without JavaScript or HTTP failures. The implementation is verified for PR review; lecturer-led timed rehearsal remains pending. The broader four-module reframe is incomplete; this bean remains in progress.
 
 ## Plan
 
@@ -67,7 +67,7 @@ Speaker line: 'AI can help us clean up yesterday's mess. It should not be our pl
 
 Partiamo da un obiettivo utile: delegare un compito, per esempio preparare un caso prima della visita successiva. È un esempio didattico, non una priorità principale dimostrata per gli specializzandi. Quando copiamo note, etichettiamo immagini, riconciliamo date e riformattiamo informazioni prima di passarle all'IA, siamo noi a fare da adattatori tra i sistemi. Il software clinico dovrebbe conservare informazioni significative e normalizzare il contesto riutilizzabile per l'esportazione e il recupero/scambio autorizzato, affinché clinici e strumenti autorizzati non debbano ricostruire ogni volta gli stessi dati di ingresso. Il corso spiega che cosa deve sopravvivere allo scambio e quali prove chiedere per verificarlo. Gli standard favoriscono il riuso, ma non garantiscono compatibilità, accesso sicuro o risultati corretti dell'IA.
 
-**Proposta per M3:** [Piano di alto livello da 60 minuti](../slides/orthodontic-informatics/module3/PLAN.md). È una proposta documentale per specializzandi del secondo anno; le slide attuali non sono cambiate. La riformulazione dell'intero corso e l'implementazione delle slide restano incompiute. La struttura e i dettagli del racconto personale del relatore richiedono ancora revisione prima di un intervento sulle slide autorizzato separatamente.
+**Implementazione M3:** La [direzione approvata da 60 minuti](../slides/orthodontic-informatics/module3/PLAN.md) è implementata in 24 slide HTML per specializzandi del secondo anno. La revisione indipendente della comprensibilità di tutte le 24 slide, con citazioni dei passaggi, e i controlli tecnici separati sono superati; tutte le 24 slide si sono caricate in Chromium reale senza errori JavaScript o HTTP. L’implementazione è verificata per la revisione della PR; resta da svolgere una prova cronometrata del docente. La riformulazione dei quattro moduli rimane incompleta; questa attività resta in corso.
 
 ### Sintesi dei moduli
 
@@ -75,3 +75,14 @@ Partiamo da un obiettivo utile: delegare un compito, per esempio preparare un ca
 2. **Seguire il percorso dei dati del paziente (M2):** Come diventano le informazioni raccolte durante le visite una storia clinica utilizzabile nel tempo? Seguire un unico caso attraverso persone, flussi di lavoro, database, archivi e interfacce, includendo anamnesi, diagnosi, note, trattamenti e immagini.
 3. **Far comunicare i sistemi (M3):** Come può uno strumento ricevere il contesto clinico giusto e restituire il risultato al paziente e alla visita corretti? Confrontare integrazioni proprietarie e standard aperti; distinguere una compatibilità dimostrata da una soltanto dichiarata. DICOM è l'esempio per le immagini, non per tutti i dati clinici.
 4. **Acquistare sulla base di prove, non di promesse (M4):** Come valutare un prodotto con IA, o qualsiasi software clinico? Mettere alla prova esportazione, importazione e integrazione; esaminare contratto, archivio e segnali d'allarme. Chiedere quali dati clinici servono, come i risultati si collegano al paziente e alle visite pertinenti e come recuperare l'intera cartella e i risultati.
+
+
+
+### M3 implementation verification
+
+- TDD: `python3 -m unittest discover -s tests -p test_module3.py -v` first failed against the old manifest: `AssertionError: 12 not greater than or equal to 20`. After implementation the same test passed (`Ran 1 test`, `OK`).
+- Standard-library HTMLParser checks 24 unique local slide references, one section and speaker notes per slide, no slide scripts, existing local links/assets with image alt text, no orphan slide files, and scheduled durations totaling 3,600 seconds.
+- `git diff --check`, module Markdown relative-link/whitespace checks including new files, and `beans check` passed. Entry-page asset links were corrected locally to `/lectures/...`; the shared runtime/theme/assets are unchanged.
+- Sources retrieved for implementation: DICOM current standard, HL7 FHIR summary/profiling, MCP architecture and IHE background/Connectathon scope. This is author source checking, not independent technical acceptance.
+- Independent fresh-context, passage-cited comprehension review passed for all 24 slides; the separate technical review passed unit tests, local-link checks and Beans validation. Parent-run real Chromium loaded all 24 slides without JavaScript or HTTP failures. Five style-only layout fixes were verified to preserve semantics; the latest screenshots show the exercise and comparison fully visible.
+- M3 implementation is verified for PR review. Lecturer-led timed rehearsal remains pending, and the broader four-module course remains in progress. No clinical integration, sending, patient upload, live writeback, measured benefits or completed four-module course is claimed. No commit or push performed; publication remains parent-owned.

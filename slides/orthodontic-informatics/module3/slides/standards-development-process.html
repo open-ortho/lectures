@@ -1,19 +1,10 @@
-<section data-auto-animate="">
-                <h2>Standards Development Process</h2>
-                <ul>
-                    <li class="fragment">Functional Profiles</li>
-                    <li class="fragment">Standards improvements/corrections</li>
-                    <li class="fragment">Implementation Guidelines/Profiles</li>
-                    <li class="fragment">Testing (Connectathons)</li>
-                </ul>
-                <aside class="notes">
-                    <ul>
-                        <li>The doctors (aka domain experts) define their needs into Functional Profiles</li>
-                        <li>The standards experts analyze (gap analysis) if the standard in question is capable of
-                            fulfilling the specific functional requirement. If something is missing, a standard correction/improvement is worked on.</li>
-                        <li>Step by step Guidelines for developers are written and published. These are instructions that a developer can use to make sure their software implements the standard properly.</li>
-                        <li>Vendors get together and test their implementations.</li>
-                        <li>When enough implementation and testing has been done, the standard becomes established.</li>
-                    </ul>
-                </aside>
-            </section>
+<section data-duration="180">
+    <p><small>39–49 · Shape and test exchange</small></p>
+    <h2 style="font-size:1.4em">Clinicians define the requirement</h2>
+    <p>“Prepare a visit brief” → a requirement teams can test</p>
+    <blockquote style="font-size:0.8em">The receiving tool must show each measurement with the patient, visit, date, units and source—and flag an uncertain match.</blockquote>
+    <p class="fragment">You supply the clinical meaning and failure conditions.<br>Developers implement the exchange.</p>
+    <aside class="notes">
+        <p>Ask what harm could follow from a measurement attached to the wrong encounter or a current diagnosis inferred from an old note. Residents know enough clinical workflow to identify these requirements even without writing an API. A clinical requirement states the actor, requested action and observable output: the receiving tool presents a source-linked measurement for the correct case and marks an uncertain match. This does not require residents to choose a wire format. Clinicians work with standards experts, developers and information-governance teams to describe use cases, missing information and unacceptable failure modes. They are not merely consumers waiting for vendors to decide what a useful record contains. Use the displayed requirement as an example and ask one resident to add a concrete missing-data behavior, such as showing that an expected record was not supplied rather than treating absence as a negative finding.</p>
+    </aside>
+</section>

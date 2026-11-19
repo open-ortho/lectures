@@ -1,16 +1,16 @@
-# Proposed M3 reframe: from feeding AI to reusable clinical exchange
+# M3: approved teaching direction and implementation map
 
-## Purpose and status
+## Status and provenance
 
-This is a high-level proposal for a 60-minute lecture for second-year orthodontic residents. It reframes Module 3 (M3) around a practical ambition: delegate a useful task without repeatedly assembling and explaining the same clinical information. Preparing a case for the next visit is an illustrative teaching task, not a demonstrated top priority for residents or a validated clinical AI application.
+This document began as the high-level proposal for a 60-minute lecture for second-year orthodontic residents. That teaching direction has been approved for slide implementation. The [current deck](index.html) now implements it in 24 slides; the [module guide](README.md) describes delivery. The former proposal-only approval gate is superseded, not an outstanding request for authorization to author slides.
 
-**Central argument:** when a clinician copies notes, labels images, resolves dates and reformats information before giving it to an AI tool, the clinician is acting as the adapter between systems. That preparation can hide the underlying data problem. Clinical software should preserve meaningful records, normalize reusable context and support export and authorized retrieval/exchange, so clinicians and permitted tools can reuse the information without repeating the same manual preparation. AI can interpret free text and images; structured context reduces avoidable reconstruction but does not establish clinical correctness.
+Approval concerns the lecture argument and content. It does not approve a live clinical integration, patient-data upload or writeback. The M3 implementation passed independent comprehension and technical reviews and a real Chromium check of all 24 slides; it is verified for PR review. The broader four-module reframe remains in progress, and a lecturer-led timed rehearsal remains pending. The [course overview](../README.md) still describes the broader course.
 
-The [current deck](index.html) is unchanged. This proposal requests approval of the teaching argument, section structure and boundaries before slide implementation. It does not approve a live clinical integration, patient-data upload or writeback. The broader four-module course reframe and slide implementation remain unfinished; this document does not replace the [current course description](../README.md).
+## Central argument
+
+Start with the useful ambition of delegating preparation of a source-linked visit brief. This is an illustrative teaching task, not an established top priority for this resident cohort. When a clinician selects notes, labels images, resolves dates and reformats records before giving them to AI, the clinician is acting as the adapter between systems. Software should preserve meaningful records and reusable context so authorized tools do not repeatedly need the same human reconstruction. AI can interpret free text and images; structured context reduces avoidable reconstruction but does not prove clinical correctness.
 
 ## Learning objectives
-
-By the end of the proposed lecture, residents should be able to:
 
 1. Explain how manual preparation for AI can make the clinician perform work that clinical software should make reusable.
 2. Identify what clinical software must make available so another authorized tool can use its data without the clinician manually collecting, reformatting, and explaining the records each time.
@@ -18,82 +18,47 @@ By the end of the proposed lecture, residents should be able to:
 4. Describe the different jobs of clinical data standards, an AI harness and MCP, and identify where access must be enforced.
 5. Turn a clinical need into an exchange requirement and explain how standards development and Connectathons help test it, while leaving local workflow validation necessary.
 
-## Proposed 60-minute structure
+## Implemented 60-minute structure
 
-The allocation includes discussion and transitions; it is a section plan, not a slide-by-slide script.
+The allocations include discussion and transitions; individual slides carry scheduled durations in seconds.
 
-| Time | Minutes | Section and resident-facing question | Teaching outcome |
+| Time | Minutes | Slides | Section |
 | --- | ---: | --- | --- |
-| 0–7 | 7 | **Start with useful delegation.** What would you want a tool to prepare before a visit, and what would it need? | Introduce case preparation using synthetic or appropriately deidentified teaching records. Identify history, diagnoses, notes, encounters and images without asserting that the task is residents' main pain point. |
-| 7–15 | 8 | **Who is doing the adapting?** What did the human already select, label and reconcile before AI saw the case? | Contrast manual feeding with reuse through permitted system operations. Use the presenter's bounded personal story, below, without implying a completed clinical integration. |
-| 15–27 | 12 | **Make context reusable.** What must survive movement between systems? | Separate export, retrieval and result return; preserve identity, time, meaning, originals and provenance. Draw a controlled exchange, not universal model access. |
-| 27–39 | 12 | **Choose an exchange contract.** What changes when two vendors integrate using vendor-specific interfaces rather than shared open clinical standards? | Compare these two integration approaches; distinguish clinical meaning from tool access. Explain the roles and limits of DICOM, HL7/FHIR and MCP at a conceptual level. |
-| 39–49 | 10 | **Clinicians help define what gets exchanged.** Who specifies the clinical need and tests implementations? | Follow a requirement through standards development, implementation guidance and Connectathon testing; compress the historical timeline into brief context. |
-| 49–56 | 7 | **Apply the argument.** Can a second authorized tool reuse the case without the clinician rebuilding it? | Residents identify missing context, excessive permissions and unreviewed output in a proposed teaching exchange; distinguish a testable requirement from a vendor claim. |
-| 56–60 | 4 | **Synthesis and handoff.** What would count as evidence when choosing software? | Check objectives and hand evaluation questions to M4; do not run a procurement workshop here. |
-| **Total** | **60** | | |
+| 0–7 | 7 | 1–3 | Useful delegation; synthetic T-017 case; recall M1/M2 |
+| 7–15 | 8 | 4–6 | Presenter email story; harness/MCP; complementary access limits |
+| 15–27 | 12 | 7–11 | Clinical analogy; reusable context; normalization; exchange capabilities; review |
+| 27–39 | 12 | 12–16 | Equivalent integration approaches; standards scope; profiles; meaning versus tools |
+| 39–49 | 10 | 17–20 | Clinician requirements; standards development; bounded Connectathon testing |
+| 49–56 | 7 | 21–22 | Paired case exercise and debrief |
+| 56–60 | 4 | 23–24 | Recap and evidence questions for M4 |
+| **Total** | **60** | **24** | |
 
-## Personal story: presenter-supplied evidence, not a clinical success claim
+## Presenter story and clinical analogy
 
-The presenter has supplied this nonclinical email example. It is a user-confirmed personal account, not an agent-audited demonstration or a claim of clinical deployment.
+The presenter supplied the nonclinical email account: before, copying an email into an AI chat and copying the generated answer back; now, agents use tools to read email, compose replies and save drafts. The harness is the software surrounding the model that connects it to tools and manages interaction. Filtered and modified Model Context Protocol (MCP) servers expose selected operations. Agents have their own accounts, separate from the human account, with independently restricted permissions on underlying resources. Tool filtering and resource-side permissions serve complementary purposes. This story claims neither sending nor measured time savings.
 
-- **Before:** the presenter copied an email into an AI chat, then copied the generated answer back into the email client.
-- **Now:** the presenter's agents access email directly through an **AI harness**, the surrounding software that connects the model to tools and manages their interaction. The tools can read email, compose replies and save drafts. The presenter uses filtered and modified **Model Context Protocol (MCP) servers**, software that exposes selected tool operations to the harness through a common protocol. This account covers reading, composing and saving drafts; it does not claim email sending or autonomous sending.
-- **Access limits:** the presenter removes or restricts operations exposed by the MCP servers and gives agents their own accounts, separate from the human's account, with restricted permissions on the underlying resources. Tool filtering limits which actions the harness can request; resource-side account permissions independently limit what each agent identity can access or change. These controls are complementary, not a guarantee of safety. MCP is neither a clinical semantic standard nor a source of permission by itself.
+The explicit transition on slide 7 separates that account from a proposed clinical scenario, not a deployed integration. Copying screenshots from one product and re-entering information in another is contrasted with products requesting records through application programming interfaces (APIs). Each consuming product uses its own restricted identity, independently configured from other products and the human. The synthetic T-017 case illustrates requirements; it is not a captured clinical result.
 
-Use a verbal account or a sanitized teaching reconstruction; do not present a reconstruction as a captured result. Exclude secrets, private identifiers and real patient data. No measured time saving or clinical performance is claimed.
+## Exchange and review boundaries
 
-The clinical analogy contrasts a current manual pattern—copying screenshots from one product and re-entering information in another—with a possible exchange through **application programming interfaces (APIs)**, interfaces through which products can request data directly from one another. In that proposed workflow, each consuming system would use its own account or identity to access the same clinical resource, with permissions restricted independently for each identity and separately from the human's account. This is a conceptual teaching scenario, not a deployed clinical integration. The transition is explicit: “This is my experience with email tools. The following clinical example is a proposed teaching scenario, not an integration I have deployed.”
+- **Export:** a portable record another system can interpret, not merely an available download.
+- **Authorized retrieval:** minimum necessary context through a permitted interface under restricted credentials, not automatic access to every record.
+- **Result return:** a source-linked draft associated with the relevant patient and encounter, showing omissions and uncertainty, not an automatically accepted chart entry.
 
-## Reusable exchange and controlled access
+Preserve identity, encounter, dates and time context, values, units, method, originals and provenance. Normalization makes representations consistent; it must not silently overwrite source material. Flag uncertain matches and missing information instead of inventing them. Keep links from derived results to sources.
 
-Use one teaching case across three distinct operations:
+The conceptual flow is source → access-enforcing service → permitted retrieval → harness/model → reviewable draft → clinician review → separately authorized writeback, if a future workflow permits it. Start with read-only retrieval. Services and credential configuration outside the model enforce access and retain audit records. Exported copies also need access and handling controls.
 
-1. **Export:** clinical software produces a portable record for use elsewhere. A file download alone does not prove a complete or meaningful export. Specify the included records and metadata and how another system can interpret them.
-2. **Authorized retrieval:** a tool requests the minimum necessary context through an interface under limited credentials and permissions. Retrieval may avoid repeated manual uploads, but does not automatically normalize records, grant access or return a result to the record.
-3. **Return a reviewable result:** the tool provides a draft linked to the relevant teaching patient, encounter and source information, with uncertainty and omissions visible. A clinician reviews it before any writeback. Producing a response in a chat window is not the same as storing an approved clinical result.
+## Standards and clinician participation
 
-Normalization means making reusable representations consistent, not discarding or silently rewriting source material. Retain original notes and images alongside normalized values, patient and encounter identity, dates and time context, units, metadata and provenance (where information came from and what transformations were applied). Flag uncertain matches and missing information for review instead of inventing them. Retain the link from a derived summary back to its sources.
+Integration using vendor-specific interfaces and integration using shared open clinical standards are compared against the same task and evidence questions. Either can be well maintained or fail in implementation; shared specifications can reduce repeated work but do not guarantee cost, upgrade stability, compatibility or safety.
 
-The teaching flow is: source clinical system → access-enforcing service/interface → permitted retrieval operation → harness/model → reviewable draft → clinician review → separately authorized writeback, if a future workflow permits it. The model must not decide its own access rights. Services and credential configuration outside the model enforce minimum necessary access, limited operations and audit records. Begin with read-only retrieval; neither unrestricted access to all systems nor automatic writeback is the proposed destination. Exported copies also require appropriate handling and access controls.
+DICOM covers imaging and related information/services, not every clinical fact. HL7 develops healthcare exchange standards, including FHIR. Applicable versions, profiles, implementation guidance, terminology and supported operations determine what an implementation can actually exchange. MCP standardizes tool access, not clinical semantics or identity reconciliation. Neither a clinical standard nor MCP makes AI output correct by itself.
 
-Standards address different parts of this flow. DICOM (Digital Imaging and Communications in Medicine) is an imaging example, not a representation of every clinical fact. HL7 (Health Level Seven) develops healthcare exchange standards; FHIR (Fast Healthcare Interoperability Resources) is one of them. Their applicable versions, profiles, terminology and actual supported operations matter. MCP exposes tool operations; it does not replace clinical data semantics, reconcile identity or make a clinical system compatible by itself. Standards can support reuse, but do not guarantee that two implementations work together, that access is safe or that an AI result is correct.
+Clinicians state use cases and failure conditions. Standards experts and implementers check gaps, develop corrections or guidance and test implementations. The former historical timeline is replaced with this collaboration model; unsupported launch dates are not retained. Connectathons test selected implementations, roles and defined transactions. Participation or a passed test is not universal certification, local acceptance or validation of an AI interpretation. The existing IHE North America photo illustrates the testing setting, not a test of our case.
 
-## Current-to-proposed section map
+## Resident application and course boundary
 
-The current manifest is [module3/index.html](index.html); the entries below name existing source files, not implemented changes.
+Pairs inspect a deliberately flawed exchange proposal: missing date/units, an uncertain encounter, absent history, the clinician's full-access login and unreviewed chart writeback. They produce a missing-context finding, a permission finding and one testable requirement. The debrief turns these into observable behaviors, such as flagging an omitted unit instead of guessing.
 
-| Current material | Proposed treatment |
-| --- | --- |
-| `orthodontic-informatics.html`, `outline.html` | Reframe the introduction around useful delegation and the clinician-as-adapter contrast. Replace the apologetic “less exciting” framing with a concrete clinical purpose. |
-| `review.html` | Short recall of M1's problem and M2's actors, storage and interfaces; do not reteach clinic topology. |
-| `proprietary-based-interoperability.html` and `-2.html` | Retain private interfaces and bridge maintenance. Use the case to ask who documents, maintains and permits exchange; avoid categorical claims that every proprietary integration is opaque or unsustainable. |
-| `open-standards-based-interoperability.html` and `-2.html` | Retain shared contracts and reusable tooling. Qualify cost, upgrade stability and compatibility as things to test, not guaranteed benefits. Place the clinical-standard/tool-access distinction here. |
-| `standards-development-process.html` | Retain clinician-defined requirements, gap analysis, corrections, implementation guidance and testing. Illustrate one requirement: retain patient, encounter, date, units and source links in a reusable case record. |
-| `what-going-on.html` | Shorten the timeline to brief ecosystem context, not a date-memorization exercise. Verify any retained historical claims during later slide drafting. |
-| `connectathons.html`, `connectathons-2.html` | Retain community testing. Explain what participating implementations tested; do not equate event participation with universal conformance, safe AI or validated local clinical use. |
-| Shared `../open-ortho-org.html` close | Preserve the community/participation connection and hand off to M4. No shared-file edit is proposed in this documentation stage. |
-| No current dedicated section | Add the bounded personal story, three-operation exchange distinction, access controls and resident application exercise in a later approved slide implementation. |
-
-## Boundaries across the course
-
-- **M1 — Why:** establish the useful clinical ambition and the cost of repeatedly reconstructing context. M3 recalls this argument rather than repeating the entire problem catalogue.
-- **M2 — Topology and flow:** explain actors, workflow, databases, storage and interfaces. M3 assumes those building blocks and asks what information and permissions must cross their boundaries.
-- **M3 — Reusable exchange with controlled access:** compare exchange approaches, retain clinical meaning, distinguish tool operations from clinical standards, and show how clinicians shape requirements and testing.
-- **M4 — Prove and buy:** evaluate products, demonstrate export/import, scrutinize contracts and archives, and test vendor claims. M3 produces questions and acceptance requirements; M4 applies the procurement framework.
-
-This is not a tutorial for deploying MCP servers, writing interfaces, training models or making autonomous treatment decisions. Any future demonstration must use synthetic or appropriately deidentified teaching data and a separately reviewed setup, not live patient uploads.
-
-## Approval criteria before slide implementation
-
-Approve or revise the high-level proposal only when:
-
-- The delegation ambition leads the lecture, and manual feeding versus reusable authorized retrieval/exchange is the single central contrast.
-- The section allocation fits 60 minutes and the objectives suit second-year orthodontic residents without requiring programming knowledge.
-- The email story stays within the presenter-supplied account of reading, composing and saving drafts, with no claim of sending, an agent audit or clinical deployment; the clinical analogy remains a proposal.
-- Export, retrieval, result return and human-reviewed writeback remain distinct, with originals and clinically meaningful metadata preserved.
-- The comparison of integration using vendor-specific interfaces with integration using shared open clinical standards, clinician requirements, standards development and Connectathons remain substantive; the timeline is shortened.
-- The harness/MCP distinction and external permission enforcement are clear, with no promise that standards ensure safe or correct AI.
-- The M1–M4 boundaries are accepted, and any later slide work is explicitly authorized as a separate implementation stage.
-
-Approval of this plan would settle the proposed teaching direction, not certify a clinical workflow or declare the broader course reframe complete.
+M1 establishes why reuse matters; M2 supplies topology and flow. M3 asks what meaning and permissions must cross those boundaries, and how clinicians shape and test the agreement. M4 evaluates products, contracts and archives using the resulting evidence questions. This lecture is not a deployment tutorial, a procurement workshop or an authorization for autonomous treatment decisions.

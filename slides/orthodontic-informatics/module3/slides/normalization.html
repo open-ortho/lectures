@@ -1,0 +1,10 @@
+<section data-duration="120">
+    <p><small>15–27 · Make context reusable</small></p>
+    <h2 style="font-size:1.4em">Preserve context—not guess it every time</h2>
+    <table style="font-size:0.73em"><tr><th>Repeated reconstruction</th><th>Preserved context</th></tr>
+    <tr><td>Infer the visit from filenames.<br>Guess a unit from a note.<br>Repeat for every new tool.</td><td>Link records to their visits.<br>Keep values with units and sources.<br>Flag unresolved matches.</td></tr></table>
+    <p class="fragment">Normalize representations.<br><strong>Do not silently rewrite originals.</strong></p>
+    <aside class="notes">
+        <p>Normalization means representing reusable information consistently, for example making a date unambiguous or carrying a measurement with its explicit unit and method. It does not mean forcing every clinical observation into a numeric field or deleting narrative nuance. AI can interpret free text and images; our argument is not that all unstructured information is unusable. The avoidable problem is having every downstream tool reconstruct the same basic identity, timing and units from scratch. Normalization can itself introduce errors, so preserve the original, document transformations and review uncertainty. Ask whether a confident guess should become a confirmed field simply because it was repeated by several tools. No: repeating an inference does not turn it into source evidence. The source-linked representation should distinguish observed facts, derived values and unresolved information.</p>
+    </aside>
+</section>
