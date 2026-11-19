@@ -35,18 +35,15 @@ The allocation includes discussion and transitions; it is a section plan, not a 
 
 ## Personal story: presenter-supplied evidence, not a clinical success claim
 
-The presenter has described current efforts using an AI harness and setting up MCPs with appropriate access, with powerful capabilities. Use this experience to make the change in interaction concrete, not to claim completed integrations, measured time savings or real patient access.
+The presenter has supplied this nonclinical email example. It is a user-confirmed personal account, not an agent-audited demonstration or a claim of clinical deployment.
 
-Begin with the desired task and what the presenter previously had to hand over manually. Then explain how software can connect a model to selected tools: an **AI harness** is the surrounding software that connects the model to tools and manages their interaction. **Model Context Protocol (MCP)** is a protocol for exposing tool operations to such software; it is not a clinical semantic standard, a source of permission by itself or an automatic safety guarantee.
+- **Before:** the presenter copied an email into an AI chat, then copied the generated answer back into the email client.
+- **Now:** the presenter's agents access email directly through an **AI harness**, the surrounding software that connects the model to tools and manages their interaction. The tools can read email, compose replies and save drafts. The presenter uses filtered and modified **Model Context Protocol (MCP) servers**, software that exposes selected tool operations to the harness through a common protocol. This account covers reading, composing and saving drafts; it does not claim email sending or autonomous sending.
+- **Access limits:** the presenter removes or restricts operations exposed by the MCP servers and gives agents their own accounts, separate from the human's account, with restricted permissions on the underlying resources. Tool filtering limits which actions the harness can request; resource-side account permissions independently limit what each agent identity can access or change. These controls are complementary, not a guarantee of safety. MCP is neither a clinical semantic standard nor a source of permission by itself.
 
-Before writing slides, the presenter must supply:
+Use a verbal account or a sanitized teaching reconstruction; do not present a reconstruction as a captured result. Exclude secrets, private identifiers and real patient data. No measured time saving or clinical performance is claimed.
 
-- **Actual before:** one real, nonclinical example of what was copied, reformatted or selected manually.
-- **Actual current state:** what has genuinely been configured, what is still being set up and which tool operations, if any, have actually been exercised. Describe the intended change separately from demonstrated behavior.
-- **Permissions and limits:** which system enforces access, which operations and data are allowed, which are excluded, and what requires human approval.
-- **Evidence choice:** a verbal account or sanitized teaching reconstruction. A screenshot is optional only if it exists and can be safely shared; do not manufacture one or imply that a reconstruction is a captured result.
-
-Exclude secrets, private identifiers and real patient data. Transition explicitly: “This is my experience with general-purpose tools. The following clinical example is a proposed teaching scenario, not an integration I have deployed.” No clinical performance or time-saving estimate is implied.
+The clinical analogy contrasts a current manual pattern—copying screenshots from one product and re-entering information in another—with a possible exchange through **application programming interfaces (APIs)**, interfaces through which products can request data directly from one another. In that proposed workflow, each consuming system would use its own account or identity to access the same clinical resource, with permissions restricted independently for each identity and separately from the human's account. This is a conceptual teaching scenario, not a deployed clinical integration. The transition is explicit: “This is my experience with email tools. The following clinical example is a proposed teaching scenario, not an integration I have deployed.”
 
 ## Reusable exchange and controlled access
 
@@ -93,7 +90,7 @@ Approve or revise the high-level proposal only when:
 
 - The delegation ambition leads the lecture, and manual feeding versus reusable authorized retrieval/exchange is the single central contrast.
 - The section allocation fits 60 minutes and the objectives suit second-year orthodontic residents without requiring programming knowledge.
-- The presenter confirms the actual story details and limits; all unspecified evidence remains a slot, not a factual claim.
+- The email story stays within the presenter-supplied account of reading, composing and saving drafts, with no claim of sending, an agent audit or clinical deployment; the clinical analogy remains a proposal.
 - Export, retrieval, result return and human-reviewed writeback remain distinct, with originals and clinically meaningful metadata preserved.
 - The comparison of integration using vendor-specific interfaces with integration using shared open clinical standards, clinician requirements, standards development and Connectathons remain substantive; the timeline is shortened.
 - The harness/MCP distinction and external permission enforcement are clear, with no promise that standards ensure safe or correct AI.
