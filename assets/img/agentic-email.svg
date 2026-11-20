@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 460" role="img" aria-labelledby="agentic-title agentic-desc" style="width:100%;font-family:'Open Sans',Arial,Helvetica,sans-serif">
+        <title id="agentic-title">Agentic email: a human controls a harness containing the model</title>
+        <desc id="agentic-desc">The same illustrative MBOX store, envelope, IMAP service, authentication boundary and human with a laptop remain aligned. A limited MCP server authenticates with the human’s email account but exposes only read, compose and save-draft tools, with no send tool. This filter limits the tool path, not the underlying account permissions. The model is nested inside the harness. A logical two-way model-to-MCP tool relationship passes through the harness, which executes tool calls and returns results; it is not direct model network access. The human interacts with the outer harness, not directly with the model.</desc>
+        <defs><marker id="agentic-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#bfcbd0" stroke-width="1.5"/></marker></defs>
+        <g fill="none" stroke="#bfcbd0" stroke-width="2.5" marker-end="url(#agentic-arrow)">
+            <path d="M200 250 H280"/>
+            <path d="M600 250 H450"/>
+        </g>
+        <path data-component="human-interface" data-from="human" data-to="harness" d="M1150 250 H1240" fill="none" stroke="#bfcbd0" stroke-width="2.5" marker-start="url(#agentic-arrow)" marker-end="url(#agentic-arrow)"/>
+        <g fill="#fff" font-size="28" text-anchor="middle">
+            <text x="240" y="125">mailbox data</text><text x="530" y="315">requests</text>
+            <text x="855" y="110">tool requests / results</text>
+            <text x="1195" y="395">interaction</text>
+        </g>
+        <rect id="agentic-mailbox-store" data-component="mailbox-store" x="20" y="155" width="180" height="195" rx="16" fill="#191322" stroke="#b7a6da" stroke-width="2"/>
+        <g data-component="envelope" fill="none" stroke="#b7a6da" stroke-width="3"><rect x="72" y="180" width="76" height="48" rx="5"/><path d="M74 183 L110 208 L146 183 M74 225 L96 205 M146 225 L124 205"/></g>
+        <rect id="agentic-imap-service" data-component="imap-service" x="280" y="155" width="170" height="195" rx="16" fill="#102026" stroke="#8dc8d3" stroke-width="2"/>
+        <rect id="agentic-mcp-server" data-component="mcp-server" x="600" y="155" width="210" height="205" rx="16" fill="#302015" stroke="#edbd79" stroke-width="3"/>
+        <g id="agentic-harness" data-component="harness">
+            <rect x="875" y="145" width="275" height="215" rx="16" fill="#191322" stroke="#b7a6da" stroke-width="2"/>
+            <text x="1012" y="190" fill="#fff" font-size="34" text-anchor="middle">Harness</text>
+            <g id="agentic-model" data-component="model">
+                <rect x="940" y="225" width="180" height="90" rx="12" fill="#282039" stroke="#b7a6da" stroke-width="2"/>
+                <text x="1030" y="280" fill="#fff" font-size="34" text-anchor="middle">Model</text>
+            </g>
+        </g>
+        <path data-component="tool-requests" data-from="model" data-to="mcp-server" data-executor="harness" d="M940 250 H810" fill="none" stroke="#bfcbd0" stroke-width="2.5" marker-start="url(#agentic-arrow)" marker-end="url(#agentic-arrow)"/>
+        <line id="agentic-mailbox-auth" data-component="mailbox-auth" x1="490" x2="490" y1="85" y2="365" stroke="#edbd79" stroke-width="4" stroke-dasharray="10 8"/>
+        <g data-component="human">
+            <g fill="none" stroke="#cbd0d3" stroke-width="4" stroke-linecap="round"><circle cx="1315" cy="180" r="24"/><path d="M1276 246 Q1278 216 1315 216 Q1352 216 1354 246 M1283 282 L1274 321 M1348 282 L1357 321"/></g>
+            <g data-component="laptop" fill="#102026" stroke="#8dc8d3" stroke-width="3"><rect x="1268" y="240" width="94" height="58" rx="5"/><path d="M1255 308 L1375 308 L1362 298 H1268 Z"/></g>
+            <text x="1315" y="355" fill="#fff" font-size="32" text-anchor="middle">Human</text>
+        </g>
+        <g fill="#fff" text-anchor="middle">
+            <text x="110" y="276" font-size="34">MBOX</text><text x="110" y="317" font-size="27">Mailbox store</text>
+            <text x="365" y="240" font-size="34">IMAP</text><text x="365" y="285" font-size="27">Mail service</text>
+            <text x="705" y="185" font-size="29" fill="#edbd79">Limited</text><text x="705" y="218" font-size="29" fill="#edbd79">MCP server</text>
+            <text x="705" y="253" font-size="28">Read</text><text x="705" y="284" font-size="28">Compose</text><text x="705" y="315" font-size="28">Save drafts</text>
+            <text x="705" y="340" font-size="27" fill="#edbd79">No send tool</text>
+        </g>
+        <g fill="#edbd79" text-anchor="middle" font-size="29">
+            <text x="490" y="45">Mailbox authentication</text><text x="490" y="425">Human email account</text>
+        </g>
+    </svg>

@@ -2,9 +2,9 @@
 
 ## Make clinical context reusable
 
-This implemented 26-slide lecture is designed for second-year orthodontic residents in a 60-minute session, including discussion and a paired exercise. After the course title and section outline, residents start with a useful ambition—having a tool prepare a source-linked visit brief—and identify what clinical software must expose so another authorized tool can reuse the records without repeated manual assembly. No programming knowledge is required.
+This implemented 28-slide lecture is designed for second-year orthodontic residents in a 60-minute session, including discussion and a paired exercise. After the course title and section outline, residents briefly recall Modules 1–2 before considering a useful ambition—having a tool prepare a source-linked visit brief—and a synthetic case. They identify what clinical software must expose so another authorized tool can reuse the records without repeated manual assembly. No programming knowledge is required.
 
-The presenter contrasts copying email into AI chat and copying the answer back with agents reading email, composing replies and saving drafts through selected tools. The lecture then moves explicitly to a proposed clinical analogy: products exchange records through permitted interfaces using independently restricted identities. The clinical case T-017 is synthetic; the deck does not demonstrate a deployed clinical integration or use patient data.
+The presenter contrasts copying email into AI chat and copying the answer back with agents reading email, composing replies and saving drafts through selected tools. Two matching diagrams compare a mail client with a Model Context Protocol (MCP) tool server and harness/model at the same client-facing Internet Message Access Protocol (IMAP) mailbox-authentication edge. MBOX, a mailbox file format, is illustrative storage, not a claim about Gmail or all providers; Gmail is only a familiar webmail example. The MCP server authenticates with the agent’s own restricted email account; the model receives tools, not raw credentials. This highlighted boundary is mailbox authentication only, not every security layer. The lecture then moves explicitly to a proposed clinical analogy: products exchange records through permitted interfaces using independently restricted identities. The clinical case P-18 is synthetic; the deck does not demonstrate a deployed clinical integration or use patient data.
 
 ## Learning objectives
 
@@ -21,14 +21,14 @@ By the end, residents should be able to:
 | Time | Slides | Teaching question |
 | --- | --- | --- |
 | 0–7 | 1–5 | What would you delegate, and what would the tool need? |
-| 7–15 | 6–8 | Who did the adapting in the email workflow? |
-| 15–27 | 9–13 | What context and permissions must survive clinical exchange? |
-| 27–39 | 14–18 | How do vendor-specific and shared-standard integration compare? |
-| 39–49 | 19–22 | How do clinicians shape requirements and test implementations? |
-| 49–56 | 23–24 | Can you repair a flawed exchange proposal? |
-| 56–60 | 25–26 | What evidence questions go to M4? |
+| 7–15 | 6–10 | Who did the adapting in the email workflow? |
+| 15–27 | 11–15 | What context and permissions must survive clinical exchange? |
+| 27–39 | 16–20 | How do vendor-specific and shared-standard integration compare? |
+| 39–49 | 21–24 | How do clinicians shape requirements and test implementations? |
+| 49–56 | 25–26 | Can you repair a flawed exchange proposal? |
+| 56–60 | 27–28 | What evidence questions go to M4? |
 
-Each slide contains its section time range and section name in speaker notes only, plus a `data-duration` value in seconds and delivery notes. Timing labels are not shown on the main slides. The opening allocates 30 seconds each to the title and outline, 90 seconds to the hook, 150 seconds to the synthetic case and 120 seconds to review; the remaining slide durations are unchanged. Reveal fragments stage comparisons and discussion. Notes include prompts, transitions, exercise timing and relevant sources. The four-minute paired exercise asks residents to identify missing clinical context, excessive permissions and one observable acceptance test; the debrief takes three minutes.
+Each slide contains its section time range and section name in speaker notes only, plus a `data-duration` value in seconds and delivery notes. Timing labels are not shown on the main slides. The opening allocates 30 seconds each to the title and outline, 120 seconds to review, 90 seconds to the hook and 150 seconds to the synthetic case; the email section allocates 90 seconds each to the story, traditional diagram and agentic diagram, 120 seconds to harness/MCP, and 90 seconds to complementary permissions. Its total remains eight minutes; all other section allocations are unchanged. Reveal fragments stage comparisons and discussion. Notes include prompts, transitions, exercise timing and relevant sources. The four-minute paired exercise asks residents to identify missing clinical context, excessive permissions and one observable acceptance test; the debrief takes three minutes.
 
 ## Scope and limits
 
@@ -44,7 +44,7 @@ M1 supplies the problem framing; M2 supplies actors, storage and interfaces. M3 
 - From the repository root, run `python3 serve.py`, then open `http://127.0.0.1:54385/lectures/slides/orthodontic-informatics/module3/`.
 - From the repository root, run `python3 -m unittest discover -s tests -p test_module3.py -v` to check the manifest, local assets/links, slide notes and total scheduled duration with the standard library HTML parser.
 
-The earlier 24-slide revision passed independent comprehension and technical checks, including real Chromium loading. The restored title, outline and speaker-note-only timing labels require fresh independent comprehension review followed by a separate technical/browser check before the revised 26-slide deck is declared verified for PR review. A lecturer-led timed rehearsal remains pending; technical checks do not establish clinical correctness or a rehearsed 60-minute delivery.
+The earlier 24-slide revision passed independent comprehension and technical checks, including real Chromium loading. The restored title, outline and speaker-note-only timing labels require fresh independent comprehension review followed by a separate technical/browser check before the revised 28-slide deck is declared verified for PR review. A lecturer-led timed rehearsal remains pending; technical checks do not establish clinical correctness or a rehearsed 60-minute delivery.
 
 ## Sources for the clinical exchange concepts
 
