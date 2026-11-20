@@ -1,4 +1,9 @@
-// Module-local chapter navigation; keep it outside Reveal's scaled slide canvas.
+// Custom Reveal.js current-chapter audience footer, not a native Reveal feature.
+// Maps manifest data-chapter values to the deck outline's ordered labels; updates
+// on ready, slidechanged and async external replacement, including direct links.
+// Displays a label only: no navigation, menu or timer. Requires .reveal .slides,
+// #chapter-footer outside .slides and an ordered outline in slide 2 (index 1).
+// Load before common.js; see README.md#reusable-chapter-footer-opt-in.
 (() => {
     const container = document.querySelector('.reveal .slides');
     const footer = document.querySelector('#chapter-footer');

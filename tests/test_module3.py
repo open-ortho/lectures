@@ -214,19 +214,32 @@ class Module3Delivery(unittest.TestCase):
             *(['4'] * 2), *(['5'] * 6), *(['6'] * 5),
         ])
 
-    def test_chapter_footer_is_one_module_local_unscaled_overlay(self):
+    def test_chapter_footer_assets_are_course_level_with_only_module3_opted_in(self):
+        for filename in ('chapter-nav.js', 'chapter-nav.css', 'chapter-nav.test.cjs'):
+            with self.subTest(asset=filename):
+                self.assertTrue((MODULE.parent / filename).is_file(),
+                                f'Missing course-level {filename}')
+                self.assertFalse((MODULE / filename).exists(),
+                                 f'Duplicate module-local {filename}')
+        for number in (1, 2, 4):
+            manifest = (MODULE.parent / f'module{number}/index.html').read_text()
+            with self.subTest(module=number):
+                self.assertNotIn('chapter-nav', manifest)
+                self.assertNotIn('chapter-footer', manifest)
+
+    def test_chapter_footer_is_one_course_level_unscaled_overlay(self):
         text = (MODULE / 'index.html').read_text()
         elements = Elements(text).elements
         self.assertEqual([attrs for _, attrs in elements
                           if attrs.get('id') == 'chapter-footer'],
                          [{'id': 'chapter-footer', 'hidden': None}])
         self.assertIn('</div>\n        <div id="chapter-footer" hidden></div>', text)
-        self.assertIn('<script src="chapter-nav.js"></script>\n    '
+        self.assertIn('<script src="../chapter-nav.js"></script>\n    '
                       '<script src="../common.js"></script>', text)
-        self.assertTrue(any(tag == 'link' and attrs.get('href') == 'chapter-nav.css'
+        self.assertTrue(any(tag == 'link' and attrs.get('href') == '../chapter-nav.css'
                             for tag, attrs in elements))
-        css_path = MODULE / 'chapter-nav.css'
-        self.assertTrue(css_path.exists(), 'Missing module-local chapter footer CSS')
+        css_path = MODULE.parent / 'chapter-nav.css'
+        self.assertTrue(css_path.exists(), 'Missing course-level chapter footer CSS')
         css = css_path.read_text()
         for rule in ('position: fixed', 'text-align: left', 'font-family:',
                      'font-size: clamp(', '20px', 'pointer-events: none'):

@@ -1,11 +1,15 @@
-// Run with node --test slides/orthodontic-informatics/module3/chapter-nav.test.cjs.
+// Node.js CommonJS regression tests for the custom current-chapter footer:
+// readiness, navigation, late Reveal loading and async external replacement.
+// Uses Module 3's manifest/outline fixture; not a browser customization or asset.
+// Run from the repo root: node --test slides/orthodontic-informatics/chapter-nav.test.cjs.
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const test = require('node:test');
 const vm = require('node:vm');
 
-const moduleDir = __dirname;
+// Module 3 is the only opted-in deck and remains the explicit regression fixture.
+const moduleDir = path.join(__dirname, 'module3');
 const manifest = fs.readFileSync(path.join(moduleDir, 'index.html'), 'utf8');
 const chapterIds = [...manifest.matchAll(/data-chapter="([^"]+)"/g)].map(match => match[1]);
 const outline = fs.readFileSync(path.join(moduleDir, 'slides/outline.html'), 'utf8');
@@ -45,8 +49,8 @@ function host({ loaded = true, reveal = true } = {}) {
         }));
     }
     if (loaded) loadSlides();
-    const script = path.join(moduleDir, 'chapter-nav.js');
-    assert.ok(fs.existsSync(script), 'Module chapter navigation script must exist');
+    const script = path.join(__dirname, 'chapter-nav.js');
+    assert.ok(fs.existsSync(script), 'Course chapter navigation script must exist');
     // Start with manifest placeholders so the script can snapshot their chapter IDs.
     const loadedSlides = slides;
     slides = chapterIds.map(chapter => ({ dataset: { chapter }, querySelectorAll: () => [] }));

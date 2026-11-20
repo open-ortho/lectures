@@ -5,7 +5,7 @@ status: in-progress
 type: task
 priority: normal
 created_at: 2026-09-28T04:28:34Z
-updated_at: 2026-11-20T04:16:34Z
+updated_at: 2026-11-20T04:19:19Z
 ---
 
 Today, people are mainly interested in AI, AI is the hype, the buzzword. People
@@ -91,7 +91,7 @@ Partiamo da un obiettivo utile: delegare attività come preparare la presentazio
 ### Verified state and limits
 
 - Local HEAD and the open PR #4 head match `630ab442b8f5e487f624d3851cd38b1ea80a983f`; PR state is OPEN and `mergedAt` is null. This record update does not merge or publish the lecture.
-- Re-run for this tracker reconciliation: `python3 -B -m unittest discover -s tests -p test_module3.py -v` passes all 17 tests; `node --test slides/orthodontic-informatics/module3/chapter-nav.test.cjs` passes all 4 tests. Coverage includes the 27-entry manifest, local assets/links, notes, scheduled duration, opening order, shared closing, chapter assignments and navigation, diagram boundaries and removed slides.
+- Re-run for this tracker reconciliation: `python3 -B -m unittest discover -s tests -p test_module3.py -v` passes all 17 tests; `node --test slides/orthodontic-informatics/chapter-nav.test.cjs` passes all 4 tests. Coverage includes the 27-entry manifest, local assets/links, notes, scheduled duration, opening order, shared closing, chapter assignments and navigation, diagram boundaries and removed slides.
 - Prior fresh-context, passage-cited comprehension reviews and subsequent separate technical/browser checks passed for the changed lecture surfaces. Those completed checks are not pending. They do not establish human final content acceptance, a rehearsed 60-minute delivery or a deployed clinical workflow. The updated Bean prose passed its focused fresh-context, passage-cited comprehension review and subsequent technical check against the implementation and PR state.
 - The [module guide](../slides/orthodontic-informatics/module3/README.md) and [approved plan](../slides/orthodontic-informatics/module3/PLAN.md) supply the delivery map and teaching direction. Their older summary-hook and pending-review wording, and the outline note about repairing a proposal, predate the latest task-menu/recap revisions; they do not supersede the current state recorded here. This tracker-only update does not edit those sources.
 - The personal email account is attributed firsthand experience, not an independently audited deployment. No patient-data upload, deployed clinical integration, live clinical writeback, autonomous treatment decision, measured AI benefit or completed four-module reframe is claimed.

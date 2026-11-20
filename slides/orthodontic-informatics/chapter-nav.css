@@ -1,4 +1,7 @@
-/* Viewport-sized chapter label, independent of Reveal's slide scaling. */
+/* Custom chapter-footer positioning and typography, not a global Reveal theme.
+ * Keep the label outside the scaled slides, with responsive font/width sizing,
+ * safe-area offsets and room for Reveal's controls and progress bar.
+ */
 .reveal #chapter-footer {
     position: fixed;
     left: max(24px, env(safe-area-inset-left));
