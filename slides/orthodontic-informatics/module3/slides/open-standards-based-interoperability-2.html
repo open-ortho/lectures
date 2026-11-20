@@ -6,6 +6,14 @@
     <p><small>Compatible labels do not prove a compatible case exchange.</small></p>
     <aside class="notes">
         <p>27–39 · Choose an exchange contract</p>
-        <p>A profile narrows choices in a standard for a particular use; an implementation guide brings together agreed usage, profiles, examples and other implementation rules. The exact meaning of profile differs between standards communities, so avoid suggesting every profile is a FHIR artifact. Terminology supplies agreed codes and meanings. A sender and receiver can both claim the same base standard while differing in required fields, terminology bindings or supported operations. A version is necessary information, not sufficient evidence. For P-18, a useful question is whether both products preserve the measurement unit, encounter link and original source document under the same agreed rules. Ask residents to turn supports FHIR into a more specific question. Source for FHIR profiling and implementation guides: https://hl7.org/fhir/profiling.html</p>
+        <ul>
+            <li><strong>Version:</strong> ask which FHIR (Fast Healthcare Interoperability Resources) edition both products implement; a matching name alone leaves edition differences unresolved.</li>
+            <li><strong>Profile:</strong> narrows a standard's choices for a use case—for example, requiring a particular field. Profile usage differs across standards communities.</li>
+            <li><strong>Implementation guide:</strong> brings profiles, agreed usage rules and examples together so teams implement the same exchange rather than make incompatible local choices.</li>
+            <li><strong>Terminology:</strong> agreed codes and meanings let both products interpret the same observation; check measurement units as well as readable labels.</li>
+            <li><strong>Supported operations:</strong> specify which records and actions actually work; reading a record does not imply permission or capability to write one.</li>
+            <li><strong>Case evidence:</strong> ask whether P-18's unit, visit link and original source survive under those rules; compatible labels alone do not prove it.</li>
+            <li><strong>Source:</strong> FHIR profiles and implementation guides — https://hl7.org/fhir/profiling.html</li>
+        </ul>
     </aside>
 </section>

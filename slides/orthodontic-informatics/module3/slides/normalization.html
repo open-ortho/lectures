@@ -5,6 +5,14 @@
     <p class="fragment">Normalize representations.<br><strong>Do not silently rewrite originals.</strong></p>
     <aside class="notes">
         <p>15–27 · Make context reusable</p>
-        <p>Normalization means representing reusable information consistently, for example making a date unambiguous or carrying a measurement with its explicit unit and method. It does not mean forcing every clinical observation into a numeric field or deleting narrative nuance. AI can interpret free text and images; our argument is not that all unstructured information is unusable. The avoidable problem is having every downstream tool reconstruct the same basic identity, timing and units from scratch. Normalization can itself introduce errors, so preserve the original, document transformations and review uncertainty. Ask whether a confident guess should become a confirmed field simply because it was repeated by several tools. No: repeating an inference does not turn it into source evidence. The source-linked representation should distinguish observed facts, derived values and unresolved information.</p>
+        <ul>
+            <li><strong>Repeated reconstruction:</strong> every new tool infers a visit from filenames and guesses a unit from prose; repeated guesses are not new source evidence.</li>
+            <li><strong>Visit links:</strong> store the record's patient/encounter (visit) association so the next authorized tool can reuse it instead of rebuilding it.</li>
+            <li><strong>Values, units and sources:</strong> keep the measurement with its stated unit and source reference; an absent unit remains missing, not silently assumed.</li>
+            <li><strong>Unresolved matches:</strong> flag competing or missing visit/patient links for review; a confident match is still an inference unless supported.</li>
+            <li><strong>Normalization:</strong> make representations consistent—for example, an unambiguous date—without erasing narrative nuance or forcing every observation into a number.</li>
+            <li><strong>Rewriting originals:</strong> overwriting an original note, image or measurement with normalized or inferred output; a guessed unit must not replace an ambiguous source.</li>
+            <li><strong>Preserve both:</strong> retain the original plus the derived representation, linked to its source and transformation history; distinguish observed, derived and unresolved information.</li>
+        </ul>
     </aside>
 </section>

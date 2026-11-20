@@ -5,6 +5,13 @@
     <li class="fragment">Restrict tools <em>and</em> resource permissions.</li><li class="fragment">Review outputs; test the intended exchange.</li></ol>
     <aside class="notes">
         <p>56–60 · Synthesis and M4</p>
-        <p>Return to the opening request. A useful brief depends on what arrives and what can be checked, not merely on the fluency of its prose. Ask the room to explain one difference between the email story and the clinical scenario: the email story is the presenter's actual account; the clinical exchange remains an illustration with additional semantic, identity and review requirements. Ask a second person whether MCP replaces DICOM or FHIR. It does not: tool invocation and clinical meaning are different jobs. Finally ask who should define the missing-unit behavior. Clinicians must help define it with implementers rather than merely consume whatever a product returns. The central judgment is whether information is reusable for the next authorized tool, not whether residents can label implementation stages.</p>
+        <ul>
+            <li><strong>Reusable case:</strong> the next authorized tool should not depend on the clinician collecting, reformatting and explaining the same context again.</li>
+            <li><strong>Context and originals:</strong> preserve patient/visit links, dates, units and sources; retain uncertainty rather than replace original records with guesses.</li>
+            <li><strong>Meaning, not just connection:</strong> clinical-exchange standards define record meaning; tool protocols expose operations. A successful request can still return an uninterpretable record.</li>
+            <li><strong>Two restrictions:</strong> limit exposed tool operations and independently restrict service-side account rights; the model's discretion is not access enforcement.</li>
+            <li><strong>Review and test:</strong> clinicians check outputs; exercise the intended exchange and failures such as a missing unit, not just a fluent demonstration.</li>
+            <li><strong>Story boundary:</strong> my email workflow is actual experience; the clinical analogy remains proposed, with extra identity, meaning and review requirements.</li>
+        </ul>
     </aside>
 </section>

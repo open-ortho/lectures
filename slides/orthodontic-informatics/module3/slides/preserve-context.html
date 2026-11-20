@@ -8,6 +8,14 @@
     <p class="fragment"><small>Provenance = where information came from and how it was transformed.</small></p>
     <aside class="notes">
         <p>15–27 · Make context reusable</p>
-        <p>Walk through a single measurement rather than reading the table. Six is not meaningful without knowing what was measured, its units, its method, the patient and when it was observed. Patient identifiers may be local to an organization; identical-looking strings do not establish a cross-system match. Encounter identity connects information to the relevant clinical visit, while image acquisition and note-entry dates can differ. Preserve those distinctions. Provenance links a derived value or summary to the original record and any conversion or interpretation applied. If a match or date is uncertain, the receiving system should surface it for review rather than silently choosing. Original notes and images remain available: a normalized value is not a replacement for them. Ask which row a screenshot alone is least likely to preserve in machine-usable form.</p>
+        <ul>
+            <li><strong>Patient and encounter:</strong> an encounter is a visit; retain both identifiers and who issued them. Identical local IDs need not identify the same patient.</li>
+            <li><strong>Dates and time context:</strong> image acquisition, measurement and note-entry times can differ; preserve which event each date describes.</li>
+            <li><strong>Value, units and method:</strong> “6” needs the measured feature, its unit and how it was measured before another tool can interpret it.</li>
+            <li><strong>Originals and source links:</strong> retain the note/image and a traceable reference so the clinician can check a derived value or summary.</li>
+            <li><strong>Transformation history:</strong> record conversions or interpretations, such as a date-format change, rather than hiding what changed in transit.</li>
+            <li><strong>Uncertainty:</strong> surface ambiguous patient/visit matches or dates for review instead of silently choosing one.</li>
+            <li><strong>Provenance:</strong> the chain from source through transformations to the result; normalized fields supplement, not replace, the original record.</li>
+        </ul>
     </aside>
 </section>

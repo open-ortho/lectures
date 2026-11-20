@@ -6,6 +6,13 @@
     <p class="fragment">Imaging is part of the case—not the whole clinical record.</p>
     <aside class="notes">
         <p>27–39 · Choose an exchange contract</p>
-        <p>DICOM is the imaging example. It defines more than image pixels, including related information and services, but is not a universal container for every clinical fact. HL7 is a standards-development organization and a family of healthcare exchange standards; FHIR is one of those standards. FHIR uses modular resources for such concepts as patients, encounters and observations. It does not imply that any product has implemented all of them or all operations. An imaging workflow and a clinical-record workflow may use DICOM and HL7 standards together. Do not teach this as a competition or an inevitable migration from older to newer labels. Ask which part of P-18 belongs to an imaging exchange and which part requires clinical context beyond the image. Sources: https://www.dicomstandard.org/current and https://hl7.org/fhir/summary.html</p>
+        <ul>
+            <li><strong>DICOM:</strong> Digital Imaging and Communications in Medicine defines image information and imaging services—not just image pixels or a universal clinical-record container.</li>
+            <li><strong>HL7:</strong> Health Level Seven names a standards organization and its healthcare-exchange standards; FHIR is one of those standards.</li>
+            <li><strong>FHIR:</strong> Fast Healthcare Interoperability Resources organizes exchange into record types, such as Patient, Encounter (visit), Observation (measurement) and DocumentReference (document link).</li>
+            <li><strong>Different parts together:</strong> P-18's image exchange and wider history/visit context can need DICOM and applicable HL7 standards in the same workflow.</li>
+            <li><strong>Implementation limits:</strong> naming a standard does not establish which records or actions a product supports; imaging is only part of the case.</li>
+            <li><strong>Sources:</strong> DICOM — https://www.dicomstandard.org/current ; FHIR — https://hl7.org/fhir/summary.html</li>
+        </ul>
     </aside>
 </section>

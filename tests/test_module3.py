@@ -20,6 +20,41 @@ class Elements(HTMLParser):
         self.elements.append((tag, dict(attrs)))
 
 
+class VisibleListItems(HTMLParser):
+    """Read audience list text while leaving speaker-note lists unrestricted."""
+
+    def __init__(self, text):
+        super().__init__()
+        self.items = []
+        self.notes_depth = 0
+        self.item = None
+        self.feed(text)
+
+    def handle_starttag(self, tag, attrs):
+        if tag == 'aside' and (self.notes_depth or
+                               'notes' in dict(attrs).get('class', '').split()):
+            self.notes_depth += 1
+        if not self.notes_depth and tag == 'li':
+            self.item = []
+
+    def handle_endtag(self, tag):
+        if self.notes_depth:
+            if tag == 'aside':
+                self.notes_depth -= 1
+            return
+        if tag == 'li' and self.item is not None:
+            self.items.append(' '.join(''.join(self.item).split()))
+            self.item = None
+
+    def handle_data(self, data):
+        if not self.notes_depth and self.item is not None:
+            self.item.append(data)
+
+
+def visible_list_items(text):
+    return VisibleListItems(text).items
+
+
 def local_target(source, url):
     path = unquote(urlsplit(url).path)
     if path.startswith('/lectures/'):
@@ -96,7 +131,7 @@ class Module3Delivery(unittest.TestCase):
         self.assertIn('<h2>Outline</h2>', text)
         elements = Elements(text).elements
         self.assertTrue(any(tag == 'ol' for tag, _ in elements))
-        self.assertEqual(re.findall(r'<li[^>]*>(.*?)</li>', text, re.S), [
+        self.assertEqual(visible_list_items(text), [
             'Delegate to AI',
             'How I use AI',
             'Reusable clinical context, permissions and review',
@@ -110,6 +145,14 @@ class Module3Delivery(unittest.TestCase):
         self.assertEqual([int(next(attrs['data-duration'] for tag, attrs in
                                   Elements(slide.read_text()).elements if tag == 'section'))
                           for slide in slides[:5]], [30, 30, 120, 90, 150])
+
+    def test_visible_agenda_parser_excludes_note_bullets_not_other_asides(self):
+        text = '''<ol><li>Delegate to <strong>AI</strong></li></ol>
+            <aside class="presenter notes"><ul><li>Presenter reminder</li></ul></aside>
+            <aside><ul><li>Visible supporting item</li></ul></aside>
+            <ol><li>How I use AI</li></ol>'''
+        self.assertEqual(visible_list_items(text), [
+            'Delegate to AI', 'Visible supporting item', 'How I use AI'])
 
     def test_section_time_labels_are_speaker_notes_only(self):
         label = r'\d+[–-]\d+\s*·\s*[^<]+'
@@ -220,13 +263,42 @@ class Module3Delivery(unittest.TestCase):
                        'restricted or unrestricted', 'not equivalent to independent least-privilege'):
             self.assertIn(phrase, text)
 
+    def test_manifest_removes_writeback_slide_without_a_replacement(self):
+        slides = self.opening_slides()
+        self.assertEqual(len(slides), 27)
+        self.assertNotIn('review-before-writeback.html', [slide.name for slide in slides])
+        self.assertFalse((MODULE / 'slides/review-before-writeback.html').exists())
+        self.assertEqual([slide.name for slide in slides[13:15]], [
+            'exchange-operations.html', 'proprietary-based-interoperability.html'])
+
+    def test_delivery_maps_match_the_27_slide_section_boundaries(self):
+        guide = (MODULE / 'README.md').read_text()
+        plan = (MODULE / 'PLAN.md').read_text()
+        for time, minutes, slides in [
+                ('0–7', 7, '1–5'), ('7–15', 8, '6–10'),
+                ('15–27', 12, '11–14'), ('27–39', 12, '15–19'),
+                ('39–49', 10, '20–23'), ('49–56', 7, '24–25'),
+                ('56–60', 4, '26–27')]:
+            with self.subTest(time=time):
+                self.assertIn(f'| {time} | {slides} |', guide)
+                self.assertIn(f'| {time} | {minutes} | {slides} |', plan)
+        self.assertIn('| **Total** | **60** | **27** |', plan)
+        for document in (guide, plan):
+            self.assertNotIn('28-slide', document)
+            self.assertNotIn('28 slides', document)
+
+    def test_removed_duration_is_assigned_to_preceding_exchange_slide(self):
+        text = (MODULE / 'slides/exchange-operations.html').read_text()
+        section = next(attrs for tag, attrs in Elements(text).elements if tag == 'section')
+        self.assertEqual(int(section['data-duration']), 240)
+
     def test_manifest_delivers_timed_lecture_with_notes_and_assets(self):
         manifest = MODULE / 'index.html'
         elements = Elements(manifest.read_text()).elements
         slides = [local_target(manifest, a['data-external-replace'])
                   for _, a in elements if 'data-external-replace' in a]
         self.assertGreaterEqual(len(slides), 20)
-        self.assertEqual(len(slides), 28)
+        self.assertEqual(len(slides), 27)
         self.assertLessEqual(len(slides), 30)
         self.assertEqual(len(slides), len(set(slides)))
         duration = 0

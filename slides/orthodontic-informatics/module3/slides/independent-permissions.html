@@ -5,6 +5,13 @@
     <p class="fragment">Both controls matter.<br>The agent does not inherit all of my human access.</p>
     <aside class="notes">
         <p>7–15 · Who is adapting?</p>
-        <p>In the presenter's workflow the MCP servers are filtered or modified, and agents have their own accounts with independently restricted permissions on the underlying resources. Removing an operation from a tool list narrows what the harness can request through that route. It is not proof that the same account cannot reach the resource through another route. Resource-side permissions therefore matter independently: the service checks what this particular identity may read or change. Conversely, a restricted account may still expose more operations than this task needs, so tool filtering is also useful. Do not turn this into a security guarantee or deployment tutorial. Ask which layer should reject a forbidden resource request even if a model asks convincingly: the service enforcing the account's permissions, not the model's discretion.</p>
+        <ul>
+            <li><strong>Filter the tools:</strong> remove or limit operations the harness—the software managing model/tool interaction—can request through this route, such as omitting send.</li>
+            <li><strong>Restrict the account:</strong> give the agent its own identity with service-enforced limits on resources and actions, such as reading only permitted mailboxes.</li>
+            <li><strong>My actual workflow:</strong> filtered/modified MCP tool servers plus agents' own independently restricted accounts; the agent does not inherit all my human access.</li>
+            <li><strong>Background contrast:</strong> the earlier diagram illustrates a filtered tool path using a human account; that is not the account arrangement described here.</li>
+            <li><strong>Both controls:</strong> a filter does not constrain the account through other clients; a restricted account may still allow more tool operations than this task needs.</li>
+            <li><strong>Enforcement:</strong> the service must reject a forbidden resource request even if the model asks convincingly; neither layer alone guarantees safe output.</li>
+        </ul>
     </aside>
 </section>

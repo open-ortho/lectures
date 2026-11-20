@@ -37,8 +37,15 @@
     <p style="font-size:0.56em;color:#cbd0d3">MBOX: mailbox file format. IMAP: protocol for accessing mail.<br>Conceptual architecture—not Gmail’s literal storage or webmail implementation.</p>
     <aside class="notes">
         <p>7–15 · Who is adapting?</p>
-        <p>Read left to right: stored mail, service, client, human with a laptop. MBOX is a file format holding mailbox messages. Internet Message Access Protocol (IMAP) lets a client access and manage messages and folders through a service. The store-to-service arrow shows mailbox data supplied to the service; the client-to-service arrow means the client requests operations. Results return to the client. The two-way human connection represents interaction with the mail client, not a separate mailbox connection.</p>
-        <p>This is an illustrative architecture, not a claim about Gmail storage or its internal webmail protocol. Providers need not use MBOX, and webmail may use other interfaces. Gmail is only a familiar example of a webmail reader; Thunderbird and Apple Mail are familiar mail applications that can use IMAP. Do not teach this as Gmail’s literal implementation.</p>
-        <p>The dashed line sits just right of IMAP, across the client-facing connection. The mail client authenticates with the human account; the IMAP service enforces the account’s mailbox permissions. Credentials can be a configured secret or token, not necessarily a typed password. The line highlights mailbox authentication only, not all security boundaries. No sending transport is shown. Next keep the same store, service and human, and replace the human-facing client with an agent harness and tool adapter.</p>
+        <ul>
+            <li><strong>Mailbox data:</strong> MBOX is a mailbox file format holding messages; the envelope/store supplies data to the mail service.</li>
+            <li><strong>IMAP:</strong> Internet Message Access Protocol lets clients access and manage messages and folders through that service; no sending transport is shown.</li>
+            <li><strong>Mail client:</strong> the interface a person uses—Webmail (GMail, ...), or a mail app such as Apple Mail or Thunderbird.</li>
+            <li><strong>Requests:</strong> the client asks the service for operations and receives results; the human's two-way interaction is with the client.</li>
+            <li><strong>Mailbox authentication:</strong> at the dashed line, the client proves the human account's identity using configured credentials, such as a token.</li>
+            <li><strong>Permissions:</strong> the service enforces what that account may read or change; the line highlights mailbox authentication, not every security boundary.</li>
+            <li><strong>Conceptual diagram:</strong> illustrative, not a claim about Gmail storage or internal webmail protocols; providers need not use MBOX or this exact path.</li>
+            <li><strong>Next comparison:</strong> retain the store, service, human and boundary; replace the client with agent software and selected tools.</li>
+        </ul>
     </aside>
 </section>

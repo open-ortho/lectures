@@ -5,6 +5,13 @@
     <p class="fragment">You supply the clinical meaning and failure conditions.<br>Developers implement the exchange.</p>
     <aside class="notes">
         <p>39–49 · Shape and test exchange</p>
-        <p>Ask what harm could follow from a measurement attached to the wrong encounter or a current diagnosis inferred from an old note. Residents know enough clinical workflow to identify these requirements even without writing an API. A clinical requirement states the actor, requested action and observable output: the receiving tool presents a source-linked measurement for the correct case and marks an uncertain match. This does not require residents to choose a wire format. Clinicians work with standards experts, developers and information-governance teams to describe use cases, missing information and unacceptable failure modes. They are not merely consumers waiting for vendors to decide what a useful record contains. Use the displayed requirement as an example and ask one resident to add a concrete missing-data behavior, such as showing that an expected record was not supplied rather than treating absence as a negative finding.</p>
+        <ul>
+            <li><strong>Visit brief → testable requirement:</strong> name who receives the data, what it must show and what failure must be visible—not just “make a good summary.”</li>
+            <li><strong>Measurement context:</strong> patient, visit, date, unit and source let a clinician check whether a number belongs to this clinical situation.</li>
+            <li><strong>Uncertain match:</strong> the receiver must flag doubt instead of attaching an observation to a convenient-looking visit or treating an old note as current.</li>
+            <li><strong>Clinical contribution:</strong> residents can identify missing information and harmful outcomes without writing an API or choosing a file format.</li>
+            <li><strong>Developer contribution:</strong> implement exchange behavior with clinicians, standards experts and data-governance staff; clinical judgment does not pass to the software.</li>
+            <li><strong>Audience addition:</strong> ask for a missing-data rule—for example, show “history not supplied” rather than infer a normal history—and its visible pass/fail result.</li>
+        </ul>
     </aside>
 </section>
