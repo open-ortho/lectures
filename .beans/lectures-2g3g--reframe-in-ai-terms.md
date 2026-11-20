@@ -1,11 +1,11 @@
 ---
 # lectures-2g3g
 title: Reframe in AI terms
-status: todo
+status: in-progress
 type: task
 priority: normal
 created_at: 2026-09-28T04:28:34Z
-updated_at: 2026-09-28T09:29:36Z
+updated_at: 2026-11-20T04:19:19Z
 ---
 
 Today, people are mainly interested in AI, AI is the hype, the buzzword. People
@@ -15,24 +15,13 @@ there is a strong connection between interoperability and AI, which i was giving
 for granted, this should be emphasized and clarified and used to hook the
 audience.
 
-One possible hook/abstract could be something like: "Everyone is talking about
-AI these days, ai for this, ai for that, add it in this product, how do i use to
-achieve that, all application level. But nobody is talking about the foundation
-of it, not the math/statistics behind LLM, but the importance of structured
-data. Just like you can't do much when everything is a mess, so can't the AI,
-and it has to spend enormous amount of time cleaning up the mess first. This is
-what i will talk about, how to avoid the mess which you currently have, and how
-to clean it up, s.t. using AI will then be orders of magnitude more
-powerful/genrate more useufl data."
-
-Once i have an abstract, we can draft out the plan for how to reframe the
-orthodontic-informatics course.
-
 ## Abstract
 
 **Proposed title:** Before AI Can Help Your Practice, Your Data Has to Work
 
-AI promises to help orthodontists make sense of clinical information, follow treatment progress, and support decisions. But what happens when diagnoses, medical histories, treatment notes, encounters, and images are scattered across systems, inconsistently recorded, or disconnected from the right patient and time point? This course follows a patient's clinical record through an orthodontic practice to show why these everyday problems matter for both care and AI. You'll learn how clinical data is captured and exchanged, what standards can make possible, and how to test a vendor's claims rather than take them on faith. You won't need to build an AI model: you'll leave knowing what to ask for so your practice's data remains usable, portable, and ready for future tools.
+Start with a useful ambition: delegate work such as preparing a treatment presentation, capturing patient history, preparing treatment consent forms, organizing photos and scans, or opening clinical apps and uploading aligner records. These are illustrative teaching tasks, not demonstrated top priorities for residents or deployed clinical automation. When we copy notes, label images, reconcile dates and reformat information before feeding it to AI, we are doing the adapting ourselves. Clinical software should preserve meaningful records and normalize reusable context for export and authorized retrieval/exchange, so clinicians and permitted tools do not repeatedly rebuild the same input. This course explains what must survive that exchange and how to ask for evidence that it works. Standards support reuse; they do not guarantee compatible systems, safe access or correct AI results.
+
+**M3 implementation:** The approved [60-minute direction](../slides/orthodontic-informatics/module3/PLAN.md) is implemented in 27 slides for second-year orthodontic residents: 26 module-local slides plus the unchanged shared Open-Ortho closing. Title → outline → M1/M2 prerequisite review precedes the delegation menu and synthetic Patient 18 (P-18) case. The menu motivates a contrast between manual preparation and connected, authorized reuse, not a single summary task. The current ending is three recap slides followed by an M4 preview, not an exercise or homework. [PR #4](https://github.com/open-ortho/lectures/pull/4) is open at `630ab442b8f5e487f624d3851cd38b1ea80a983f`, not merged. Current implementation and verification are recorded below. Human final content review, lecturer-led timed rehearsal and the broader M1/M2/M4 reframe remain outstanding; this bean stays in progress.
 
 ## Plan
 
@@ -49,7 +38,9 @@ AI can use unstructured data, just as a clinician can infer meaning from a messy
 
 ### Opening and recurring example
 
-Start with a clinician who wants an AI tool to summarize a patient's treatment trajectory and help prepare the next visit. Relevant information spans medical history, diagnoses, treatment notes, encounter dates, images, and changes over time, recorded in different places and sometimes with inconsistent identifiers or terminology. Ask: what does the tool actually receive, what must it infer, and how would its answer be checked and returned to the clinical workflow? Revisit the same case in each module, resolving one obstacle at a time. Sell the clinical ambition first, reveal the data bottleneck, then teach the existing informatics content as the way through it.
+After the title, outline and M1/M2 prerequisite review, introduce fictional Patient 18 (P-18) and ask what residents would delegate: prepare the treatment presentation; capture patient history; prepare treatment consent forms; select, orient and import photos and scans; open clinical apps and upload aligner records. Reveal one task at a time, then map the same five tasks to their required records and access. Ask separately how AI would obtain those records and why the clinician would trust them.
+
+The recurring principle is manual preparation versus connected reuse: when the clinician repeatedly collects, reformats and explains the same records, the clinician is the adapter. Preserve meaningful source records and normalized reusable context so authorized software can retrieve what a task needs without rebuilding the input each time. Revisit that principle across the modules. The presenter’s actual email workflow supplies the nonclinical before/after example; the clinical tasks remain proposed teaching scenarios, with clinician responsibility and permission boundaries intact.
 
 ### Possible slide: But can't AI just fix messy data?
 
@@ -76,7 +67,9 @@ Speaker line: 'AI can help us clean up yesterday's mess. It should not be our pl
 
 ### Abstract
 
-L'intelligenza artificiale promette di aiutare gli ortodontisti a interpretare i dati clinici, seguire l'evoluzione dei trattamenti e supportare le decisioni. Ma cosa succede se diagnosi, anamnesi, note di trattamento, visite e immagini sono sparse tra sistemi diversi, registrate in modo incoerente o non collegate al paziente e al momento giusti? Questo corso segue la cartella clinica di un paziente attraverso uno studio ortodontico per mostrare perché questi problemi quotidiani contano sia per la cura sia per l'IA. Scoprirai come vengono raccolti e scambiati i dati clinici, che cosa rendono possibile gli standard e come verificare concretamente le promesse dei fornitori. Non dovrai sviluppare un modello di IA: imparerai quali domande porre affinché i dati del tuo studio restino utilizzabili, trasferibili e pronti per gli strumenti futuri.
+Partiamo da un obiettivo utile: delegare attività come preparare la presentazione del trattamento, raccogliere l’anamnesi, predisporre i moduli di consenso al trattamento, organizzare fotografie e scansioni oppure aprire le applicazioni cliniche e caricare i documenti per gli allineatori. Sono esempi didattici, non priorità principali dimostrate per gli specializzandi né automazioni cliniche già operative. Quando copiamo note, etichettiamo immagini, riconciliamo date e riformattiamo informazioni prima di passarle all'IA, siamo noi a fare da adattatori tra i sistemi. Il software clinico dovrebbe conservare informazioni significative e normalizzare il contesto riutilizzabile per l'esportazione e il recupero/scambio autorizzato, affinché clinici e strumenti autorizzati non debbano ricostruire ogni volta gli stessi dati di ingresso. Il corso spiega che cosa deve sopravvivere allo scambio e quali prove chiedere per verificarlo. Gli standard favoriscono il riuso, ma non garantiscono compatibilità, accesso sicuro o risultati corretti dell'IA.
+
+**Implementazione M3:** La [direzione approvata da 60 minuti](../slides/orthodontic-informatics/module3/PLAN.md) è implementata in 27 slide per specializzandi del secondo anno: 26 slide locali al modulo più la chiusura condivisa Open-Ortho, invariata. Titolo → programma → ripasso dei prerequisiti M1/M2 precedono le attività da delegare e il caso sintetico Patient 18 (P-18). Le attività introducono il confronto tra preparazione manuale e riuso tramite sistemi collegati e autorizzati, non un unico compito di sintesi. La conclusione comprende tre slide di riepilogo e un’anteprima di M4, senza esercizio né compiti a casa. La [PR #4](https://github.com/open-ortho/lectures/pull/4) è aperta sul commit `630ab442b8f5e487f624d3851cd38b1ea80a983f`, non integrata nel ramo principale. I 17 test Python e i 4 test Node passano; le revisioni indipendenti della comprensibilità, con citazioni dei passaggi, e i successivi controlli tecnici/browser delle parti modificate sono stati superati. Restano la revisione finale dei contenuti da parte del docente, la prova cronometrata e la riformulazione più ampia di M1/M2/M4; questa attività resta in corso. La verifica indipendente di questo aggiornamento del registro precede la sua pubblicazione.
 
 ### Sintesi dei moduli
 
@@ -84,3 +77,27 @@ L'intelligenza artificiale promette di aiutare gli ortodontisti a interpretare i
 2. **Seguire il percorso dei dati del paziente (M2):** Come diventano le informazioni raccolte durante le visite una storia clinica utilizzabile nel tempo? Seguire un unico caso attraverso persone, flussi di lavoro, database, archivi e interfacce, includendo anamnesi, diagnosi, note, trattamenti e immagini.
 3. **Far comunicare i sistemi (M3):** Come può uno strumento ricevere il contesto clinico giusto e restituire il risultato al paziente e alla visita corretti? Confrontare integrazioni proprietarie e standard aperti; distinguere una compatibilità dimostrata da una soltanto dichiarata. DICOM è l'esempio per le immagini, non per tutti i dati clinici.
 4. **Acquistare sulla base di prove, non di promesse (M4):** Come valutare un prodotto con IA, o qualsiasi software clinico? Mettere alla prova esportazione, importazione e integrazione; esaminare contratto, archivio e segnali d'allarme. Chiedere quali dati clinici servono, come i risultati si collegano al paziente e alle visite pertinenti e come recuperare l'intera cartella e i risultati.
+
+## Current M3 implementation and verification
+
+### Implemented content
+
+- **Opening and navigation:** 27 manifest entries, comprising 26 module-local slides and the existing shared Open-Ortho closing. The scheduled total is 60 minutes, not a completed rehearsal. Title, outline and M1/M2 prerequisite review precede the task menu and P-18 input requirements. A module-local footer shows the current chapter; its six numbered labels come from the outline. Introduction and Review are separate footer labels. Delivery timings remain in speaker notes only.
+- **Email story and access:** the presenter contrasts copying email into AI chat and copying its answer back with tools that read email, compose replies and save drafts. A manual-transfer illustration accompanies the story. Matching traditional/agentic diagrams show the same mailbox boundary; the agentic SVG is reused as foreground and background artwork, with the human operating the outer harness and the model inside it. The diagram’s limited Model Context Protocol (MCP) path authenticates with the human account: filtering limits that path, not the account’s rights through other clients. This illustrative alternative is distinct from the presenter’s actual filtered tools plus separately permissioned agent accounts. The model receives tools, not raw credentials; sending is not claimed.
+- **Clinical reuse:** the proposed clinical analogy preserves identity, encounter, dates, units, source records, provenance and uncertainty. Normalization makes context reusable without overwriting originals. Authorized retrieval, a reviewable result and any separately authorized future writeback remain distinct. The standalone review-before-writeback and meaning-versus-tool-access slides were removed, with time reassigned to adjacent slides; the underlying safety boundaries remain.
+- **Integration and standards:** the vendor table defines provider/consumer roles and compares design, implementation and maintenance for the same exchange. Shared standards permit one reusable implementation per product with compatible partners, not one universal program or zero mapping/testing work. The nine-stage U-shaped process shows doctors leading stages 1–2 with developer advice, standards experts leading 3–6 with optional doctor review, developers leading 7–8 with optional doctor review, and stage 9 as a joint outcome. Amendment is conditional; testing feedback returns to profile/implementation work.
+- **Testing evidence and conclusion:** both Connectathon photographs appear together. Public lookup links distinguish tested Connectathon capabilities from vendor-declared Product Registry support; the suggested agent lookup requests exact product/version matches, citations and unknowns, not a completed investigation. Three recap slides cover the possible AI benefits of structured/normalized data and interconnection with trust/access controls; DICOM, HL7 FHIR and IHE profiles; and clinicians’ contribution to testable requirements and implementation testing. M4 is a preview, not homework. There is no paired exercise, despite retained legacy filenames for two recap slides.
+
+### Verified state and limits
+
+- Local HEAD and the open PR #4 head match `630ab442b8f5e487f624d3851cd38b1ea80a983f`; PR state is OPEN and `mergedAt` is null. This record update does not merge or publish the lecture.
+- Re-run for this tracker reconciliation: `python3 -B -m unittest discover -s tests -p test_module3.py -v` passes all 17 tests; `node --test slides/orthodontic-informatics/chapter-nav.test.cjs` passes all 4 tests. Coverage includes the 27-entry manifest, local assets/links, notes, scheduled duration, opening order, shared closing, chapter assignments and navigation, diagram boundaries and removed slides.
+- Prior fresh-context, passage-cited comprehension reviews and subsequent separate technical/browser checks passed for the changed lecture surfaces. Those completed checks are not pending. They do not establish human final content acceptance, a rehearsed 60-minute delivery or a deployed clinical workflow. The updated Bean prose passed its focused fresh-context, passage-cited comprehension review and subsequent technical check against the implementation and PR state.
+- The [module guide](../slides/orthodontic-informatics/module3/README.md) and [approved plan](../slides/orthodontic-informatics/module3/PLAN.md) supply the delivery map and teaching direction. Their older summary-hook and pending-review wording, and the outline note about repairing a proposal, predate the latest task-menu/recap revisions; they do not supersede the current state recorded here. This tracker-only update does not edit those sources.
+- The personal email account is attributed firsthand experience, not an independently audited deployment. No patient-data upload, deployed clinical integration, live clinical writeback, autonomous treatment decision, measured AI benefit or completed four-module reframe is claimed.
+
+## Remaining acceptance
+
+- [x] Updated Bean prose: focused fresh-context comprehension review and separate technical verification completed; bookkeeping is ready to accompany PR #4.
+- [ ] Lecturer: perform final human content/clinical-relevance review of the current M3 deck and a timed rehearsal; revise delivery if needed. Scheduled minutes and browser checks do not satisfy this acceptance.
+- [ ] Implement and verify the broader AI/interoperability reframe in M1, M2 and M4 against the retained four-module plan. Current M3 implementation does not complete that course-wide scope.

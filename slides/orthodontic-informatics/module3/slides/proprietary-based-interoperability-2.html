@@ -1,14 +1,24 @@
-<section data-auto-animate="">
-                <h2>Proprietary-based Interoperability</h2>
-                <ul>
-                    <li class="">Expensive solutions</li>
-                    <li class="fragment">When vendor upgrades or changes their product, the API often changes and the
-                        bridge brakes</li>
-                    <li class="fragment">Medical provider cannot see what's going on</li>
-                    <li class="fragment">Not sustainable solutions</li>
-                </ul>
-                <aside class="notes">
-                    2 individual can work with each other in various ways: they can come up with their own way of
-                    collaborating, or they can use a commonly known way to collaborate.
-                </aside>
-            </section>
+<section data-duration="180">
+    <h2 style="font-size:1.4em">From a Vendor's Perspective...</h2>
+    <p style="font-size:0.52em"><strong>Provider:</strong> vendor exposing records/API · <strong>Consumer:</strong> vendor building connecting software<br>Illustrative relative effort for the same agreed exchange</p>
+    <table style="font-size:0.54em;line-height:1.15">
+        <tr><th style="border-right:1px solid #888">Stage</th><th>Vendor-specific</th><th>Open standards</th></tr>
+        <tr><td style="border-right:1px solid #888">Design</td><td><strong>Provider:</strong> very high; custom API<br><strong>Consumer:</strong> pair-specific bridges</td><td><strong>Both:</strong> shared design exists<br><strong>Provider:</strong> extensions if needed</td></tr>
+        <tr><td style="border-right:1px solid #888">Implementation</td><td><strong>Provider:</strong> high; bespoke API<br><strong>Consumer:</strong> high; each bridge</td><td><strong>Both:</strong> lower; reuse libraries<br>Map product data and test</td></tr>
+        <tr><td style="border-right:1px solid #888">Maintenance</td><td><strong>Provider:</strong> routine API upkeep<br><strong>Consumer:</strong> very high; all bridges</td><td><strong>Provider:</strong> routine updates<br><strong>Consumer:</strong> lower; one implementation</td></tr>
+    </table>
+    <p class="fragment" style="font-size:0.60em"><strong>Reuse, not zero work:</strong> one implementation per product,<br>multiple compatible partners.</p>
+    <aside class="notes">
+        <p>27–39 · Choose an exchange contract</p>
+        <ul>
+            <li><strong>Roles and scope:</strong> provider exposes records/API; consumer builds the connecting software. Effort labels illustrate the same agreed exchange, not measured costs or universal rankings.</li>
+            <li><strong>Design · provider:</strong> custom APIs require a new exchange contract; standards supply it, with limited customization/extensions for unmet needs.</li>
+            <li><strong>Design · consumer:</strong> custom connections need pair-specific bridge designs; standards reuse the shared exchange design, not invent another one.</li>
+            <li><strong>Implementation · provider:</strong> generic API tools help, but the bespoke contract still needs implementation; standards can reuse available implementations/libraries.</li>
+            <li><strong>Implementation · consumer:</strong> custom bridges are pair-specific; standards can reuse implementations/libraries where available—not for every standard or language.</li>
+            <li><strong>Maintenance · provider:</strong> routine upkeep remains: own API on the custom path; shared implementation and version updates on the standards path, including extensions.</li>
+            <li><strong>Maintenance · consumer:</strong> many changing custom bridges multiply upkeep; a reusable standards implementation still needs updates and newly required features.</li>
+            <li><strong>Reuse has conditions:</strong> each product still needs mapping, configuration and testing; compatible versions, profiles and operations matter. Extensions also need maintenance.</li>
+        </ul>
+    </aside>
+</section>

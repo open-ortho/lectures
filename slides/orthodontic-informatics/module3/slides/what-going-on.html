@@ -1,24 +1,23 @@
-<section>
-                <h2>What is going on</h2>
-                <div class="r-stack">
-                    <ul>
-                        <li class="fragment">1985: DICOM a standard for medical imaging </li>
-                        <li class="fragment">1989: HL7v2 a standard for medical clinical messages</li>
-                        <li class="fragment"><a href="https://cordis.europa.eu/project/id/A2014/results">1992: GEHR:
-                                the good European health record</a></li>
-                        <li class="fragment"><a href="https://www.ihe.net/testing/connectathon/">1999: IHE First
-                                Connectathon</a></li>
-                        <li class="fragment">1999: ADA forms the Standards Committee on Dental Informatics</li>
-                        <li class="fragment"><a href="https://openehr.org/about/origins">2003: openEHR</a></li>
-                        <li class="fragment">2005: HL7v3</li>
-                        <li class="fragment">2014: HL7 FHIR</li>
-                    </ul>
-                </div>
-                <aside class="notes">
-                    <ul>
-                        <li>I don't know all the history of what happened when, I will research this better in the
-                            future, but I do know enough to give you an idea.</li>
-                        <li></li>
-                    </ul>
-                </aside>
-            </section>
+<section data-duration="120">
+    <h2 style="font-size:1.1em">From clinical need to tested exchange</h2>
+    <img src="/lectures/assets/img/standards-development-flow.svg" style="width:100%;max-width:100%;max-height:560px;object-fit:contain;margin:0" alt="Nine-stage U-shaped path: doctors lead use case and functional requirements (1–2), with developers advising and reviewing concrete detail; standards experts lead gap analysis through profile (3–6), with optional doctor review of clinical intent; developers lead implementation and Connectathon tests (7–8), with optional doctor review of clinical needs; stable, tested exchange (9) is a joint outcome. Roles overlap. Amend only if needed; return test issues to profile and implementation.">
+    <aside class="notes">
+        <p>39–49 · Shape and test exchange</p>
+        <ul>
+            <li><strong>Use case:</strong> doctors lead: who needs which information for what clinical task, such as a visit brief; developers advise on concrete detail.</li>
+            <li><strong>Functional requirements:</strong> doctors lead testable clinical outcomes, such as showing visit, units and source; developers review whether detail is sufficient to build and test.</li>
+            <li><strong>Standard gap analysis:</strong> standards experts lead comparison with existing rules; bypass amendment when a standard is sufficient.</li>
+            <li><strong>Standard amendment:</strong> standards experts take a needed change through the standards body’s proposal, review and approval process—not a unilateral team edit.</li>
+            <li><strong>Standard:</strong> standards experts identify the existing or amended shared rules; these are not a working software product.</li>
+            <li><strong>Profile:</strong> standards experts select and constrain standard usage for a workflow; a separate profile is not mandatory in every ecosystem.</li>
+            <li><strong>Doctor review, 3–6:</strong> interested, technically savvy doctors may check that standards/profile choices preserve clinical intent; not every doctor needs standards detail.</li>
+            <li><strong>Implementations:</strong> developers lead building and configuring sending/receiving software using the chosen standard and applicable profile.</li>
+            <li><strong>Connectathon:</strong> developers lead interoperability tests in a selected scope; issues return to profile and implementation for refinement and retesting.</li>
+            <li><strong>Doctor review, 7–8:</strong> optional review checks clinical needs; this map does not prescribe a universal clinician approval gate.</li>
+            <li><strong>Stable, tested exchange:</strong> a joint outcome for the tested scope, not another lead process and not universal certification.</li>
+            <li><strong>Overlapping roles:</strong> standards authors may also be developers; the colors identify contributions, not disjoint professions.</li>
+            <li><strong>Conceptual path:</strong> read 1–5 across, then 6–9 back; this teaching map is not a deployment protocol or a universal approval sequence.</li>
+            <li><strong>Sources:</strong> IHE — https://www.ihe.net/about_ihe/ ; FHIR profiling guidance — https://hl7.org/fhir/profiling.html</li>
+        </ul>
+    </aside>
+</section>

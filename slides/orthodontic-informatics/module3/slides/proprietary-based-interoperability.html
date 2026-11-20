@@ -1,14 +1,19 @@
-<section data-auto-animate="">
-                <h2>Proprietary-based Interoperability</h2>
-                <ul>
-                    <li class="fragment">Custom APIs made available by Vendors</li>
-                    <li class="fragment">Documentation and implementation availability at discretion of vendor</li>
-                    <li class="fragment">Additional software that acts as bridges between these custom APIs needs to be
-                        developed</li>
-                    <li class="fragment">Single implementation allows only two vendors to link together</li>
-                </ul>
-                <aside class="notes">
-                    2 individuals can work with each other in various ways: they can come up with their own way of
-                    collaborating, or they can use a commonly known way to collaborate.
-                </aside>
-            </section>
+<section data-duration="180">
+    <h2 style="font-size:1.4em">Two ways to agree on exchange</h2>
+    <table style="font-size:0.72em"><tr><th>Using vendor-specific interfaces</th><th>Using shared open clinical standards</th></tr>
+    <tr><td>A separate integration for each vendor pair.</td><td>One reusable standards implementation per product.</td></tr>
+    <tr class="fragment"><td>Connect A–B, A–C and A–D:<br>build and maintain three bridges.</td><td>A implements the agreed standard once;<br>reuse it with compatible B, C and D.</td></tr></table>
+    <p>New partner: another bridge—or reuse the same implementation?</p>
+    <aside class="notes">
+        <p>27–39 · Choose an exchange contract</p>
+        <ul>
+            <li><strong>Implementation:</strong> actual exchange software—not just documentation or a standard's name.</li>
+            <li><strong>Vendor pair:</strong> a custom bridge translates between two products' APIs and data definitions; another partner needs another pair-specific integration.</li>
+            <li><strong>Three partners:</strong> A–B, A–C and A–D mean three bridges to build, test and maintain in this example.</li>
+            <li><strong>Implement once, reuse:</strong> A's standards implementation serves compatible B, C and D without a new translator for each pair; each partner implements its side.</li>
+            <li><strong>Compatibility:</strong> agree the standard, version, profile and operations; shared standards do not remove all configuration or testing.</li>
+            <li><strong>Central difference:</strong> partner-specific integration software versus reusable standards software—not merely private versus published documentation.</li>
+            <li><strong>Scope:</strong> APIs and adapters can exist in both approaches; judge actual reuse and retained clinical context.</li>
+        </ul>
+    </aside>
+</section>

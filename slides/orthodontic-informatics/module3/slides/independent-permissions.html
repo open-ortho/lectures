@@ -1,0 +1,17 @@
+<section data-background-image="/lectures/assets/img/agentic-email.svg" data-background-opacity="0.2" data-background-size="contain" data-duration="90">
+    <h2 style="font-size:1.4em">Two limits, doing different jobs</h2>
+    <table style="font-size:0.75em"><tr><th>Filter the tools</th><th>Restrict the account</th></tr>
+    <tr><td>Remove or limit operations<br>the harness can request.</td><td>Give the agent its own identity.<br>The service limits its resources and actions.</td></tr></table>
+    <p class="fragment">Both controls matter.<br>The agent does not inherit all of my human access.</p>
+    <aside class="notes">
+        <p>7–15 · Who is adapting?</p>
+        <ul>
+            <li><strong>Filter the tools:</strong> remove or limit operations the harness—the software managing model/tool interaction—can request through this route, such as omitting send.</li>
+            <li><strong>Restrict the account:</strong> give the agent its own identity with service-enforced limits on resources and actions, such as reading only permitted mailboxes.</li>
+            <li><strong>My actual workflow:</strong> filtered/modified MCP tool servers plus agents' own independently restricted accounts; the agent does not inherit all my human access.</li>
+            <li><strong>Background contrast:</strong> the earlier diagram illustrates a filtered tool path using a human account; that is not the account arrangement described here.</li>
+            <li><strong>Both controls:</strong> a filter does not constrain the account through other clients; a restricted account may still allow more tool operations than this task needs.</li>
+            <li><strong>Enforcement:</strong> the service must reject a forbidden resource request even if the model asks convincingly; neither layer alone guarantees safe output.</li>
+        </ul>
+    </aside>
+</section>

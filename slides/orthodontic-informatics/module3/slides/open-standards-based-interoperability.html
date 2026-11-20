@@ -1,9 +1,18 @@
-<section data-auto-animate="">
-                <h2>Open Standards-based Interoperability</h2>
-                <ul>
-                    <li class="fragment">DICOM/HL7/FHIR: long-lasting standards</li>
-                    <li class="fragment">Documentation and implementation tools available online to everyone</li>
-                    <li class="fragment">Single implementation allows multiple vendor products to link together</li>
-                    <li class="fragment">Less Expensive solutions</li>
-                </ul>
-            </section>
+<section data-duration="120" style="font-size:0.90em; line-height:1.25">
+    <h2 style="font-size:1.35em; max-width:100%; margin:0 auto 16px">Clinical standards cover different parts</h2>
+    <table style="font-size:0.72em"><tr><th>DICOM</th><th>HL7 / FHIR</th></tr>
+    <tr><td>Digital Imaging and Communications in Medicine</td><td>HL7: Health Level Seven<br>FHIR: Fast Healthcare Interoperability Resources</td></tr>
+    <tr><td>Images, related information<br>and imaging services</td><td>Clinical and administrative exchange:<br>patients, encounters, observations, documents…</td></tr></table>
+    <p class="fragment">Imaging is part of the case—not the whole clinical record.</p>
+    <aside class="notes">
+        <p>27–39 · Choose an exchange contract</p>
+        <ul>
+            <li><strong>DICOM:</strong> Digital Imaging and Communications in Medicine defines image information and imaging services—not just image pixels or a universal clinical-record container.</li>
+            <li><strong>HL7:</strong> Health Level Seven names a standards organization and its healthcare-exchange standards; FHIR is one of those standards.</li>
+            <li><strong>FHIR:</strong> Fast Healthcare Interoperability Resources organizes exchange into record types, such as Patient, Encounter (visit), Observation (measurement) and DocumentReference (document link).</li>
+            <li><strong>Different parts together:</strong> P-18's image exchange and wider history/visit context can need DICOM and applicable HL7 standards in the same workflow.</li>
+            <li><strong>Implementation limits:</strong> naming a standard does not establish which records or actions a product supports; imaging is only part of the case.</li>
+            <li><strong>Sources:</strong> DICOM — https://www.dicomstandard.org/current ; FHIR — https://hl7.org/fhir/summary.html</li>
+        </ul>
+    </aside>
+</section>

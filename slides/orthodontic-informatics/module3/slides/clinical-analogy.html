@@ -1,0 +1,20 @@
+<section data-duration="180" data-background-image="/lectures/assets/img/email-ai-manual-transfer.svg" data-background-opacity="0.2" style="font-size:0.90em; line-height:1.25">
+    <h2 style="font-size:1.35em; max-width:100%; margin:0 auto 16px">Clinical workflow: from copying to tools</h2>
+    <p><small>The email example, applied to clinical records</small></p>
+    <table style="font-size:0.72em"><tr><th>Now</th><th>What it could be</th></tr>
+    <tr><td>Copy screenshots from product A.<br>Re-enter information in product B.</td><td>B requests records through an API<br>and returns results through an API.</td></tr></table>
+    <p class="fragment" style="font-size:0.90em; margin:16px 0">Now: manual transfer, repeated work.</p>
+    <p class="fragment" style="font-size:0.90em; margin:16px 0">Could be: connected systems, reusable data and results.</p>
+    <aside class="notes">
+        <p>15–27 · Make context reusable</p>
+        <ul>
+            <li><strong>Proposed analogy:</strong> apply the working email example to clinical records; this is not a deployed clinical integration.</li>
+            <li><strong>Now:</strong> a clinician copies screenshots from product A and re-enters information in B; each transfer repeats manual work and context explanation.</li>
+            <li><strong>API:</strong> application programming interface—a software route for B to request records from A and return results, rather than a person copying them.</li>
+            <li><strong>Reusable records/results:</strong> carry patient and encounter (visit) links and sources; returned results need review before authorized saving.</li>
+            <li><strong>Independent access:</strong> each consuming system needs its own configured identity and permissions, not a borrowed full-access clinician login.</li>
+            <li><strong>Not sufficient alone:</strong> an API does not ensure matching meaning or safety; ask what happens if the right image belongs to the wrong visit.</li>
+            <li><strong>Reveal and bridge:</strong> Now, then What it could be; next identify the context that must travel with the records.</li>
+        </ul>
+    </aside>
+</section>

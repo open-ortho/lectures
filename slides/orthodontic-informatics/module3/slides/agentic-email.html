@@ -1,0 +1,20 @@
+<section data-duration="90">
+    <h2 style="font-size:1.4em">Email: an agent uses selected tools</h2>
+    <img src="/lectures/assets/img/agentic-email.svg" alt="The same illustrative MBOX store, envelope, IMAP service, authentication boundary and human with a laptop remain aligned. A limited MCP server authenticates with the human’s email account but exposes only read, compose and save-draft tools, with no send tool. This filter limits the tool path, not the underlying account permissions. The model is nested inside the harness. A logical two-way model-to-MCP tool relationship passes through the harness, which executes tool calls and returns results; it is not direct model network access. The human interacts with the outer harness, not directly with the model." style="width:100%">
+    <p style="font-size:0.66em;margin:0">The harness executes tool calls; the MCP filter limits this path—not the account.</p>
+    <p style="font-size:0.56em;color:#cbd0d3">The MCP server authenticates to the mail service; the model gets tools, not credentials.<br>MCP: Model Context Protocol. The harness is software connecting the model and tools.</p>
+    <aside class="notes">
+        <p>7–15 · Who is adapting?</p>
+        <ul>
+            <li><strong>Same mailbox:</strong> MBOX is illustrative message storage; IMAP (Internet Message Access Protocol) serves mailbox data, including saved drafts—not sending.</li>
+            <li><strong>Human and harness:</strong> The human controls the harness, not the model directly. This surrounding software manages model/tool interaction; nesting does not imply local inference.</li>
+            <li><strong>MCP server:</strong> Model Context Protocol exposes selected tools: Read retrieves mail, Compose prepares reply text, Save drafts stores it; No send tool is offered.</li>
+            <li><strong>Tool requests / results:</strong> the two-way arrow is logical, not a direct model network connection; the harness executes calls and returns results.</li>
+            <li><strong>Mailbox requests:</strong> the MCP server acts as the IMAP client; it requests service operations and receives responses backed by the stored mail.</li>
+            <li><strong>Authentication:</strong> The MCP server authenticates to the mail service; here it uses the human account. The model does not receive raw credentials.</li>
+            <li><strong>Path versus account:</strong> with tool filtering, the filter limits this tool path, not the account itself; not equivalent to independent least-privilege account permissions—rights limited to the task.</li>
+            <li><strong>Account enforcement:</strong> the service enforces resource-side permissions—actual account rights, including through other clients; a separate agent account can be restricted or unrestricted depending on configuration.</li>
+            <li><strong>Diagram boundary:</strong> this illustrates the human-account alternative, not my personal setup; additional authentication may protect harness-to-server access. No tool connection alone guarantees safety.</li>
+        </ul>
+    </aside>
+</section>

@@ -1,0 +1,18 @@
+<section data-duration="120">
+    <h2 style="font-size:1.4em">Preserve context—not guess it every time</h2>
+    <table style="font-size:0.73em"><tr><th>Repeated reconstruction</th><th>Preserved context</th></tr>
+    <tr><td>Infer the visit from filenames.<br>Guess a unit from a note.<br>Repeat for every new tool.</td><td>Link records to their visits.<br>Keep values with units and sources.<br>Flag unresolved matches.</td></tr></table>
+    <p class="fragment">Normalize representations.<br><strong>Do not silently rewrite originals.</strong></p>
+    <aside class="notes">
+        <p>15–27 · Make context reusable</p>
+        <ul>
+            <li><strong>Repeated reconstruction:</strong> every new tool infers a visit from filenames and guesses a unit from prose; repeated guesses are not new source evidence.</li>
+            <li><strong>Visit links:</strong> store the record's patient/encounter (visit) association so the next authorized tool can reuse it instead of rebuilding it.</li>
+            <li><strong>Values, units and sources:</strong> keep the measurement with its stated unit and source reference; an absent unit remains missing, not silently assumed.</li>
+            <li><strong>Unresolved matches:</strong> flag competing or missing visit/patient links for review; a confident match is still an inference unless supported.</li>
+            <li><strong>Normalization:</strong> make representations consistent—for example, an unambiguous date—without erasing narrative nuance or forcing every observation into a number.</li>
+            <li><strong>Rewriting originals:</strong> overwriting an original note, image or measurement with normalized or inferred output; a guessed unit must not replace an ambiguous source.</li>
+            <li><strong>Preserve both:</strong> retain the original plus the derived representation, linked to its source and transformation history; distinguish observed, derived and unresolved information.</li>
+        </ul>
+    </aside>
+</section>
