@@ -4,7 +4,7 @@
 
 This document began as the high-level proposal for a 60-minute lecture for second-year orthodontic residents. That teaching direction has been approved for slide implementation. The [current deck](index.html) now implements it in 27 slides; the [module guide](README.md) describes delivery. The former proposal-only approval gate is superseded, not an outstanding request for authorization to author slides.
 
-Approval concerns the lecture argument and content. It does not approve a live clinical integration, patient-data upload or writeback. The current 27-slide deck has passed independent presenter-note comprehension review, followed by structural and Chromium checks. It retains the standard opening, short notes with bold concepts and notes-only timing, and removes the standalone review-before-writeback slide. The broader four-module reframe remains in progress, and a lecturer-led timed rehearsal remains pending. The [course overview](../README.md) still describes the broader course.
+Approval concerns the lecture argument and content. It does not approve a live clinical integration, patient-data upload or writeback. The earlier deck passed independent presenter-note comprehension review, followed by structural and Chromium checks. The current 27-slide deck restores the unchanged shared Open-Ortho closing; that restoration and the revised delivery map still need independent comprehension review followed by a browser check. It retains the standard opening, short notes with bold concepts and notes-only timing, and removes the standalone review-before-writeback slide. The broader four-module reframe remains in progress, and a lecturer-led timed rehearsal remains pending. The [course overview](../README.md) still describes the broader course.
 
 ## Central argument
 
@@ -20,18 +20,22 @@ Start with the useful ambition of delegating preparation of a source-linked visi
 
 ## Implemented 60-minute structure
 
-The allocations include discussion and transitions; individual slides carry scheduled durations in seconds. Slide 14, “What must the software make available?”, is allocated four minutes, including the two minutes reassigned from the removed standalone review-before-writeback slide. Section time boundaries remain unchanged.
+The allocations include discussion and transitions; the 26 module-local slides carry scheduled durations in seconds. Slide 27 uses the unchanged [shared Open-Ortho closing](../open-ortho-org.html), also used by Modules 1, 2 and 4, without separate duration or notes. Slides 25–27 share the final four minutes: “Takeaways: your role”, “Next: choosing clinical software”, and the closing. Showing the closing is included in the existing two-minute [Module 4 handoff](slides/m4-handoff.html) allocation; its Open-Ortho presenter cues remain in that handoff’s notes. No time is added to the 60-minute total. Slide 14, “What must the software make available?”, is allocated four minutes, including the two minutes reassigned from the removed standalone review-before-writeback slide. Slide 18 ([“Supports FHIR” is the start of a question](slides/open-standards-based-interoperability-2.html)) is allocated four minutes, including the two minutes reassigned from the removed “A tool connection is not a clinical agreement” slide. Section time boundaries remain unchanged.
 
 | Time | Minutes | Slides | Section |
 | --- | ---: | --- | --- |
 | 0–7 | 7 | 1–5 | Course title; outline; recall M1/M2; useful delegation; synthetic P-18 case |
 | 7–15 | 8 | 6–10 | Presenter email story; matching traditional/agentic email diagrams; harness/MCP; complementary access limits |
 | 15–27 | 12 | 11–14 | Clinical analogy; reusable context; normalization; exchange capabilities and reviewable results |
-| 27–39 | 12 | 15–19 | Equivalent integration approaches; standards scope; profiles; meaning versus tools |
-| 39–49 | 10 | 20–23 | Clinician requirements; standards development; bounded Connectathon testing |
-| 49–56 | 7 | 24–25 | Paired case exercise and debrief |
-| 56–60 | 4 | 26–27 | Recap and evidence questions for M4 |
+| 27–39 | 12 | 15–18 | Equivalent integration approaches; standards scope; profiles |
+| 39–49 | 10 | 19–22 | Clinician requirements; standards development; bounded Connectathon testing |
+| 49–56 | 7 | 23–24 | Takeaways: connected AI and reusable context; DICOM, HL7 FHIR and IHE profiles |
+| 56–60 | 4 | 25–27 | Takeaways: your role; M4 preview and shared Open-Ortho closing |
 | **Total** | **60** | **27** | |
+
+## Audience chapter map
+
+The audience sees a single chapter footer on every slide, independently of the scheduled time blocks above: Introduction on slides 1–2; Review on slide 3; chapter 1 on slides 4–5; chapter 2 on slides 6–10; chapter 3 on slides 11–14; chapter 4 on slides 15–16; chapter 5 on slides 17–22; and chapter 6 on slides 23–27, including the takeaway summary and shared closing. The [module guide](README.md#audience-chapter-footer) lists the exact six outline labels and explains the module-local overlay. Audience footers contain no timings; the shared closing source remains unchanged.
 
 ## Presenter story and clinical analogy
 
@@ -59,6 +63,6 @@ Clinicians state use cases and failure conditions. Standards experts and impleme
 
 ## Resident application and course boundary
 
-Pairs inspect a deliberately flawed exchange proposal: missing date/units, an uncertain encounter, absent history, the clinician's full-access login and unreviewed chart writeback. They produce a missing-context finding, a permission finding and one testable requirement. The debrief turns these into observable behaviors, such as flagging an omitted unit instead of guessing.
+Slides 23–25 provide a concise takeaway summary, not a paired exercise. “Takeaways: connected AI” links permitted tools to reusable records and context. “Takeaways: know the standards” recalls DICOM for medical imaging and related metadata/services, HL7 FHIR for structured clinical/administrative exchange beyond images, and IHE profiles for coordinating existing standards in defined workflows. “Takeaways: your role” connects clinical functional needs to testable requirements, contrasts partner-specific bridges with a reusable standards implementation per product, and keeps implementation testing bounded. The three slides retain their four-, three- and two-minute allocations.
 
 M1 establishes why reuse matters; M2 supplies topology and flow. M3 asks what meaning and permissions must cross those boundaries, and how clinicians shape and test the agreement. M4 evaluates products, contracts and archives using the resulting evidence questions. This lecture is not a deployment tutorial, a procurement workshop or an authorization for autonomous treatment decisions.

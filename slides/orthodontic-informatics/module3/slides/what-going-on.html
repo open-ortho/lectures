@@ -1,20 +1,23 @@
 <section data-duration="120">
-    <h2 style="font-size:1.4em">From clinical need to shared rules</h2>
-    <ol style="font-size:0.8em"><li>Clinicians describe the use case and failure conditions.</li>
-    <li class="fragment">Standards experts check what existing rules cover—and where gaps remain.</li>
-    <li class="fragment">Teams develop corrections, profiles or implementation guidance.</li>
-    <li class="fragment">Implementers test, report problems and refine the agreement.</li></ol>
-    <p><small>DICOM, HL7 and IHE are communities to engage—not dates to memorize.</small></p>
+    <h2 style="font-size:1.1em">From clinical need to tested exchange</h2>
+    <img src="/lectures/assets/img/standards-development-flow.svg" style="width:100%;max-width:100%;max-height:560px;object-fit:contain;margin:0" alt="Nine-stage U-shaped path: doctors lead use case and functional requirements (1–2), with developers advising and reviewing concrete detail; standards experts lead gap analysis through profile (3–6), with optional doctor review of clinical intent; developers lead implementation and Connectathon tests (7–8), with optional doctor review of clinical needs; stable, tested exchange (9) is a joint outcome. Roles overlap. Amend only if needed; return test issues to profile and implementation.">
     <aside class="notes">
         <p>39–49 · Shape and test exchange</p>
         <ul>
-            <li><strong>Clinical use case:</strong> describe who needs which information for what task, plus unacceptable outcomes such as a wrong-visit measurement.</li>
-            <li><strong>Gap check:</strong> standards experts ask whether existing exchange rules already meet that need and identify missing or ambiguous parts.</li>
-            <li><strong>Corrections and guidance:</strong> a missing capability may need a correction/extension; unclear use may need a profile (selected constraints) or clearer implementation instructions.</li>
-            <li><strong>Test and refine:</strong> implementers try the agreement, report mismatches and revise it; this is iterative, not one universal approval sequence.</li>
-            <li><strong>DICOM and HL7:</strong> imaging and wider clinical-exchange standards communities need clinical input about real workflows, not memorized launch dates.</li>
-            <li><strong>IHE:</strong> Integrating the Healthcare Enterprise develops profiles coordinating existing standards for defined workflows; attending an event does not make a draft an established standard.</li>
-            <li><strong>Sources:</strong> IHE — https://www.ihe.net/about_ihe/ ; FHIR guidance — https://hl7.org/fhir/profiling.html</li>
+            <li><strong>Use case:</strong> doctors lead: who needs which information for what clinical task, such as a visit brief; developers advise on concrete detail.</li>
+            <li><strong>Functional requirements:</strong> doctors lead testable clinical outcomes, such as showing visit, units and source; developers review whether detail is sufficient to build and test.</li>
+            <li><strong>Standard gap analysis:</strong> standards experts lead comparison with existing rules; bypass amendment when a standard is sufficient.</li>
+            <li><strong>Standard amendment:</strong> standards experts take a needed change through the standards body’s proposal, review and approval process—not a unilateral team edit.</li>
+            <li><strong>Standard:</strong> standards experts identify the existing or amended shared rules; these are not a working software product.</li>
+            <li><strong>Profile:</strong> standards experts select and constrain standard usage for a workflow; a separate profile is not mandatory in every ecosystem.</li>
+            <li><strong>Doctor review, 3–6:</strong> interested, technically savvy doctors may check that standards/profile choices preserve clinical intent; not every doctor needs standards detail.</li>
+            <li><strong>Implementations:</strong> developers lead building and configuring sending/receiving software using the chosen standard and applicable profile.</li>
+            <li><strong>Connectathon:</strong> developers lead interoperability tests in a selected scope; issues return to profile and implementation for refinement and retesting.</li>
+            <li><strong>Doctor review, 7–8:</strong> optional review checks clinical needs; this map does not prescribe a universal clinician approval gate.</li>
+            <li><strong>Stable, tested exchange:</strong> a joint outcome for the tested scope, not another lead process and not universal certification.</li>
+            <li><strong>Overlapping roles:</strong> standards authors may also be developers; the colors identify contributions, not disjoint professions.</li>
+            <li><strong>Conceptual path:</strong> read 1–5 across, then 6–9 back; this teaching map is not a deployment protocol or a universal approval sequence.</li>
+            <li><strong>Sources:</strong> IHE — https://www.ihe.net/about_ihe/ ; FHIR profiling guidance — https://hl7.org/fhir/profiling.html</li>
         </ul>
     </aside>
 </section>

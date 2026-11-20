@@ -1,17 +1,19 @@
 <section data-duration="120">
-    <h2 style="font-size:1.4em">Can the next authorized tool reuse the case?</h2>
-    <p style="font-size:0.8em">Without you collecting, reformatting and explaining it again?</p>
-    <ol style="font-size:0.8em"><li>Preserve context and originals.</li><li class="fragment">Agree on meaning—not just a connection.</li>
-    <li class="fragment">Restrict tools <em>and</em> resource permissions.</li><li class="fragment">Review outputs; test the intended exchange.</li></ol>
+    <h2 style="font-size:1.4em">Takeaways: your role</h2>
+    <ul style="font-size:0.78em">
+        <li><strong>Clinicians:</strong> turn functional needs into testable exchange requirements.</li>
+        <li class="fragment"><strong>Implementers:</strong> reuse a standards implementation per product,<br>rather than maintain a separate bridge for each partner.</li>
+        <li class="fragment"><strong>Together:</strong> test the agreed workflow—not just standards logos.</li>
+    </ul>
     <aside class="notes">
         <p>56–60 · Synthesis and M4</p>
         <ul>
-            <li><strong>Reusable case:</strong> the next authorized tool should not depend on the clinician collecting, reformatting and explaining the same context again.</li>
-            <li><strong>Context and originals:</strong> preserve patient/visit links, dates, units and sources; retain uncertainty rather than replace original records with guesses.</li>
-            <li><strong>Meaning, not just connection:</strong> clinical-exchange standards define record meaning; tool protocols expose operations. A successful request can still return an uninterpretable record.</li>
-            <li><strong>Two restrictions:</strong> limit exposed tool operations and independently restrict service-side account rights; the model's discretion is not access enforcement.</li>
-            <li><strong>Review and test:</strong> clinicians check outputs; exercise the intended exchange and failures such as a missing unit, not just a fluent demonstration.</li>
-            <li><strong>Story boundary:</strong> my email workflow is actual experience; the clinical analogy remains proposed, with extra identity, meaning and review requirements.</li>
+            <li><strong>Clinical requirements:</strong> state the needed behavior and an observable result; for example, a missing measurement unit must be flagged rather than guessed. Clinicians contribute use cases and failure conditions, not necessarily code.</li>
+            <li><strong>Partner bridges:</strong> pair-specific integration logic connects one product to one partner; adding partners adds separately maintained connections, even if some code is shared.</li>
+            <li><strong>Reusable implementation:</strong> each product implements its side of a shared exchange agreement and can reuse that software with compatible partners, reducing repeated integration work—not one universal program.</li>
+            <li><strong>Compatibility work:</strong> align versions, profiles, operations and terminology; product-specific mapping, configuration and testing still remain.</li>
+            <li><strong>Testing together:</strong> clinicians define expected workflow behavior; developers test actual implementations, including missing context and denied operations. A standards logo is not exchange evidence.</li>
+            <li><strong>Bounded evidence:</strong> a Connectathon tests selected roles and transactions; passing is not universal certification, local workflow validation or proof of clinically correct AI output.</li>
         </ul>
     </aside>
 </section>

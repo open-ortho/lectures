@@ -1,20 +1,18 @@
 <section data-duration="180">
-    <h2 style="font-size:1.4em">Repair the exchange, not just the answer</h2>
-    <ul style="font-size:0.78em"><li>Show missing dates, units and uncertain encounter matches.</li>
-    <li class="fragment">Keep originals and source links; “not supplied” is not “normal.”</li>
-    <li class="fragment">Use a tool-specific restricted identity; test denied operations.</li>
-    <li class="fragment">Return a draft for review; permit writeback only separately.</li></ul>
-    <p class="fragment"><strong>Test:</strong> remove a unit → the receiver flags it, without guessing.</p>
+    <h2 style="font-size:1.4em">Takeaways: know the standards</h2>
+    <ul style="font-size:0.78em">
+        <li><strong>DICOM:</strong> medical images, related metadata and imaging services.</li>
+        <li class="fragment"><strong>HL7 FHIR:</strong> structured clinical and administrative exchange<br>beyond images—patients, visits, observations and document links.</li>
+        <li class="fragment"><strong>IHE profiles:</strong> coordinate existing standards for specific workflows.</li>
+    </ul>
     <aside class="notes">
-        <p>49–56 · Apply the argument</p>
+        <p>49–56 · Consolidate the argument</p>
         <ul>
-            <li><strong>Missing context:</strong> expose absent dates/units and uncertain encounter (visit) links; an unresolved measurement must not become a silently completed fact.</li>
-            <li><strong>Originals and sources:</strong> keep the original note/image and traceable links so a clinician can inspect what the draft used.</li>
-            <li><strong>“Not supplied” ≠ “normal”:</strong> absent history is a gap in the received information, not evidence of a negative history.</li>
-            <li><strong>Restricted identity:</strong> give the consuming tool independently configured service permissions; filtering dangerous tool operations complements, not replaces, those limits.</li>
-            <li><strong>Denied-operation test:</strong> demonstrate that a forbidden request is rejected as well as showing a permitted retrieval working.</li>
-            <li><strong>Draft then review:</strong> the clinician checks the result; writeback (saving to the chart) still requires separate authorization and correct patient/visit placement.</li>
-            <li><strong>Missing-unit test:</strong> remove a unit → receiver flags it and preserves the source without guessing; this observable repair alone does not prove clinical correctness.</li>
+            <li><strong>DICOM:</strong> Digital Imaging and Communications in Medicine covers images plus related metadata, such as patient/study identifiers, and services such as image storage and retrieval—not just pixels.</li>
+            <li><strong>HL7 FHIR:</strong> Health Level Seven's Fast Healthcare Interoperability Resources represents structured records such as Patient, Encounter (visit), Observation (measurement) and DocumentReference (document link).</li>
+            <li><strong>Beyond images:</strong> FHIR supports wider clinical/administrative context; it can also describe imaging studies and reference images. DICOM and FHIR are complementary, not mutually exclusive containers.</li>
+            <li><strong>IHE profiles:</strong> Integrating the Healthcare Enterprise specifies how systems use established standards, such as DICOM and HL7, together for a defined workflow; profiles are not a universal replacement standard.</li>
+            <li><strong>Sources:</strong> DICOM — https://www.dicomstandard.org/current ; FHIR — https://hl7.org/fhir/summary.html ; IHE — https://www.ihe.net/about_ihe/</li>
         </ul>
     </aside>
 </section>

@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 830" role="img" aria-labelledby="flow-title flow-desc" font-family="Arial, Helvetica, sans-serif" font-size="34" fill="#f4f4f4">
+    <title id="flow-title">From clinical need to tested exchange</title>
+    <desc id="flow-desc">Read stages 1–5 left to right across the top, then 6–9 right to left below: use case, functional requirements, standard gap analysis, standard amendment, standard, profile, developers’ implementation, Connectathon, stable, tested exchange. Doctors lead stages 1–2; developers advise and review for concrete detail. Standards experts lead stages 3–6; interested, technically savvy doctors may review clinical intent without every doctor learning standards detail. Developers lead implementation and tests in stages 7–8; doctors may review clinical needs. Stage 9 is a joint outcome, not another lead process. These are overlapping roles: standards authors may also be developers. The dashed amendment route applies only if a gap needs a standards change; an existing sufficient standard bypasses amendment. Connectathon issues feed back to the profile and implementation for refinement and retesting. This is a conceptual path, not a universal approval or certification sequence.</desc>
+    <defs>
+        <marker id="next" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto" markerUnits="userSpaceOnUse">
+            <path d="M1 1 L11 6 L1 11 Z" fill="#bfc3c7"/>
+        </marker>
+        <marker id="conditional" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto" markerUnits="userSpaceOnUse">
+            <path d="M1 1 L11 6 L1 11 Z" fill="#c7b590"/>
+        </marker>
+        <marker id="feedback" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="12" markerHeight="12" orient="auto" markerUnits="userSpaceOnUse">
+            <path d="M1 1 L11 6 L1 11 Z" fill="#aec9b5"/>
+        </marker>
+    </defs>
+
+    <!-- Connectors sit in the gaps; the sufficient-standard route stays above all boxes. -->
+    <g fill="none" stroke="#bfc3c7" stroke-width="3">
+        <path data-from="1" data-to="2" d="M242 208 H297" marker-end="url(#next)"/>
+        <path data-from="2" data-to="3" d="M529 208 H584" marker-end="url(#next)"/>
+        <path data-from="3" data-to="4" d="M816 208 H871" stroke="#c7b590" stroke-dasharray="8 7" marker-end="url(#conditional)"/>
+        <path data-from="4" data-to="5" d="M1103 208 H1158" stroke="#c7b590" stroke-dasharray="8 7" marker-end="url(#conditional)"/>
+        <path data-from="3" data-to="5" d="M700 130 V65 H1274 V130" marker-end="url(#next)"/>
+        <path data-from="5" data-to="6" d="M1274 285 V400" marker-end="url(#next)"/>
+        <path data-from="6" data-to="7" d="M1158 477 H1010" marker-end="url(#next)"/>
+        <path data-from="7" data-to="8" d="M710 477 H630" marker-end="url(#next)"/>
+        <path data-from="8" data-to="9" d="M370 477 H270" marker-end="url(#next)"/>
+    </g>
+    <text x="987" y="45" text-anchor="middle" fill="#bfc3c7">Standard sufficient</text>
+    <text x="987" y="111" text-anchor="middle" fill="#c7b590">Only if gap</text>
+
+    <!-- A shared feedback branch avoids crossing the forward path or the labels. -->
+    <g fill="none" stroke="#aec9b5" stroke-width="3">
+        <path data-from="8" data-to="6" d="M500 555 V620 H1274 V555" marker-end="url(#feedback)"/>
+        <path data-from="8" data-to="7" d="M860 620 V555" marker-end="url(#feedback)"/>
+    </g>
+    <text x="887" y="665" text-anchor="middle" fill="#aec9b5">Issues: refine and retest</text>
+
+    <g data-stage="1">
+        <rect x="10" y="130" width="232" height="155" rx="12" fill="#142028" stroke="#aac9d8" stroke-width="2"/>
+        <text x="28" y="170" fill="#aac9d8">1</text>
+        <text x="126" y="237" text-anchor="middle">Use case</text>
+    </g>
+    <g data-stage="2">
+        <rect x="297" y="130" width="232" height="155" rx="12" fill="#142028" stroke="#aac9d8" stroke-width="2"/>
+        <text x="315" y="170" fill="#aac9d8">2</text>
+        <text x="413" y="217" text-anchor="middle"><tspan x="413">Functional</tspan> <tspan x="413" dy="40">requirements</tspan></text>
+    </g>
+    <g data-stage="3">
+        <rect x="584" y="130" width="232" height="155" rx="12" fill="#272319" stroke="#c7b590" stroke-width="2"/>
+        <text x="602" y="170" fill="#c7b590">3</text>
+        <text x="700" y="217" text-anchor="middle"><tspan x="700">Standard</tspan> <tspan x="700" dy="40">gap analysis</tspan></text>
+    </g>
+    <g data-stage="4">
+        <rect x="871" y="130" width="232" height="155" rx="12" fill="#272319" stroke="#c7b590" stroke-width="2" stroke-dasharray="8 7"/>
+        <text x="889" y="170" fill="#c7b590">4</text>
+        <text x="987" y="217" text-anchor="middle"><tspan x="987">Standard</tspan> <tspan x="987" dy="40">amendment</tspan></text>
+    </g>
+    <g data-stage="5">
+        <rect x="1158" y="130" width="232" height="155" rx="12" fill="#272319" stroke="#c7b590" stroke-width="2"/>
+        <text x="1176" y="170" fill="#c7b590">5</text>
+        <text x="1274" y="237" text-anchor="middle">Standard</text>
+    </g>
+    <g data-stage="6">
+        <rect x="1158" y="400" width="232" height="155" rx="12" fill="#272319" stroke="#c7b590" stroke-width="2"/>
+        <text x="1176" y="440" fill="#c7b590">6</text>
+        <text x="1274" y="507" text-anchor="middle">Profile</text>
+    </g>
+    <g data-stage="7">
+        <rect x="710" y="400" width="300" height="155" rx="12" fill="#211e28" stroke="#bfb6d8" stroke-width="2"/>
+        <text x="728" y="440" fill="#bfb6d8">7</text>
+        <text x="860" y="487" text-anchor="middle"><tspan x="860">Developers’</tspan> <tspan x="860" dy="40">implementation</tspan></text>
+    </g>
+    <g data-stage="8">
+        <rect x="370" y="400" width="260" height="155" rx="12" fill="#211e28" stroke="#bfb6d8" stroke-width="2"/>
+        <text x="388" y="440" fill="#bfb6d8">8</text>
+        <text x="500" y="507" text-anchor="middle">Connectathon</text>
+    </g>
+    <g data-stage="9">
+        <rect x="10" y="400" width="260" height="155" rx="12" fill="#1a261f" stroke="#aec9b5" stroke-width="2"/>
+        <text x="28" y="440" fill="#aec9b5">9</text>
+        <text x="140" y="487" text-anchor="middle"><tspan x="140">Stable, tested</tspan> <tspan x="140" dy="40">exchange</tspan></text>
+        <text x="140" y="596" text-anchor="middle" fill="#aec9b5">Joint outcome</text>
+    </g>
+
+    <!-- Role key is below every route; the numbered groups also work without color. -->
+    <g data-role-key="lead-and-support">
+        <rect x="10" y="690" width="12" height="34" rx="4" fill="#aac9d8"/>
+        <text x="40" y="717"><tspan fill="#aac9d8" font-weight="bold">1–2  Doctors lead</tspan><tspan> · Developers advise / review concrete detail</tspan></text>
+        <rect x="10" y="736" width="12" height="34" rx="4" fill="#c7b590"/>
+        <text x="40" y="763"><tspan fill="#c7b590" font-weight="bold">3–6  Standards experts lead</tspan><tspan> · Doctors review clinical intent (optional)</tspan></text>
+        <rect x="10" y="782" width="12" height="34" rx="4" fill="#bfb6d8"/>
+        <text x="40" y="809"><tspan fill="#bfb6d8" font-weight="bold">7–8  Developers lead</tspan><tspan> · Doctors review clinical needs (optional)</tspan></text>
+    </g>
+</svg>

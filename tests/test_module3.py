@@ -8,6 +8,7 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 MODULE = ROOT / 'slides/orthodontic-informatics/module3'
+SHARED_CLOSING = MODULE.parent / 'open-ortho-org.html'
 
 
 class Elements(HTMLParser):
@@ -76,6 +77,63 @@ class Module3Delivery(unittest.TestCase):
             return ET.fromstring(local_target(source, images[0]['src']).read_text())
         return ET.fromstring(re.search(r'<svg\b.*?</svg>', text, re.S).group())
 
+    def test_standards_process_replaces_list_with_accessible_numbered_flow(self):
+        asset = ROOT / 'assets/img/standards-development-flow.svg'
+        self.assertTrue(asset.is_file(), 'Missing standards development process diagram')
+        svg = ET.fromstring(asset.read_text())
+        self.assertEqual(svg.get('role'), 'img')
+        nodes = {n.get('id'): n for n in svg.iter() if n.get('id')}
+        self.assertTrue(svg.get('aria-labelledby'))
+        for ref in svg.get('aria-labelledby').split():
+            self.assertTrue(''.join(nodes[ref].itertext()).strip())
+        self.assertTrue(any(n.tag.endswith('title') for n in svg))
+        self.assertTrue(any(n.tag.endswith('desc') for n in svg))
+        self.assertIn('sans-serif', svg.get('font-family', ''))
+        self.assertGreaterEqual(float(svg.get('font-size')), 30)
+        for n in svg.iter():
+            if n.get('font-size'):
+                self.assertGreaterEqual(float(n.get('font-size')), 26)
+        stages = [n for n in svg.iter() if n.get('data-stage')]
+        self.assertEqual([n.get('data-stage') for n in stages], [str(i) for i in range(1, 10)])
+        for stage, label in zip(stages, [
+                'Use case', 'Functional requirements', 'Standard gap analysis',
+                'Standard amendment', 'Standard', 'Profile',
+                'Developers’ implementation', 'Connectathon', 'Stable, tested exchange']):
+            self.assertIn(label, ' '.join(' '.join(stage.itertext()).split()))
+        # Two rows with the lower row read right-to-left, not nine tiny boxes.
+        positions = [(float(n.find('{*}rect').get('x')),
+                      float(n.find('{*}rect').get('y'))) for n in stages]
+        self.assertEqual(len({y for _, y in positions}), 2)
+        self.assertEqual([x for x, _ in positions[:5]], sorted(x for x, _ in positions[:5]))
+        self.assertEqual([x for x, _ in positions[5:]],
+                         sorted((x for x, _ in positions[5:]), reverse=True))
+        links = {(n.get('data-from'), n.get('data-to')): n
+                 for n in svg.iter() if n.get('data-from')}
+        for start, end in zip(range(1, 9), range(2, 10)):
+            self.assertTrue(links[str(start), str(end)].get('marker-end'))
+        for conditional in [('3', '4'), ('4', '5')]:
+            self.assertTrue(links[conditional].get('stroke-dasharray'))
+        self.assertTrue(links['3', '5'].get('marker-end'), 'Existing standard must bypass amendment')
+        for target in ('6', '7'):
+            self.assertTrue(links['8', target].get('marker-end'), 'Test issues need a feedback path')
+        source = MODULE / 'slides/what-going-on.html'
+        text = source.read_text()
+        elements = Elements(text).elements
+        section = next(attrs for tag, attrs in elements if tag == 'section')
+        self.assertEqual(section['data-duration'], '120')
+        images = [attrs for tag, attrs in elements if tag == 'img']
+        self.assertEqual(len(images), 1)
+        self.assertEqual(local_target(source, images[0]['src']), asset)
+        self.assertTrue(images[0].get('alt', '').strip())
+        self.assertIn('width:100%', images[0]['style'])
+        self.assertEqual(visible_list_items(text), [])
+        notes = re.search(r'<aside class="notes">(.*?)</aside>', text, re.S).group(1)
+        for concept in ('Use case', 'Functional requirements', 'Standard gap analysis',
+                        'Standard amendment', 'Standard:', 'Profile', 'Implementations',
+                        'Connectathon', 'Stable', 'testable', 'standards body',
+                        'not mandatory', 'selected scope', 'not universal certification'):
+            self.assertIn(concept, notes)
+
     def test_agentic_diagram_is_one_shared_accessible_image_and_two_backgrounds(self):
         asset = ROOT / 'assets/img/agentic-email.svg'
         self.assertTrue(asset.is_file(), 'Missing shared agentic email diagram')
@@ -134,10 +192,10 @@ class Module3Delivery(unittest.TestCase):
         self.assertEqual(visible_list_items(text), [
             'Delegate to AI',
             'How I use AI',
-            'Reusable clinical context, permissions and review',
-            'Integration using vendor-specific interfaces versus shared standards',
-            'Clinician requirements and Connectathon testing',
-            'Case exercise, takeaways and questions for Module 4',
+            'Applying AI to clinical workflows',
+            'Vendor-specific vs shared-standards communications',
+            'Current clinical informatics standards',
+            'Takeaways',
         ])
         self.assertIn('<h2>Review</h2>', slides[2].read_text())
         self.assertIn('What would you delegate to AI?', slides[3].read_text())
@@ -145,6 +203,34 @@ class Module3Delivery(unittest.TestCase):
         self.assertEqual([int(next(attrs['data-duration'] for tag, attrs in
                                   Elements(slide.read_text()).elements if tag == 'section'))
                           for slide in slides[:5]], [30, 30, 120, 90, 150])
+
+    def test_manifest_assigns_every_slide_to_an_audience_chapter(self):
+        chapters = [attrs.get('data-chapter')
+                    for _, attrs in Elements((MODULE / 'index.html').read_text()).elements
+                    if 'data-external-replace' in attrs]
+        self.assertEqual(chapters, [
+            'introduction', 'introduction', 'review',
+            *(['1'] * 2), *(['2'] * 5), *(['3'] * 4),
+            *(['4'] * 2), *(['5'] * 6), *(['6'] * 5),
+        ])
+
+    def test_chapter_footer_is_one_module_local_unscaled_overlay(self):
+        text = (MODULE / 'index.html').read_text()
+        elements = Elements(text).elements
+        self.assertEqual([attrs for _, attrs in elements
+                          if attrs.get('id') == 'chapter-footer'],
+                         [{'id': 'chapter-footer', 'hidden': None}])
+        self.assertIn('</div>\n        <div id="chapter-footer" hidden></div>', text)
+        self.assertIn('<script src="chapter-nav.js"></script>\n    '
+                      '<script src="../common.js"></script>', text)
+        self.assertTrue(any(tag == 'link' and attrs.get('href') == 'chapter-nav.css'
+                            for tag, attrs in elements))
+        css_path = MODULE / 'chapter-nav.css'
+        self.assertTrue(css_path.exists(), 'Missing module-local chapter footer CSS')
+        css = css_path.read_text()
+        for rule in ('position: fixed', 'text-align: left', 'font-family:',
+                     'font-size: clamp(', '20px', 'pointer-events: none'):
+            self.assertIn(rule, css)
 
     def test_visible_agenda_parser_excludes_note_bullets_not_other_asides(self):
         text = '''<ol><li>Delegate to <strong>AI</strong></li></ol>
@@ -159,6 +245,8 @@ class Module3Delivery(unittest.TestCase):
         for slide in self.opening_slides():
             with self.subTest(slide=slide.name):
                 text = slide.read_text()
+                if slide.resolve() == SHARED_CLOSING:
+                    continue  # Unmodified course-wide closing; its time belongs to the handoff.
                 notes = re.search(r'<aside class="notes">(.*?)</aside>', text, re.S)
                 self.assertIsNotNone(notes)
                 self.assertRegex(notes.group(1), label)
@@ -263,6 +351,23 @@ class Module3Delivery(unittest.TestCase):
                        'restricted or unrestricted', 'not equivalent to independent least-privilege'):
             self.assertIn(phrase, text)
 
+    def test_closing_reuses_the_same_shared_slide_as_modules_1_2_4(self):
+        closing_reference = '../open-ortho-org.html'
+        for number in (1, 2, 4, 3):
+            manifest = MODULE.parent / f'module{number}/index.html'
+            references = [attrs['data-external-replace']
+                          for _, attrs in Elements(manifest.read_text()).elements
+                          if 'data-external-replace' in attrs]
+            with self.subTest(module=number):
+                self.assertEqual(references[-1], closing_reference)
+                self.assertEqual(references.count(closing_reference), 1)
+        self.assertEqual([slide.name for slide in self.opening_slides()[-3:]],
+                         ['takeaways.html', 'm4-handoff.html', 'open-ortho-org.html'])
+        final_durations = [int(next(attrs for tag, attrs in Elements(
+            slide.read_text()).elements if tag == 'section').get('data-duration', 0))
+            for slide in self.opening_slides()[-3:]]
+        self.assertEqual(final_durations, [120, 120, 0])
+
     def test_manifest_removes_writeback_slide_without_a_replacement(self):
         slides = self.opening_slides()
         self.assertEqual(len(slides), 27)
@@ -271,14 +376,30 @@ class Module3Delivery(unittest.TestCase):
         self.assertEqual([slide.name for slide in slides[13:15]], [
             'exchange-operations.html', 'proprietary-based-interoperability.html'])
 
+    def test_manifest_removes_tool_agreement_slide_and_reassigns_its_duration(self):
+        slides = self.opening_slides()
+        manifest = (MODULE / 'index.html').read_text()
+        with self.subTest(contract='removed reference'):
+            self.assertNotIn('slides/meaning-versus-tool-access.html', manifest)
+        with self.subTest(contract='deleted source'):
+            self.assertFalse((MODULE / 'slides/meaning-versus-tool-access.html').exists())
+        with self.subTest(contract='no replacement'):
+            self.assertEqual([slide.name for slide in slides[17:19]], [
+                'open-standards-based-interoperability-2.html',
+                'standards-development-process.html'])
+        with self.subTest(contract='preceding slide receives removed duration'):
+            text = (MODULE / 'slides/open-standards-based-interoperability-2.html').read_text()
+            section = next(attrs for tag, attrs in Elements(text).elements if tag == 'section')
+            self.assertEqual(int(section['data-duration']), 240)
+
     def test_delivery_maps_match_the_27_slide_section_boundaries(self):
         guide = (MODULE / 'README.md').read_text()
         plan = (MODULE / 'PLAN.md').read_text()
         for time, minutes, slides in [
                 ('0–7', 7, '1–5'), ('7–15', 8, '6–10'),
-                ('15–27', 12, '11–14'), ('27–39', 12, '15–19'),
-                ('39–49', 10, '20–23'), ('49–56', 7, '24–25'),
-                ('56–60', 4, '26–27')]:
+                ('15–27', 12, '11–14'), ('27–39', 12, '15–18'),
+                ('39–49', 10, '19–22'), ('49–56', 7, '23–24'),
+                ('56–60', 4, '25–27')]:
             with self.subTest(time=time):
                 self.assertIn(f'| {time} | {slides} |', guide)
                 self.assertIn(f'| {time} | {minutes} | {slides} |', plan)
@@ -286,6 +407,13 @@ class Module3Delivery(unittest.TestCase):
         for document in (guide, plan):
             self.assertNotIn('28-slide', document)
             self.assertNotIn('28 slides', document)
+            self.assertIn('26 module-local slides', document)
+            self.assertIn('Slide 27', document)
+            self.assertIn('../open-ortho-org.html', document)
+            self.assertIn('m4-handoff.html', document)
+            self.assertIn('Slide 18 ([“Supports FHIR” is the start of a question]'
+                          '(slides/open-standards-based-interoperability-2.html)) '
+                          'is allocated four minutes', document)
 
     def test_removed_duration_is_assigned_to_preceding_exchange_slide(self):
         text = (MODULE / 'slides/exchange-operations.html').read_text()
@@ -308,22 +436,39 @@ class Module3Delivery(unittest.TestCase):
                 text = source.read_text()
                 parsed = Elements(text).elements
                 for tag, attrs in parsed:
-                    for key in ('src', 'href'):
+                    for key in ('src', 'href', 'data-background-image'):
                         url = attrs.get(key, '')
                         if url and not urlsplit(url).scheme and not url.startswith('#'):
                             self.assertTrue(local_target(source, url).exists(), (source, url))
                     if tag == 'img':
-                        self.assertTrue(attrs.get('alt', '').strip(), str(source))
+                        if (source.resolve() == SHARED_CLOSING and
+                                attrs.get('src') == '/lectures/assets/img/url_qrcodoe_open-ortho.png'):
+                            # Only the baseline shared QR image lacks alt; local slides remain strict.
+                            self.assertEqual(attrs, {
+                                'src': '/lectures/assets/img/url_qrcodoe_open-ortho.png',
+                                'width': '50%',
+                            })
+                        else:
+                            self.assertTrue(attrs.get('alt', '').strip(), str(source))
                 if source == manifest:
                     continue
                 sections = [a for tag, a in parsed if tag == 'section']
                 self.assertEqual(len(sections), 1)
+                self.assertNotIn('<script', text.lower())
+                if source.resolve() == SHARED_CLOSING:
+                    self.assertNotIn('data-duration', sections[0])
+                    self.assertFalse(any(tag == 'aside' and 'notes' in a.get('class', '').split()
+                                         for tag, a in parsed))
+                    continue
+                self.assertEqual(source.resolve().parent, MODULE / 'slides')
                 duration += int(sections[0]['data-duration'])
                 self.assertTrue(any(tag == 'aside' and 'notes' in a.get('class', '').split()
                                     for tag, a in parsed), str(source))
-                self.assertNotIn('<script', text.lower())
         self.assertEqual(duration, 60 * 60)
-        self.assertEqual(set(MODULE.joinpath('slides').glob('*.html')), set(slides))
+        local_slides = {source.resolve() for source in slides
+                        if source.resolve().parent == MODULE / 'slides'}
+        self.assertEqual(len(local_slides), 26)
+        self.assertEqual(set(MODULE.joinpath('slides').glob('*.html')), local_slides)
 
 
 if __name__ == '__main__':
