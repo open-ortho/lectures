@@ -7,7 +7,7 @@ priority: normal
 tags:
     - cs-lecture
 created_at: 2026-11-21T00:59:49Z
-updated_at: 2026-11-21T01:55:13Z
+updated_at: 2026-11-21T01:55:43Z
 ---
 
 ## Purpose
@@ -43,3 +43,5 @@ Descriptions and contents were inspected, not the books in full. Present these a
 The focused revision on branch `docs/cs-informatics-introduction` updates the existing deck at `slides/2026-cs-club-biomedical-informatics/`: consistent title and computer science audience, copy-ready room-booking description in the deck README, and Georgia Tech/book resource slides. There are 23 slides; the 20 original technical slide files and their order are unchanged. This revision does not rewrite the technical body or enable chapter footers.
 
 Verification: fresh-context passage-cited comprehension review passed; separate checks passed 29 Python tests and 4 Node tests. The title and new resource slides render without overflow or broken images at 1440×1000 and 1280×720; no page or HTTP errors occurred while loading the deck. All four resource destination pages were reachable and their relevant descriptions were checked. Existing technical slides 6–7 have reported viewport overflow and remain to be polished. A one-hour delivery remains an unrehearsed target; lecturer acceptance, broader narrative work and final whole-deck readiness remain outstanding. This work is separate from the orthodontic M1–M4 reframe tracked in lectures-2g3g.
+
+Proposed in PR #5: https://github.com/open-ortho/lectures/pull/5 (open; not merged).
