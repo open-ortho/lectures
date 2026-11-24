@@ -1,8 +1,33 @@
 # Biomedical Informatics event page
 
-This static page gives computer science students the lecture abstract, time,
-location, slides, and a downloadable calendar entry. It requires no JavaScript,
-build step, external fonts, or tracking services.
+This static announcement gives computer science students the lecture abstract,
+time, location, speaker details, slides, and a downloadable calendar entry. This
+folder owns the announcement copy and logistics for this presentation; the
+[lecture guide](../../slides/2026-cs-club-biomedical-informatics/README.md)
+maintains the reusable abstract, audience, and learning resources. The page requires
+no JavaScript, build step, external fonts, or tracking services.
+
+## Announcement copy
+
+The following title and abstract are the authoritative copy for this event's
+announcement. Copy them with the event details below when preparing an invitation.
+
+Title:
+
+```text
+Biomedical Informatics for Computer Scientists
+```
+
+Abstract:
+
+```text
+A one-hour introduction to biomedical informatics for computer science students. The lecture connects familiar computing problems to clinical workflows and introduces the standards, software, shared infrastructure, and communities already available in healthcare. The goal is to help future developers recognize when they can build on existing work—and know where to look—rather than reinventing data models, interfaces, or isolated proprietary solutions. Students will leave with starting points for further learning, projects, and research. No medical background is required.
+```
+
+Speaker: Antonio Magni, Clinical Instructor, Department of Orthodontics,
+School of Dental Medicine, Case Western Reserve University; afm@case.edu.
+The faculty affiliation is supplied by the speaker. It does not establish
+Computer and Data Sciences (CDS) sponsorship or university endorsement of this event.
 
 ## Event
 
@@ -31,16 +56,39 @@ The server binds to loopback; a browser on another machine needs an existing
 forwarding route. The published URL is
 https://open-ortho.org/lectures/events/2026-12-02-biomedical-informatics/.
 
-Edit [index.html](index.html) for visible content. The shared
-[../../assets/css/index.css](../../assets/css/index.css) supplies the dark palette,
-base typography, and link styles. [event.css](event.css) adds the event layout,
-editorial headline, amber accent, focus states, and mobile flow; every rule is
-scoped to `.event-page`, so it does not change the catalog or slides.
+Edit [index.html](index.html) for visible content. It loads the shared
+[../../assets/css/index.css](../../assets/css/index.css) first, then
+[event.css](event.css) for the event-specific palette, typography, layout, focus
+states, and mobile flow. Event rules are scoped to `.event-page`, so they do not
+change the catalog or slides.
 
-If the abstract or schedule changes, update the page, [calendar file](biomedical-informatics.ics),
-and the [deck booking copy](../../slides/2026-cs-club-biomedical-informatics/README.md)
-and [deck metadata](../../slides/2026-cs-club-biomedical-informatics/index.html)
-together, including the dated event link in the [site catalog](../../index.html).
+The announcement uses a blue-and-white academic layout inspired by CWRU's
+[color guidance](https://case.edu/brand/visual-identity/color), including current
+CWRU Blue `#003071`. Its Arial/system-sans typography follows the
+[digital font fallback guidance](https://case.edu/brand/visual-identity/fonts)
+without downloading an external font. The
+[CDS lecture announcement example](https://engineering.case.edu/sites/default/files/Announcement_Rexford.pdf)
+informs the title, speaker, abstract, and logistics hierarchy, not the event's
+hosting status. These are design references, not a claim of official CDS hosting,
+endorsement, or full brand compliance.
+
+### Keep the announcement consistent
+
+- **Schedule or room changes:** edit the Event section above, the visible page,
+  and [calendar file](biomedical-informatics.ics). Update the date and event link
+  in the [site catalog](../../index.html) when affected; do not change the deck
+  abstract or metadata for logistics-only edits.
+- **Title or abstract changes:** edit the announcement copy above, the visible
+  page and its metadata, and the calendar's `SUMMARY` or `DESCRIPTION`. If the
+  reusable lecture framing changes too, synchronize the
+  [deck abstract](../../slides/2026-cs-club-biomedical-informatics/README.md),
+  [deck metadata](../../slides/2026-cs-club-biomedical-informatics/index.html),
+  and [title slide](../../slides/2026-cs-club-biomedical-informatics/slides/title.html)
+  as applicable. Update the catalog title or short description to match the
+  lecture; its description is a summary, not a second full announcement abstract.
+- **Speaker changes:** update the speaker details above and on the page. Keep
+  affiliation separate from any claim about who hosts the event.
+
 The calendar uses UTC start/end times (20:10–21:25 UTC), a stable event
 UID, and a UTC `DTSTAMP` recording the file revision time. Keep that UID on edits;
 refresh `DTSTAMP`, preserve CRLF line endings, escape calendar text, and fold lines

@@ -4,19 +4,9 @@
 
 A one-hour introduction to biomedical informatics for computer science students. The lecture connects familiar computing problems to clinical workflows and introduces the standards, software, shared infrastructure, and communities already available in healthcare. The goal is to help future developers recognize when they can build on existing work—and know where to look—rather than reinventing data models, interfaces, or isolated proprietary solutions. Students will leave with starting points for further learning, projects, and research. No medical background is required.
 
-## Event
+## Presentation history
 
-[Event details](../../events/2026-12-02-biomedical-informatics/): Wednesday,
-December 2, 2026, 3:10–4:25 p.m. Eastern (EST, UTC−05:00), White 411,
-Case Western Reserve University. The date and room are user-provided; the room
-reservation is not independently verified.
-
-The 75-minute scheduled slot follows the M/W 3:10–4:25 p.m. block in the official
-[CWRU teaching grid, effective Fall 2026](https://case.edu/registrar/sites/default/files/2026-02/CWRU%20Teaching%20Grid_fall2026_final_fillable_1.pdf).
-That grid establishes a standard time block, not a room reservation. The one-hour
-lecture is intended to fit within this scheduled slot; it is not a timed rehearsal
-or a separate agenda. See the [event maintenance guide](../../events/2026-12-02-biomedical-informatics/README.md)
-for the page and calendar files.
+- [Event announcement](../../events/2026-12-02-biomedical-informatics/)
 
 ## Audience and purpose
 
@@ -26,7 +16,7 @@ familiar CS problems appear in clinical workflows, discover existing infrastruct
 and communities, and find a route into projects or research—not to master every
 standard or acronym.
 
-The 60-minute lecture is a delivery goal within the 75-minute scheduled slot.
+The 60-minute lecture is a delivery goal.
 This deck has not been rehearsed to verify that it fits that duration. The existing
 technical body has not been rewritten or broadly reordered for this framing change;
 it remains focused on clinical data,

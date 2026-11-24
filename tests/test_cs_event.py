@@ -84,12 +84,27 @@ class CSEvent(unittest.TestCase):
         self.assertNotIn('60-minute session', deck_readme)
         event_readme = EVENT / 'README.md'
         self.assertTrue(event_readme.is_file(), 'Missing event maintenance guide')
-        for text in (deck_readme, event_readme.read_text()):
-            for phrase in ('## Event', 'December 2, 2026', '3:10–4:25 p.m.',
-                           'EST', 'UTC−05:00', '75-minute', 'White 411',
-                           'user-provided', 'not independently verified', GRID_URL):
-                self.assertIn(phrase, text)
+        self.assertIn('## Presentation history', deck_readme)
+        self.assertIn('../../events/2026-12-02-biomedical-informatics/', deck_readme)
+        for phrase in ('## Event', 'December 2, 2026', '3:10', '4:25',
+                       'EST', 'UTC', '75-minute', 'White 411', 'reservation',
+                       'scheduled slot', GRID_URL, ROOM_URL):
+            self.assertNotIn(phrase, deck_readme)
+        self.assertIn('60-minute lecture is a delivery goal', deck_readme)
         event_text = event_readme.read_text()
+        for phrase in ('## Event', 'December 2, 2026', '3:10–4:25 p.m.',
+                       'EST', 'UTC−05:00', '75-minute', 'White 411',
+                       'user-provided', 'not independently verified', GRID_URL):
+            self.assertIn(phrase, event_text)
+        self.assertIn('## Announcement copy', event_text)
+        self.assertIn('authoritative', event_text)
+        self.assertIn(f'```text\n{TITLE}\n```', event_text)
+        self.assertIn(f'```text\n{DESCRIPTION}\n```', event_text)
+        for phrase in ('Schedule or room changes', 'do not change the deck',
+                       'Title or abstract changes', 'deck abstract', 'deck metadata',
+                       'site catalog', 'biomedical-informatics.ics'):
+            self.assertIn(phrase, event_text)
+        self.assertNotIn('deck booking copy', event_text)
         for phrase in ('http://127.0.0.1:54385/lectures/events/2026-12-02-biomedical-informatics/',
                        'make serve', 'python3 -m unittest discover -s tests -v',
                        '../../assets/css/index.css', 'event.css', 'palette',
