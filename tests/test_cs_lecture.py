@@ -127,16 +127,18 @@ class CSLecture(unittest.TestCase):
         self.assertIn('No medical background', normalized(notes[0]))
         self.assertIn('orientation', normalized(notes[0]).lower())
 
-    def test_booking_description_is_exact_in_metadata_and_copy_ready_readme(self):
+    def test_reusable_abstract_matches_metadata_and_lecture_overview(self):
         descriptions = [node.attrs.get('content')
                         for node in parsed(DECK / 'index.html').all('meta')
                         if node.attrs.get('name') == 'description']
         self.assertEqual(descriptions, [DESCRIPTION])
         readme = DECK / 'README.md'
-        self.assertTrue(readme.is_file(), 'Missing deck README with booking copy')
+        self.assertTrue(readme.is_file(), 'Missing reusable lecture guide')
         text = readme.read_text()
-        self.assertIn(f'```text\n{TITLE}\n```', text)
-        self.assertIn(f'```text\n{DESCRIPTION}\n```', text)
+        self.assertTrue(text.startswith(f'# {TITLE}\n\n## Abstract\n\n{DESCRIPTION}\n'))
+        self.assertNotIn('Booking copy', text)
+        self.assertNotIn(f'```text\n{TITLE}\n```', text)
+        self.assertNotIn(f'```text\n{DESCRIPTION}\n```', text)
         for phrase in ('computer science students', 'orientation', '60-minute',
                        'not been rehearsed', 'not been rewritten',
                        'python3 -m unittest discover -s tests -v', 'make serve',

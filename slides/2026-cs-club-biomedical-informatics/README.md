@@ -1,18 +1,8 @@
 # Biomedical Informatics for Computer Scientists
 
-## Booking copy
+## Abstract
 
-Title:
-
-```text
-Biomedical Informatics for Computer Scientists
-```
-
-Description:
-
-```text
 A one-hour introduction to biomedical informatics for computer science students. The lecture connects familiar computing problems to clinical workflows and introduces the standards, software, shared infrastructure, and communities already available in healthcare. The goal is to help future developers recognize when they can build on existing work—and know where to look—rather than reinventing data models, interfaces, or isolated proprietary solutions. Students will leave with starting points for further learning, projects, and research. No medical background is required.
-```
 
 ## Event
 
