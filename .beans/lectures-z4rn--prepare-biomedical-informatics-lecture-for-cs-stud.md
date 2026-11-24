@@ -7,7 +7,7 @@ priority: normal
 tags:
     - cs-lecture
 created_at: 2026-11-21T00:59:49Z
-updated_at: 2026-11-21T01:55:43Z
+updated_at: 2026-11-24T22:03:37Z
 ---
 
 ## Purpose
@@ -45,3 +45,11 @@ The focused revision on branch `docs/cs-informatics-introduction` updates the ex
 Verification: fresh-context passage-cited comprehension review passed; separate checks passed 29 Python tests and 4 Node tests. The title and new resource slides render without overflow or broken images at 1440×1000 and 1280×720; no page or HTTP errors occurred while loading the deck. All four resource destination pages were reachable and their relevant descriptions were checked. Existing technical slides 6–7 have reported viewport overflow and remain to be polished. A one-hour delivery remains an unrehearsed target; lecturer acceptance, broader narrative work and final whole-deck readiness remain outstanding. This work is separate from the orthodontic M1–M4 reframe tracked in lectures-2g3g.
 
 Proposed in PR #5: https://github.com/open-ortho/lectures/pull/5 (open; not merged).
+
+## Event landing page
+- Organizer reports a room for Wednesday, December 2, 2026, White 411 at Case Western Reserve University.
+- CWRU’s official Fall 2026 teaching grid lists the M/W class slot as 3:10–4:25 p.m. Eastern, not 3:00–4:30 with hidden buffer time. This verifies the standard slot, not the individual reservation. Source: https://case.edu/registrar/sites/default/files/2026-02/CWRU%20Teaching%20Grid_fall2026_final_fillable_1.pdf
+- [x] Add a responsive static announcement at `events/2026-12-02-biomedical-informatics/` with the maintained title, revised reuse-focused abstract, date/time/place, calendar download and slides link.
+- [x] Reconcile booking copy and deck metadata with the revised abstract, and link the event from the site catalog.
+- [x] Verify prose, mobile/desktop rendering, links and calendar dates before pushing to PR #5.
+Event-page verification: prose comprehension completed; catalog synchronization added to maintenance instructions. The organizer’s room information is accepted as supplied; the official grid confirms the standard time only. All 32 Python tests and 4 Node tests pass. Chromium at widths 1440/768/390/320 found no horizontal overflow, page/network errors; focus outline and calendar download passed. Desktop/mobile screenshots were inspected. Calendar UTC 20:10–21:25 matches Cleveland 15:10–16:25 on December 2. Page/abstract changes are prepared for PR #5; merging/deployment is not authorized. Legacy root README catalog/deployment wording findings are pre-existing and outside this change.

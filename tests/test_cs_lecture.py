@@ -14,12 +14,13 @@ DECK = ROOT / 'slides/2026-cs-club-biomedical-informatics'
 TITLE = 'Biomedical Informatics for Computer Scientists'
 DESCRIPTION = (
     'A one-hour introduction to biomedical informatics for computer science students. '
-    'Explore how computing shapes healthcare through clinical data, software systems, '
-    'interoperability, standards, and shared infrastructure. The lecture connects '
-    'familiar computer science problems to clinical workflows and introduces existing '
-    'tools, communities, and learning resources, with routes into projects and research. '
-    'No medical background is required; the goal is to discover the field and its '
-    'opportunities, not master every technical detail.'
+    'The lecture connects familiar computing problems to clinical workflows and '
+    'introduces the standards, software, shared infrastructure, and communities '
+    'already available in healthcare. The goal is to help future developers '
+    'recognize when they can build on existing work—and know where to look—rather '
+    'than reinventing data models, interfaces, or isolated proprietary solutions. '
+    'Students will leave with starting points for further learning, projects, and '
+    'research. No medical background is required.'
 )
 ORIGINAL_SLIDES = [
     'title', 'names-are-messy', 'fast-heuristics', 'problems', 'wasted-resources',
