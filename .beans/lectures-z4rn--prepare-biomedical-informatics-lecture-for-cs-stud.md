@@ -7,7 +7,7 @@ priority: normal
 tags:
     - cs-lecture
 created_at: 2026-11-21T00:59:49Z
-updated_at: 2026-11-24T22:03:37Z
+updated_at: 2026-11-24T23:23:41Z
 ---
 
 ## Purpose
@@ -53,3 +53,6 @@ Proposed in PR #5: https://github.com/open-ortho/lectures/pull/5 (open; not merg
 - [x] Reconcile booking copy and deck metadata with the revised abstract, and link the event from the site catalog.
 - [x] Verify prose, mobile/desktop rendering, links and calendar dates before pushing to PR #5.
 Event-page verification: prose comprehension completed; catalog synchronization added to maintenance instructions. The organizer’s room information is accepted as supplied; the official grid confirms the standard time only. All 32 Python tests and 4 Node tests pass. Chromium at widths 1440/768/390/320 found no horizontal overflow, page/network errors; focus outline and calendar download passed. Desktop/mobile screenshots were inspected. Calendar UTC 20:10–21:25 matches Cleveland 15:10–16:25 on December 2. Page/abstract changes are prepared for PR #5; merging/deployment is not authorized. Legacy root README catalog/deployment wording findings are pre-existing and outside this change.
+
+## PR #5 review follow-up
+Human review https://github.com/open-ortho/lectures/pull/5#pullrequestreview-6048829310 requests documenting reusable decks versus dated events in the main README and restyling the announcement from actual CWRU computer-science lecture references, with CWRU colors and the presenter’s affiliation: Clinical Instructor, Department of Orthodontics, School of Dental Medicine. Inline comments additionally request replacing “Booking copy” wording and moving schedule/reservation text out of the reusable deck guide. Implemented in separate tested commits: `58f4390` replaces “Booking copy” with the reusable abstract; `14030d4` moves announcement copy/logistics into the event guide; `c592a00` explains slides/events/catalogs and corrects editing/deployment guidance; `8a7d70f` redesigns the page from inspected CWRU CS announcement/web references and current brand colors, with the confirmed faculty affiliation. Fresh-context passage-cited comprehension passed, followed by 39 Python and 4 Node tests and Chromium checks at widths 1440/768/390/320. Focus, calendar download, exact times, and desktop/mobile readability passed. Calendar bytes, reusable slide sources and shared catalog CSS are unchanged. Publication and contextual replies follow; human threads will remain unresolved unless the reviewer resolves them.
