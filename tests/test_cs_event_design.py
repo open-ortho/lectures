@@ -19,7 +19,7 @@ class CSEventDesign(unittest.TestCase):
                         if n.attrs.get('aria-labelledby') == 'speaker-heading'), None)
         self.assertIsNotNone(speaker, 'Give the speaker a labelled affiliation section')
         text = normalized(speaker)
-        for phrase in ('Antonio Magni', 'Clinical Instructor',
+        for phrase in ('Toni Magni', 'Clinical Instructor',
                        'Department of Orthodontics', 'School of Dental Medicine',
                        'Case Western Reserve University'):
             self.assertIn(phrase, text)
@@ -27,7 +27,11 @@ class CSEventDesign(unittest.TestCase):
                       [(normalized(n), n.attrs.get('href')) for n in page.all('a')])
         visible = normalized(next(page.all('body'))).lower()
         self.assertNotRegex(visible, r'distinguished|hosted by|sponsored by|endorsed by')
-        self.assertEqual(list(page.all('img')), [], 'No unofficial university logo')
+        portraits = list(speaker.all('img'))
+        self.assertEqual(len(portraits), 1)
+        self.assertEqual(portraits[0].attrs['src'], '../../assets/img/amagni.jpeg')
+        self.assertEqual(portraits[0].attrs['alt'], 'Toni Magni')
+        self.assertEqual(list(page.all('img')), portraits)
 
     def test_announcement_uses_local_current_brand_palette_and_system_font(self):
         css = (EVENT / 'event.css').read_text()

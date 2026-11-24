@@ -36,7 +36,7 @@ class CSEvent(unittest.TestCase):
         for phrase in ('Know what exists before you build.', 'Wednesday',
                        'December 2, 2026', '3:10', '4:25', 'p.m.', 'Eastern',
                        'EST', 'UTC−05:00', '75-minute', 'White 411',
-                       'Case Western Reserve University', 'Antonio Magni'):
+                       'Case Western Reserve University', 'Toni Magni'):
             self.assertIn(phrase, visible)
         self.assertEqual({n.attrs['datetime'] for n in page.all('time')}, {
             '2026-12-02', '2026-12-02T15:10:00-05:00', '2026-12-02T16:25:00-05:00'})

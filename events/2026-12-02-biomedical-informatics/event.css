@@ -154,6 +154,18 @@
     font-weight: 700;
     line-height: 1.4;
 }
+.event-page .event-speaker-heading {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+.event-page .event-speaker-heading img {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    object-fit: cover;
+}
 .event-page .event-speaker h3 {
     margin: 0 0 8px;
     color: var(--event-blue);
