@@ -49,7 +49,7 @@ class CSEvent(unittest.TestCase):
         self.assertEqual(list(page.all('iframe')), [])
         styles = [n.attrs['href'] for n in page.all('link')
                   if n.attrs.get('rel') == 'stylesheet']
-        self.assertEqual(styles, ['../../assets/css/index.css', '../event.css'])
+        self.assertEqual(styles, ['../../assets/css/index.css', '../../assets/css/cwru-event.css'])
         self.assertIn('event-page', next(page.all('body')).attrs['class'].split())
         for node in page.all():
             self.assertFalse(any(key.startswith('on') for key in node.attrs))
@@ -59,7 +59,7 @@ class CSEvent(unittest.TestCase):
                 if not url or parts.scheme or parts.netloc or url.startswith('#'):
                     continue
                 self.assertTrue((EVENT / unquote(parts.path)).exists(), url)
-        css = (ROOT / 'events/event.css').read_text()
+        css = (ROOT / 'assets/css/cwru-event.css').read_text()
         self.assertNotRegex(css, r'@import|url\(|gradient\(')
         self.assertIn('@media', css)
         self.assertIn(':focus-visible', css)
@@ -113,7 +113,7 @@ class CSEvent(unittest.TestCase):
         self.assertNotIn('deck booking copy', event_text)
         for phrase in ('http://127.0.0.1:54385/lectures/events/2026-12-02-biomedical-informatics/',
                        'make serve', 'python3 -m unittest discover -s tests -v',
-                       '../../assets/css/index.css', '../event.css', 'palette',
+                       '../../assets/css/index.css', '../../assets/css/cwru-event.css', 'palette',
                        'typography', 'layout', 'one-hour lecture', 'not a timed rehearsal'):
             self.assertIn(phrase, event_text)
         for directory, text in ((EVENT, event_text),

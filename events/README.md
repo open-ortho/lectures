@@ -8,7 +8,7 @@ The [root catalog](../index.html) lists events separately from courses and decks
 
 ## Use the shared announcement layout
 
-[events/event.css](event.css) gives announcements a CWRU-blue masthead, a schedule,
+[assets/css/cwru-event.css](../assets/css/cwru-event.css) gives announcements a CWRU-blue masthead, a schedule,
 a speaker portrait beside the name, an abstract, and call-to-action links. It uses
 a white reading surface and a single-column mobile flow. It requires no JavaScript,
 external fonts, or build step. The stylesheet loads no images; portrait URLs belong
@@ -19,12 +19,12 @@ first, then the shared event stylesheet, and opt in on the body:
 
 ```html
 <link rel="stylesheet" href="../../assets/css/index.css">
-<link rel="stylesheet" href="../event.css">
+<link rel="stylesheet" href="../../assets/css/cwru-event.css">
 <body class="event-page">
 ```
 
 All event rules are scoped to `.event-page`. Merely linking the file does not
-change a catalog or deck without that body class. Do not copy `event.css` into
+change a catalog or deck without that body class. Do not copy `cwru-event.css` into
 individual event folders. Changes to the shared file affect every opted-in event;
 preview each affected announcement before publishing them.
 

@@ -21,7 +21,7 @@ class Documentation(unittest.TestCase):
         source = ROOT / 'events/README.md'
         self.assertTrue(source.is_file(), 'Document the shared event layout')
         text = source.read_text()
-        for phrase in ('event.css', '../../assets/css/index.css', '../event.css',
+        for phrase in ('event.css', '../../assets/css/index.css', '../../assets/css/cwru-event.css',
                        'class="event-page"', 'event-masthead', 'event-schedule',
                        'event-speaker-heading', 'event-abstract', 'event-actions',
                        'no JavaScript', 'desktop', 'mobile', 'calendar',
@@ -61,8 +61,8 @@ class Documentation(unittest.TestCase):
         text = GUIDES[0].read_text()
         for phrase in ('**Events**', '**Courses**', 'descending date order',
                        'Scheduled', 'Presented', 'manually', 'audience categories',
-                       'events/event.css', 'events/README.md',
-                       'class="event-page"', '../event.css',
+                       'assets/css/cwru-event.css', 'events/README.md',
+                       'class="event-page"', '../../assets/css/cwru-event.css',
                        'No template engine', 'unknown', 'calendar'):
             self.assertIn(phrase, text)
 

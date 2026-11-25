@@ -170,7 +170,7 @@ class PublicLectureArchive(unittest.TestCase):
                 self.assertEqual(len(list(grouping.all('img'))), 1)
                 self.assertEqual([n.attrs['href'] for n in page.all('link')
                                   if n.attrs.get('rel') == 'stylesheet'],
-                                 ['../../assets/css/index.css', '../event.css'])
+                                 ['../../assets/css/index.css', '../../assets/css/cwru-event.css'])
                 for node in page.all():
                     for attr in ('href', 'src'):
                         if attr not in node.attrs:

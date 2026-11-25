@@ -111,7 +111,7 @@ class OrthoEvents(unittest.TestCase):
         for directory in [M1, M3]:
             page = Page(directory / "index.html")
             styles = [a["href"] for t, a in page.elements if t == "link" and a.get("rel") == "stylesheet"]
-            self.assertEqual(styles, ["../../assets/css/index.css", "../event.css"])
+            self.assertEqual(styles, ["../../assets/css/index.css", "../../assets/css/cwru-event.css"])
             self.assertFalse(any(t in {"style", "script"} or "style" in a for t, a in page.elements))
             self.assertEqual(list(directory.glob("*.css")), [])
             self.assertEqual([(a.get("src"), a.get("alt")) for t, a in page.elements if t == "img"], [("../../assets/img/amagni.jpeg", "Toni Magni")])

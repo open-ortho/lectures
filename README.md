@@ -63,7 +63,7 @@ those rows.
 | [Event guide](events/2026-12-02-biomedical-informatics/README.md) | Authoritative announcement copy, schedule sources, and page/calendar maintenance |
 | [Event calendar](events/2026-12-02-biomedical-informatics/biomedical-informatics.ics) | Downloadable calendar entry for that presentation |
 | [assets/css/index.css](assets/css/index.css) | Shared dark catalog styling and responsive tables |
-| [events/event.css](events/event.css) | Shared, opt-in blue-and-white event announcement layout |
+| [assets/css/cwru-event.css](assets/css/cwru-event.css) | Shared, opt-in blue-and-white event announcement layout |
 | [events/README.md](events/README.md) | Shared event markup, activation, maintenance, and browser checks |
 | [dist/](dist/) and [plugin/](plugin/) | Reveal.js runtime and plugins used by slide decks |
 
@@ -109,7 +109,7 @@ readability, a room reservation, or a rehearsed delivery duration.
 2. For each scheduled or past presentation, create a new event folder under `events/`,
    using a dated name such as `YYYY-MM-DD-topic`. Follow the
    [shared event layout guide](events/README.md): load `../../assets/css/index.css`,
-   then `../event.css`, and add `class="event-page"` to the body. Reuse the markup,
+   then `../../assets/css/cwru-event.css`, and add `class="event-page"` to the body. Reuse the markup,
    not a copy of the stylesheet. Copy the selected lecture's title and abstract
    into the new event guide and page; add the speaker, known schedule, location,
    and source or reservation qualifications. Link the page to the selected deck.
@@ -173,7 +173,7 @@ any GitHub Actions deploy step.
 
 - **Slides**: Use reveal.js themes (currently "night" theme) configured in each presentation's `index.html`
 - **Index pages**: Use shared CSS file at `assets/css/index.css` for consistent dark theme that complements the slide presentations.
-- **Event pages**: Load `events/event.css` after the catalog stylesheet and opt in
+- **Event pages**: Load `assets/css/cwru-event.css` after the catalog stylesheet and opt in
   with `class="event-page"` on the body. It supplies the shared blue-and-white
   masthead, schedule, speaker portrait grouping, abstract, call-to-action links,
   and mobile layout without changing catalogs or decks. Maintain it once; inspect
