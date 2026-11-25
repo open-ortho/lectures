@@ -108,16 +108,18 @@ readability, a room reservation, or a rehearsed delivery duration.
    with its audience and resources; do not put a presentation's schedule there.
 2. For each scheduled or past presentation, create a new event folder under `events/`,
    using a dated name such as `YYYY-MM-DD-topic`. Follow the
-   [shared event layout guide](events/README.md): load `../../assets/css/index.css`,
-   then `../../assets/css/cwru-event.css`, and add `class="event-page"` to the body. Reuse the markup,
-   not a copy of the stylesheet. Copy the selected lecture's title and abstract
-   into the new event guide and page; add the speaker, known schedule, location,
-   and source or reservation qualifications. Link the page to the selected deck.
+   [shared event layout guide](events/README.md) to copy the
+   [HTML template](templates/events/cwru-event.html) and replace its placeholders.
+   It loads `../../assets/css/index.css`, then `../../assets/css/cwru-event.css`,
+   and opts in with `class="event-page"`; reuse the markup, not a stylesheet copy.
+   Copy the selected lecture's title and abstract into the new event guide and
+   page; add the speaker, known schedule, location, and source or reservation
+   qualifications. Link the page to the selected deck.
 3. Create a calendar download only when the event's start/end times and time zone
    are known. Match its title, abstract, location, and published event URL. Give
    the new event its own stable calendar UID; do not reuse a previous event's UID.
-   Follow the event guide's UTC, revision timestamp, escaping, line-ending, and
-   line-folding requirements. For an unknown historical time, omit the time
+   Follow the [shared calendar rules](events/README.md#calendar-files) for UTC,
+   revision timestamps, escaping, line endings, and line folding. For an unknown historical time, omit the time
    and calendar rather than inventing a schedule.
 4. Add the dated event to **Events** in descending date order. Put a course link
    in **Courses** and a reusable standalone deck in the appropriate audience

@@ -28,9 +28,10 @@ change a catalog or deck without that body class. Do not copy `cwru-event.css` i
 individual event folders. Changes to the shared file affect every opted-in event;
 preview each affected announcement before publishing them.
 
-Use the [CS event page](2026-12-02-biomedical-informatics/index.html) as a markup
-example and its [maintenance guide](2026-12-02-biomedical-informatics/README.md)
-for announcement and calendar editing details. Keep these layout responsibilities:
+Start from the [copyable HTML template](../templates/events/cwru-event.html),
+not an existing announcement with another event's facts. The template is ordinary
+static HTML, not a template engine; no build or JavaScript substitutes its tokens.
+Keep these layout responsibilities:
 
 | Class | Content and behavior |
 | --- | --- |
@@ -50,14 +51,30 @@ or sponsorship claims. Reuse existing local portraits rather than duplicating th
 
 ## Add or correct an event
 
-1. Create a dated folder with `index.html` and `README.md`. Link to the selected
-   deck rather than copying slides. Maintain the event's announcement copy and
-   the sources for its logistics in that folder's guide.
+From the repository root, replace the example folder name with the event's known
+date and topic, then copy the template:
+
+```sh
+mkdir -p events/YYYY-MM-DD-topic
+cp templates/events/cwru-event.html events/YYYY-MM-DD-topic/index.html
+```
+
+1. Replace every `{{PLACEHOLDER}}` manually. Set the title in both `<title>` and
+   `<h1>`, and the abstract in both the description metadata and visible section.
+   Supply the audience, date at its known precision, institution, country, venue,
+   and speaker. Escape HTML special characters in text and attribute values.
+   Create an event `README.md` with announcement copy and sources for its logistics.
 2. Include only supplied details. If a historical event's time is unknown, omit the time
-   and calendar download. Add a calendar
-   only when its start/end times and time zone are known. For calendars, follow
-   the existing event guide's stable UID, UTC, revision timestamp, escaping,
-   CRLF line-ending, and 75-octet line-folding instructions.
+   and calendar download by deleting the optional time block and calendar action.
+   For known times, use local ISO timestamps with an explicit UTC offset in
+   `datetime`, and show the time zone to readers. Remove unknown portrait or
+   affiliation blocks; keep supplied affiliation distinct from hosting claims.
+   Resolve portrait and slides paths from the new event folder (`../../assets/`
+   and `../../slides/`), not from the template's folder. Enable the commented
+   slides action only for an existing deck and remove the unavailable-slides message.
+   Enable the calendar action only after creating that event's own file using
+   [Calendar files](#calendar-files). Delete unused actions and every remaining
+   placeholder before adding the page to a catalog; never publish a draft example.
 3. Add a row to the root catalog's **Events** table in descending date order.
    Keep its status explicit: use **Presented** only for a confirmed past
    presentation, and maintain scheduled entries manually. The catalog has no
@@ -67,6 +84,22 @@ or sponsorship claims. Reuse existing local portraits rather than duplicating th
    update the event guide, page, calendar when present, and affected catalog
    fields together. Change the reusable deck abstract only if its framing changes,
    not for a room or schedule correction.
+
+## Calendar files
+
+Create a calendar download only when start/end times and time zone are known.
+Convert the confirmed local times to UTC for `DTSTART` and `DTEND` (the `Z` suffix);
+do not infer a time from a neighboring event or turn an unknown time into an all-day entry.
+Match `SUMMARY`, `DESCRIPTION`, `LOCATION`, and `URL` to the published announcement.
+Give each new event its own stable `UID`; keep that UID when correcting the same
+event. Record the file revision time in a UTC `DTSTAMP` and refresh it on edits.
+
+Use RFC 5545 text escaping: escape backslashes first, then commas as `\,`,
+semicolons as `\;`, and embedded newlines as `\n`. Preserve CRLF line endings and
+fold each physical line to at most 75 UTF-8 octets, without splitting a UTF-8
+character; begin continuation lines with one space. Keep the calendar in its event
+folder and link to that local file with the `download` attribute. Check its title,
+abstract, times, location, event URL, and downloadable bytes whenever they change.
 
 ## Maintain past presentations
 

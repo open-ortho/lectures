@@ -91,10 +91,9 @@ endorsement, or full brand compliance.
 - **Speaker changes:** update the speaker details above and on the page. Keep
   affiliation separate from any claim about who hosts the event.
 
-The calendar uses UTC start/end times (20:10–21:25 UTC), a stable event
-UID, and a UTC `DTSTAMP` recording the file revision time. Keep that UID on edits;
-refresh `DTSTAMP`, preserve CRLF line endings, escape calendar text, and fold lines
-to at most 75 UTF-8 octets as required by RFC 5545.
+This event's calendar uses UTC start/end times of 20:10–21:25 UTC. Follow the
+[shared calendar rules](../README.md#calendar-files) when editing its timestamps,
+identity, text, or file formatting.
 
 Run the structural and calendar checks from the repository root:
 
