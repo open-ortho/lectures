@@ -20,6 +20,7 @@ data sharing, integration friction, vendor lock-in, and the long-term cost of po
 
 ## Presentation history
 
+- [January 21, 2025 — AAO Society of Educators webinar](../../../events/2025-01-21-aao-soe-informatics-education/)
 - [November 30, 2026 — CWRU orthodontic residents](../../../events/2026-11-30-orthodontic-informatics-module1/)
 
 The event records presentation logistics; its slide link opens the evolving

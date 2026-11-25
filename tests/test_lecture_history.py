@@ -56,7 +56,8 @@ ARCHIVE = {
     'aao-soe-2025-01-21': (
         '2025-01-21', '2025-01-21-aao-soe-informatics-education',
         'Integrating Clinical Informatics into Orthodontic Education', SOE,
-        'Orthodontic educators; AAO Society of Educators webinar audience', None),
+        'Orthodontic educators; AAO Society of Educators webinar audience',
+        'slides/orthodontic-informatics/module1/index.html'),
     'aao-soe-2025-02-18': (
         '2025-02-18', '2025-02-18-aao-soe-informatics-standards',
         'Integrating Clinical Informatics and Standards', SOE,
