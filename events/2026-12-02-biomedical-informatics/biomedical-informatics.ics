@@ -1,0 +1,24 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Open-Ortho//Lecture Events//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:20261202-biomedical-informatics@open-ortho.org
+DTSTAMP:20261124T215513Z
+DTSTART:20261202T201000Z
+DTEND:20261202T212500Z
+SUMMARY:Biomedical Informatics for Computer Scientists
+LOCATION:White 411\, Case Western Reserve University
+DESCRIPTION:A one-hour introduction to biomedical informatics for computer 
+ science students. The lecture connects familiar computing problems to clin
+ ical workflows and introduces the standards\, software\, shared infrastruc
+ ture\, and communities already available in healthcare. The goal is to hel
+ p future developers recognize when they can build on existing work—and k
+ now where to look—rather than reinventing data models\, interfaces\, or 
+ isolated proprietary solutions. Students will leave with starting points f
+ or further learning\, projects\, and research. No medical background is re
+ quired.
+URL:https://open-ortho.org/lectures/events/2026-12-02-biomedical-informatic
+ s/
+END:VEVENT
+END:VCALENDAR

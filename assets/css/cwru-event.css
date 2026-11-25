@@ -1,0 +1,240 @@
+/* Shared event announcement layout: supplies a CWRU-blue masthead, schedule,
+   speaker portrait grouping, abstract, and call-to-action links on a white reading
+   surface, with a single-column mobile flow. Load after assets/css/index.css and
+   opt in with class="event-page" on the body; all rules are event-scoped.
+   No JavaScript, external fonts, or image assets are loaded by this stylesheet. */
+.event-page {
+    --event-blue: #003071;
+    --event-dark-blue: #09143a;
+    --event-paper: #ffffff;
+    --event-ink: #000000;
+    --event-rule: #d3d3d3;
+    margin: 0;
+    padding: 0;
+    background: var(--event-paper);
+    color: var(--event-ink);
+    color-scheme: light;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+.event-page *,
+.event-page *::before,
+.event-page *::after {
+    box-sizing: border-box;
+}
+.event-page .event-shell {
+    width: min(100% - 96px, 1160px);
+    margin-inline: auto;
+}
+.event-page p {
+    color: inherit;
+}
+.event-page a {
+    color: var(--event-blue);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+}
+.event-page a:hover {
+    color: var(--event-dark-blue);
+    text-decoration-thickness: 2px;
+}
+.event-page a:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 5px;
+}
+.event-page .event-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 76px;
+    padding-block: 12px;
+    font-size: 0.875rem;
+}
+.event-page .event-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-weight: 700;
+}
+.event-page .event-masthead {
+    padding-block: 40px 36px;
+    background: var(--event-blue);
+    color: var(--event-paper);
+}
+.event-page .event-kicker {
+    margin: 0 0 14px;
+    font-size: 1rem;
+    font-weight: 400;
+}
+.event-page h1 {
+    max-width: 1000px;
+    margin: 0;
+    color: inherit;
+    text-align: left;
+    font-size: clamp(2rem, 3.8vw, 3.25rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    text-wrap: pretty;
+}
+.event-page .event-schedule {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 24px 48px;
+    margin: 30px 0 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--event-rule);
+}
+.event-page dt {
+    margin-bottom: 6px;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+.event-page dd {
+    margin: 0;
+    font-size: 1.125rem;
+    line-height: 1.5;
+}
+.event-page .event-time {
+    font-variant-numeric: tabular-nums;
+}
+.event-page .event-small {
+    margin-top: 4px;
+    font-size: 0.875rem;
+}
+.event-page .event-location {
+    max-width: 30ch;
+}
+.event-page .event-masthead a {
+    color: var(--event-paper);
+}
+.event-page .event-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 28px;
+}
+.event-page .event-actions a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    font-size: 1rem;
+    font-weight: 700;
+}
+.event-page .event-actions .event-primary {
+    padding: 10px 20px;
+    border: 1px solid var(--event-paper);
+    background: var(--event-paper);
+    color: var(--event-blue);
+    text-decoration: none;
+}
+.event-page .event-actions .event-primary:hover {
+    background: var(--event-rule);
+    border-color: var(--event-rule);
+    color: var(--event-dark-blue);
+}
+.event-page .event-actions .event-primary:focus-visible {
+    outline-color: var(--event-paper);
+}
+.event-page .event-content {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.75fr);
+    gap: 40px 64px;
+    padding-block: 44px 56px;
+}
+.event-page h2 {
+    margin: 0 0 16px;
+    color: var(--event-blue);
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+.event-page .event-speaker-heading {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+.event-page .event-speaker-heading img {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+.event-page .event-speaker h3 {
+    margin: 0 0 8px;
+    color: var(--event-blue);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+.event-page .event-speaker p {
+    margin: 0 0 8px;
+    font-size: 1rem;
+    line-height: 1.65;
+}
+.event-page .event-speaker a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+}
+.event-page .event-hook {
+    margin: 0 0 24px;
+    color: var(--event-blue);
+    font-size: clamp(1.25rem, 2.2vw, 1.625rem);
+    font-weight: 700;
+    line-height: 1.35;
+}
+.event-page .event-abstract p {
+    max-width: 68ch;
+    margin: 0 0 16px;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+}
+.event-page .event-abstract p:last-child {
+    margin-bottom: 0;
+}
+.event-page .event-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px 24px;
+    padding-block: 20px 28px;
+    border-top: 1px solid var(--event-rule);
+    font-size: 0.8125rem;
+}
+@media (max-width: 760px) {
+    .event-page .event-shell {
+        width: calc(100% - 40px);
+    }
+    .event-page .event-nav {
+        min-height: 64px;
+    }
+    .event-page .event-nav > span {
+        display: none;
+    }
+    .event-page .event-masthead {
+        padding-block: 30px;
+    }
+    .event-page .event-schedule {
+        grid-template-columns: minmax(0, 1fr);
+        margin-top: 24px;
+    }
+    .event-page .event-content {
+        grid-template-columns: minmax(0, 1fr);
+        padding-block: 32px 40px;
+        gap: 32px;
+    }
+    .event-page .event-reading {
+        padding-top: 28px;
+        border-top: 1px solid var(--event-rule);
+    }
+    .event-page .event-footer {
+        flex-direction: column;
+    }
+}

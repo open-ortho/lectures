@@ -3,6 +3,13 @@
 This repository hosts static reveal.js-based lecture slides and index pages for
 the Open-Ortho lectures site.
 
+## Task tracking
+
+GitHub Issues is the authoritative task tracker for this repository:
+https://github.com/open-ortho/lectures/issues.
+Find or create the relevant issue there and keep its status and remaining work current.
+Do not create Beans configuration, task files, or generated workflow instructions.
+
 ## Quick Start
 
 - Slide decks live under `slides/**/index.html`.

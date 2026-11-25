@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Open-Ortho//Lectures//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:2026-11-30-orthodontic-informatics-module1@open-ortho.org
+DTSTAMP:20261125T000548Z
+DTSTART:20261130T200000Z
+DTEND:20261130T210000Z
+SUMMARY:Data Sharing\, Integration\, and Transition in Orthodontic Informat
+ ics
+LOCATION:Ortho seminar room\, School of Dental Medicine – Orthodontics\, 
+ Case Western Reserve University
+DESCRIPTION:An introduction to orthodontic informatics for first-year ortho
+ dontic residents. Starting with computers as everyday clinical tools\, thi
+ s lecture examines clinical data sharing\, repeated manual workarounds\, a
+ nd the difficulty of reusing work across disconnected software. Residents 
+ will consider what software integration and transitions between systems re
+ quire to keep clinical data and the work built on it reusable.
+URL:https://open-ortho.org/lectures/events/2026-11-30-orthodontic-informati
+ cs-module1/
+END:VEVENT
+END:VCALENDAR

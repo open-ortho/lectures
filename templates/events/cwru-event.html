@@ -1,0 +1,88 @@
+<!-- CWRU event HTML template: copy to events/YYYY-MM-DD-topic/index.html.
+Replace every {{PLACEHOLDER}} with supplied event facts; these tokens are not a
+build language. Escape HTML text and attribute values. Before publishing, delete optional
+blocks for unknown fields and remove all unused placeholders/comments.
+DATE_ISO is YYYY-MM-DD (or YYYY-MM for a known month only). START_ISO and END_ISO
+are local ISO timestamps, YYYY-MM-DDTHH:MM:SS±HH:MM, with the confirmed UTC offset.
+Remove the optional time block if start/end times or time zone are unknown.
+Paths are relative to the copied event folder, not the repository root.
+The optional slides/calendar actions are commented out: enable only real links.
+This is an unpublished drafting aid, not an event announcement to add to a catalog.
+-->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{TITLE}}</title>
+    <meta name="description" content="{{ABSTRACT}}">
+    <link rel="icon" href="../../assets/img/favicon.ico">
+    <link rel="stylesheet" href="../../assets/css/index.css">
+    <link rel="stylesheet" href="../../assets/css/cwru-event.css">
+</head>
+<body class="event-page">
+    <nav class="event-nav event-shell" aria-label="Breadcrumb">
+        <a href="../../">Open-Ortho / Lectures</a>
+        <span>Lecture announcement</span>
+    </nav>
+    <main>
+        <header class="event-masthead">
+            <div class="event-shell">
+                <p class="event-kicker">{{AUDIENCE}}</p>
+                <h1>{{TITLE}}</h1>
+                <dl class="event-schedule">
+                    <div>
+                        <dt>Date &amp; time</dt>
+                        <dd><time datetime="{{DATE_ISO}}">{{DATE_DISPLAY}}</time></dd>
+                        <!-- OPTIONAL TIME START -->
+                        <dd class="event-time"><time datetime="{{START_ISO}}">{{START_DISPLAY}}</time>–<time datetime="{{END_ISO}}">{{END_DISPLAY}}</time></dd>
+                        <dd class="event-small">{{TIME_ZONE}}</dd>
+                        <!-- OPTIONAL TIME END -->
+                    </div>
+                    <div>
+                        <dt>Location</dt>
+                        <dd>{{LOCATION}}</dd>
+                        <dd class="event-location">{{INSTITUTION}}, {{COUNTRY}}</dd>
+                    </div>
+                </dl>
+                <!-- OPTIONAL ACTIONS START
+                Enable slides only when the deck exists; otherwise leave the
+                availability message below. Enable calendar only after creating
+                this event's own file with confirmed start/end times and time zone.
+                Remove unavailable actions and replace every remaining token.
+                <div class="event-actions" aria-label="Event links">
+                    <a class="event-primary" href="{{SLIDES_PATH}}">View slides</a>
+                    <a class="event-secondary" href="{{CALENDAR_FILENAME}}" download>Add to calendar</a>
+                    <a class="event-secondary" href="{{GOOGLE_CALENDAR_URL}}">Add to Google Calendar</a>
+                </div>
+                OPTIONAL ACTIONS END -->
+            </div>
+        </header>
+        <div class="event-content event-shell">
+            <section class="event-speaker" aria-labelledby="speaker-heading">
+                <h2 id="speaker-heading">Speaker</h2>
+                <div class="event-speaker-heading">
+                    <!-- OPTIONAL PORTRAIT START -->
+                    <img src="{{PORTRAIT_PATH}}" alt="{{SPEAKER_NAME}}" width="80" height="80">
+                    <!-- OPTIONAL PORTRAIT END -->
+                    <h3>{{SPEAKER_NAME}}</h3>
+                </div>
+                <!-- OPTIONAL AFFILIATION START -->
+                <p>{{AFFILIATION}}</p>
+                <!-- OPTIONAL AFFILIATION END -->
+            </section>
+            <div class="event-reading">
+                <section class="event-abstract" id="abstract" aria-labelledby="abstract-heading">
+                    <h2 id="abstract-heading">Abstract</h2>
+                    <p>{{ABSTRACT}}</p>
+                </section>
+                <!-- Delete this message when enabling the slides action above. -->
+                <p>Slides are not yet available.</p>
+            </div>
+        </div>
+    </main>
+    <footer class="event-footer event-shell">
+        <span>Open-Ortho / Lectures</span>
+    </footer>
+</body>
+</html>
