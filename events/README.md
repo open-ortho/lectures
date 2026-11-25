@@ -65,14 +65,14 @@ cp templates/events/cwru-event.html events/YYYY-MM-DD-topic/index.html
    and speaker. Escape HTML special characters in text and attribute values.
    Create an event `README.md` with announcement copy and sources for its logistics.
 2. Include only supplied details. If a historical event's time is unknown, omit the time
-   and calendar download by deleting the optional time block and calendar action.
+   and calendar links by deleting the optional time block and both calendar actions.
    For known times, use local ISO timestamps with an explicit UTC offset in
    `datetime`, and show the time zone to readers. Remove unknown portrait or
    affiliation blocks; keep supplied affiliation distinct from hosting claims.
    Resolve portrait and slides paths from the new event folder (`../../assets/`
    and `../../slides/`), not from the template's folder. Enable the commented
    slides action only for an existing deck and remove the unavailable-slides message.
-   Enable the calendar action only after creating that event's own file using
+   Enable both calendar actions only after creating that event's own file using
    [Calendar files](#calendar-files). Delete unused actions and every remaining
    placeholder before adding the page to a catalog; never publish a draft example.
 3. Add a row to the root catalog's **Events** table in descending date order.
@@ -100,6 +100,33 @@ fold each physical line to at most 75 UTF-8 octets, without splitting a UTF-8
 character; begin continuation lines with one space. Keep the calendar in its event
 folder and link to that local file with the `download` attribute. Check its title,
 abstract, times, location, event URL, and downloadable bytes whenever they change.
+
+### Google Calendar links
+
+For every event with an ICS download, also include an **Add to Google Calendar**
+link. This link opens a prefilled event draft; the visitor must save the draft in
+Google Calendar. It does not subscribe the visitor to future schedule changes.
+Keep the ICS download for other calendar applications. Omit both actions when
+the start, end, or time zone is unknown; do not turn a date-only historical record
+into an all-day calendar event.
+
+Use `https://calendar.google.com/calendar/render` with these URL-encoded query
+parameters, then escape query separators as `&amp;` in the HTML `href`:
+
+| Parameter | Value |
+| --- | --- |
+| `action` | `TEMPLATE` |
+| `text` | The ICS `SUMMARY`, with calendar text escapes decoded |
+| `dates` | The ICS UTC `DTSTART` and `DTEND`, joined with `/`, such as `20261202T201000Z/20261202T212500Z` |
+| `location` | The ICS `LOCATION`, with calendar text escapes decoded |
+| `details` | The decoded ICS `DESCRIPTION`, two newlines, and the event's published `URL` |
+
+Use UTC timestamps ending in `Z`; do not also supply a different local time or
+zone parameter. When event details change, update the page, guide, ICS file and
+Google Calendar URL together. Check the decoded URL fields against the ICS and
+the visible schedule. Never add attendees, organizer details or a save operation
+to the link. See the [University of Michigan calendar-link guide](https://teamdynamix.umich.edu/TDClient/210/DepressionCenter/KB/Article/13454/How-to-Create-Add-to-Calendar-Links)
+for the Google Calendar URL format.
 
 ## Maintain past presentations
 

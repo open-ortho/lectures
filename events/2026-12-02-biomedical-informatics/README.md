@@ -71,11 +71,13 @@ endorsement, or full brand compliance.
 ### Keep the announcement consistent
 
 - **Schedule or room changes:** edit the Event section above, the visible page,
-  and [calendar file](biomedical-informatics.ics). Update the date and event link
+  [calendar file](biomedical-informatics.ics), and the page's Google Calendar link.
+  Update the date and event link
   in the [site catalog](../../index.html) when affected; do not change the deck
   abstract or metadata for logistics-only edits.
 - **Title or abstract changes:** edit the announcement copy above, the visible
-  page and its metadata, and the calendar's `SUMMARY` or `DESCRIPTION`. If the
+  page and its metadata, the calendar's `SUMMARY` or `DESCRIPTION`, and the Google
+  Calendar link. If the
   reusable lecture framing changes too, synchronize the
   [deck abstract](../../slides/2026-cs-club-biomedical-informatics/README.md),
   [deck metadata](../../slides/2026-cs-club-biomedical-informatics/index.html),
@@ -88,6 +90,10 @@ endorsement, or full brand compliance.
 This event's calendar uses UTC start/end times of 20:10–21:25 UTC. Follow the
 [shared calendar rules](../README.md#calendar-files) when editing its timestamps,
 identity, text, or file formatting.
+
+The page also offers an **Add to Google Calendar** draft link alongside the ICS
+download. Keep both calendar choices synchronized using the
+[shared Google Calendar rules](../README.md#google-calendar-links).
 
 Use the [event-specific browser checklist](../README.md#preview-and-check) after
 editing. Repository tests verify copy, links, metadata, local assets, and calendar

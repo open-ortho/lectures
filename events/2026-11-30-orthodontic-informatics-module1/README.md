@@ -34,11 +34,17 @@ and [work-ownership problem](../../slides/orthodontic-informatics/module1/slides
 
 ## Maintain this event
 
-Edit [index.html](index.html), the announcement copy above, and
-[the calendar](orthodontic-informatics-module1.ics) together when the title,
-abstract, time, or room changes. Keep the calendar's stable UID; update its UTC
+Edit [index.html](index.html), the announcement copy above,
+[the calendar](orthodontic-informatics-module1.ics), and the page's Google Calendar
+link together when the title, abstract, time, or room changes.
+Keep the calendar's stable UID; update its UTC
 `DTSTAMP`, preserve CRLF endings, escape text, and fold physical lines to at most
 75 UTF-8 octets. The scheduled hour is 20:00–21:00 UTC.
+
+The **Add to Google Calendar** link opens a draft with the same event details;
+the visitor must save it. Follow the
+[shared Google Calendar rules](../README.md#google-calendar-links) when updating
+the link, and retain the ICS download for other calendar applications.
 
 The [slide link](../../slides/orthodontic-informatics/module1/) opens the evolving
 shared deck, not an immutable capture of the slides delivered at this event.
