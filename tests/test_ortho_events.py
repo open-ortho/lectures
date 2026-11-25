@@ -41,17 +41,18 @@ class OrthoEvents(unittest.TestCase):
         self.assertEqual(times, ["2026-11-30", "2026-11-30T15:00:00-05:00", "2026-11-30T16:00:00-05:00"])
         self.assertIn(("a", {"class": "event-secondary", "href": "../../slides/orthodontic-informatics/module1/"}), page.elements)
 
-    def test_module3_records_presentation_without_inventing_time(self):
+    def test_module3_records_supplied_presentation_time(self):
         self.assertTrue((M3 / "index.html").is_file(), "Module 3 presentation record missing")
         page = Page(M3 / "index.html")
         for text in [TITLE3, "Orthodontic Informatics · Module 3", "second-year orthodontic residents",
-                     "Presented", "Friday, November 20, 2026", "Time not recorded",
+                     "Presented", "Friday, November 20, 2026", "10:00", "11:00 a.m.", "Eastern",
                      "Back seminar room", "School of Dental Medicine – Orthodontics"]:
             self.assertIn(text, page.visible)
-        self.assertEqual([attrs["datetime"] for tag, attrs in page.elements if tag == "time"], ["2026-11-20"])
+        self.assertEqual([attrs["datetime"] for tag, attrs in page.elements if tag == "time"],
+                         ["2026-11-20", "2026-11-20T10:00:00-05:00", "2026-11-20T11:00:00-05:00"])
         self.assertIn("View current slides", page.visible)
         self.assertTrue(any(a.get("href") == "../../slides/orthodontic-informatics/module3/" for t, a in page.elements if t == "a"))
-        for text in ["p.m.", "a.m.", "Eastern", "EST", "all-day", "Add to calendar", ".ics"]:
+        for text in ["Time not recorded", "all-day", "Add to calendar", ".ics"]:
             self.assertNotIn(text, (M3 / "index.html").read_text())
         self.assertEqual(list(M3.glob("*.ics")), [])
 

@@ -19,14 +19,13 @@ School of Dental Medicine, Case Western Reserve University; afm@case.edu.
 ## Presentation and sources
 
 - **Presented:** Friday, November 20, 2026.
-- **Time:** not recorded.
+- **Time:** 10:00–11:00 a.m. Eastern (EST, UTC−05:00).
 - **Audience:** second-year orthodontic residents.
 - **Where:** Back seminar room, School of Dental Medicine – Orthodontics,
   Case Western Reserve University.
 
-The presentation status, date, audience, and room are user-provided. No calendar
-is offered because the start and end times are unknown; an all-day entry would
-misrepresent the presentation. The
+The presentation status, date, time, audience, and room are user-provided. This
+past presentation record does not offer a calendar download. The
 [official orthodontics department page](https://case.edu/dental/departments-programs/orthodontics)
 identifies the department, not a reservation or an exact building for this event.
 No street address is published.
@@ -38,8 +37,8 @@ It describes teaching examples, not a deployed clinical integration.
 
 ## Maintain this record
 
-Keep [index.html](index.html) and the event copy above consistent. Preserve the
-unknown time unless reliable event-specific information becomes available.
+Keep [index.html](index.html), the event copy above, and the dated entry in the
+[site catalog](../../index.html) consistent when correcting the schedule.
 The [current slide link](../../slides/orthodontic-informatics/module3/) opens the
 evolving shared deck, not an immutable capture of the slides delivered on
 November 20. This record preserves the presentation's logistics, not its slide

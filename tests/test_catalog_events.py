@@ -70,11 +70,11 @@ class CatalogEvents(unittest.TestCase):
                        'first-year orthodontic residents', 'Orthodontics seminar room',
                        'School of Dental Medicine', 'Case Western Reserve University'):
             self.assertIn(phrase, first_year)
-        for phrase in ('Friday', 'November 20, 2026', 'Time not recorded',
+        for phrase in ('Friday', 'November 20, 2026', '10:00–11:00 a.m. Eastern',
                        'second-year orthodontic residents', 'Back seminar room',
                        'School of Dental Medicine', 'Case Western Reserve University'):
             self.assertIn(phrase, second_year)
-        self.assertNotRegex(second_year, r'\d{1,2}:\d{2}|Eastern|EST|UTC')
+        self.assertNotIn('Time not recorded', second_year)
         self.assertNotRegex(first_year + second_year, r'\b\d{3,5}\s+\w+\s+(Street|Road|Avenue)\b')
 
     def test_reusable_catalog_entries_preserve_existing_destinations_and_descriptions(self):
