@@ -77,7 +77,7 @@ class ArchiveTiming(unittest.TestCase):
                                          instant.astimezone(timezone.utc))
                         if location == 'catalog':
                             self.assertEqual(normalized(time_node),
-                                             timestamp[11:16] + timestamp[-6:])
+                                             timestamp[11:16])
             self.assertEqual(normalized(list(row.all('td'))[-1]), 'Presented')
 
     def test_new_schedules_use_local_display_without_claiming_actual_duration(self):
@@ -129,7 +129,7 @@ class ArchiveTiming(unittest.TestCase):
         self.assertIn('Venue', [normalized(n) for n in page.all('dt')])
         self.assertIn('Aula 4', [normalized(n) for n in page.all('dd')])
         cell = next(catalog_rows()[f'events/{folder}/'].all('td'))
-        self.assertIn('Approx. 14:15+01:00', normalized(cell))
+        self.assertIn('Approx. 14:15 (UTC+1)', normalized(cell))
         self.assertIn('End not recorded.', normalized(cell))
         self.assertNotIn('18:00', normalized(page))
 

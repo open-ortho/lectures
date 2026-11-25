@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 class ReviewCatalog(unittest.TestCase):
     def test_guide_documents_main_catalog_iso_display(self):
         guide = (ROOT / 'events/README.md').read_text()
-        for phrase in ('YYYY-MM-DD', '24-hour', '15:10-05:00',
+        for phrase in ('YYYY-MM-DD', '24-hour', '15:10-16:25 (UTC-5)',
                        'local UTC offset', 'YYYY-MM', 'individual event pages'):
             self.assertIn(phrase, guide)
 
@@ -69,18 +69,19 @@ class ReviewCatalog(unittest.TestCase):
                         expected.append(local.isoformat(timespec='seconds'))
                     self.assertEqual([n.attrs['datetime'] for n in time_nodes], expected)
                     self.assertEqual([normalized(n) for n in time_nodes],
-                                     [value[11:16] + value[-6:] for value in expected])
+                                     [value[11:16] for value in expected])
                     displayed = [normalized(n) for n in time_nodes]
+                    offset = f' (UTC{int(expected[0][-6:-3]):+d})'
                     if date == '2024-10-11':
                         self.assertEqual(normalized(cell), date + ' Shared schedule: ' +
-                                         '–'.join(displayed[:2]) + ' ' +
-                                         '–'.join(displayed[2:]) +
+                                         '-'.join(displayed[:2]) + ' ' +
+                                         '-'.join(displayed[2:]) + offset +
                                          ' One-hour session; cohort slot not recorded.')
                     elif date == '2025-11-12':
                         self.assertEqual(normalized(cell),
-                                         date + ' Approx. ' + displayed[0] + ' End not recorded.')
+                                         date + ' Approx. ' + displayed[0] + offset + ' End not recorded.')
                     else:
-                        self.assertEqual(normalized(cell), date + ' ' + '–'.join(displayed))
+                        self.assertEqual(normalized(cell), date + ' ' + '-'.join(displayed) + offset)
                 elif len(date) == 7:
                     self.assertEqual(date, '2023-02')
                     self.assertEqual(time_nodes, [])

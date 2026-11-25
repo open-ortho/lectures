@@ -69,14 +69,14 @@ class CatalogEvents(unittest.TestCase):
         self.assertIsNotNone(table, 'Missing Events table')
         rows = list(next(table.all('tbody')).all('tr'))
         cs, first_year, second_year = [normalized(row) for row in rows[:3]]
-        for phrase in ('2026-12-02', '15:10-05:00–16:25-05:00', 'White 411',
+        for phrase in ('2026-12-02', '15:10-16:25 (UTC-5)', 'White 411',
                        'computer science students'):
             self.assertIn(phrase, cs)
-        for phrase in ('2026-11-30', '15:00-05:00–16:00-05:00',
+        for phrase in ('2026-11-30', '15:00-16:00 (UTC-5)',
                        'first-year orthodontic residents', 'Orthodontics seminar room',
                        'School of Dental Medicine', 'Case Western Reserve University'):
             self.assertIn(phrase, first_year)
-        for phrase in ('2026-11-20', '10:00-05:00–11:00-05:00',
+        for phrase in ('2026-11-20', '10:00-11:00 (UTC-5)',
                        'second-year orthodontic residents', 'Back seminar room',
                        'School of Dental Medicine', 'Case Western Reserve University'):
             self.assertIn(phrase, second_year)

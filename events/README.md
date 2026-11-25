@@ -77,7 +77,10 @@ cp templates/events/cwru-event.html events/YYYY-MM-DD-topic/index.html
    placeholder before adding the page to a catalog; never publish a draft example.
 3. Add a row to the root catalog's **Events** table in descending date order.
    Display dates there as `YYYY-MM-DD`, and known times in 24-hour format with
-   the local UTC offset on each endpoint, for example `15:10-05:00–16:25-05:00`.
+   one local UTC offset after the range, for example `15:10-16:25 (UTC-5)`.
+   Omit zero offset minutes and leading zeros in the displayed zone. For shared
+   slots in the same zone, show the zone once after the final slot. Keep full
+   ISO timestamps and offsets in the HTML `datetime` attributes.
    Determine the offset for the event's location and date, including daylight
    saving time where applicable. Preserve month-only precision as `YYYY-MM`
    and omit unknown times rather than inventing a day or zone. The individual event pages
