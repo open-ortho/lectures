@@ -143,8 +143,18 @@ shared guide rather than separate per-event READMEs.
 
 - Preserve established titles, event URLs, and separate records for distinct cohorts.
 - Keep the precision of the supplied date. Ferrara uses `2023-02` and
-  “February 2023 (planned month)”; its presentation date is not recorded. Do not
+  “febbraio 2023 (mese previsto)” on its event page; its presentation date is not recorded. Do not
   turn a planned month into a delivery date or add a day. Omit unknown times and calendars.
+- Display known schedules in the event location's local time, preserving the instant
+  when converting a timestamp from another zone. Keep a webinar's advertised host
+  zone. Show local date/time formatting on event pages and ISO formatting in the
+  main catalog. A scheduled range is not a measurement of actual delivery duration.
+- If only a start is known, show that start without inventing an end. If several
+  cohorts share known slots but their slot assignment is unknown, identify the
+  shared schedule without assigning a slot to either cohort.
+- Link available recordings directly rather than embedding a third-party player.
+  Distinguish the course duration from the recording runtime; an upload date does
+  not establish the presentation date. Do not link a known-broken historical deck URL.
 - Use **Presented** for past presentations and include the institution's country.
 - Link **View slides** to the current deck, or **View course** to the course index.
   Slides may be updated after the presentation. A dated event record does not

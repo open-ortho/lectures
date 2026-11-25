@@ -36,9 +36,22 @@ class ReviewCatalog(unittest.TestCase):
         rows = list(next(table.all('tbody')).all('tr'))
         self.assertEqual(len(rows), 17)
         known_times = {
-            '2026-12-02': ('15:10', '16:25'),
-            '2026-11-30': ('15:00', '16:00'),
-            '2026-11-20': ('10:00', '11:00'),
+            '2026-12-02': ('America/New_York', ('15:10', '16:25')),
+            '2026-11-30': ('America/New_York', ('15:00', '16:00')),
+            '2026-11-20': ('America/New_York', ('10:00', '11:00')),
+            '2026-02-24': ('America/New_York', ('13:00', '14:00')),
+            '2026-02-23': ('America/New_York', ('13:00', '14:00')),
+            '2025-11-12': ('Europe/Rome', ('14:15',)),
+            '2025-10-10': ('America/New_York', ('13:00', '14:00')),
+            '2025-02-18': ('America/Chicago', ('19:00', '20:15')),
+            '2025-01-21': ('America/Chicago', ('19:00', '20:15')),
+            # Both cohorts show the shared slots; neither is assigned an order.
+            '2024-10-11': ('America/New_York', ('13:00', '14:00', '14:00', '15:00')),
+            '2024-03-15': ('America/New_York', ('13:00', '14:00')),
+            '2023-10-11': ('America/New_York', ('13:00', '14:00')),
+            '2023-03-27': ('America/New_York', ('10:00', '12:00')),
+            '2023-03-24': ('America/New_York', ('10:00', '12:00')),
+            '2022-09-14': ('America/New_York', ('13:00', '14:00')),
         }
         for row in rows:
             cell = next(row.all('td'))
@@ -49,23 +62,32 @@ class ReviewCatalog(unittest.TestCase):
                 self.assertEqual(normalized(date_node), date)
                 if date in known_times:
                     expected = []
-                    for time in known_times[date]:
+                    zone, clocks = known_times[date]
+                    for time in clocks:
                         local = datetime.fromisoformat(f'{date}T{time}').replace(
-                            tzinfo=ZoneInfo('America/New_York'))
+                            tzinfo=ZoneInfo(zone))
                         expected.append(local.isoformat(timespec='seconds'))
                     self.assertEqual([n.attrs['datetime'] for n in time_nodes], expected)
                     self.assertEqual([normalized(n) for n in time_nodes],
                                      [value[11:16] + value[-6:] for value in expected])
-                    self.assertEqual(normalized(cell),
-                                     date + ' ' + '–'.join(normalized(n) for n in time_nodes))
+                    displayed = [normalized(n) for n in time_nodes]
+                    if date == '2024-10-11':
+                        self.assertEqual(normalized(cell), date + ' Shared schedule: ' +
+                                         '–'.join(displayed[:2]) + ' ' +
+                                         '–'.join(displayed[2:]) +
+                                         ' One-hour session; cohort slot not recorded.')
+                    elif date == '2025-11-12':
+                        self.assertEqual(normalized(cell),
+                                         date + ' Approx. ' + displayed[0] + ' End not recorded.')
+                    else:
+                        self.assertEqual(normalized(cell), date + ' ' + '–'.join(displayed))
                 elif len(date) == 7:
                     self.assertEqual(date, '2023-02')
                     self.assertEqual(time_nodes, [])
                     self.assertEqual(normalized(cell),
                                      '2023-02 (planned month) Presentation date not recorded.')
                 else:
-                    self.assertEqual(time_nodes, [])
-                    self.assertEqual(normalized(cell), date)
+                    self.fail(f'Event date missing from timing expectations: {date}')
 
 
 if __name__ == '__main__':

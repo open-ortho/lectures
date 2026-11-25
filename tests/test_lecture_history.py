@@ -25,8 +25,8 @@ ARCHIVE = {
         'slides/2022-orthostudents/index.html'),
     'ferrara-2023-02': (
         '2023-02', '2023-02-ferrara-interoperability',
-        'Open standards and clinical-data interoperability in orthodontics',
-        'Universita di Ferrara, Italy', 'Orthodontic school / orthodontics trainees',
+        'Dov\'è il bottone "Esporta Tutto"?',
+        'Universita di Ferrara, Italy', 'First- and second-year orthodontic residents',
         'slides/2023-orthostudents/index.html'),
     'case-2023-03-24': (
         '2023-03-24', '2023-03-24-case-orthodontic-informatics',
@@ -145,11 +145,12 @@ class PublicLectureArchive(unittest.TestCase):
                 self.assertIn('Date', [normalized(n) for n in page.all('dt')])
                 self.assertIn('Status', [normalized(n) for n in page.all('dt')])
                 self.assertIn('About the lecture', [normalized(n) for n in page.all('h2')])
-                self.assertEqual([n.attrs['datetime'] for n in page.all('time')], [row[0]])
+                # Detailed endpoints and shared-slot caveats are checked in test_archive_timing.
+                self.assertEqual(next(page.all('time')).attrs['datetime'], row[0])
                 self.assertNotRegex(normalized(page), r'(?i)unverified|not established|accepted|confirm(?:ed|ation)|rationale|not a verified|may have been used|another agent')
                 self.assertEqual(list((ROOT / 'events' / row[1]).glob('*.ics')), [])
         ferrara = parsed(ROOT / 'events/2023-02-ferrara-interoperability/index.html')
-        self.assertEqual(normalized(next(ferrara.all('time'))), 'February 2023 (planned month)')
+        self.assertEqual(normalized(next(ferrara.all('time'))), 'febbraio 2023 (mese previsto)')
         self.assertNotRegex(normalized(ferrara), r'February \d{1,2}, 2023')
 
     def test_archive_pages_keep_accessible_portraits_styles_and_local_destinations(self):
