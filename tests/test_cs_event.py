@@ -41,7 +41,9 @@ class CSEvent(unittest.TestCase):
         self.assertEqual({n.attrs['datetime'] for n in page.all('time')}, {
             '2026-12-02', '2026-12-02T15:10:00-05:00', '2026-12-02T16:25:00-05:00'})
         links = {normalized(n): n.attrs['href'] for n in page.all('a')}
-        self.assertEqual(links['View slides'], '../../slides/2026-cs-club-biomedical-informatics/')
+        self.assertNotIn('View slides', links)
+        self.assertFalse(any('slides/' in url for url in links.values()))
+        self.assertIn('Slides are being prepared.', visible)
         self.assertIn('../../', links.values())
         self.assertIn(ROOM_URL, links.values())
         self.assertNotRegex(visible.lower(), r'confirmed|register now|free food|zoom')

@@ -39,7 +39,9 @@ class OrthoEvents(unittest.TestCase):
             self.assertIn(text, page.visible)
         times = [attrs["datetime"] for tag, attrs in page.elements if tag == "time"]
         self.assertEqual(times, ["2026-11-30", "2026-11-30T15:00:00-05:00", "2026-11-30T16:00:00-05:00"])
-        self.assertIn(("a", {"class": "event-secondary", "href": "../../slides/orthodontic-informatics/module1/"}), page.elements)
+        self.assertFalse(any("slides/" in attrs.get("href", "")
+                             for tag, attrs in page.elements if tag == "a"))
+        self.assertIn("Slides are being prepared.", page.visible)
 
     def test_module3_records_supplied_presentation_time(self):
         self.assertTrue((M3 / "index.html").is_file(), "Module 3 presentation record missing")
@@ -93,9 +95,13 @@ class OrthoEvents(unittest.TestCase):
             self.assertTrue((directory / "README.md").is_file(), "Event maintenance guide missing")
             guide = (directory / "README.md").read_text()
             self.assertIn("../README.md", guide)
-            self.assertIn("evolving", guide)
+            if directory == M1:
+                self.assertIn("only when the lecturer confirms it is ready", guide)
+                self.assertIn("not access control", guide)
+            else:
+                self.assertIn("evolving", guide)
+                self.assertIn("not an immutable", guide)
             self.assertIn("user-provided", guide)
-            self.assertIn("not an immutable", guide)
             page = Page(directory / "index.html")
             abstract = next(a["content"] for t, a in page.elements if t == "meta" and a.get("name") == "description")
             self.assertIn(abstract, guide)
