@@ -102,7 +102,7 @@ class OrthoEvents(unittest.TestCase):
             deck_guide = (ROOT / "slides/orthodontic-informatics" / module / "README.md").read_text()
             self.assertIn("## Presentation history", deck_guide)
             self.assertIn("../../../events/" + directory.name + "/", deck_guide)
-            self.assertIn("../../events/" + directory.name + "/", catalog)
+            self.assertNotIn("../../events/" + directory.name + "/", catalog)
             for label, link in re.findall(r"\[([^\]]+)\]\(([^)]+)\)", guide):
                 if "://" not in link and link != "../README.md":
                     self.assertTrue((directory / link.split("#")[0]).exists(), link)
