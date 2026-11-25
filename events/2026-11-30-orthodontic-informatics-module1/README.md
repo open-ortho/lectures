@@ -42,8 +42,7 @@ abstract, time, or room changes. Keep the calendar's stable UID; update its UTC
 
 The [slide link](../../slides/orthodontic-informatics/module1/) opens the evolving
 shared deck, not an immutable capture of the slides delivered at this event.
-Keep logistics here and presentation-history links in the deck guide and
-[course catalog](../../slides/orthodontic-informatics/index.html).
+Keep logistics here and presentation-history links in the deck guide.
 
 The intended public URL is
 https://open-ortho.org/lectures/events/2026-11-30-orthodontic-informatics-module1/.

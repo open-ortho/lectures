@@ -28,6 +28,27 @@ class Documentation(unittest.TestCase):
                        'omit the time', 'presentation history'):
             self.assertIn(phrase, text)
 
+    def test_root_owns_general_preview_commands_and_events_link_to_it(self):
+        root_text = GUIDES[0].read_text()
+        self.assertIn('## Editing and local preview', root_text)
+        for source, link in (
+                (ROOT / 'events/README.md', '../README.md#editing-and-local-preview'),
+                (EVENT / 'README.md', '../../README.md#editing-and-local-preview')):
+            text = source.read_text()
+            self.assertIn(link, text)
+            self.assertNotIn('make serve', text)
+            self.assertNotIn('python3 -m unittest discover -s tests -v', text)
+        shared = (ROOT / 'events/README.md').read_text()
+        self.assertNotIn('127.0.0.1', shared)
+        for phrase in ('keyboard focus', 'portrait/name grouping', 'schedule readability',
+                       'calendar download', 'horizontal overflow', 'mobile'):
+            self.assertIn(phrase, shared)
+
+    def test_module1_event_keeps_presentation_history_in_deck_guide(self):
+        text = (ROOT / 'events/2026-11-30-orthodontic-informatics-module1/README.md').read_text()
+        self.assertIn('presentation-history links in the deck guide', text)
+        self.assertNotIn('[course catalog]', text)
+
     def test_work_tracking_points_to_github_issues(self):
         text = GUIDES[0].read_text()
         self.assertIn('## Work tracking', text)

@@ -44,16 +44,10 @@ and does not specify an additional agenda.
 
 ## Preview and maintain
 
-From the repository root:
-
-```sh
-make serve
-```
-
-On the server machine, open
+Follow [Editing and local preview](../../README.md#editing-and-local-preview)
+for server startup, browser access, and repository checks. This event's local URL is
 http://127.0.0.1:54385/lectures/events/2026-12-02-biomedical-informatics/.
-The server binds to loopback; a browser on another machine needs an existing
-forwarding route. The published URL is
+The published URL is
 https://open-ortho.org/lectures/events/2026-12-02-biomedical-informatics/.
 
 Edit [index.html](index.html) for visible content. It loads the shared
@@ -95,12 +89,6 @@ This event's calendar uses UTC start/end times of 20:10–21:25 UTC. Follow the
 [shared calendar rules](../README.md#calendar-files) when editing its timestamps,
 identity, text, or file formatting.
 
-Run the structural and calendar checks from the repository root:
-
-```sh
-python3 -m unittest discover -s tests -v
-```
-
-These checks verify copy, links, metadata, local assets, and calendar formatting;
-responsive readability still needs a browser check. They do not verify the room
-reservation or lecture delivery duration.
+Use the [event-specific browser checklist](../README.md#preview-and-check) after
+editing. Repository tests verify copy, links, metadata, local assets, and calendar
+formatting; they do not verify the room reservation or lecture delivery duration.

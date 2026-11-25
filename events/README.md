@@ -127,14 +127,9 @@ shared guide rather than separate per-event READMEs.
 
 ## Preview and check
 
-From the repository root, run `make serve`. On that server machine, open
-http://127.0.0.1:54385/lectures/ and follow the event links. A browser on another
-machine needs an existing forwarding route because the server binds to loopback.
-Run the structural checks from the same directory:
-
-```sh
-python3 -m unittest discover -s tests -v
-```
+Use [Editing and local preview](../README.md#editing-and-local-preview) for
+server startup, browser access, and the repository test command. Then check these
+event-specific details:
 
 Inspect the root catalog and all announcements affected by shared CSS changes at
 desktop and narrow mobile widths. Check keyboard focus, title and paragraph

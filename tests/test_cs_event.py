@@ -112,7 +112,7 @@ class CSEvent(unittest.TestCase):
             self.assertIn(phrase, event_text)
         self.assertNotIn('deck booking copy', event_text)
         for phrase in ('http://127.0.0.1:54385/lectures/events/2026-12-02-biomedical-informatics/',
-                       'make serve', 'python3 -m unittest discover -s tests -v',
+                       '../../README.md#editing-and-local-preview',
                        '../../assets/css/index.css', '../../assets/css/cwru-event.css', 'palette',
                        'typography', 'layout', 'one-hour lecture', 'not a timed rehearsal'):
             self.assertIn(phrase, event_text)
