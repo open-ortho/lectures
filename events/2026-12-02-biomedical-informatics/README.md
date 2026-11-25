@@ -1,11 +1,16 @@
 # Biomedical Informatics event page
 
 This static announcement gives computer science students the lecture abstract,
-time, location, speaker details, slides, and a downloadable calendar entry. This
+time, location, speaker details, and a downloadable calendar entry. This
 folder owns the announcement copy and logistics for this presentation; the
 [lecture guide](../../slides/2026-cs-club-biomedical-informatics/README.md)
 maintains the reusable abstract, audience, and learning resources. The page requires
 no JavaScript, build step, external fonts, or tracking services.
+
+The announcement omits its slides link while the deck is being prepared.
+Restore the link to the [lecture deck](../../slides/2026-cs-club-biomedical-informatics/)
+only when the lecturer confirms it is ready. The deck remains publicly accessible;
+removing this announcement's link is not access control.
 
 ## Announcement copy
 

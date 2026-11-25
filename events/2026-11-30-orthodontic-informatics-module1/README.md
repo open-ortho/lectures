@@ -46,8 +46,10 @@ the visitor must save it. Follow the
 [shared Google Calendar rules](../README.md#google-calendar-links) when updating
 the link, and retain the ICS download for other calendar applications.
 
-The [slide link](../../slides/orthodontic-informatics/module1/) opens the evolving
-shared deck, not an immutable capture of the slides delivered at this event.
+The announcement omits its slides link while the deck is being prepared.
+Restore the link to the [shared deck](../../slides/orthodontic-informatics/module1/)
+only when the lecturer confirms it is ready. The deck remains publicly accessible;
+removing this announcement's link is not access control or a versioned snapshot.
 Keep logistics here and presentation-history links in the deck guide.
 
 The intended public URL is
