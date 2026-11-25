@@ -3,7 +3,7 @@
 Run from the repository root: python3 -m unittest discover -s tests -v
 """
 from pathlib import Path
-import json
+from test_lecture_history import ARCHIVE
 import unittest
 
 from test_cs_lecture import TITLE, normalized, parsed
@@ -79,7 +79,6 @@ class CatalogEvents(unittest.TestCase):
         self.assertNotRegex(first_year + second_year, r'\b\d{3,5}\s+\w+\s+(Street|Road|Avenue)\b')
 
     def test_catalog_adds_all_history_without_duplicates_or_precision_loss(self):
-        records = json.loads((ROOT / 'events/history.json').read_text())['records']
         table = next(n for n in parsed(ROOT / 'index.html').all('table')
                      if n.attrs.get('id') == 'events')
         rows = list(next(table.all('tbody')).all('tr'))
@@ -88,24 +87,42 @@ class CatalogEvents(unittest.TestCase):
         self.assertEqual(len(set(urls)), 17)
         dates = [next(row.all('time')).attrs['datetime'] for row in rows]
         self.assertEqual(dates, sorted(dates, reverse=True))
-        expected = sorted((r for r in records if r['source_id'] != 'case-2026-11-20'),
-                          key=lambda r: (r['date'], r['source_id']), reverse=True)
+        expected = sorted(((key, row) for key, row in ARCHIVE.items()
+                           if key != 'case-2026-11-20'),
+                          key=lambda item: (item[1][0], item[0]), reverse=True)
         self.assertEqual(len(expected), 14)
-        for row, record in zip(rows[3:], expected, strict=True):
-            with self.subTest(source_id=record['source_id']):
-                self.assertEqual(next(row.all('time')).attrs['datetime'], record['date'])
-                self.assertEqual(next(row.all('a')).attrs['href'],
-                                 record['event_path'].removesuffix('index.html'))
-                self.assertEqual(normalized(next(row.all('a'))), record['display_title'])
-                self.assertEqual(normalized(list(row.all('td'))[-1]), record['delivery_status'])
-                for value in (record['audience'], record['institution'], 'Time not recorded'):
+        for row, (key, (date, folder, title, institution, audience, _)) in zip(rows[3:], expected, strict=True):
+            with self.subTest(event=key):
+                self.assertEqual(next(row.all('time')).attrs['datetime'], date)
+                self.assertEqual(next(row.all('a')).attrs['href'], f'events/{folder}/')
+                self.assertEqual(normalized(next(row.all('a'))), title)
+                self.assertEqual(normalized(list(row.all('td'))[-1]), 'Presented')
+                for value in (audience, institution):
                     self.assertIn(value, normalized(row))
+                self.assertNotIn('Time not recorded', normalized(row))
         cohort_urls = [url for url in urls if '2024-10-11' in url]
         self.assertEqual(len(cohort_urls), 2)
         self.assertTrue(any('-year1/' in url for url in cohort_urls))
         self.assertTrue(any('-year2/' in url for url in cohort_urls))
         ferrara = next(row for row in rows if 'ferrara' in next(row.all('a')).attrs['href'])
-        self.assertIn('February 2023 (planned month; actual date unconfirmed)', normalized(ferrara))
+        self.assertIn('February 2023 (planned month)', normalized(ferrara))
+
+    def test_all_historical_rows_are_presented_and_all_event_institutions_name_countries(self):
+        table = next(n for n in parsed(ROOT / 'index.html').all('table')
+                     if n.attrs.get('id') == 'events')
+        rows = list(next(table.all('tbody')).all('tr'))
+        self.assertEqual(len(rows), 17)
+        for index, row in enumerate(rows):
+            with self.subTest(index=index):
+                self.assertEqual(normalized(list(row.all('td'))[-1]),
+                                 'Scheduled' if index < 2 else 'Presented')
+                url = next(row.all('a')).attrs['href']
+                institution = ('Universita di Ferrara, Italy' if 'ferrara' in url else
+                               'Universita degli Studi di Trieste, Italy' if 'trieste' in url else
+                               'Harvard School of Dental Medicine, USA' if 'harvard' in url else
+                               'American Association of Orthodontists, Society of Educators, USA' if 'aao-soe' in url else
+                               'Case Western Reserve University, USA')
+                self.assertIn(institution, normalized(row))
 
     def test_reusable_catalog_entries_preserve_existing_destinations_and_descriptions(self):
         page = parsed(ROOT / 'index.html')

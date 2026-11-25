@@ -53,8 +53,8 @@ or sponsorship claims. Reuse existing local portraits rather than duplicating th
 1. Create a dated folder with `index.html` and `README.md`. Link to the selected
    deck rather than copying slides. Maintain the event's announcement copy and
    the sources for its logistics in that folder's guide.
-2. Include only supplied details. If a historical event's time is unknown, say
-   “Time not recorded”; do not invent a time or calendar download. Add a calendar
+2. Include only supplied details. If a historical event's time is unknown, omit the time
+   and calendar download. Add a calendar
    only when its start/end times and time zone are known. For calendars, follow
    the existing event guide's stable UID, UTC, revision timestamp, escaping,
    CRLF line-ending, and 75-octet line-folding instructions.
@@ -68,15 +68,29 @@ or sponsorship claims. Reuse existing local portraits rather than duplicating th
    fields together. Change the reusable deck abstract only if its framing changes,
    not for a room or schedule correction.
 
-## Supplied historical records
+## Maintain past presentations
 
-The [history inventory](history.json) and [history review guide](history-review.md)
-cover the supplied past lectures, including uncertain material matches. They are
-not an exhaustive archive. For these records, follow the history guide instead of
-creating per-event READMEs or adding guesses to a deck's confirmed presentation
-history. Keep the inventory, event page, catalog row and review notes consistent.
-Historical pages omit private logistics and do not add calendar downloads; a
-missing historical affiliation is not supplied from the speaker's current role.
+Keep event records after the presentation so readers can find its date, institution,
+country, audience, speaker, and slides. Maintain the event HTML and its root catalog
+row together; the archive is edited manually. Existing archived records use this
+shared guide rather than separate per-event READMEs.
+
+- Preserve established titles, event URLs, and separate records for distinct cohorts.
+- Keep the precision of the supplied date. Ferrara uses `2023-02` and
+  “February 2023 (planned month)”; its presentation date is not recorded. Do not
+  turn a planned month into a delivery date or add a day. Omit unknown times and calendars.
+- Use **Presented** for past presentations and include the institution's country.
+- Link **View slides** to the current deck, or **View course** to the course index.
+  Slides may be updated after the presentation. A dated event record does not
+  freeze the linked deck.
+- When slides are unavailable, omit the slides link and say
+  “Slides are not yet available.”
+- Keep the lecture description about its known subject and audience. Do not infer
+  additional topics from the linked deck or add a historical speaker affiliation
+  from the speaker's current role.
+- Publish event facts, not correspondence, personal contact lists, or private logistics.
+- For a correction, update the event page, catalog row, any calendar, and affected
+  deck presentation-history links, then run the checks below.
 
 ## Preview and check
 

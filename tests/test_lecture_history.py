@@ -1,10 +1,9 @@
-"""Public history contracts using a handwritten, sanitized fixture only.
+"""Reader-facing lecture archive acceptance using handwritten public facts.
 
 Run from the repository root: python3 -m unittest discover -s tests -v
-No private attachment or local research file is needed to run these checks.
+The fixture needs no private correspondence or separate research inventory.
 """
 from collections import Counter
-import json
 from pathlib import Path
 import re
 import unittest
@@ -13,166 +12,193 @@ from urllib.parse import unquote, urlsplit
 from test_cs_lecture import normalized, parsed
 
 ROOT = Path(__file__).resolve().parents[1]
-# Stable event identifiers are not email or calendar identifiers.
-EXPECTED_DATES = {
-    'case-2022-09-14': '2022-09-14',
-    'ferrara-2023-02': '2023-02',
-    'case-2023-03-24': '2023-03-24',
-    'harvard-2023-03-27': '2023-03-27',
-    'case-2023-10-11': '2023-10-11',
-    'case-2024-03-15': '2024-03-15',
-    'case-2024-10-11-year1': '2024-10-11',
-    'case-2024-10-11-year2': '2024-10-11',
-    'aao-soe-2025-01-21': '2025-01-21',
-    'aao-soe-2025-02-18': '2025-02-18',
-    'case-2025-10-10': '2025-10-10',
-    'trieste-2025-11-12': '2025-11-12',
-    'case-2026-02-23': '2026-02-23',
-    'case-2026-02-24': '2026-02-24',
-    'case-2026-11-20': '2026-11-20',
+CASE = 'Case Western Reserve University, USA'
+SOE = 'American Association of Orthodontists, Society of Educators, USA'
+COURSE_TITLE = 'Orthodontic Informatics: Data, Imaging, and Standards in Orthodontic Practice'
+# ID: date, event folder, title, institution, audience, material route.
+# These facts are independent of the HTML under test.
+ARCHIVE = {
+    'case-2022-09-14': (
+        '2022-09-14', '2022-09-14-case-interoperability',
+        'Interoperability in orthodontic practice', CASE,
+        'Case Western Reserve University orthodontics group',
+        'slides/2022-orthostudents/index.html'),
+    'ferrara-2023-02': (
+        '2023-02', '2023-02-ferrara-interoperability',
+        'Open standards and clinical-data interoperability in orthodontics',
+        'Universita di Ferrara, Italy', 'Orthodontic school / orthodontics trainees',
+        'slides/2023-orthostudents/index.html'),
+    'case-2023-03-24': (
+        '2023-03-24', '2023-03-24-case-orthodontic-informatics',
+        'Orthodontic informatics lecture', CASE, 'CWRU Orthodontics',
+        'slides/2023-orthostudents/index.html'),
+    'harvard-2023-03-27': (
+        '2023-03-27', '2023-03-27-harvard-interoperability',
+        'Interoperability in orthodontic practice', 'Harvard School of Dental Medicine, USA',
+        'Orthodontic school audience at Harvard School of Dental Medicine',
+        'slides/2023-orthostudents/index.html'),
+    'case-2023-10-11': (
+        '2023-10-11', '2023-10-11-case-orthodontic-informatics',
+        'Orthodontic informatics lecture', CASE, 'CWRU Orthodontics',
+        'slides/2023-orthostudents/index.html'),
+    'case-2024-03-15': (
+        '2024-03-15', '2024-03-15-case-orthodontic-informatics',
+        'Orthodontic informatics lecture', CASE, 'CWRU Orthodontics',
+        'slides/2023-orthostudents/index.html'),
+    'case-2024-10-11-year1': (
+        '2024-10-11', '2024-10-11-case-orthodontic-informatics-year1',
+        COURSE_TITLE, CASE, 'First-year orthodontic residents',
+        'slides/orthodontic-informatics/module1/index.html'),
+    'case-2024-10-11-year2': (
+        '2024-10-11', '2024-10-11-case-orthodontic-informatics-year2',
+        COURSE_TITLE, CASE, 'Second-year orthodontic residents',
+        'slides/orthodontic-informatics/module3/index.html'),
+    'aao-soe-2025-01-21': (
+        '2025-01-21', '2025-01-21-aao-soe-informatics-education',
+        'Integrating Clinical Informatics into Orthodontic Education', SOE,
+        'Orthodontic educators; AAO Society of Educators webinar audience', None),
+    'aao-soe-2025-02-18': (
+        '2025-02-18', '2025-02-18-aao-soe-informatics-standards',
+        'Integrating Clinical Informatics and Standards', SOE,
+        'Orthodontic educators; AAO Society of Educators webinar audience', None),
+    'case-2025-10-10': (
+        '2025-10-10', '2025-10-10-case-orthodontic-informatics',
+        'Orthodontic informatics for second-year residents', CASE,
+        'Second-year orthodontic residents',
+        'slides/orthodontic-informatics/module1/index.html'),
+    'trieste-2025-11-12': (
+        '2025-11-12', '2025-11-12-trieste-clinical-informatics',
+        'Clinical informatics and interoperability in dental practice',
+        'Universita degli Studi di Trieste, Italy',
+        'Orthodontic residents across all three years, with additional clinicians from maxillofacial surgery and odontostomatology invited',
+        'slides/orthodontic-informatics/index.html'),
+    'case-2026-02-23': (
+        '2026-02-23', '2026-02-23-case-orthodontic-informatics',
+        'Orthodontic informatics — Class of 2028', CASE, 'Class of 2028',
+        'slides/orthodontic-informatics/module2/index.html'),
+    'case-2026-02-24': (
+        '2026-02-24', '2026-02-24-case-orthodontic-informatics',
+        'Orthodontic informatics — Class of 2027', CASE, 'Class of 2027',
+        'slides/orthodontic-informatics/module4/index.html'),
+    'case-2026-11-20': (
+        '2026-11-20', '2026-11-20-orthodontic-informatics-module3',
+        'AI and Reusable Clinical Data', CASE, 'second-year orthodontic residents',
+        'slides/orthodontic-informatics/module3/'),
 }
+IMPORTED = {key: row for key, row in ARCHIVE.items() if key != 'case-2026-11-20'}
 
 
-def history():
-    return json.loads((ROOT / 'events/history.json').read_text())
-
-
-class LectureHistory(unittest.TestCase):
-    def test_inventory_keeps_all_fifteen_distinct_supplied_records(self):
-        path = ROOT / 'events/history.json'
-        self.assertTrue(path.is_file(), 'Publish a sanitized history inventory')
-        data = history()
-        self.assertEqual(data['source'], 'Organizer-supplied history')
-        records = data['records']
-        self.assertEqual(len(records), 15)
-        self.assertEqual({r['source_id']: r['date'] for r in records}, EXPECTED_DATES)
-        self.assertEqual(len({r['event_path'] for r in records}), 15)
-        self.assertEqual(Counter(r['material_status'] for r in records),
-                         {'provisional': 13, 'course-family': 1, 'confirmed': 1})
-        self.assertEqual(Counter(r['delivery_status'] for r in records),
-                         {'Presented': 6, 'Scheduled; delivery unconfirmed': 9})
-        self.assertEqual([r['date'] for r in records], sorted(EXPECTED_DATES.values()))
-
-    def test_new_pages_expose_historical_uncertainty_and_resolve_local_assets(self):
-        for record in history()['records']:
-            if record['source_id'] == 'case-2026-11-20':
-                continue
-            with self.subTest(source_id=record['source_id']):
-                source = ROOT / record['event_path']
-                self.assertTrue(source.is_file(), 'Each additional record needs an event page')
+class PublicLectureArchive(unittest.TestCase):
+    def test_all_fifteen_presentations_keep_their_routes_titles_dates_and_links(self):
+        self.assertEqual(len(ARCHIVE), 15)
+        self.assertEqual(len({row[1] for row in ARCHIVE.values()}), 15)
+        catalog = parsed(ROOT / 'index.html')
+        table = next(n for n in catalog.all('table') if n.attrs.get('id') == 'events')
+        rows = list(next(table.all('tbody')).all('tr'))
+        self.assertEqual(len(rows), 17)
+        self.assertEqual(Counter(normalized(list(row.all('td'))[-1]) for row in rows),
+                         {'Presented': 15, 'Scheduled': 2})
+        for key, (date, folder, title, institution, audience, material) in ARCHIVE.items():
+            with self.subTest(event=key):
+                source = ROOT / 'events' / folder / 'index.html'
                 page = parsed(source)
-                self.assertEqual(normalized(next(page.all('h1'))), record['display_title'])
-                self.assertEqual(normalized(next(page.all('title'))), record['display_title'])
-                self.assertEqual(next(page.all('body')).attrs.get('class'), 'event-page')
-                text = normalized(page)
-                for value in (record['institution'], record['audience'], record['delivery_status'],
-                              'Time not recorded in this archive', 'About this record'):
-                    self.assertIn(value, text)
-                self.assertEqual([n.attrs['datetime'] for n in page.all('time')], [record['date']])
-                self.assertEqual(list(page.all('script')), [])
-                portrait = list(page.all('img'))
-                self.assertEqual(len(portrait), 1)
-                self.assertEqual(portrait[0].attrs['src'], '../../assets/img/amagni.jpeg')
-                self.assertEqual(portrait[0].attrs['alt'], 'Toni Magni')
-                self.assertEqual((portrait[0].attrs['width'], portrait[0].attrs['height']), ('80', '80'))
-                styles = [n.attrs['href'] for n in page.all('link') if n.attrs.get('rel') == 'stylesheet']
-                self.assertEqual(styles, ['../../assets/css/index.css', '../event.css'])
-                for node in page.all():
-                    for key in ('href', 'src'):
-                        if key not in node.attrs:
-                            continue
-                        url = urlsplit(node.attrs[key])
-                        self.assertNotIn(url.scheme, ('mailto', 'tel'))
-                        if not url.scheme and not url.netloc:
-                            self.assertTrue((source.parent / unquote(url.path)).exists(), node.attrs[key])
+                self.assertEqual([normalized(n) for n in page.all('h1')], [title])
+                self.assertEqual(normalized(next(page.all('title'))), title)
+                self.assertEqual(next(page.all('time')).attrs['datetime'], date)
+                self.assertIn('Presented', normalized(page))
+                self.assertIn(institution.removesuffix(', USA') if key == 'case-2026-11-20'
+                              else institution, normalized(page))
+                self.assertIn(audience, normalized(page))
+                matching = [row for row in rows if any(
+                    n.attrs['href'] == f'events/{folder}/' for n in row.all('a'))]
+                self.assertEqual(len(matching), 1)
+                row = matching[0]
+                self.assertEqual(normalized(next(row.all('a'))), title)
+                self.assertEqual(next(row.all('time')).attrs['datetime'], date)
+                self.assertEqual(normalized(list(row.all('td'))[-1]), 'Presented')
+                self.assertIn(institution, normalized(row))
+                self.assertIn(audience, normalized(row))
                 links = [(n.attrs['href'], normalized(n)) for n in page.all('a')]
-                if record['material_status'] == 'provisional':
-                    self.assertIn(('../../' + record['material_path'], 'View candidate slides'), links)
-                    self.assertIn('Provisional material match — awaiting review. These current slides are a possible match, not a verified historical version.', text)
+                if material:
+                    label = ('View current slides' if key == 'case-2026-11-20' else
+                             'View course' if key == 'trieste-2025-11-12' else 'View slides')
+                    self.assertIn(('../../' + material, label), links)
+                    self.assertTrue((ROOT / material).exists())
                 else:
-                    self.assertIn(('../../' + record['material_path'], 'View referenced course'), links)
-                    self.assertIn('Specific modules are not established', text)
-                if record['title_status'] == 'descriptive':
-                    self.assertIn('Descriptive title; original title not established.', text)
-                self.assertNotRegex(text, r'Clinical Instructor|Faculty lecture|Sole presenter|Hosted by|Co-presenter')
-                self.assertEqual(list(source.parent.glob('*.ics')), [])
-        ferrara = next(r for r in history()['records'] if r['source_id'] == 'ferrara-2023-02')
-        self.assertEqual(ferrara['event_path'], 'events/2023-02-ferrara-interoperability/index.html')
-        self.assertIn('February 2023 (planned month; actual date unconfirmed)',
-                      normalized(parsed(ROOT / ferrara['event_path'])))
+                    self.assertIn('Slides are not yet available.', normalized(page))
+                    self.assertFalse(any('slides/' in href for href, _ in links))
+                    self.assertFalse(any('event-actions' in n.attrs.get('class', '').split()
+                                         for n in page.all('div')))
 
-    def test_public_inventory_uses_only_sanitized_fields_and_stable_statuses(self):
-        allowed = {'source_id', 'date', 'date_precision', 'date_note', 'institution',
-                   'audience', 'display_title', 'title_status', 'delivery_status',
-                   'material_path', 'material_status', 'confidence', 'rationale', 'event_path'}
-        confirmed = {'ferrara-2023-02', 'harvard-2023-03-27',
-                     'case-2024-10-11-year1', 'case-2024-10-11-year2',
-                     'trieste-2025-11-12', 'case-2026-11-20'}
-        paths = {
-            'case-2022-09-14': 'slides/2022-orthostudents/index.html',
-            'ferrara-2023-02': 'slides/2023-orthostudents/index.html',
-            'case-2023-03-24': 'slides/2023-orthostudents/index.html',
-            'harvard-2023-03-27': 'slides/2023-orthostudents/index.html',
-            'case-2023-10-11': 'slides/2023-orthostudents/index.html',
-            'case-2024-03-15': 'slides/2023-orthostudents/index.html',
-            'case-2024-10-11-year1': 'slides/orthodontic-informatics/module1/index.html',
-            'case-2024-10-11-year2': 'slides/orthodontic-informatics/module3/index.html',
-            'aao-soe-2025-01-21': 'slides/orthodontic-informatics/module1/index.html',
-            'aao-soe-2025-02-18': 'slides/2023-orthostudents/index.html',
-            'case-2025-10-10': 'slides/orthodontic-informatics/module1/index.html',
-            'trieste-2025-11-12': 'slides/orthodontic-informatics/index.html',
-            'case-2026-02-23': 'slides/orthodontic-informatics/module2/index.html',
-            'case-2026-02-24': 'slides/orthodontic-informatics/module4/index.html',
-            'case-2026-11-20': 'slides/orthodontic-informatics/module3/index.html',
-        }
-        for row in history()['records']:
-            with self.subTest(source_id=row['source_id']):
-                self.assertEqual(set(row), allowed)
-                expected_delivery = ('Presented' if row['source_id'] in confirmed
-                                     else 'Scheduled; delivery unconfirmed')
-                self.assertEqual(row['delivery_status'], expected_delivery)
-                self.assertEqual(row['material_path'], paths[row['source_id']])
-                self.assertTrue((ROOT / row['material_path']).is_file())
-                self.assertIn(row['confidence'], {'low', 'medium', 'high'})
-                self.assertEqual(row['date_precision'], 'month' if row['source_id'] == 'ferrara-2023-02' else 'day')
-                self.assertRegex(row['date'], r'^\d{4}-\d{2}$' if row['date_precision'] == 'month' else r'^\d{4}-\d{2}-\d{2}$')
-                self.assertEqual(list((ROOT / row['event_path']).parent.glob('*.ics')), [])
-        data = history()
-        self.assertEqual(set(data), {'schema_version', 'source', 'description', 'records'})
-        added = [ROOT / r['event_path'] for r in data['records'] if r['source_id'] != 'case-2026-11-20']
-        public_files = [ROOT / 'events/history.json', ROOT / 'events/history-review.md', *added]
-        for source in public_files:
-            text = source.read_text()
-            with self.subTest(source=str(source.relative_to(ROOT))):
-                self.assertNotRegex(text, r'(?i)[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}|mailto:|Message-ID:|In-Reply-To:|References:\s*<|BEGIN:VCALENDAR|calendar_event_ids|email_sources|research_coverage|/home/agent/|attachment:|\b(?:From|To|Cc|Bcc):')
-        current = next(r for r in data['records'] if r['source_id'] == 'case-2026-11-20')
-        self.assertEqual(current['display_title'], 'AI and Reusable Clinical Data')
-        self.assertEqual(current['material_status'], 'confirmed')
-        self.assertEqual(current['event_path'], 'events/2026-11-20-orthodontic-informatics-module3/index.html')
-        trieste = next(r for r in data['records'] if r['source_id'] == 'trieste-2025-11-12')
-        self.assertEqual(trieste['material_status'], 'course-family')
+    def test_public_pages_are_final_lecture_pages_not_research_workflows(self):
+        for source in [ROOT / 'index.html', *sorted((ROOT / 'events').glob('*/index.html'))]:
+            with self.subTest(page=str(source.relative_to(ROOT))):
+                text = normalized(parsed(source))
+                self.assertNotRegex(text, r'(?i)confidence|accepted by (?:the )?lecturer|history review|candidate|provisional|pending identification|identification is pending')
+                self.assertNotRegex(text, r'(?i)material (?:association|identity|acceptance|match)|organizer-supplied history|original title not established|original title and topic not established|historical slide version|immutable historical|Time not recorded|About this record|source attribution|privacy audit')
+        self.assertIn('Dated presentations, newest first. Open an event for details and slides.',
+                      normalized(parsed(ROOT / 'index.html')))
+        for key, row in IMPORTED.items():
+            with self.subTest(event=key):
+                page = parsed(ROOT / 'events' / row[1] / 'index.html')
+                self.assertIn('Date', [normalized(n) for n in page.all('dt')])
+                self.assertIn('Status', [normalized(n) for n in page.all('dt')])
+                self.assertIn('About the lecture', [normalized(n) for n in page.all('h2')])
+                self.assertEqual([n.attrs['datetime'] for n in page.all('time')], [row[0]])
+                self.assertNotRegex(normalized(page), r'(?i)unverified|not established|accepted|confirm(?:ed|ation)|rationale|not a verified|may have been used|another agent')
+                self.assertEqual(list((ROOT / 'events' / row[1]).glob('*.ics')), [])
+        ferrara = parsed(ROOT / 'events/2023-02-ferrara-interoperability/index.html')
+        self.assertEqual(normalized(next(ferrara.all('time'))), 'February 2023 (planned month)')
+        self.assertNotRegex(normalized(ferrara), r'February \d{1,2}, 2023')
 
-    def test_review_guide_explains_matches_and_links_each_record(self):
-        source = ROOT / 'events/history-review.md'
-        self.assertTrue(source.is_file(), 'Give maintainers a public history review guide')
-        text = source.read_text()
-        for phrase in ('13 provisional', 'Two known course associations', 'not exhaustive',
-                       'Organizer-supplied history', 'date_precision', 'title_status',
-                       'delivery_status', 'material_status', 'confidence', 'rationale',
-                       'source_id', 'event_path', 'material_path', 'date_note',
-                       'display_title', 'institution', 'audience', 'history.json',
-                       'manually', 'No calendar', 'actual date unconfirmed'):
-            self.assertIn(phrase, text)
-        for row in history()['records']:
-            self.assertIn(row['source_id'], text)
-            self.assertIn(row['event_path'].removeprefix('events/'), text)
-        for url in re.findall(r'\]\(([^)]+)\)', text):
-            parts = urlsplit(url)
-            if not parts.scheme and not parts.netloc:
-                self.assertTrue((source.parent / unquote(parts.path)).exists(), url)
-        events_guide = (ROOT / 'events/README.md').read_text()
-        self.assertIn('history-review.md', events_guide)
-        self.assertIn('history.json', events_guide)
+    def test_archive_pages_keep_accessible_portraits_styles_and_local_destinations(self):
+        for key, row in ARCHIVE.items():
+            with self.subTest(event=key):
+                source = ROOT / 'events' / row[1] / 'index.html'
+                page = parsed(source)
+                self.assertEqual(next(page.all('body')).attrs.get('class'), 'event-page')
+                self.assertEqual(list(page.all('script')), [])
+                portraits = list(page.all('img'))
+                self.assertEqual(len(portraits), 1)
+                self.assertEqual(portraits[0].attrs, {
+                    'src': '../../assets/img/amagni.jpeg', 'alt': 'Toni Magni',
+                    'width': '80', 'height': '80'})
+                grouping = next(n for n in page.all('div')
+                                if 'event-speaker-heading' in n.attrs.get('class', '').split())
+                self.assertIn('Toni Magni', normalized(grouping))
+                self.assertEqual(len(list(grouping.all('img'))), 1)
+                self.assertEqual([n.attrs['href'] for n in page.all('link')
+                                  if n.attrs.get('rel') == 'stylesheet'],
+                                 ['../../assets/css/index.css', '../event.css'])
+                for node in page.all():
+                    for attr in ('href', 'src'):
+                        if attr not in node.attrs:
+                            continue
+                        url = urlsplit(node.attrs[attr])
+                        if key in IMPORTED:
+                            self.assertNotIn(url.scheme, ('mailto', 'tel'))
+                        if not url.scheme and not url.netloc:
+                            self.assertTrue((source.parent / unquote(url.path)).exists(), node.attrs[attr])
+
+    def test_private_correspondence_does_not_leak_into_imported_pages_or_fixture(self):
+        for source in [Path(__file__), *(ROOT / 'events' / row[1] / 'index.html'
+                                         for row in IMPORTED.values())]:
+            with self.subTest(file=str(source.relative_to(ROOT))):
+                text = source.read_text().split('class PublicLectureArchive', 1)[0] if source == Path(__file__) else source.read_text()
+                self.assertNotRegex(text, r'(?i)[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}|Message-ID:|In-Reply-To:|References:\s*<|BEGIN:VCALENDAR|calendar_event_ids|email_sources|research_coverage|/home/agent/|attachment:|\b(?:From|To|Cc|Bcc):')
+
+    def test_research_artifacts_are_not_publishable_and_guide_owns_archive_maintenance(self):
+        for name in ('history' + '.json', 'history' + '-review.md'):
+            self.assertFalse((ROOT / 'events' / name).exists())
+        guide = (ROOT / 'events/README.md').read_text()
+        self.assertIn('## Maintain past presentations', guide)
+        for phrase in ('Keep event records after', 'current deck', 'country',
+                       'Slides are not yet available.', 'planned month'):
+            self.assertIn(phrase, guide)
+        for source in (ROOT / 'README.md', ROOT / 'events/README.md'):
+            self.assertNotRegex(source.read_text(), r'(?i)history\.json|history-review|candidate|confidence|material identity|review notes')
+        for source in [ROOT / 'index.html', *sorted((ROOT / 'events').glob('*/index.html'))]:
+            self.assertFalse(any('history' in n.attrs['href'] for n in parsed(source).all('a')))
 
 
 if __name__ == '__main__':

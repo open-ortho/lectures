@@ -6,6 +6,11 @@ open reusable slide decks, and find announcements for dated presentations.
 
 [Visit the published site](https://open-ortho.org/lectures/).
 
+## Work tracking
+
+[GitHub Issues](https://github.com/open-ortho/lectures/issues) is the authoritative
+place for planned work, follow-ups, and completion criteria.
+
 ## Project Structure
 
 This project contains three types of content:
@@ -112,8 +117,8 @@ readability, a room reservation, or a rehearsed delivery duration.
    are known. Match its title, abstract, location, and published event URL. Give
    the new event its own stable calendar UID; do not reuse a previous event's UID.
    Follow the event guide's UTC, revision timestamp, escaping, line-ending, and
-   line-folding requirements. For an unknown historical time, state “Time not
-   recorded” on the event and omit the calendar rather than inventing a schedule.
+   line-folding requirements. For an unknown historical time, omit the time
+   and calendar rather than inventing a schedule.
 4. Add the dated event to **Events** in descending date order. Put a course link
    in **Courses** and a reusable standalone deck in the appropriate audience
    category; preserve existing archives. Update a course catalog when relevant.

@@ -25,8 +25,15 @@ class Documentation(unittest.TestCase):
                        'class="event-page"', 'event-masthead', 'event-schedule',
                        'event-speaker-heading', 'event-abstract', 'event-actions',
                        'no JavaScript', 'desktop', 'mobile', 'calendar',
-                       'not recorded', 'presentation history'):
+                       'omit the time', 'presentation history'):
             self.assertIn(phrase, text)
+
+    def test_work_tracking_points_to_github_issues(self):
+        text = GUIDES[0].read_text()
+        self.assertIn('## Work tracking', text)
+        self.assertIn('https://github.com/open-ortho/lectures/issues', text)
+        self.assertIn('authoritative', text)
+        self.assertNotIn('Beans', text)
 
     def test_root_explains_reusable_slides_dated_events_and_catalogs(self):
         text = GUIDES[0].read_text()
