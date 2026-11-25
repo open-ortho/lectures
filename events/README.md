@@ -68,6 +68,16 @@ or sponsorship claims. Reuse existing local portraits rather than duplicating th
    fields together. Change the reusable deck abstract only if its framing changes,
    not for a room or schedule correction.
 
+## Supplied historical records
+
+The [history inventory](history.json) and [history review guide](history-review.md)
+cover the supplied past lectures, including uncertain material matches. They are
+not an exhaustive archive. For these records, follow the history guide instead of
+creating per-event READMEs or adding guesses to a deck's confirmed presentation
+history. Keep the inventory, event page, catalog row and review notes consistent.
+Historical pages omit private logistics and do not add calendar downloads; a
+missing historical affiliation is not supplied from the speaker's current role.
+
 ## Preview and check
 
 From the repository root, run `make serve`. On that server machine, open

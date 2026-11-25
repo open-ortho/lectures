@@ -3,6 +3,7 @@
 Run from the repository root: python3 -m unittest discover -s tests -v
 """
 from pathlib import Path
+import json
 import unittest
 
 from test_cs_lecture import TITLE, normalized, parsed
@@ -27,8 +28,8 @@ class CatalogEvents(unittest.TestCase):
         table = next((n for n in page.all('table') if n.attrs.get('id') == 'events'), None)
         self.assertIsNotNone(table, 'Give dated presentations their own Events table')
         rows = list(next(table.all('tbody')).all('tr'))
-        self.assertEqual(len(rows), len(EVENTS))
-        for row, (date, url, title, status) in zip(rows, EVENTS):
+        self.assertEqual(len(rows), 17)
+        for row, (date, url, title, status) in zip(rows[:3], EVENTS, strict=True):
             with self.subTest(date=date):
                 self.assertEqual([n.attrs['datetime'] for n in row.all('time')], [date])
                 self.assertIn((url, title), [(n.attrs['href'], normalized(n)) for n in row.all('a')])
@@ -62,7 +63,7 @@ class CatalogEvents(unittest.TestCase):
         table = next((n for n in page.all('table') if n.attrs.get('id') == 'events'), None)
         self.assertIsNotNone(table, 'Missing Events table')
         rows = list(next(table.all('tbody')).all('tr'))
-        cs, first_year, second_year = [normalized(row) for row in rows]
+        cs, first_year, second_year = [normalized(row) for row in rows[:3]]
         for phrase in ('December 2, 2026', '3:10–4:25 p.m. Eastern', 'White 411',
                        'computer science students'):
             self.assertIn(phrase, cs)
@@ -76,6 +77,35 @@ class CatalogEvents(unittest.TestCase):
             self.assertIn(phrase, second_year)
         self.assertNotIn('Time not recorded', second_year)
         self.assertNotRegex(first_year + second_year, r'\b\d{3,5}\s+\w+\s+(Street|Road|Avenue)\b')
+
+    def test_catalog_adds_all_history_without_duplicates_or_precision_loss(self):
+        records = json.loads((ROOT / 'events/history.json').read_text())['records']
+        table = next(n for n in parsed(ROOT / 'index.html').all('table')
+                     if n.attrs.get('id') == 'events')
+        rows = list(next(table.all('tbody')).all('tr'))
+        self.assertEqual(len(rows), 17)
+        urls = [next(row.all('a')).attrs['href'] for row in rows]
+        self.assertEqual(len(set(urls)), 17)
+        dates = [next(row.all('time')).attrs['datetime'] for row in rows]
+        self.assertEqual(dates, sorted(dates, reverse=True))
+        expected = sorted((r for r in records if r['source_id'] != 'case-2026-11-20'),
+                          key=lambda r: (r['date'], r['source_id']), reverse=True)
+        self.assertEqual(len(expected), 14)
+        for row, record in zip(rows[3:], expected, strict=True):
+            with self.subTest(source_id=record['source_id']):
+                self.assertEqual(next(row.all('time')).attrs['datetime'], record['date'])
+                self.assertEqual(next(row.all('a')).attrs['href'],
+                                 record['event_path'].removesuffix('index.html'))
+                self.assertEqual(normalized(next(row.all('a'))), record['display_title'])
+                self.assertEqual(normalized(list(row.all('td'))[-1]), record['delivery_status'])
+                for value in (record['audience'], record['institution'], 'Time not recorded'):
+                    self.assertIn(value, normalized(row))
+        cohort_urls = [url for url in urls if '2024-10-11' in url]
+        self.assertEqual(len(cohort_urls), 2)
+        self.assertTrue(any('-year1/' in url for url in cohort_urls))
+        self.assertTrue(any('-year2/' in url for url in cohort_urls))
+        ferrara = next(row for row in rows if 'ferrara' in next(row.all('a')).attrs['href'])
+        self.assertIn('February 2023 (planned month; actual date unconfirmed)', normalized(ferrara))
 
     def test_reusable_catalog_entries_preserve_existing_destinations_and_descriptions(self):
         page = parsed(ROOT / 'index.html')

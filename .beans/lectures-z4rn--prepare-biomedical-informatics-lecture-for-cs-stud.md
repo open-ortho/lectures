@@ -7,7 +7,7 @@ priority: normal
 tags:
     - cs-lecture
 created_at: 2026-11-21T00:59:49Z
-updated_at: 2026-11-25T01:45:45Z
+updated_at: 2026-11-25T02:04:11Z
 ---
 
 ## Purpose
@@ -60,3 +60,7 @@ Human review https://github.com/open-ortho/lectures/pull/5#pullrequestreview-604
 ## Events and courses catalog expansion
 Implemented a distinct Events section alongside Courses on the root catalog, and promoted the CWRU event stylesheet to `events/event.css` for all three announcements. Add Module 1 for first-year orthodontic residents on Monday, November 30, 2026, 15:00–16:00 Eastern in the Ortho seminar room, and a presented Module 3 record for second-year residents on Friday, November 20, 2026 in the back seminar room; both at Case School of Dental Medicine – Orthodontics. The organizer confirmed Module 3 ran 10:00–11:00 Eastern on November 20; the event page, catalog and event guide record that time. The past presentation record has no calendar download. The organizer mentioned Carnegie Road; official CWRU sources list a Cornell Road research campus, so no street address is asserted pending clarification. New events link to reusable module decks, not slide copies.
 The catalog/shared-style/new-session revision passed fresh-context prose comprehension, followed by 51 Python and 4 Node tests. Independent Chromium checks covered the catalog and all three announcements at 1440/768/390/320 pixels with no horizontal overflow, broken images or page/network errors; focus and both calendar downloads passed. Shared CSS runtime rules are identical to the previous event-local stylesheet, and slide sources are unchanged. The event records point to evolving module decks, not immutable delivery snapshots. Prepared for publication to PR #5; no merge/deployment authorized.
+
+## Historical lecture archive
+Imported the 15 organizer-supplied past-session records as sanitized public event facts: 14 new event pages, the existing November 20, 2026 M3 record reused, and the two upcoming events retained (17 catalog entries). Preserve separate October 2024 cohorts, a single Harvard event, Ferrara month uncertainty, and scheduling versus confirmed delivery. Candidate deck associations are explicitly provisional (13), Trieste identifies the referenced course family (1), and the existing November 2026 M3 association is user-confirmed (1). Keep raw email-derived history, mail/calendar identifiers, private correspondence and unrelated people out of the repository. The organizer requested a final review list of all guesses.
+History archive verification: fresh-context comprehension covered all 14 new pages and the public inventory/review guide. Separate source/privacy checks matched all 15 supplied IDs/dates and confirmed delivery/material status distinctions without raw correspondence, mail/calendar identifiers or unrelated people. All 56 Python and 4 Node tests pass; Chromium checked the catalog and 15 historical pages at desktop and 320px widths (32 page/viewport checks) with no overflow, broken images or page/network errors. Material links returned HTTP 200. Provisional associations remain for lecturer review in `events/history-review.md`; selected repository dates/content support guesses but do not prove historical use.
