@@ -76,6 +76,12 @@ cp templates/events/cwru-event.html events/YYYY-MM-DD-topic/index.html
    [Calendar files](#calendar-files). Delete unused actions and every remaining
    placeholder before adding the page to a catalog; never publish a draft example.
 3. Add a row to the root catalog's **Events** table in descending date order.
+   Display dates there as `YYYY-MM-DD`, and known times in 24-hour format with
+   the local UTC offset on each endpoint, for example `15:10-05:00–16:25-05:00`.
+   Determine the offset for the event's location and date, including daylight
+   saving time where applicable. Preserve month-only precision as `YYYY-MM`
+   and omit unknown times rather than inventing a day or zone. The individual event pages
+   may use the event locale's date and time format.
    Keep its status explicit: use **Presented** only for a confirmed past
    presentation, and maintain scheduled entries manually. The catalog has no
    automatic clock-based status updates. Put courses in **Courses** and reusable

@@ -10,6 +10,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class ReviewCatalog(unittest.TestCase):
+    def test_guide_documents_main_catalog_iso_display(self):
+        guide = (ROOT / 'events/README.md').read_text()
+        for phrase in ('YYYY-MM-DD', '24-hour', '15:10-05:00',
+                       'local UTC offset', 'YYYY-MM', 'individual event pages'):
+            self.assertIn(phrase, guide)
+
     def test_course_catalog_has_modules_without_dated_presentations(self):
         page = parsed(ROOT / 'slides/orthodontic-informatics/index.html')
         self.assertNotIn('Presentations', [normalized(n) for n in page.all('h2')])
