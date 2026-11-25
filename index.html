@@ -4,18 +4,56 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Orthodontic Software Interoperability Presentations</title>
+	<title>Open-Ortho Lectures</title>
 	<link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
 	<link rel="stylesheet" href="assets/css/index.css">
 </head>
 
-<body>
+<body class="lecture-catalog">
 	<div class="container">
-		<h1>Orthodontic Software Interoperability Presentations</h1>
-		<p class="subtitle">Unleashing the potential of orthodontic software</p>
+		<h1>Open-Ortho Lectures</h1>
+		<p class="subtitle">Biomedical informatics, orthodontic software interoperability, and digital workflows</p>
 
-		<h2>Courses</h2>
-		<table>
+		<h2 id="events-heading">Events</h2>
+		<p>Dated presentations, newest first. Follow an event for its announcement and slides.</p>
+		<table id="events" aria-labelledby="events-heading">
+			<thead>
+				<tr>
+					<th scope="col">Date &amp; time</th>
+					<th scope="col">Event</th>
+					<th scope="col">Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td data-label="Date &amp; time"><time datetime="2026-12-02">Wednesday, December 2, 2026</time><br>
+						3:10–4:25 p.m. Eastern</td>
+					<td data-label="Event"><a href="events/2026-12-02-biomedical-informatics/">Biomedical Informatics for Computer Scientists</a><br>
+						For computer science students<br>
+						White 411, Case Western Reserve University</td>
+					<td data-label="Status">Scheduled</td>
+				</tr>
+				<tr>
+					<td data-label="Date &amp; time"><time datetime="2026-11-30">Monday, November 30, 2026</time><br>
+						3:00–4:00 p.m. Eastern</td>
+					<td data-label="Event"><a href="events/2026-11-30-orthodontic-informatics-module1/">Data Sharing, Integration, and Transition in Orthodontic Informatics</a><br>
+						For first-year orthodontic residents<br>
+						Orthodontics seminar room, School of Dental Medicine, Case Western Reserve University</td>
+					<td data-label="Status">Scheduled</td>
+				</tr>
+				<tr>
+					<td data-label="Date &amp; time"><time datetime="2026-11-20">Friday, November 20, 2026</time><br>
+						Time not recorded</td>
+					<td data-label="Event"><a href="events/2026-11-20-orthodontic-informatics-module3/">AI and Reusable Clinical Data</a><br>
+						For second-year orthodontic residents<br>
+						Back seminar room, School of Dental Medicine, Case Western Reserve University</td>
+					<td data-label="Status">Presented</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h2 id="courses-heading">Courses</h2>
+		<table id="courses" aria-labelledby="courses-heading">
 			<thead>
 				<tr>
 					<th>Course</th>
@@ -24,8 +62,8 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><a href="slides/orthodontic-informatics/">Orthodontic Informatics Course</a></td>
-					<td>Comprehensive course covering the fundamentals of orthodontic informatics and digital workflows</td>
+					<td data-label="Course"><a href="slides/orthodontic-informatics/">Orthodontic Informatics Course</a></td>
+					<td data-label="Description">Comprehensive course covering the fundamentals of orthodontic informatics and digital workflows</td>
 				</tr>
 			</tbody>
 		</table>
@@ -40,21 +78,21 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><a href="slides/2024-aao-vendors-meeting/index.html">Vendor's Meeting at AAO 2024</a></td>
-					<td>Presentation delivered at the American Association of Orthodontists vendors meeting in 2024</td>
+					<td data-label="Presentation"><a href="slides/2024-aao-vendors-meeting/index.html">Vendor's Meeting at AAO 2024</a></td>
+					<td data-label="Description">Presentation delivered at the American Association of Orthodontists vendors meeting in 2024</td>
 				</tr>
 				<tr>
-					<td><a href="slides/2023-orthostudents/index.html">Lecture for Orthodontic Residents 2023</a></td>
-					<td>Educational lecture focused on software interoperability for orthodontic residents</td>
+					<td data-label="Presentation"><a href="slides/2023-orthostudents/index.html">Lecture for Orthodontic Residents 2023</a></td>
+					<td data-label="Description">Educational lecture focused on software interoperability for orthodontic residents</td>
 				</tr>
 				<tr>
-					<td><a href="slides/2022-aao-bot/index.html">Presentation for AAO Board of Trustees 2022</a></td>
-					<td>Strategic presentation delivered to the AAO Board of Trustees on orthodontic software standards</td>
+					<td data-label="Presentation"><a href="slides/2022-aao-bot/index.html">Presentation for AAO Board of Trustees 2022</a></td>
+					<td data-label="Description">Strategic presentation delivered to the AAO Board of Trustees on orthodontic software standards</td>
 				</tr>
 				<tr>
-					<td><a href="slides/2022-orthostudents/index.html">Lecture for Case Western Reserve Orthodontic
+					<td data-label="Presentation"><a href="slides/2022-orthostudents/index.html">Lecture for Case Western Reserve Orthodontic
 							Residents 2022</a></td>
-					<td>Specialized lecture for Case Western Reserve University orthodontic residents on digital
+					<td data-label="Description">Specialized lecture for Case Western Reserve University orthodontic residents on digital
 						orthodontics</td>
 				</tr>
 			</tbody>
@@ -70,9 +108,8 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><a href="slides/2026-cs-club-biomedical-informatics/index.html">Biomedical Informatics for Computer Scientists</a><br>
-						<a href="events/2026-12-02-biomedical-informatics/">Event details</a> · December 2, 2026</td>
-					<td>A one-hour introduction to healthcare data, systems, standards, and opportunities for computer science students</td>
+					<td data-label="Presentation"><a href="slides/2026-cs-club-biomedical-informatics/index.html">Biomedical Informatics for Computer Scientists</a></td>
+					<td data-label="Description">A one-hour introduction to healthcare data, systems, standards, and opportunities for computer science students</td>
 				</tr>
 			</tbody>
 		</table>
