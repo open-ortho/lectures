@@ -49,7 +49,7 @@ class CSEvent(unittest.TestCase):
         self.assertEqual(list(page.all('iframe')), [])
         styles = [n.attrs['href'] for n in page.all('link')
                   if n.attrs.get('rel') == 'stylesheet']
-        self.assertEqual(styles, ['../../assets/css/index.css', 'event.css'])
+        self.assertEqual(styles, ['../../assets/css/index.css', '../event.css'])
         self.assertIn('event-page', next(page.all('body')).attrs['class'].split())
         for node in page.all():
             self.assertFalse(any(key.startswith('on') for key in node.attrs))
@@ -59,13 +59,14 @@ class CSEvent(unittest.TestCase):
                 if not url or parts.scheme or parts.netloc or url.startswith('#'):
                     continue
                 self.assertTrue((EVENT / unquote(parts.path)).exists(), url)
-        css = (EVENT / 'event.css').read_text()
+        css = (ROOT / 'events/event.css').read_text()
         self.assertNotRegex(css, r'@import|url\(|gradient\(')
         self.assertIn('@media', css)
         self.assertIn(':focus-visible', css)
         self.assertNotRegex(css, r'overflow-x:\s*hidden')
-        # Every ordinary CSS rule is scoped to this event, never the catalog.
-        for selector in re.findall(r'([^{}]+)\{', css):
+        # Every ordinary CSS rule is scoped to opted-in events, never the catalog.
+        rules = re.sub(r'/\*.*?\*/', '', css, flags=re.S)
+        for selector in re.findall(r'([^{}]+)\{', rules):
             if selector.strip().startswith('@'):
                 continue
             for part in selector.split(','):
@@ -78,8 +79,13 @@ class CSEvent(unittest.TestCase):
             n.attrs.get('href') == 'slides/2026-cs-club-biomedical-informatics/index.html'
             for n in row.all('a'))]
         self.assertEqual(len(rows), 1)
-        self.assertIn(('Event details', 'events/2026-12-02-biomedical-informatics/'),
-                      [(normalized(n), n.attrs.get('href')) for n in rows[0].all('a')])
+        self.assertEqual([n.attrs.get('href') for n in rows[0].all('a')],
+                         ['slides/2026-cs-club-biomedical-informatics/index.html'])
+        events = next((n for n in catalog.all('table') if n.attrs.get('id') == 'events'), None)
+        self.assertIsNotNone(events, 'Keep dated event discovery in the Events table')
+        self.assertIn(('Biomedical Informatics for Computer Scientists',
+                       'events/2026-12-02-biomedical-informatics/'),
+                      [(normalized(n), n.attrs.get('href')) for n in events.all('a')])
         deck_readme = (ROOT / 'slides/2026-cs-club-biomedical-informatics/README.md').read_text()
         self.assertNotIn('60-minute session', deck_readme)
         event_readme = EVENT / 'README.md'
@@ -107,7 +113,7 @@ class CSEvent(unittest.TestCase):
         self.assertNotIn('deck booking copy', event_text)
         for phrase in ('http://127.0.0.1:54385/lectures/events/2026-12-02-biomedical-informatics/',
                        'make serve', 'python3 -m unittest discover -s tests -v',
-                       '../../assets/css/index.css', 'event.css', 'palette',
+                       '../../assets/css/index.css', '../event.css', 'palette',
                        'typography', 'layout', 'one-hour lecture', 'not a timed rehearsal'):
             self.assertIn(phrase, event_text)
         for directory, text in ((EVENT, event_text),

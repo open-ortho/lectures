@@ -58,9 +58,11 @@ https://open-ortho.org/lectures/events/2026-12-02-biomedical-informatics/.
 
 Edit [index.html](index.html) for visible content. It loads the shared
 [../../assets/css/index.css](../../assets/css/index.css) first, then
-[event.css](event.css) for the event-specific palette, typography, layout, focus
-states, and mobile flow. Event rules are scoped to `.event-page`, so they do not
-change the catalog or slides.
+[../event.css](../event.css) for the shared event palette, typography, layout,
+focus states, and mobile flow. The body opts in with `class="event-page"`; all
+rules are scoped to `.event-page`, so they do not change the catalog or slides.
+See the [shared event layout guide](../README.md) before changing styling used
+by multiple announcements.
 
 The announcement uses a blue-and-white academic layout inspired by CWRU's
 [color guidance](https://case.edu/brand/visual-identity/color), including current

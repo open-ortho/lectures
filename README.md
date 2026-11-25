@@ -14,14 +14,15 @@ This project contains three types of content:
    with the [reveal.js presentation framework](https://revealjs.com/). A deck owns
    its subject, audience, abstract, slide sequence, speaker notes, and resources.
    A year in an existing folder name does not make its guide the home for event logistics.
-2. **Event pages** under `events/` describe one scheduled presentation. Each is a
-   dated presentation record that points to the slides rather than copying them.
-   Its folder owns the announcement title and abstract, speaker details, date,
-   time, location, calendar download, and any reservation qualifications. Keep the
-   page after the event so its links and presentation history remain available.
+2. **Event pages** under `events/` describe one scheduled or past presentation.
+   Each is a dated presentation record that points to the slides rather than
+   copying them. Its folder owns the announcement title and abstract, speaker
+   details, date, time when known, location, optional calendar download, and any
+   reservation qualifications. Keep the page after the event so its links and
+   presentation history remain available.
 3. **Catalog pages** help readers discover courses, decks, and events. The
-   [root catalog](index.html) groups presentations by audience; the
-   [Orthodontic Informatics course catalog](slides/orthodontic-informatics/index.html)
+   [root catalog](index.html) separates dated events, courses, and reusable decks;
+   the [Orthodontic Informatics course catalog](slides/orthodontic-informatics/index.html)
    links to individual modules. These are navigation pages, not slide decks or
    authoritative event announcements.
 
@@ -34,18 +35,31 @@ presentation of the same lecture gets a new event folder that can point to the
 same deck. Event records preserve their own announcement and schedule; they do
 not freeze the linked deck at its historical revision.
 
+### Catalog sections
+
+The root catalog starts with **Events**, listing dated presentations in descending date order.
+Each row links to an announcement, not directly to a deck. Maintain event status
+manually: **Scheduled** means a planned presentation; **Presented** records a
+confirmed past presentation. No clock or JavaScript changes these labels.
+**Courses** links to reusable course catalogs. The remaining audience categories,
+**Talks for Clinicians** and **Talks for Developers & Students**, link to reusable
+lecture decks and retained archives without attaching dated event logistics to
+those rows.
+
 ### File map
 
 | File or directory | Responsibility |
 | --- | --- |
-| [index.html](index.html) | Root catalog: lecture labels, short descriptions, and event links |
+| [index.html](index.html) | Root catalog: dated events, courses, and reusable lecture categories |
 | [slides/2026-cs-club-biomedical-informatics/index.html](slides/2026-cs-club-biomedical-informatics/index.html) | Deck entry point: metadata, theme, and ordered slide references |
 | [Deck guide](slides/2026-cs-club-biomedical-informatics/README.md) | Reusable abstract, audience, preview instructions, resources, and presentation-history links |
 | [slides/2026-cs-club-biomedical-informatics/slides/](slides/2026-cs-club-biomedical-informatics/slides/) | Individual slide content and speaker notes loaded by that deck |
 | [Event page](events/2026-12-02-biomedical-informatics/index.html) | Visible announcement for one presentation, including its slides link |
 | [Event guide](events/2026-12-02-biomedical-informatics/README.md) | Authoritative announcement copy, schedule sources, and page/calendar maintenance |
 | [Event calendar](events/2026-12-02-biomedical-informatics/biomedical-informatics.ics) | Downloadable calendar entry for that presentation |
-| [assets/css/index.css](assets/css/index.css) | Shared catalog styling; an event can add its own scoped stylesheet |
+| [assets/css/index.css](assets/css/index.css) | Shared dark catalog styling and responsive tables |
+| [events/event.css](events/event.css) | Shared, opt-in blue-and-white event announcement layout |
+| [events/README.md](events/README.md) | Shared event markup, activation, maintenance, and browser checks |
 | [dist/](dist/) and [plugin/](plugin/) | Reveal.js runtime and plugins used by slide decks |
 
 ## Editing and local preview
@@ -87,19 +101,26 @@ readability, a room reservation, or a rehearsed delivery duration.
    subject or audience. For a new deck, create a folder under `slides/` with its
    entry point, content, and guide. Keep the reusable title and abstract together
    with its audience and resources; do not put a presentation's schedule there.
-2. For each scheduled presentation, create a new event folder under `events/`,
-   using a dated name such as `YYYY-MM-DD-topic`. Use the existing event guide
-   linked above as the maintenance example. Copy the selected lecture's title and abstract
-   into the new event guide and page; add the speaker, schedule, location, and
-   source or reservation qualifications. Link the page to the selected deck.
-3. Create the event's calendar download with matching title, abstract, location,
-   start/end times, and published event URL. Give the new event its own stable
-   calendar UID; do not reuse a previous event's UID. Follow the event guide's
-   UTC, revision timestamp, escaping, line-ending, and line-folding requirements.
-4. Surface the deck and dated event in the root catalog, and in a course catalog
-   when relevant. Link the event from the deck guide's presentation history rather
-   than duplicating its logistics there. For later corrections, update the event
-   guide, page, and calendar together, plus affected catalog dates or links.
+2. For each scheduled or past presentation, create a new event folder under `events/`,
+   using a dated name such as `YYYY-MM-DD-topic`. Follow the
+   [shared event layout guide](events/README.md): load `../../assets/css/index.css`,
+   then `../event.css`, and add `class="event-page"` to the body. Reuse the markup,
+   not a copy of the stylesheet. Copy the selected lecture's title and abstract
+   into the new event guide and page; add the speaker, known schedule, location,
+   and source or reservation qualifications. Link the page to the selected deck.
+3. Create a calendar download only when the event's start/end times and time zone
+   are known. Match its title, abstract, location, and published event URL. Give
+   the new event its own stable calendar UID; do not reuse a previous event's UID.
+   Follow the event guide's UTC, revision timestamp, escaping, line-ending, and
+   line-folding requirements. For an unknown historical time, state “Time not
+   recorded” on the event and omit the calendar rather than inventing a schedule.
+4. Add the dated event to **Events** in descending date order. Put a course link
+   in **Courses** and a reusable standalone deck in the appropriate audience
+   category; preserve existing archives. Update a course catalog when relevant.
+   Link the event from the deck guide's presentation history rather than
+   duplicating its logistics there. For later corrections, update the event
+   guide and page together, along with any calendar and affected catalog dates
+   or links.
    Synchronize reusable deck text only when the lecture's title or abstract changes,
    not when an event's schedule changes; retain earlier event records.
 5. Run the checks and local preview above. Check the catalog-to-event-to-slides
@@ -146,7 +167,15 @@ any GitHub Actions deploy step.
 ### Styling
 
 - **Slides**: Use reveal.js themes (currently "night" theme) configured in each presentation's `index.html`
-- **Index pages**: Use shared CSS file at `assets/css/index.css` for consistent dark theme that complements the slide presentations
+- **Index pages**: Use shared CSS file at `assets/css/index.css` for consistent dark theme that complements the slide presentations.
+- **Event pages**: Load `events/event.css` after the catalog stylesheet and opt in
+  with `class="event-page"` on the body. It supplies the shared blue-and-white
+  masthead, schedule, speaker portrait grouping, abstract, call-to-action links,
+  and mobile layout without changing catalogs or decks. Maintain it once; inspect
+  every opted-in event when it changes. See [events/README.md](events/README.md).
+
+No template engine or JavaScript is required for the catalogs or event pages;
+maintainers edit static HTML and keep the linked event records consistent.
 
 ## Deployment
 

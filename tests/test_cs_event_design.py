@@ -13,6 +13,12 @@ EVENT = ROOT / 'events/2026-12-02-biomedical-informatics'
 
 
 class CSEventDesign(unittest.TestCase):
+    def test_event_layout_is_shared_not_copied(self):
+        self.assertTrue((ROOT / 'events/event.css').is_file(),
+                        'Store the opt-in event layout at shared events scope')
+        self.assertFalse((EVENT / 'event.css').exists(),
+                         'Do not leave a duplicate per-event stylesheet')
+
     def test_speaker_has_explicit_faculty_role_and_complete_affiliation(self):
         page = parsed(EVENT / 'index.html')
         speaker = next((n for n in page.all('section')
@@ -34,7 +40,7 @@ class CSEventDesign(unittest.TestCase):
         self.assertEqual(list(page.all('img')), portraits)
 
     def test_announcement_uses_local_current_brand_palette_and_system_font(self):
-        css = (EVENT / 'event.css').read_text()
+        css = (ROOT / 'events/event.css').read_text()
         self.assertIn('#003071', css.lower(), 'Use the current CWRU blue')
         self.assertIn('#d3d3d3', css.lower())
         self.assertIn('#ffffff', css.lower())
@@ -57,8 +63,8 @@ class CSEventDesign(unittest.TestCase):
         self.assertEqual(list(page.all('iframe')), [])
         styles = [n.attrs['href'] for n in page.all('link')
                   if n.attrs.get('rel') == 'stylesheet']
-        self.assertEqual(styles, ['../../assets/css/index.css', 'event.css'])
-        self.assertNotRegex((EVENT / 'event.css').read_text(), r'@font-face|https?://')
+        self.assertEqual(styles, ['../../assets/css/index.css', '../event.css'])
+        self.assertNotRegex((ROOT / 'events/event.css').read_text(), r'@font-face|https?://')
         for n in page.all():
             self.assertFalse(any(attr.startswith('on') for attr in n.attrs))
 

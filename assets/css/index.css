@@ -75,3 +75,61 @@ a:hover {
     font-size: 0.9em;
     color: #aaaaaa;
 }
+/* Root catalog only: keep dated event rows readable without widening the page. */
+.lecture-catalog table {
+    table-layout: fixed;
+    overflow-wrap: anywhere;
+}
+.lecture-catalog th,
+.lecture-catalog td {
+    vertical-align: top;
+}
+.lecture-catalog #events th:first-child {
+    width: 26%;
+}
+.lecture-catalog #events th:last-child {
+    width: 15%;
+}
+@media (max-width: 600px) {
+    body.lecture-catalog {
+        padding: 10px;
+    }
+    .lecture-catalog .container {
+        padding: 16px;
+    }
+    .lecture-catalog th,
+    .lecture-catalog td {
+        padding: 10px 6px;
+    }
+    .lecture-catalog table,
+    .lecture-catalog tbody,
+    .lecture-catalog tbody tr,
+    .lecture-catalog td {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .lecture-catalog tbody tr {
+        border-bottom: 1px solid #444444;
+        padding-block: 8px;
+    }
+    .lecture-catalog td {
+        border-bottom: 0;
+    }
+    .lecture-catalog td::before {
+        content: attr(data-label);
+        display: block;
+        margin-bottom: 4px;
+        color: #cccccc;
+        font-size: 0.875em;
+        font-weight: bold;
+    }
+    .lecture-catalog thead {
+        display: table;
+        width: 100%;
+    }
+    .lecture-catalog #events th:first-child,
+    .lecture-catalog #events th:last-child {
+        width: auto;
+    }
+}

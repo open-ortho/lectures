@@ -12,10 +12,22 @@ from test_cs_lecture import normalized, parsed
 ROOT = Path(__file__).resolve().parents[1]
 DECK = ROOT / 'slides/2026-cs-club-biomedical-informatics'
 EVENT = ROOT / 'events/2026-12-02-biomedical-informatics'
-GUIDES = (ROOT / 'README.md', DECK / 'README.md', EVENT / 'README.md')
+GUIDES = (ROOT / 'README.md', DECK / 'README.md', EVENT / 'README.md',
+          ROOT / 'events/README.md')
 
 
 class Documentation(unittest.TestCase):
+    def test_shared_event_guide_explains_activation_and_maintenance(self):
+        source = ROOT / 'events/README.md'
+        self.assertTrue(source.is_file(), 'Document the shared event layout')
+        text = source.read_text()
+        for phrase in ('event.css', '../../assets/css/index.css', '../event.css',
+                       'class="event-page"', 'event-masthead', 'event-schedule',
+                       'event-speaker-heading', 'event-abstract', 'event-actions',
+                       'no JavaScript', 'desktop', 'mobile', 'calendar',
+                       'not recorded', 'presentation history'):
+            self.assertIn(phrase, text)
+
     def test_root_explains_reusable_slides_dated_events_and_catalogs(self):
         text = GUIDES[0].read_text()
         for phrase in ('three types of content', '**Presentation slides**',
@@ -37,6 +49,15 @@ class Documentation(unittest.TestCase):
         self.assertIn('slides/2026-cs-club-biomedical-informatics/index.html', hrefs)
         self.assertIn('events/2026-12-02-biomedical-informatics/', hrefs)
         self.assertIn('Biomedical Informatics for Computer Scientists', normalized(catalog))
+
+    def test_root_documents_catalog_sections_and_shared_event_activation(self):
+        text = GUIDES[0].read_text()
+        for phrase in ('**Events**', '**Courses**', 'descending date order',
+                       'Scheduled', 'Presented', 'manually', 'audience categories',
+                       'events/event.css', 'events/README.md',
+                       'class="event-page"', '../event.css',
+                       'No template engine', 'unknown', 'calendar'):
+            self.assertIn(phrase, text)
 
     def test_root_editing_instructions_match_catalog_manifest_and_preview(self):
         text = GUIDES[0].read_text()

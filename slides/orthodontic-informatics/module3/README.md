@@ -70,3 +70,10 @@ The earlier deck passed independent presenter-note comprehension review and Chro
 - [HL7 FHIR overview](https://hl7.org/fhir/summary.html) and [profiles / implementation guides](https://hl7.org/fhir/profiling.html)
 - [MCP architecture](https://modelcontextprotocol.io/docs/learn/architecture)
 - [IHE background](https://www.ihe.net/about_ihe/) and [Connectathon testing scope](https://www.ihe.net/testing/connectathon/)
+
+## Presentation history
+
+- [November 20, 2026 — CWRU orthodontic residents](../../../events/2026-11-20-orthodontic-informatics-module3/)
+
+The event records presentation logistics; its slide link opens the evolving
+shared deck, not an immutable historical capture.

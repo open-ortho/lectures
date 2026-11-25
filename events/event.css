@@ -1,7 +1,8 @@
-/* Event-only academic announcement styling: supplies a CWRU-blue masthead
-   with a white reading surface and responsive speaker and schedule layout.
-   Loaded after the shared catalog stylesheet; overrides its dark body and text
-   defaults only on .event-page. No external fonts or scripts or assets loaded. */
+/* Shared event announcement layout: supplies a CWRU-blue masthead, schedule,
+   speaker portrait grouping, abstract, and call-to-action links on a white reading
+   surface, with a single-column mobile flow. Load after assets/css/index.css and
+   opt in with class="event-page" on the body; all rules are event-scoped.
+   No JavaScript, external fonts, or image assets are loaded by this stylesheet. */
 .event-page {
     --event-blue: #003071;
     --event-dark-blue: #09143a;
