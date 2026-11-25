@@ -31,7 +31,12 @@ class CatalogEvents(unittest.TestCase):
         self.assertEqual(len(rows), 17)
         for row, (date, url, title, status) in zip(rows[:3], EVENTS, strict=True):
             with self.subTest(date=date):
-                self.assertEqual([n.attrs['datetime'] for n in row.all('time')], [date])
+                self.assertEqual([n.attrs['datetime'] for n in row.all('time')],
+                                 [date, *{
+                                     '2026-12-02': ['2026-12-02T15:10:00-05:00', '2026-12-02T16:25:00-05:00'],
+                                     '2026-11-30': ['2026-11-30T15:00:00-05:00', '2026-11-30T16:00:00-05:00'],
+                                     '2026-11-20': ['2026-11-20T10:00:00-05:00', '2026-11-20T11:00:00-05:00'],
+                                 }[date]])
                 self.assertIn((url, title), [(n.attrs['href'], normalized(n)) for n in row.all('a')])
                 self.assertEqual(normalized(list(row.all('td'))[-1]), status)
         courses = next((n for n in page.all('table') if n.attrs.get('id') == 'courses'), None)
@@ -64,14 +69,14 @@ class CatalogEvents(unittest.TestCase):
         self.assertIsNotNone(table, 'Missing Events table')
         rows = list(next(table.all('tbody')).all('tr'))
         cs, first_year, second_year = [normalized(row) for row in rows[:3]]
-        for phrase in ('December 2, 2026', '3:10–4:25 p.m. Eastern', 'White 411',
+        for phrase in ('2026-12-02', '15:10-05:00–16:25-05:00', 'White 411',
                        'computer science students'):
             self.assertIn(phrase, cs)
-        for phrase in ('Monday', 'November 30, 2026', '3:00–4:00 p.m. Eastern',
+        for phrase in ('2026-11-30', '15:00-05:00–16:00-05:00',
                        'first-year orthodontic residents', 'Orthodontics seminar room',
                        'School of Dental Medicine', 'Case Western Reserve University'):
             self.assertIn(phrase, first_year)
-        for phrase in ('Friday', 'November 20, 2026', '10:00–11:00 a.m. Eastern',
+        for phrase in ('2026-11-20', '10:00-05:00–11:00-05:00',
                        'second-year orthodontic residents', 'Back seminar room',
                        'School of Dental Medicine', 'Case Western Reserve University'):
             self.assertIn(phrase, second_year)
@@ -105,7 +110,7 @@ class CatalogEvents(unittest.TestCase):
         self.assertTrue(any('-year1/' in url for url in cohort_urls))
         self.assertTrue(any('-year2/' in url for url in cohort_urls))
         ferrara = next(row for row in rows if 'ferrara' in next(row.all('a')).attrs['href'])
-        self.assertIn('February 2023 (planned month)', normalized(ferrara))
+        self.assertIn('2023-02 (planned month)', normalized(ferrara))
 
     def test_all_historical_rows_are_presented_and_all_event_institutions_name_countries(self):
         table = next(n for n in parsed(ROOT / 'index.html').all('table')
